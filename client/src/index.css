@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.homeblurb {
+  font: "Ubuntu";
+  size: "50px";
+  Line-height: "57.45px";
+  position: relative;
+  /* width: 490px;
+  height: 114px;
+  left: 128px;
+  top: 115px; */
+  
+}

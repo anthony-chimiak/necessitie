@@ -1,18 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+
 function NavBar() {
     return (
+    <div 
+        style={{
+        padding: "20px",
+        backgroundColor: "white"
+      }}>        
         <nav
-        style={{ 
-          borderBottom: "solid 1px",
-          paddingBottom: "1rem"
-        }}
+            style={{
+                float: "right"
+            }}
         >
+        <Link to="/">Home</Link> |{" "}
         <Link to="/services">Services</Link> |{" "}
         <Link to="/technologies">Technologies</Link> |{" "}
         <Link to="/ContactUs">Contact Us</Link>
       </nav>
+    </div>
     )
 }
 
