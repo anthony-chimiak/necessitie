@@ -12,5 +12,6 @@
   },
   "dependencies": {
     "@mui/material": "^5.2.8"
-  }
+  },
+  "homepage": "https://anthony-chimiak.github.io/necessitie/"
 }
