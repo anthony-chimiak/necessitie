@@ -1,0 +1,153 @@
+$breakpoints: (
+  'small':  ( min-width:  480 ),
+  'medium': ( min-width:  768 ),
+  'large':  ( min-width: 1024 )
+) !default;
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+   @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+.home {
+  .landing-page{
+    min-height: calc(100vh - 40px);
+    background: #C4C4C4;
+    font-family: Ubu;
+    @include respond-to ('large') {
+      height: 488px;
+    }
+    .main-text {
+      position: relative;
+      padding: 2rem;    
+      font-style: normal;
+      font-weight: 700;
+      font-size: 2.4rem;
+      line-height: 48px;
+      /* or 126% */
+      text-align: center;
+      
+      color: #FFFFFF;
+  
+  
+  
+  
+      @include respond-to ('large') {
+        position: absolute;
+        height: 152px;
+        text-align: left;
+        left: 10.42%;
+        right: 40.97%;
+        //top: calc(50% - 152px/2 - 109.5px);
+        top: 114px;
+        width: 700px;
+        font-weight: normal;
+        font-size: 4rem;
+        line-height: 4.6rem;
+        color: #FFFFFF;
+  
+      }
+    }
+    .secondary-text {
+      position: relative;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 21px;
+      /* or 150% */
+      text-align: center;
+  
+      color: #FFFFFF;
+      @include respond-to ('large') {
+        position: absolute;
+        text-align: left;
+        height: 85px;
+        width: 576px;
+        left: 10.45%;
+        top: 400px;
+        color: #FFFFFF;
+        font-size: 17px;
+        line-height: 24px;
+      }
+    }
+
+  }
+}
+.landing-page {
+  h3 {
+    position: relative;
+    text-align: left;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 3rem;
+    margin: 5rem 2rem;
+    
+    color: #424B5A;
+
+    @include respond-to ('large') {
+      position: absolute;
+      width: 490px;
+      height: 114px;
+      left: 140px;
+      top: 680px;
+  
+      fontFamily: Ubumedium;
+      fontSize: 50px;
+      lineHeight: 57px;
+      color: #424B5A;
+    }
+    &.post-header {
+      text-align: center;
+      margin: 5rem 3rem;
+      @include respond-to ('large') {
+        position: relative;
+        width: 700px;
+        height: 114px;
+        textAlign: center;
+        top: 610px;
+
+        font-family: Ubumedium;
+        fontSize: 50px;
+        lineHeight: 57px;
+        color: #424B5A;
+      }
+    }
+  }
+  .secondary-text {
+    position: relative;
+    font-family: Ubuntu;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin: 2rem;
+    /* or 150% */
+
+    color: #A1AEB7;
+    @include respond-to(large) {
+      position: absolute;
+      width: 590px;
+      height: 144px;
+      left: 820px;
+      top: 680px;
+      
+      fontFamily: Ubu;
+      fontStyle: normal;
+      fontWeight: normal;
+      fontSize: 18px;
+      lineHeight: 24px;
+      color: #A1AEB7;
+    }
+
+  }
+
+}
