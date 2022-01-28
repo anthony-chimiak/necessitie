@@ -1,15 +1,14 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header'
-import Body from './components/Body'
-import NavBar from './components/NavBar'
+import './App.scss';
+import Main from './components/Main/index.js'
+import NavBar from './components/NavBar/index.js'
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <Header />
-      <Body />
+      <Main />
     </div>
   );
 }
