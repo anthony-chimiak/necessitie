@@ -13,7 +13,11 @@
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
-    "@mui/material": "^5.2.8"
+    "@mui/material": "^5.2.8",
+    "styled-components": "^5.3.3"
   },
-  "homepage": "https://anthony-chimiak.github.io/necessitie/"
+  "homepage": "https://anthony-chimiak.github.io/necessitie/",
+  "devDependencies": {
+    "sass": "^1.49.0"
+  }
 }

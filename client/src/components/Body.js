@@ -11,12 +11,16 @@ function Body(props) {
 
     return (
         <div classname="body-div">
-            <Routes>
+            {/* <Routes>
                 <Route exact path="/" element={<Homepage />}/>
                 <Route path="/services" element={<Services />}/> 
                 <Route path="/technologies" element={<Technologies />}/>
                 <Route path="/ContactUs" element={<ContactUs />}/>
-            </Routes>
+            </Routes> */}
+            <Homepage />
+            <Services/>
+            <Technologies />
+            <ContactUs />
         </div>
 
     )
