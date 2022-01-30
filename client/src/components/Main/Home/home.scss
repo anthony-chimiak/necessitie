@@ -24,7 +24,7 @@ $breakpoints: (
     @include respond-to ('large') {
       height: 488px;
     }
-    .main-text {
+    .primary-content {
       position: relative;
       padding: 2rem;    
       font-style: normal;
