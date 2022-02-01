@@ -73,8 +73,73 @@ $breakpoints: (
         line-height: 24px;
       }
     }
-
   }
+  .share-page {
+    .share-header {
+      font-family: Ubu;
+    }
+  }
+  .features-page {
+    .primary-content {
+      .features-header {
+          font-family: Ubu;
+        }
+      }
+    .secondary-content {
+      .single-service {
+        .feature-service {
+          font-family: Ubu;
+        }
+      }
+    }
+  }
+  .industries-page {
+    .secondary-content{
+      .industries-header {
+        font-family: Ubu;
+      }
+      .industries-div {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+      }
+      .industries-div span {
+        display: table-cell;
+        text-align: center;
+        font-family: Ubu;
+        font-style: bold;
+      }
+    }
+  }
+  .technologies-page {
+    .primary-content{
+      .technologies-header {
+        font-family: Ubu;
+      }
+      .technologies-subheader {
+        font-family: Ubu;
+      }
+    }
+    .secondary-content{
+      .single-tech {
+        .single-tech-name {
+          font-family: Ubu;
+        }
+      }
+    }  
+  }
+  .contact-page {
+    .contact-header {
+      font-family: Ubu;
+    }
+    .primary-content {
+      .contact-subheader {
+        font-family: Ubu;
+      }
+    }
+  }
+  
+
 }
 .landing-page {
   @include respond-to ('medium') {

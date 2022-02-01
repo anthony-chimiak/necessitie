@@ -38,22 +38,22 @@ export const Home = (props) => {
 
     const servicesJSX = [
         {
-            name: 'ideation & strategy',
+            name: 'Ideation & Strategy',
             img: '',
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
         },
         {
-            name: 'product design',
+            name: 'Product Design',
             img: '',
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
         },
         {
-            name: 'web & mobile',
+            name: 'Web & Mobile',
             img: '',
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
         },
         {
-            name: 'cloud services',
+            name: 'Cloud Services',
             img: '',
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
         },
@@ -72,7 +72,7 @@ export const Home = (props) => {
             </div>
             <div className="share-page">
                 <div className='primary-content'></div>
-                <h2>You share your idea. We get it done.</h2>
+                <h2 className="share-header">You share your idea. We get it done.</h2>
                 <div className="secondary-content">
                     <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </span>
@@ -80,14 +80,14 @@ export const Home = (props) => {
             </div>
             <div className="features-page">
                 <div className="primary-content">
-                    <h2>See what we can do for you</h2>
+                    <h2 className="features-header">See what we can do for you</h2>
                 </div>
                 <div className="secondary-content">
                     {servicesJSX.map(x => {
                         return (
                             <div className="single-service">
                                 <img src={x.img}/>
-                                <h3>{x.name}</h3>
+                                <h3 className="feature-service">{x.name}</h3>
                                 <span>{x.text}</span>
                             </div>
                         )
@@ -103,13 +103,18 @@ export const Home = (props) => {
             <div className="industries-page">
                 <div className="primary-content"><img/></div>
                 <div className="secondary-content">
-                    <h2>We work across many industries</h2>
+                    <h2 className="industries-header">We work across many industries</h2>
                     <div className="industries-div">
-                        <a>Healthcare</a>
+                        <span>Healthcare</span>
+                        <span>E-Commerce</span>
+                        <span>Entertainment</span>
+                        <span>Fintech</span>
+                        <span>Other</span>
+                        {/* <a>Healthcare</a>
                         <a>E-commerce</a>
                         <a>Entertainment</a>
                         <a>Fintech</a>
-                        <a>Other</a>
+                        <a>Other</a> */}
                     </div>
                     <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </span>
@@ -120,8 +125,8 @@ export const Home = (props) => {
             </div>
             <div className="technologies-page">
                 <div className="primary-content">
-                    <h2>Where business meets cutting-edge technology</h2>
-                    <h3>Choose the tech stack for your next application, or let us pick the best  solution for you</h3>
+                    <h2 className="technologies-header">Where business meets cutting-edge technology</h2>
+                    <h3 className="technologies-subheader">Choose the tech stack for your next application, or let us pick the best  solution for you</h3>
                     <button>Get a Quote</button>
                 </div>
                 <div className="secondary-content">
@@ -129,16 +134,16 @@ export const Home = (props) => {
                         return (
                             <div className="single-tech">
                                 <img src={x.img}/>
-                                <h3>{x.name}</h3>
+                                <h3 className="single-tech-name">{x.name}</h3>
                                 <span>{x.test}</span>
                             </div>
                         )
                     })}
                 </div>
                 <div className="contact-page">
-                    <h2>Want to talk about your project?</h2>
+                    <h2 className="contact-header">Want to talk about your project?</h2>
                     <div className="primary-content">
-                        <h3>We'd love to hear from you</h3>
+                        <h3 classname="contact-subheader">We'd love to hear from you</h3>
                         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>   
                         <div className="location-row">
                             <img src="location"/>
