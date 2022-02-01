@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form, Input, TextArea, Button } from 'semantic-ui-react';
 
 import './home.scss'
 
@@ -159,10 +160,39 @@ export const Home = (props) => {
                         </div>
                     </div>
                     <div className="secondary-content">
-                        <input></input>
-                        <input></input>
-                        <input></input>
-                        <button></button>
+                    <Form>
+                            <Form.Group widths="equal">
+                                <Form.Field
+                                    id='form-input-control-first-name'
+                                    control={Input}
+                                    label='First name'
+                                    placeholder='First name'
+                                />
+                                <Form.Field
+                                    id='form-input-control-last-name'
+                                    control={Input}
+                                    label='Last name'
+                                    placeholder='Last name'
+                                />
+                                <Form.Field
+                                    id='form-input-control-error-email'
+                                    control={Input}
+                                    label='Email'
+                                    placeholder='YourEmail@Email.com'
+                                    />
+                                <Form.Field
+                                    id='form-textarea-control-opinion'
+                                    control={TextArea}
+                                    label='Additional Details'
+                                    placeholder='Additional Details'
+                                    />
+                                </Form.Group>
+                                <Form.Field
+                                    id='form-button-control-public'
+                                    control={Button}
+                                    content='Confirm'
+                                />
+                        </Form>
                     </div>
                 </div>
             </div>
