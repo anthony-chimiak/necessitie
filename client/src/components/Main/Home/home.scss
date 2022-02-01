@@ -21,6 +21,8 @@ $breakpoints: (
     min-height: calc(100vh - 40px);
     background: #C4C4C4;
     font-family: Ubu;
+    min-height: 100vh;
+    
     @include respond-to ('large') {
       height: 488px;
     }
@@ -36,8 +38,10 @@ $breakpoints: (
   
   
   
-  
-      @include respond-to ('large') {
+      // @media only screen and (min-width: 600px) { 
+
+      @include respond-to ('medium') {
+        background:red;
         position: absolute;
         height: 152px;
         text-align: left;
