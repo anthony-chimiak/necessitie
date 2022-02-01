@@ -12,7 +12,7 @@ import './main.scss'
 export const Main = (props) => {
 
     return (
-        <div classname="main-div">
+        <div className="main-div">
             <Routes>
                 <Route exact path="/" element={<Home />}/>
                 <Route path="/services" element={<Services />}/> 

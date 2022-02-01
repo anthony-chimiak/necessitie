@@ -85,7 +85,7 @@ export const Home = (props) => {
                 <div className="secondary-content">
                     {servicesJSX.map(x => {
                         return (
-                            <div className="single-service">
+                            <div className="single-service" key={x.name}>
                                 <img src={x.img}/>
                                 <h3 className="feature-service">{x.name}</h3>
                                 <span>{x.text}</span>
@@ -132,7 +132,7 @@ export const Home = (props) => {
                 <div className="secondary-content">
                     {technologyJSX.map(x => {
                         return (
-                            <div className="single-tech">
+                            <div className="single-tech" key={x.name}>
                                 <img src={x.img}/>
                                 <h3 className="single-tech-name">{x.name}</h3>
                                 <span>{x.test}</span>
@@ -143,7 +143,7 @@ export const Home = (props) => {
                 <div className="contact-page">
                     <h2 className="contact-header">Want to talk about your project?</h2>
                     <div className="primary-content">
-                        <h3 classname="contact-subheader">We'd love to hear from you</h3>
+                        <h3 className="contact-subheader">We'd love to hear from you</h3>
                         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>   
                         <div className="location-row">
                             <img src="location"/>
