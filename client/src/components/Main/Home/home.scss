@@ -29,8 +29,6 @@ $breakpoints: (
       padding: 2rem;    
       font-style: normal;
       font-weight: 700;
-      font-size: 2.4rem;
-      line-height: 48px;
       /* or 126% */
       text-align: center;
       
@@ -59,8 +57,6 @@ $breakpoints: (
       position: relative;
       font-style: normal;
       font-weight: normal;
-      font-size: 14px;
-      line-height: 21px;
       /* or 150% */
       text-align: center;
   
@@ -81,6 +77,9 @@ $breakpoints: (
   }
 }
 .landing-page {
+  @include respond-to ('medium') {
+    padding: 7vh 11vw;
+  }
   h3 {
     position: relative;
     text-align: left;
@@ -100,9 +99,9 @@ $breakpoints: (
       left: 140px;
       top: 680px;
   
-      fontFamily: Ubumedium;
-      fontSize: 50px;
-      lineHeight: 57px;
+      font-family: Ubumedium;
+      font-size: 50px;
+      line-height: 57px;
       color: #424B5A;
     }
     &.post-header {

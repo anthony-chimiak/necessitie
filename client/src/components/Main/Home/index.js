@@ -63,11 +63,11 @@ export const Home = (props) => {
         <div className="home">
             <div className="landing-page">
                 <div className="primary-content">
-                    <h1>Necessitie<br/>Full Service Software Development</h1>
+                    <h1>Necessitie<br/>Software Development</h1>
                     <span>More stuff about our services and goals, a catchy little thing to hear, made for you by us</span>
                     <button>LET'S WORK TOGETHER</button>
                 </div>
-                <div className="secondary-text" >
+                <div className="secondary-content" >
                 </div>
             </div>
             <div className="share-page">

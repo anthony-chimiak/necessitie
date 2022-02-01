@@ -15,14 +15,10 @@ export const Main = (props) => {
         <div classname="main-div">
             <Routes>
                 <Route exact path="/" element={<Home />}/>
-                {/* <Route path="/services" element={<Services />}/>  */}
-                {/* <Route path="/technologies" element={<Technologies />}/> */}
-                {/* <Route path="/ContactUs" element={<ContactUs />}/> */}
+                <Route path="/services" element={<Services />}/> 
+                <Route path="/technologies" element={<Technologies />}/>
+                <Route path="/ContactUs" element={<ContactUs />}/>
             </Routes>
-            {/* <Home /> */}
-            <Services/>
-            <Technologies />
-            <ContactUs />
         </div>
 
     )
