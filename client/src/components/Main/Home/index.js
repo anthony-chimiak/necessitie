@@ -1,5 +1,6 @@
 import React from 'react';
-import { Form, Input, TextArea, Button } from 'semantic-ui-react';
+import CardComponent from './CardComponent.js'
+import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
 
 import './home.scss'
 
@@ -7,33 +8,39 @@ export const Home = (props) => {
     const technologyJSX = [
         {
             name: 'Android',
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            img: 'https://freeiconshop.com/wp-content/uploads/edd/android-flat.png',
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            id: 1
         },
         {
             name: 'IOS',
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            img: 'https://icon-library.com/images/ios-icon/ios-icon-25.jpg',
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            id: 2
         },
         {
             name: 'Frontend',
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            img: 'https://cdn-icons-png.flaticon.com/512/2166/2166895.png',
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            id: 3
         },
         {
             name: 'Backend',
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            img: 'https://cdn-icons-png.flaticon.com/512/2166/2166823.png',
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            id: 4
         },
         {
             name: 'Cross-platform',
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            img: 'https://cdn-icons-png.flaticon.com/512/2037/2037075.png',
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            id: 5
         },
         {
             name: 'Articial-Intelligence',
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            img: 'https://cdn-icons-png.flaticon.com/512/1985/1985582.png',
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            id: 6
         },
     ];
 
@@ -59,6 +66,14 @@ export const Home = (props) => {
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
         },
     ]
+
+    let technologiesTable = technologyJSX.map((tech) => (
+        <CardComponent
+            key={tech.id}
+            name={tech.name}
+            image={tech.img}
+        />
+    ))
 
     return (
         <div className="home">
@@ -131,7 +146,10 @@ export const Home = (props) => {
                     <button>Get a Quote</button>
                 </div>
                 <div className="secondary-content">
-                    {technologyJSX.map(x => {
+                    <Card.Group itemsPerRow={3}>
+                        {technologiesTable}
+                    </Card.Group>
+                    {/* {technologyJSX.map(x => {
                         return (
                             <div className="single-tech" key={x.name}>
                                 <img src={x.img}/>
@@ -139,7 +157,7 @@ export const Home = (props) => {
                                 <span>{x.test}</span>
                             </div>
                         )
-                    })}
+                    })} */}
                 </div>
                 <div className="contact-page">
                     <h2 className="contact-header">Want to talk about your project?</h2>
