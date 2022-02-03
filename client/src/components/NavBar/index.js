@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // import TemporaryDrawer from './TemporaryDrawer'
-
 import './navbar.scss';
 
 export const NavBar = () => {
+
     return (
     <div 
         className="navbar"
@@ -21,7 +21,7 @@ export const NavBar = () => {
         <Link to="/">Home</Link> |{" "}
         <Link to="/services">Services</Link> |{" "}
         <Link to="/technologies">Technologies</Link> |{" "}
-        <Link to="/ContactUs">Contact Us</Link>
+        <Link to="/ContactUs">Contact Us</Link> 
         {/* <TemporaryDrawer /> */}
       </nav>
     </div>

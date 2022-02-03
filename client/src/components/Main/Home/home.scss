@@ -137,9 +137,29 @@ $breakpoints: (
       font-family: Ubu;
     }
     .primary-content {
+      width: 50%;
+      float: left;
+      padding: 4px;
       .contact-subheader {
         font-family: Ubu;
       }
+    }
+    .secondary-content {
+      background-color: #C4C4C4;
+      float: right;
+      width: 50%;
+      border-radius: 15px;
+      
+      .contact-form {
+        .field {
+          width: 75%;
+          margin: auto;
+          padding-bottom: 10px;
+          padding-top: 10px;
+
+        }
+      }
+      
     }
   }
   

@@ -149,6 +149,7 @@ export const Home = (props) => {
                     <Card.Group itemsPerRow={3}>
                         {technologiesTable}
                     </Card.Group>
+                    {/* REPLACED OLD MAPPING WITH COMPONENT MAPPING/ REUSABLE WITH OTHER TABLES} */}
                     {/* {technologyJSX.map(x => {
                         return (
                             <div className="single-tech" key={x.name}>
@@ -161,56 +162,58 @@ export const Home = (props) => {
                 </div>
                 <div className="contact-page">
                     <h2 className="contact-header">Want to talk about your project?</h2>
-                    <div className="primary-content">
-                        <h3 className="contact-subheader">We'd love to hear from you</h3>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>   
-                        <div className="location-row">
-                            <img src="location"/>
-                            <span>385 Noah Place Suite 878</span>
+                    <div className="contact-us-wrapper">
+                        <div className="primary-content">
+                            <h3 className="contact-subheader">We'd love to hear from you</h3>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>   
+                            <div className="location-row">
+                                <img src="location"/>
+                                <span>385 Noah Place Suite 878</span>
+                            </div>
+                            <div className="phone-row">
+                                <img src="phone"/>
+                                <span>877-255-7945</span>
+                            </div>
+                            <div className="email-row">
+                                <img src="location"/>
+                                <span>info@form.com</span>
+                            </div>
                         </div>
-                        <div className="phone-row">
-                            <img src="phone"/>
-                            <span>877-255-7945</span>
-                        </div>
-                        <div className="email-row">
-                            <img src="location"/>
-                            <span>info@form.com</span>
-                        </div>
-                    </div>
-                    <div className="secondary-content">
-                    <Form>
-                            <Form.Group widths="equal">
-                                <Form.Field
-                                    id='form-input-control-first-name'
-                                    control={Input}
-                                    label='First name'
-                                    placeholder='First name'
-                                />
-                                <Form.Field
-                                    id='form-input-control-last-name'
-                                    control={Input}
-                                    label='Last name'
-                                    placeholder='Last name'
-                                />
-                                <Form.Field
-                                    id='form-input-control-error-email'
-                                    control={Input}
-                                    label='Email'
-                                    placeholder='YourEmail@Email.com'
+                        <div className="secondary-content">
+                            <Form className="contact-form">
+                                {/* <Form.Group> */}
+                                    <Form.Field
+                                        id='form-input-control-first-name'
+                                        control={Input}
+                                        label='First name'
+                                        placeholder='First name'
                                     />
-                                <Form.Field
-                                    id='form-textarea-control-opinion'
-                                    control={TextArea}
-                                    label='Additional Details'
-                                    placeholder='Additional Details'
+                                    <Form.Field
+                                        id='form-input-control-last-name'
+                                        control={Input}
+                                        label='Last name'
+                                        placeholder='Last name'
                                     />
-                                </Form.Group>
-                                <Form.Field
-                                    id='form-button-control-public'
-                                    control={Button}
-                                    content='Confirm'
-                                />
-                        </Form>
+                                    <Form.Field
+                                        id='form-input-control-error-email'
+                                        control={Input}
+                                        label='Email'
+                                        placeholder='YourEmail@Email.com'
+                                        />
+                                    <Form.Field
+                                        id='form-textarea-control-opinion'
+                                        control={TextArea}
+                                        label='Additional Details'
+                                        placeholder='Additional Details'
+                                        />
+                                    {/* </Form.Group> */}
+                                    <Form.Field
+                                        id='form-button-control-public'
+                                        control={Button}
+                                        content='Confirm'
+                                    />
+                            </Form>
+                        </div>
                     </div>
                 </div>
             </div>
