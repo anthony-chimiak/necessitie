@@ -1,4 +1,6 @@
 import React from 'react';
+import CardComponent from './CardComponent.js'
+import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
 
 import './home.scss'
 
@@ -6,33 +8,39 @@ export const Home = (props) => {
     const technologyJSX = [
         {
             name: 'Android',
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            img: 'https://freeiconshop.com/wp-content/uploads/edd/android-flat.png',
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            id: 1
         },
         {
             name: 'IOS',
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            img: 'https://icon-library.com/images/ios-icon/ios-icon-25.jpg',
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            id: 2
         },
         {
             name: 'Frontend',
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            img: 'https://cdn-icons-png.flaticon.com/512/2166/2166895.png',
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            id: 3
         },
         {
             name: 'Backend',
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            img: 'https://cdn-icons-png.flaticon.com/512/2166/2166823.png',
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            id: 4
         },
         {
             name: 'Cross-platform',
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            img: 'https://cdn-icons-png.flaticon.com/512/2037/2037075.png',
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            id: 5
         },
         {
             name: 'Articial-Intelligence',
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            img: 'https://cdn-icons-png.flaticon.com/512/1985/1985582.png',
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            id: 6
         },
     ];
 
@@ -58,6 +66,14 @@ export const Home = (props) => {
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
         },
     ]
+
+    let technologiesTable = technologyJSX.map((tech) => (
+        <CardComponent
+            key={tech.id}
+            name={tech.name}
+            image={tech.img}
+        />
+    ))
 
     return (
         <div className="home">
@@ -130,7 +146,11 @@ export const Home = (props) => {
                     <button>Get a Quote</button>
                 </div>
                 <div className="secondary-content">
-                    {technologyJSX.map(x => {
+                    <Card.Group itemsPerRow={3}>
+                        {technologiesTable}
+                    </Card.Group>
+                    {/* REPLACED OLD MAPPING WITH COMPONENT MAPPING/ REUSABLE WITH OTHER TABLES} */}
+                    {/* {technologyJSX.map(x => {
                         return (
                             <div className="single-tech" key={x.name}>
                                 <img src={x.img}/>
@@ -138,31 +158,62 @@ export const Home = (props) => {
                                 <span>{x.test}</span>
                             </div>
                         )
-                    })}
+                    })} */}
                 </div>
                 <div className="contact-page">
                     <h2 className="contact-header">Want to talk about your project?</h2>
-                    <div className="primary-content">
-                        <h3 className="contact-subheader">We'd love to hear from you</h3>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>   
-                        <div className="location-row">
-                            <img src="location"/>
-                            <span>385 Noah Place Suite 878</span>
+                    <div className="contact-us-wrapper">
+                        <div className="primary-content">
+                            <h3 className="contact-subheader">We'd love to hear from you</h3>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>   
+                            <div className="location-row">
+                                <img src="location"/>
+                                <span>385 Noah Place Suite 878</span>
+                            </div>
+                            <div className="phone-row">
+                                <img src="phone"/>
+                                <span>877-255-7945</span>
+                            </div>
+                            <div className="email-row">
+                                <img src="location"/>
+                                <span>info@form.com</span>
+                            </div>
                         </div>
-                        <div className="phone-row">
-                            <img src="phone"/>
-                            <span>877-255-7945</span>
+                        <div className="secondary-content">
+                            <Form className="contact-form">
+                                {/* <Form.Group> */}
+                                    <Form.Field
+                                        id='form-input-control-first-name'
+                                        control={Input}
+                                        label='First name'
+                                        placeholder='First name'
+                                    />
+                                    <Form.Field
+                                        id='form-input-control-last-name'
+                                        control={Input}
+                                        label='Last name'
+                                        placeholder='Last name'
+                                    />
+                                    <Form.Field
+                                        id='form-input-control-error-email'
+                                        control={Input}
+                                        label='Email'
+                                        placeholder='YourEmail@Email.com'
+                                        />
+                                    <Form.Field
+                                        id='form-textarea-control-opinion'
+                                        control={TextArea}
+                                        label='Additional Details'
+                                        placeholder='Additional Details'
+                                        />
+                                    {/* </Form.Group> */}
+                                    <Form.Field
+                                        id='form-button-control-public'
+                                        control={Button}
+                                        content='Confirm'
+                                    />
+                            </Form>
                         </div>
-                        <div className="email-row">
-                            <img src="location"/>
-                            <span>info@form.com</span>
-                        </div>
-                    </div>
-                    <div className="secondary-content">
-                        <input></input>
-                        <input></input>
-                        <input></input>
-                        <button></button>
                     </div>
                 </div>
             </div>
