@@ -1,3 +1,5 @@
+$base-color: #6567AB;
+
 body {
   font-family: Ubu;
   font-style: normal;
@@ -24,4 +26,16 @@ h3 {
   font-size: 22px;
   line-height: 24px;  
   color: #A1AEB7;
+}
+
+.primary-color {
+  background-color: #6567AB;
+}
+
+.secondary-color {
+  background: #FA7F4B;
+}
+
+.alert-color {
+  background: #E84702;
 }

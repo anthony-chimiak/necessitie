@@ -77,11 +77,11 @@ export const Home = (props) => {
 
     return (
         <div className="home">
-            <div className="landing-page">
+            <div className="landing-page primary-color">
                 <div className="primary-content">
                     <h1>Necessitie<br/>Software Development</h1>
                     <span>More stuff about our services and goals, a catchy little thing to hear, made for you by us</span>
-                    <button>LET'S WORK TOGETHER</button>
+                    <button className="alert-color">LET'S WORK TOGETHER</button>
                 </div>
                 <div className="secondary-content" >
                 </div>
@@ -111,7 +111,7 @@ export const Home = (props) => {
                 </div>
                 (INFO ICONS HERE WITHS DESCRIPTIONS)
             </div>
-            <div className="examples-page">
+            <div className="examples-page secondary-color">
                 <h2>App Name Example</h2>
                 <h3>The secret sauce of Form</h3>
                 <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</span>

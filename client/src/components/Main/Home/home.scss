@@ -19,7 +19,7 @@ $breakpoints: (
 .home {
   .landing-page{
     min-height: calc(100vh - 40px);
-    background: #C4C4C4;
+    // background: $base-color;
     font-family: Ubu;
     min-height: 100vh;
     
@@ -27,6 +27,7 @@ $breakpoints: (
       height: 488px;
     }
     .primary-content {
+      margin-top: 48px;
       position: relative;
       padding: 2rem;    
       font-style: normal;

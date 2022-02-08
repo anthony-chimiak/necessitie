@@ -14,7 +14,7 @@ export const NavBar = () => {
 
     return (
         <>
-        {/* <AppBar> */}
+        <AppBar>
             <Toolbar variant="dense">
                 <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
                 <MenuIcon />
@@ -23,7 +23,7 @@ export const NavBar = () => {
                 Photos
                 </Typography>
             </Toolbar>
-        {/* </AppBar> */}
+        </AppBar>
         </>
 
     //</> <div 

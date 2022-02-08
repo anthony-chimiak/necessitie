@@ -11,7 +11,7 @@ export const App = () => {
   return (
     <div className="App">
       {/* <AppBar></AppBar> */}
-      {/* <NavBar /> */}
+      <NavBar />
       <Main />
     </div>
   );
