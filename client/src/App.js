@@ -3,11 +3,14 @@ import './App.css';
 import './App.scss';
 import Main from './components/Main'
 import NavBar from './components/NavBar'
+import AppBar from '@mui/material/AppBar';
 
-function App() {
+
+export const App = () => {
   return (
     <div className="App">
-      <NavBar />
+      {/* <AppBar></AppBar> */}
+      {/* <NavBar /> */}
       <Main />
     </div>
   );
