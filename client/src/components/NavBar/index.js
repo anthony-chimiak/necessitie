@@ -17,11 +17,11 @@ export const NavBar = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+        setAnchorEl(event.currentTarget);
+    };
     const handleClose = () => {
-    setAnchorEl(null);
-  };
+        setAnchorEl(null);
+    };
 
     return (
         <>
@@ -33,7 +33,8 @@ export const NavBar = () => {
                         aria-controls={open ? 'main-menu-dropdown' : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
-                        onClick={handleClick} />
+                        onClick={handleClick}
+                    />
                 </IconButton>
                 <Menu
                     id="main-menu-dropdown"
@@ -41,14 +42,15 @@ export const NavBar = () => {
                     anchorEl={anchorEl}
                     open={open}
                     onClose={handleClose}
-                    anchorOrigin={{
-                        vertical: 'top',
-                        horizontal: 'left',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'left',
-                    }}
+                    disableScrollLock={true}
+                    // anchorOrigin={{
+                    //     vertical: 'top',
+                    //     horizontal: 'left',
+                    // }}
+                    // transformOrigin={{
+                    //     vertical: 'top',
+                    //     horizontal: 'left',
+                    // }}
                 >
                     <MenuItem onClick={handleClose}>Home</MenuItem>
                     <MenuItem onClick={handleClose}>Services</MenuItem>
