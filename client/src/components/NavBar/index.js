@@ -43,14 +43,6 @@ export const NavBar = () => {
                     open={open}
                     onClose={handleClose}
                     disableScrollLock={true}
-                    // anchorOrigin={{
-                    //     vertical: 'top',
-                    //     horizontal: 'left',
-                    // }}
-                    // transformOrigin={{
-                    //     vertical: 'top',
-                    //     horizontal: 'left',
-                    // }}
                 >
                     <MenuItem onClick={handleClose}>Home</MenuItem>
                     <MenuItem onClick={handleClose}>Services</MenuItem>
