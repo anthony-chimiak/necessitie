@@ -6,6 +6,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
 import Zoom from '@mui/material/Zoom';
@@ -22,6 +24,14 @@ import mainTheme from "./../Themes/themes";
 import './navbar.scss';
 
 export const NavBar = (props) => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+      setAnchorEl(null);
+  };
 
     function HideOnScroll(props) {
         const { children } = props;
@@ -80,8 +90,31 @@ export const NavBar = (props) => {
                     </Typography>
                   </Box>
                   <IconButton edge="end" color="action" aria-label="menu" sx={{ mr: 2 }}>
-                    <MenuIcon />
-                  </IconButton>  
+                    <MenuIcon
+                        id="main-menu-dropdown-button"
+                        aria-controls={open ? 'main-menu-dropdown' : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={open ? 'true' : undefined}
+                        onClick={handleClick}
+                    />
+                </IconButton>
+                <Menu
+                    id="main-menu-dropdown"
+                    aria-labelledby="main-menu-dropdown-button"
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    disableScrollLock={true}
+                >
+                    <MenuItem onClick={handleClose}>Home</MenuItem>
+                    <MenuItem onClick={handleClose}>Services</MenuItem>
+                    <MenuItem onClick={handleClose}>Technologies</MenuItem>
+                    <MenuItem onClick={handleClose}>Industries</MenuItem>
+                    <MenuItem onClick={handleClose}>Contact Us</MenuItem>
+                </Menu>
+                <Typography variant="h6" color="inherit" component="div">
+                Menu
+                </Typography>
                 </Toolbar>
               </AppBar>
             </HideOnScroll>
