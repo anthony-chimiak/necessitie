@@ -1,10 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import CardComponent from './CardComponent.js'
 import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
+import landingPic from "/Users/anthony/necessitie/client/src/assets/images/necessitie-main-image.png"
 
 import './home.scss'
 
 export const Home = (props) => {
+    const industriesList = ['FinTech', 'EdTech', 'Hospitality', 'Medical'];
+    const [selIndustry, setSelIndustry] = useState(industriesList[0]);
     const technologyJSX = [
         {
             name: 'Android',
@@ -46,26 +53,68 @@ export const Home = (props) => {
 
     const servicesJSX = [
         {
-            name: 'Ideation & Strategy',
+            name: 'React Developers',
+            img: '',
+            text: "Developers with experience in all versions of React, but a focus on the Hooks/Context paradigm."
+        },
+        {
+            name: 'Python Developers',
+            img: '',
+            text: "Python Experts with a wider range of uses.  Data Analytics to backend work, Python is a powerfuly ally."
+        },
+        {
+            name: 'UI/UX',
             img: '',
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
         },
         {
-            name: 'Product Design',
+            name: 'QA / Sdet Engineers',
             img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            text: "Quality Analysts and Test Engineers specializing in automated testing, continuous deployment, and process implementation."
         },
-        {
-            name: 'Web & Mobile',
+    ];
+
+    
+
+    const industriesData = {
+        FinTech: {
             img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            text: "Test for FinTech",
         },
-        {
-            name: 'Cloud Services',
+        EdTech: {
             img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            text: "Test for FinTech",
         },
-    ]
+        Hospitality: {
+            img: '',
+            text: "Test for FinTech",
+        },
+        Medical: {
+            img: '',
+            text: "Test for FinTech",
+        }
+    };
+        // {
+        //     name: 'FinTech',
+        //     img: '',
+        //     text: "Test for FinTech",
+        // },
+        // {
+        //     name: 'EdTech',
+        //     img: '',
+        //     text: "Test for EdTech",
+        // },
+        // {
+        //     name: 'Hospitality',
+        //     img: '',
+        //     text: "Test of Hospitality",
+        // },
+        // {
+        //     name: 'Medical',
+        //     img: '',
+        //     text: "Test for Medical",
+        // },
+    // ];
 
     let technologiesTable = technologyJSX.map((tech) => (
         <CardComponent
@@ -75,28 +124,48 @@ export const Home = (props) => {
         />
     ))
 
+    let industryListJSX = industriesList.map((industry) => 
+        {
+            let active = (industry === selIndustry)?true:false;
+            // debugger;
+            return <div className={"industry-card " + (active?"active":'')} onClick={(e)=>setSelIndustry(industry)} key={industry}>{industry}</div>
+        }
+    );
+
+    const learnMoreJSX = (
+        <div className="learn-more">
+            <span className='learn-more'>Learn More</span>
+            <ArrowForwardIcon/>
+        </div>
+    )
+
+    // let industriesJSX = [];
+
     return (
         <div className="home">
-            <div className="landing-page primary-color">
+            <div className="landing-page primary-color page">
                 <div className="primary-content">
-                    <h1>Necessitie<br/>Software Development</h1>
-                    <span>More stuff about our services and goals, a catchy little thing to hear, made for you by us</span>
-                    <button className="alert-color">LET'S WORK TOGETHER</button>
+                    <h1>Outsource to developers specialized to your needs</h1>
+                    <div>Necessitie can provide you with top developers that have skills focused on your needs so you know they will be able to excel at the tasks you throw at them.</div>
+                    <Button className="work-together-btn">Let's work together</Button>
                 </div>
                 <div className="secondary-content" >
+                    <img src={landingPic} className="landing-pic"/>
                 </div>
             </div>
-            <div className="share-page">
-                <div className='primary-content'></div>
-                <h2 className="share-header">You share your idea. We get it done.</h2>
+            <div className="share-page page">
+                <div className='primary-content'>
+                    <h2 className="share-header">Focused precision for your products</h2>
+                </div>
+                
                 <div className="secondary-content">
-                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </span>
+                    <div>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br/><br/>
+                        A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust. </div>
                 </div>
             </div>
-            <div className="features-page">
+            <div className="services-page page">
                 <div className="primary-content">
-                    <h2 className="features-header">See what we can do for you</h2>
+                    <h2 className="services-header">Our speciality services</h2>
                 </div>
                 <div className="secondary-content">
                     {servicesJSX.map(x => {
@@ -111,35 +180,31 @@ export const Home = (props) => {
                 </div>
                 (INFO ICONS HERE WITHS DESCRIPTIONS)
             </div>
-            <div className="examples-page secondary-color">
+            <div className="examples-page page">
                 <h2>App Name Example</h2>
                 <h3>The secret sauce of Form</h3>
                 <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</span>
             </div>
-            <div className="industries-page">
-                <div className="primary-content"><img/></div>
-                <div className="secondary-content">
-                    <h2 className="industries-header">We work across many industries</h2>
+            <div className="industries-page page">
+                <div className="primary-content">
+                <h2 className="industries-header">We work across many industries</h2>
+                    <p>While happy to work on any project you put before us, Necessitie has considerable experience in the following industries.</p>
                     <div className="industries-div">
-                        <span>Healthcare</span>
-                        <span>E-Commerce</span>
-                        <span>Entertainment</span>
-                        <span>Fintech</span>
-                        <span>Other</span>
-                        {/* <a>Healthcare</a>
-                        <a>E-commerce</a>
-                        <a>Entertainment</a>
-                        <a>Fintech</a>
-                        <a>Other</a> */}
+                        <div className="industries-list">{industryListJSX}</div>
+                        
+                        <div>
+                            <h3>{selIndustry}</h3>
+                            <p>{industriesData[selIndustry].text}</p>
+                        </div>
+                        
+                        
                     </div>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </span>
-                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor </span>
                 </div>
-                <a>Learn More</a>
+                <div className="secondary-content">
+                </div>
+                
             </div>
-            <div className="technologies-page">
+            <div className="technologies-page page">
                 <div className="primary-content">
                     <h2 className="technologies-header">Where business meets cutting-edge technology</h2>
                     <h3 className="technologies-subheader">Choose the tech stack for your next application, or let us pick the best  solution for you</h3>
@@ -160,62 +225,79 @@ export const Home = (props) => {
                         )
                     })} */}
                 </div>
-                <div className="contact-page">
-                    <h2 className="contact-header">Want to talk about your project?</h2>
-                    <div className="contact-us-wrapper">
-                        <div className="primary-content">
-                            <h3 className="contact-subheader">We'd love to hear from you</h3>
-                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>   
-                            <div className="location-row">
-                                <img src="location"/>
-                                <span>385 Noah Place Suite 878</span>
-                            </div>
-                            <div className="phone-row">
-                                <img src="phone"/>
-                                <span>877-255-7945</span>
-                            </div>
-                            <div className="email-row">
-                                <img src="location"/>
-                                <span>info@form.com</span>
-                            </div>
+            </div>
+            <div className="products-page page">
+                <div className="primary-content">
+                    <h2>Our team experts?</h2>
+                    <img/>
+                    <h3>Full team software outsourcing</h3>
+                    <p>Necessitie has a range of scalable possibilities to meet your products needs.  Full independent front-end, back-end, or QA team? We will have that, joining in on meetings where you feel appropriate.</p>
+                    <p>If you need to scale up, we can move to full service team, handling design and devops as well.</p>
+                </div>
+                <div className="secondary-content">
+                    <h3>IT staff augmentation</h3>
+                    <p>Necessitie can help place people who know how to work in existing teams, right into yours.
+                    <br/><br/>Fast, efficient software developers, UI/UX designers, and QA/Sdet personelle at your fingertips. 
+                    <br/><br/>Avoid sourcing and recruitment issues.</p>
+                    {learnMoreJSX}
+                </div>
+                
+            </div>
+            <div className="contact-page page">
+                <h2 className="contact-header">Want to talk about your project?</h2>
+                <p>We’re here to connect you with great developers perfect for your roles</p>
+                {/* <div className="contact-us-wrapper"> */}
+                    
+                    <div className="secondary-content">
+                        <Form className="contact-form">
+                            {/* <Form.Group> */}
+                                <Form.Field
+                                    id='form-input-control-error-email'
+                                    className="form-email"
+                                    control={Input}
+                                    label='Email*'
+                                    placeholder='YourEmail@Email.com'
+                                    />
+                                <Form.Field
+                                    id='form-input-control-phone'
+                                    className="form-phone"
+                                    control={Input}
+                                    label='Phone'
+                                    placeholder='Enter your number and country code'
+                                />
+                                <Form.Field
+                                    id='form-textarea-control-opinion'
+                                    className="form-opinion"
+                                    control={TextArea}
+                                    label='How can we help you?'
+                                    placeholder="Give us some details about your project"
+                                    />
+                                {/* </Form.Group> */}
+                                <Form.Field
+                                    id='form-button-control-public'
+                                    className="submit-button"
+                                    control={Button}
+                                    content='Submit'
+                                />
+                        </Form>
+                    </div>
+                    <div className="primary-content">
+                        {/* <h3 className="contact-subheader">We'd love to hear from you</h3> */}
+                        {/* <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>    */}
+                        <div className="location-row address">
+                            <LocationOnIcon/>
+                            <span>385 Noah Place Suite 878</span>
                         </div>
-                        <div className="secondary-content">
-                            <Form className="contact-form">
-                                {/* <Form.Group> */}
-                                    <Form.Field
-                                        id='form-input-control-first-name'
-                                        control={Input}
-                                        label='First name'
-                                        placeholder='First name'
-                                    />
-                                    <Form.Field
-                                        id='form-input-control-last-name'
-                                        control={Input}
-                                        label='Last name'
-                                        placeholder='Last name'
-                                    />
-                                    <Form.Field
-                                        id='form-input-control-error-email'
-                                        control={Input}
-                                        label='Email'
-                                        placeholder='YourEmail@Email.com'
-                                        />
-                                    <Form.Field
-                                        id='form-textarea-control-opinion'
-                                        control={TextArea}
-                                        label='Additional Details'
-                                        placeholder='Additional Details'
-                                        />
-                                    {/* </Form.Group> */}
-                                    <Form.Field
-                                        id='form-button-control-public'
-                                        control={Button}
-                                        content='Confirm'
-                                    />
-                            </Form>
+                        <div className="phone-row address">
+                            <PhoneIcon/>
+                            <span>443-764-9308</span>
+                        </div>
+                        <div className="email-row address">
+                            <EmailIcon/>
+                            <span>anthony@necessitie.com</span>
                         </div>
                     </div>
-                </div>
+                {/* </div> */}
             </div>
         </div>
     )

@@ -1,41 +1,77 @@
 $base-color: #6567AB;
 
-body {
+// body {
+//   font-family: Ubu;
+//   font-style: normal;
+//   font-weight: normal;
+//   font-size: 1.6rem;
+//   line-height: 21px;
+// }
+
+.App {
   font-family: Ubu;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 1.2rem;
   line-height: 21px;
+  color: $base-color;
+
+  
+  h1 {
+    font-family: Ubumedium;
+    font-weight: 1000;
+    font-size: 2rem;
+    line-height: 2.8rem;
+    color: #FFFFFF;
+  }
+  
+  h2 {
+    font-size: 1.7rem;
+    line-height: 31px;  
+    color: $base-color;
+  }
+  
+  h3 {
+    font-size: 1.4rem;
+    line-height: 24px;  
+    color: $base-color;
+  }
+  
+  .primary-color {
+    background-color: #6567AB;
+  }
+  
+  .secondary-color {
+    background: #FA7F4B;
+  }
+  
+  .tertiary-color {
+    background: #E84702;
+  }
 }
 
-h1 {
-  font-family: Ubumedium;
-  font-weight: 1000;
-  font-size: 2.6rem;
-  line-height: 2.8rem;
-  color: #FFFFFF;
-}
 
-h2 {
-  font-size: 21px;
-  line-height: 31px;  
-  color: #505D68;
-}
+// @mixin scrollbars(
+//   $size: 110px,
+//   $foreground-color: red,
+//   $background-color: red
+// ) {
+//   // For Chrome & Safari
+//   &::-webkit-scrollbar {
+//     width: $size;
+//     height: $size;
+//   }
+//   &::-webkit-scrollbar-thumb {
+//     background: $foreground-color;
+//   }
+//   &::-webkit-scrollbar-track {
+//     background: $background-color;
+//   }
 
-h3 {
-  font-size: 22px;
-  line-height: 24px;  
-  color: #A1AEB7;
-}
+//   // Standard version (Firefox only for now)
+//   scrollbar-color: $foreground-color $background-color;
+// }
 
-.primary-color {
-  background-color: #6567AB;
-}
-
-.secondary-color {
-  background: #FA7F4B;
-}
-
-.alert-color {
-  background: #E84702;
+.css-mgur8 {
+  z-index: 9999;
 }
