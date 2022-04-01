@@ -68,7 +68,7 @@ $off-secondary-color: #FFF1E9;
         padding: 1rem 1.5rem;
         width: 100%;
         border-radius: 10px;
-        background-color: #FF560E;
+        background-color: #FF900E; //$action-color
         color: #FFFFFF;
     }
 
@@ -235,8 +235,11 @@ $off-secondary-color: #FFF1E9;
     }
     .address {
       margin-bottom: 2vh;
-      span {
+      span, a {
         margin-left: 4vw;
+        .phone-row, .email-row {
+          cursor: pointer;
+        }
       }
     }
     .secondary-content {
@@ -249,7 +252,7 @@ $off-secondary-color: #FFF1E9;
         .submit-button {
           button {
             width: 100%;
-            background-color: #FF560E;
+            background-color: #FF900E; //$action-color
             color: #FFFFFF;
           }
         }

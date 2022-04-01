@@ -7,6 +7,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import landingPic from "/Users/anthony/necessitie/client/src/assets/images/necessitie-main-image.png"
 
+import MobileCarousel from './MobileCarousel';
 import './home.scss'
 
 export const Home = (props) => {
@@ -139,6 +140,29 @@ export const Home = (props) => {
         </div>
     )
 
+    const images = [
+        {
+          label: 'San Francisco – Oakland Bay Bridge, United States',
+          imgPath:
+            'https://images.unsplash.com/photo-1537944434965-cf4679d1a598?auto=format&fit=crop&w=400&h=250&q=60',
+        },
+        {
+          label: 'Bird',
+          imgPath:
+            'https://images.unsplash.com/photo-1538032746644-0212e812a9e7?auto=format&fit=crop&w=400&h=250&q=60',
+        },
+        {
+          label: 'Bali, Indonesia',
+          imgPath:
+            'https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=400&h=250&q=80',
+        },
+        {
+          label: 'Goč, Serbia',
+          imgPath:
+            'https://images.unsplash.com/photo-1512341689857-198e7e2f3ca8?auto=format&fit=crop&w=400&h=250&q=60',
+        },
+      ];
+
     // let industriesJSX = [];
 
     return (
@@ -182,6 +206,7 @@ export const Home = (props) => {
             </div>
             <div className="examples-page page">
                 <h2>App Name Example</h2>
+                <MobileCarousel images={images}/>
                 <h3>The secret sauce of Form</h3>
                 <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</span>
             </div>
@@ -286,15 +311,15 @@ export const Home = (props) => {
                         {/* <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>    */}
                         <div className="location-row address">
                             <LocationOnIcon/>
-                            <span>385 Noah Place Suite 878</span>
+                            <span>88 Starr Street, Brooklyn NY</span>
                         </div>
                         <div className="phone-row address">
                             <PhoneIcon/>
-                            <span>443-764-9308</span>
+                            <span onClick={() => {navigator.clipboard.writeText('14437649308')}}>1-443-764-9308</span>
                         </div>
                         <div className="email-row address">
                             <EmailIcon/>
-                            <span>anthony@necessitie.com</span>
+                            <a href="mailto:anthony@necessitie.com">anthony@necessitie.com</a>
                         </div>
                     </div>
                 {/* </div> */}

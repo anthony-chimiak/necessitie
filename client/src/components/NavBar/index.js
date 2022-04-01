@@ -97,24 +97,21 @@ export const NavBar = (props) => {
                         aria-expanded={open ? 'true' : undefined}
                         onClick={handleClick}
                     />
-                </IconButton>
-                <Menu
-                    id="main-menu-dropdown"
-                    aria-labelledby="main-menu-dropdown-button"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                    disableScrollLock={true}
-                >
-                    <MenuItem onClick={handleClose}>Home</MenuItem>
-                    <MenuItem onClick={handleClose}>Services</MenuItem>
-                    <MenuItem onClick={handleClose}>Technologies</MenuItem>
-                    <MenuItem onClick={handleClose}>Industries</MenuItem>
-                    <MenuItem onClick={handleClose}>Contact Us</MenuItem>
-                </Menu>
-                <Typography variant="h6" color="inherit" component="div">
-                Menu
-                </Typography>
+                  </IconButton>
+                  <Menu
+                      id="main-menu-dropdown"
+                      aria-labelledby="main-menu-dropdown-button"
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                      disableScrollLock={true}
+                  >
+                      <MenuItem onClick={handleClose}>Home</MenuItem>
+                      <MenuItem onClick={handleClose}>Services</MenuItem>
+                      <MenuItem onClick={handleClose}>Technologies</MenuItem>
+                      <MenuItem onClick={handleClose}>Industries</MenuItem>
+                      <MenuItem onClick={handleClose}>Contact Us</MenuItem>
+                  </Menu>
                 </Toolbar>
               </AppBar>
             </HideOnScroll>
