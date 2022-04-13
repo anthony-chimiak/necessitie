@@ -86,18 +86,21 @@ export const NavBar = (props) => {
                 <Toolbar variant="dense" id="back-to-top-anchor">
                   <Box display='flex' flexGrow={1}>
                     <Typography variant="h6" color="inherit" component="div">
-                      <span className="title-first-letter">n</span>e<span className="title-c-letter">c</span>essitie
+                      <span className="title-first-letter">n</span><span className="title-e-letter">e</span><span className="title-c-letter">c</span><span className="title-e-letter">e</span>ssiti<span className="title-e-letter">e</span>
                     </Typography>
-                  </Box>
-                  <IconButton edge="end" color="action" aria-label="menu" sx={{ mr: 2 }}>
-                    <MenuIcon
-                        id="main-menu-dropdown-button"
-                        aria-controls={open ? 'main-menu-dropdown' : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? 'true' : undefined}
-                        onClick={handleClick}
-                    />
+                    {/* <Box sx={{ flexGrow: 1 }} /> */}
+                    {/* <Box sx={{ display: { xs: 'flex', md: 'flex' } }}> */}
+                    <IconButton edge="end" color="action" aria-label="menu" sx={{ mr: 2 }}>
+                      <MenuIcon
+                          id="main-menu-dropdown-button"
+                          aria-controls={open ? 'main-menu-dropdown' : undefined}
+                          aria-haspopup="true"
+                          aria-expanded={open ? 'true' : undefined}
+                          onClick={handleClick}
+                      />
                   </IconButton>
+                  </Box>
+                  
                   <Menu
                       id="main-menu-dropdown"
                       aria-labelledby="main-menu-dropdown-button"

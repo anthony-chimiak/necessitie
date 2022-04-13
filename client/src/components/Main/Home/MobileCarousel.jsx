@@ -11,7 +11,8 @@ import SwipeableViews from 'react-swipeable-views';
 
 export default function MobileCarousel(props) {
   const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
+  // const [activeStep, setActiveStep] = React.useState(0);
+  const {activeStep, setActiveStep} = props;
   const {images} = props;
   const maxSteps = images.length;
 
@@ -54,7 +55,7 @@ export default function MobileCarousel(props) {
               <Box
                 component="img"
                 sx={{
-                  height: 255,
+                  // height: 255,
                   display: 'block',
                   maxWidth: 400,
                   overflow: 'hidden',
