@@ -1,0 +1,34 @@
+@import '/Users/anthony/necessitie/client/src/_variables.scss';
+
+
+.services {
+  .single-service {
+    padding: 5vh 13vw;
+  }
+  .react-page {
+    background-color: $off-base-color;
+    color: #FFFFFF;
+    h3 {
+      color: #FFFFFF;
+    }
+  }
+  .python-page {
+    background-color: $secondary-color;
+    color: $base-color;
+  }
+  .ux-page {
+    background-color: $base-color;
+    color: #FFFFFF;
+    h3 {
+      color: #FFFFFF;
+    }
+  }
+  .qa-page {
+    background-color: $secondary-color;
+    color: $base-color;
+  }
+  .process-page {
+    background-color: $off-base-color;
+    color: #FFFFFF;
+  }
+}

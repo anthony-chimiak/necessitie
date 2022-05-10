@@ -7,3 +7,26 @@ $secondary-color: #FED2B8;
 $off-base-color: #6B6EDB;
 $off-secondary-color: #FFF1E9;
 $action-color: #FF900E;
+
+$breakpoints: (
+  'small':  ( min-width:  480 ),
+  'medium': ( min-width:  768 ),
+  'large':  ( min-width: 1024 )
+) !default;
+
+// $base-color: #6567AB; 
+// $secondary-color: #FED2B8;
+// $off-base-color: #6B6EDB;
+// $off-secondary-color: #FFF1E9;
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+   @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}

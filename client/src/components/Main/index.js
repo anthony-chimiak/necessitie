@@ -3,6 +3,7 @@ import { Router, Routes, Route } from "react-router-dom";
 import Home from './Home';
 import Services from './Services';
 import Technologies from './Technologies';
+import Industries from './Industries';
 import ContactUs from './ContactUs/ContactUs';
 
 import './main.scss'
@@ -17,7 +18,8 @@ export const Main = (props) => {
                 <Route exact path="/" element={<Home />}/>
                 <Route path="/services" element={<Services />}/> 
                 <Route path="/technologies" element={<Technologies />}/>
-                <Route path="/ContactUs" element={<ContactUs />}/>
+                <Route path="/industries" element={<Industries />}/>
+                <Route path="/contactus" element={<ContactUs />}/>
             </Routes>
         </div>
 

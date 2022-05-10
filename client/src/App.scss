@@ -1,12 +1,5 @@
-$base-color: #6567AB;
+@import '/Users/anthony/necessitie/client/src/_variables.scss';
 
-// body {
-//   font-family: Ubu;
-//   font-style: normal;
-//   font-weight: normal;
-//   font-size: 1.6rem;
-//   line-height: 21px;
-// }
 
 .App {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -17,21 +10,32 @@ $base-color: #6567AB;
   line-height: 21px;
   color: $base-color;
   padding-top: 48px;
+  @media only screen and (min-width: 600px) { 
+    font-size: 5rem;
+  }
 
   
   h1 {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-
     font-weight: 1100;
     font-size: 1.6rem;
     line-height: 2.4rem;
     color: #FFFFFF;
+    @media only screen and (min-width: 600px) { 
+      font-size: 5rem;
+      line-height: 6rem;
+    }
+    
   }
   
   h2 {
     font-size: 1.43rem;
     line-height: 1.7rem;
     color: $base-color;
+    @media only screen and (min-width: 600px) { 
+      font-size: 3.3rem;
+      line-height: 4rem;
+    }
   }
   
   h3 {
@@ -48,6 +52,10 @@ $base-color: #6567AB;
   p {
     line-height: 1.3rem;
     font-size: 1.1rem;
+    @media only screen and (min-width: 600px) { 
+      font-size: 1.3rem;
+      line-height: 1.5rem;
+    }
   }
   
   .primary-color {
@@ -60,6 +68,107 @@ $base-color: #6567AB;
   
   .tertiary-color {
     background: #E84702;
+  }
+
+  .page {
+    padding-left: 14vw;
+    padding-right: 14vw;
+    text-align: left;
+    @media only screen and (min-width: 600px) { 
+      padding-left: 10vw;
+      padding-right: 10vw;
+      // background-color: red !important;
+    }
+  }
+
+  .landing-page{
+    // background: $primary-color;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    min-height: 100vh;
+
+    .landing-pic {
+      width: 176%;
+      transform: translateX(-38%);
+    }
+    // @include respond-to ('large') {
+    //   height: 488px;
+    // }
+    .primary-content {
+      position: relative;
+      padding-top: 6vh;   
+      // padding: 2rem;
+      font-style: normal;
+      font-weight: 700;
+      text-align: center;
+      
+      color: #FFFFFF;
+
+      h1 {
+        padding-bottom: 3vh;
+        text-align: left;
+        font-weight: 1200;
+      }
+      div {
+        padding-bottom: 4vh;
+        text-align: left;
+      }
+      // @media only screen and (min-width: 600px) { 
+
+      // @include respond-to ('medium') {
+      //   background:red;
+      //   position: absolute;
+      //   height: 152px;
+      //   text-align: left;
+      //   left: 10.42%;
+      //   right: 40.97%;
+      //   //top: calc(50% - 152px/2 - 109.5px);
+      //   top: 114px;
+      //   width: 700px;
+      //   font-weight: normal;
+      //   font-size: 4rem;
+      //   line-height: 4.6rem;
+      //   color: #FFFFFF;
+  
+      // }
+    }
+    .secondary-content {
+      p {
+        color: #FFFFFF;
+        line-height: 1.4rem;
+        margin-top: 4vh;
+      }
+      .work-together-btn {
+        font-size:1.3rem;
+        height: 5.5vh;
+        padding: 1rem 1.5rem;
+        width: 100%;
+        border-radius: 10px;
+        background-color: $action-color; //$action-color
+        color: #FFFFFF;
+        margin-top: 3.5vh;
+        box-shadow: -.5px 3px 5px rgba(0,0,0,0.3);
+      }
+    }
+    .secondary-text {
+      position: relative;
+      font-style: normal;
+      font-weight: normal;
+      /* or 150% */
+      text-align: center;
+  
+      color: #FFFFFF;
+      // @include respond-to ('large') {
+      //   position: absolute;
+      //   text-align: left;
+      //   height: 85px;
+      //   width: 576px;
+      //   left: 10.45%;
+      //   top: 400px;
+      //   color: #FFFFFF;
+      //   font-size: 17px;
+      //   line-height: 24px;
+      // }
+    }
   }
 }
 

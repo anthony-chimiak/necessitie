@@ -1,34 +1,7 @@
-// @use '/client/src/variables';
+@import '/Users/anthony/necessitie/client/src/_variables.scss';
 
-$breakpoints: (
-  'small':  ( min-width:  480 ),
-  'medium': ( min-width:  768 ),
-  'large':  ( min-width: 1024 )
-) !default;
-
-$base-color: #6567AB; 
-$secondary-color: #FED2B8;
-$off-base-color: #6B6EDB;
-$off-secondary-color: #FFF1E9;
-
-@mixin respond-to($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media #{inspect(map-get($breakpoints, $breakpoint))} {
-      @content;
-    }
-  }
-   @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-        + "Available breakpoints are: #{map-keys($breakpoints)}.";
-  }
-}
 
 .home {
-  .page {
-    padding-left: 14vw;
-    padding-right: 14vw;
-    text-align: left;
-  }
   .landing-page{
     // background: $primary-color;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -37,9 +10,14 @@ $off-secondary-color: #FFF1E9;
     .landing-pic {
       width: 176%;
       transform: translateX(-38%);
+      @media only screen and (min-width: 600px) { 
+        width: 100%;
+        position: absolute;
+      }
     }
     @include respond-to ('large') {
       height: 488px;
+      color: red !important;
     }
     .primary-content {
       position: relative;
@@ -86,10 +64,17 @@ $off-secondary-color: #FFF1E9;
       }
     }
     .secondary-content {
+      @media only screen and (min-width: 600px) { 
+        width: 50%;
+      }
       p {
         color: #FFFFFF;
         line-height: 1.4rem;
         margin-top: 4vh;
+        @media only screen and (min-width: 600px) { 
+          line-height: 1.7rem;
+        } 
+        
       }
       .work-together-btn {
         font-size:1.3rem;
@@ -97,10 +82,16 @@ $off-secondary-color: #FFF1E9;
         padding: 1rem 1.5rem;
         width: 100%;
         border-radius: 10px;
-        background-color: #FF900E; //$action-color
+        background-color: $action-color; //$action-color
         color: #FFFFFF;
         margin-top: 3.5vh;
         box-shadow: -.5px 3px 5px rgba(0,0,0,0.3);
+        @media only screen and (min-width: 600px) { 
+          width: auto;
+          padding: 3.5vh 2.3vw;
+          height: auto;
+          // background-color: ;
+        }
       }
     }
     .secondary-text {
@@ -130,6 +121,10 @@ $off-secondary-color: #FFF1E9;
     padding-bottom: 8vh;
     .primary-content {      
       text-align: left;
+      @media only screen and (min-width: 600px) { 
+        width: 40%;
+        display: inline-block;
+      }
       .share-header {
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         // text-align: left;
@@ -138,6 +133,10 @@ $off-secondary-color: #FFF1E9;
       }
     }
     .secondary-content {
+      @media only screen and (min-width: 600px) { 
+        display: inline-block;
+        width: 40%;
+      }
       text-align: left;
     }
 
@@ -147,12 +146,11 @@ $off-secondary-color: #FFF1E9;
     text-align: left;
     padding-top: 3.5vh;
     padding-bottom: 3.5vh;
-    .primary-content {
-      
+    .primary-content {  
       .services-header {
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       }
-      }
+    }
     .secondary-content {
       .single-service {
         .feature-service {
@@ -189,17 +187,27 @@ $off-secondary-color: #FFF1E9;
           grid-row-gap: 3rem;
           text-align: left;
           vertical-align: middle;
+          @media only screen and (min-width: 600px) { 
+            width: 60%;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-auto-rows: auto;
+
+          }
           .industry-card {
             
             padding: 5px 10px;
             font-weight: 700;
             border-radius: 9px;
             font-size: 1.1rem;
+            @media only screen and (min-width: 600px) { 
+              font-size: 1.7rem;
+              font-weight: 500;
+              padding: 1.1vh 1.4vw;
+            }
             &.active {
               background-color: #6567AB;
               color: white;
               box-shadow: -.5px 3px 5px rgba(0,0,0,0.3);
-              
             }
             &:hover {
               background-color: #6567AB;
@@ -221,7 +229,6 @@ $off-secondary-color: #FFF1E9;
     p {
       font-size: 1rem;
     }
-    // display: none;
     .primary-content{
       margin-bottom: 4vh;
       .technologies-header {
@@ -397,3 +404,4 @@ $off-secondary-color: #FFF1E9;
     }
   }
 }
+

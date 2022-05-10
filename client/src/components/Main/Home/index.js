@@ -10,6 +10,7 @@ import lodgiqEx from "./../../../assets/images/Lodgiq-example.png"
 import medidataEx from "./../../../assets/images/Medidata-example.png"
 import twineEx from "./../../../assets/images/twine-example.png"
 import MobileCarousel from './MobileCarousel';
+import ContactUs from '../ContactUs/ContactUs.js';
 import './home.scss'
 
 export const Home = (props) => {
@@ -55,7 +56,7 @@ export const Home = (props) => {
         },
     ];
 
-    const servicesJSX = [
+    const servicesData = [
         {
             name: 'React Developers',
             img: '',
@@ -77,6 +78,22 @@ export const Home = (props) => {
             text: "Quality Analysts and Test Engineers specializing in automated testing, continuous deployment, and process implementation."
         },
     ];
+
+    const servicesJSX = servicesData.map(x => {
+        return (
+            <div className="single-service" key={x.name}>
+                <img src={x.img}/>
+                <h4 className="feature-service">{x.name}</h4>
+                <p>{x.text}</p>
+            </div>
+        )
+    });
+
+    // const servicesJSX = servicesData.map(x => {
+    //     return (
+    //         <div
+    //     )
+    // })
 
     
 
@@ -194,7 +211,8 @@ export const Home = (props) => {
                     <h2 className="services-header">Our speciality services</h2>
                 </div>
                 <div className="secondary-content">
-                    {servicesJSX.map(x => {
+                    {servicesJSX}
+                    {/* {servicesData.map(x => {
                         return (
                             <div className="single-service" key={x.name}>
                                 <img src={x.img}/>
@@ -202,7 +220,7 @@ export const Home = (props) => {
                                 <p>{x.text}</p>
                             </div>
                         )
-                    })}
+                    })} */}
                 </div>
             </div>
             <div className="examples-page page">
@@ -269,14 +287,13 @@ export const Home = (props) => {
                     })}
                 </div>
             </div>
-            <div className="contact-page page">
+            <ContactUs/>
+            {/* <div className="contact-page page">
                 <h2 className="contact-header">Want to talk about your project?</h2>
                 <p>We’re here to connect you with great developers perfect for your roles</p>
-                {/* <div className="contact-us-wrapper"> */}
                     
                     <div className="secondary-content">
                         <Form className="contact-form">
-                            {/* <Form.Group> */}
                                 <Form.Field
                                     id='form-input-control-error-email'
                                     className="form-email"
@@ -298,7 +315,6 @@ export const Home = (props) => {
                                     label='How can we help you?'
                                     placeholder="Give us some details about your project"
                                     />
-                                {/* </Form.Group> */}
                                 <Form.Field
                                     id='form-button-control-public'
                                     className="submit-button"
@@ -308,8 +324,6 @@ export const Home = (props) => {
                         </Form>
                     </div>
                     <div className="primary-content">
-                        {/* <h3 className="contact-subheader">We'd love to hear from you</h3> */}
-                        {/* <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>    */}
                         <div className="location-row address">
                             <LocationOnIcon/>
                             <span>88 Starr Street, Brooklyn NY</span>
@@ -323,8 +337,7 @@ export const Home = (props) => {
                             <a href="mailto:anthony@necessitie.com">anthony@necessitie.com</a>
                         </div>
                     </div>
-                {/* </div> */}
-            </div>
+            </div> */}
         </div>
     )
 }

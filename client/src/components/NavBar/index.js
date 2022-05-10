@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem';
@@ -83,23 +84,20 @@ export const NavBar = (props) => {
             <span id="back-to-top-anchor"></span>
             <HideOnScroll {...props}>
               <AppBar color="navbar">
-                <Toolbar variant="dense" id="back-to-top-anchor">
-                  <Box display='flex' flexGrow={1}>
-                    <Typography variant="h6" color="inherit" component="div">
-                      <span className="title-first-letter">n</span><span className="title-e-letter">e</span><span className="title-c-letter">c</span><span className="title-e-letter">e</span>ssiti<span className="title-e-letter">e</span>
-                    </Typography>
-                    {/* <Box sx={{ flexGrow: 1 }} /> */}
-                    {/* <Box sx={{ display: { xs: 'flex', md: 'flex' } }}> */}
-                    <IconButton edge="end" color="action" aria-label="menu" sx={{ mr: 2 }}>
+                <Toolbar variant="dense" disableid="back-to-top-anchor">
+                <IconButton edge="end" color="action" aria-label="menu" sx={{ mr: 2 }} onClick={handleClick}>
                       <MenuIcon
                           id="main-menu-dropdown-button"
                           aria-controls={open ? 'main-menu-dropdown' : undefined}
                           aria-haspopup="true"
                           aria-expanded={open ? 'true' : undefined}
-                          onClick={handleClick}
+                          
                       />
-                  </IconButton>
-                  </Box>
+                  </IconButton> 
+                    <Typography variant="h6" color="inherit" component="div">
+                      <span className="title-first-letter">n</span><span className="title-e-letter">e</span><span className="title-c-letter">c</span><span className="title-e-letter">e</span>ssiti<span className="title-e-letter">e</span>
+                    </Typography>
+
                   
                   <Menu
                       id="main-menu-dropdown"
