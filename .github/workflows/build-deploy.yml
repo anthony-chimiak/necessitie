@@ -29,6 +29,11 @@ jobs:
       run: npm run build
       env:
          CI: ""
+   
+    - name: Deploy project
+      run: npm run deploy
+      env:
+         CI: ""
 
     - name: Upload production-ready build files
       uses: actions/upload-artifact@v2
