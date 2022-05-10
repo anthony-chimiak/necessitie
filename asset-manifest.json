@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.de1173bc.chunk.css",
-    "main.js": "/static/js/main.9eafa57c.chunk.js",
-    "main.js.map": "/static/js/main.9eafa57c.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.083b906a.js",
-    "runtime-main.js.map": "/static/js/runtime-main.083b906a.js.map",
+    "main.css": "/static/css/main.071f87b5.chunk.css",
+    "main.js": "/static/js/main.b6518152.chunk.js",
+    "main.js.map": "/static/js/main.b6518152.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.5a9903c9.js",
+    "runtime-main.js.map": "/static/js/runtime-main.5a9903c9.js.map",
     "static/css/2.d97c81c1.chunk.css": "/static/css/2.d97c81c1.chunk.css",
-    "static/js/2.4f017933.chunk.js": "/static/js/2.4f017933.chunk.js",
-    "static/js/2.4f017933.chunk.js.map": "/static/js/2.4f017933.chunk.js.map",
-    "static/js/3.7ffcc561.chunk.js": "/static/js/3.7ffcc561.chunk.js",
-    "static/js/3.7ffcc561.chunk.js.map": "/static/js/3.7ffcc561.chunk.js.map",
+    "static/js/2.0c9166c0.chunk.js": "/static/js/2.0c9166c0.chunk.js",
+    "static/js/2.0c9166c0.chunk.js.map": "/static/js/2.0c9166c0.chunk.js.map",
+    "static/js/3.f93b8d54.chunk.js": "/static/js/3.f93b8d54.chunk.js",
+    "static/js/3.f93b8d54.chunk.js.map": "/static/js/3.f93b8d54.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.d97c81c1.chunk.css.map": "/static/css/2.d97c81c1.chunk.css.map",
-    "static/css/main.de1173bc.chunk.css.map": "/static/css/main.de1173bc.chunk.css.map",
-    "static/js/2.4f017933.chunk.js.LICENSE.txt": "/static/js/2.4f017933.chunk.js.LICENSE.txt",
+    "static/css/main.071f87b5.chunk.css.map": "/static/css/main.071f87b5.chunk.css.map",
+    "static/js/2.0c9166c0.chunk.js.LICENSE.txt": "/static/js/2.0c9166c0.chunk.js.LICENSE.txt",
     "static/media/Lodgiq-example.c6cd063a.png": "/static/media/Lodgiq-example.c6cd063a.png",
     "static/media/Medidata-example.9385a558.png": "/static/media/Medidata-example.9385a558.png",
     "static/media/index.css": "/static/media/Ubuntu-Regular.fbdecfce.ttf",
@@ -22,10 +22,10 @@
     "static/media/twine-example.f3e68b61.png": "/static/media/twine-example.f3e68b61.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.083b906a.js",
+    "static/js/runtime-main.5a9903c9.js",
     "static/css/2.d97c81c1.chunk.css",
-    "static/js/2.4f017933.chunk.js",
-    "static/css/main.de1173bc.chunk.css",
-    "static/js/main.9eafa57c.chunk.js"
+    "static/js/2.0c9166c0.chunk.js",
+    "static/css/main.071f87b5.chunk.css",
+    "static/js/main.b6518152.chunk.js"
   ]
 }
