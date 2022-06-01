@@ -221,6 +221,10 @@
         margin-left: 2vw;
         text-align: left;
         width: 70%;
+        .action-btn {
+          width: auto;
+          padding: 2.5vh 4vw;
+        }
       }
       .secondary-content {
         .industries-div {
@@ -261,12 +265,26 @@
       .primary-content {
         width: 50%;
         margin-bottom: 10vh;
+        margin-top: 8vh;
+        text-align: left;
+        h2 {
+          text-align: left;
+        }
+        h4 {
+          font-size: 1.8rem;
+        }
+        p {
+          font-size: 1.3rem;
+        }
       }
       .secondary-content {
         width: 50%;
       }
       h4 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+      }
+      p {
+        font-size: 1.3rem;
       }
     }
   }
@@ -282,6 +300,7 @@
     color: $off-base-color;
     text-align: center;
     padding: 5vh 8vw;
+    background-color: #FFFFFF;
     p {
       font-size: 1rem;
     }
@@ -313,7 +332,12 @@
       .primary-content {
         display: flex;
         margin-top: 5vh;
-
+        margin-bottom: 8vh;
+        gap: 4vw;
+        p {
+          font-size: 1.3rem;
+          padding-top: 2vh;
+        }
       }
       .secondary-content {
         .tech-flex-cont {
@@ -325,6 +349,8 @@
           padding: 5vh 4.5vw;
           border-radius: 30px;
           gap: 3vw;
+          backdrop-filter: blur(20px);
+          box-shadow: 1px 0px 24px 0 rgba(0,0,0,.25);
           .single-tech {
             border-right: 4px solid rgba(255,255,255,.20);
             padding-bottom: 10vh;

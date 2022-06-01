@@ -38,10 +38,10 @@ const singleServiceJSX = singleServicesData.map(x => (
 function Services(props) {
     return(
     <div className="services">
-        <div className="landing-page primary-color page">
+        <div className="landing-page page">
 
         <div className="primary-content">
-                    <h1>Outsource to developers specialized to your needs</h1>
+            <h1>Our Speciality Services</h1>
                 </div>
                 <div className="secondary-content" >
                     <p>Necessitie can provide you with top developers that have skills focused on your needs so you know they will be able to excel at the tasks you throw at them.</p>
@@ -50,14 +50,29 @@ function Services(props) {
         </div>
         <div className="intro-page page">
             <div className="primary-content">
-                <h3>Services Intro</h3>
+                <h3>Our Custom Software Development Services</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
- Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+ <br/>Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
             </div>
             <div className="secondary-content">
-                <h3>Title</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
+        </div>
+        <div className="background-triangle intro"></div>
+        <div className="webdev-page page">
+            <div className='primary-content'>
+                <h3>Web Development</h3>
+                <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
+            </div>
+            <div className='secondary-content'></div>
+        </div>
+        <div className=" page">
+            <div className='primary-content'></div>
+            <div className='secondary-content'></div>
+        </div>
+        <div className=" page">
+            <div className='primary-content'></div>
+            <div className='secondary-content'></div>
         </div>
         {singleServiceJSX}
         <div className="process-page page">

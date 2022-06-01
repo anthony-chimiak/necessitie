@@ -15,7 +15,8 @@ export const Main = (props) => {
     return (
         <div className="main-div">
             <Routes>
-                <Route exact path="/" element={<Home />}/>
+                {/* <Route exact path="/" element={<Home />}/> */}
+                <Route exact path="/" element={<Services />}/>
                 <Route path="/services" element={<Services />}/> 
                 <Route path="/technologies" element={<Technologies />}/>
                 <Route path="/industries" element={<Industries />}/>

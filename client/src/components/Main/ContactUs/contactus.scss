@@ -39,6 +39,7 @@
       padding: 12vh 5vw 5vh 10vw;
       .contact-header {
         width: 50%;
+        color: $off-base-color;
       }
       .contact-flex-cont {
         display: flex;
@@ -50,14 +51,19 @@
       }
       .primary-content {
         width: 45%;
-        .contact-form {
-          .field {
-            width: 75%;
-            margin: auto;
-            padding-bottom: 10px;
-            padding-top: 10px;
-
+        .address {
+          span, a {
+            font-size: 1.3rem;
+            margin-left: 1vw;
           }
+          svg {
+            transform: translateY(4px);
+          }
+        }
+        p {
+          font-size: 1.4rem;
+          font-weight: bold;
+          margin-bottom: 5vh;
         } 
       }
       .secondary-content {
@@ -77,6 +83,7 @@
             &.submit-button {
               width: 14vw;
               flex-grow: 0;
+              box-shadow: 1px 0px 4px 0 rgba(0,0,0,.25);
             }
             label {
               margin-bottom: 3vh;

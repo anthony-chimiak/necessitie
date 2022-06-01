@@ -1,7 +1,31 @@
 @import '../client/src/_variables.scss';
-
+@import '../client/src/_mixins.scss';
 
 .services {
+  p {
+    line-height: 150%;
+  }
+  .landing-page {
+    background-color: $off-secondary-color;
+    text-align: center;
+    h1 {
+      padding: 3vh 8vw;
+      
+    }
+  }
+  .intro-page {
+    background-color: #FFFFFF;
+    color: $text-color;
+    padding: 6vh 12vw;
+  }
+  .background-triangle.intro {
+    border-color: #FFFFFF transparent transparent transparent;
+  }
+  .webdev-page {
+    background-color: $base-color;
+  }
+
+
   .single-service {
     padding: 5vh 13vw;
   }

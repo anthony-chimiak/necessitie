@@ -114,7 +114,7 @@
   background-color: $base-color;
   border-color: #FFFFFF transparent transparent transparent;
   @include respond(tablet) {
-    border-width: 20vh 46vw 0 46vw;
+    border-width: 15vh 46vw 0 46vw;
     border-color: $off-secondary-color transparent transparent transparent;
   }
 }
