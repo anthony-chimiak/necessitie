@@ -2,19 +2,19 @@ import React from 'react';
 import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
 import ContactUs from '../ContactUs/ContactUs';
 
-import './industries.scss'
+import './technologies.scss'
 
-function Industries(props) {
+function Technologies(props) {
     return (
-    <div className='industries-page'>
+    <div className='technologies-page'>
         <div className="landing-page primary-color page">
 
         <div className="primary-content">
-            <h1>Industries</h1>
+            <h1>Technologies</h1>
         </div>
         <div className="secondary-content" >
             <p>Necessitie can provide you with top developers that have skills focused on your needs so you know they will be able to excel at the tasks you throw at them.</p>
-            <Button className="action-btn">Let's work together</Button>
+            <Button className="work-together-btn">Let's work together</Button>
         </div>
         </div>
         <div className="intro-page page">
@@ -33,4 +33,4 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
     )
 }
 
-export default Industries;
+export default Technologies;

@@ -15,12 +15,13 @@ import './home.scss'
 
 export const Home = (props) => {
     const industriesList = ['FinTech', 'EdTech', 'Hospitality', 'Medical'];
+    const [selIndustry, setSelIndustry] = useState(industriesList[0]);
     const [activeStep, setActiveStep] = React.useState(0);
     const technologyJSX = [
         {
             name: 'Android',
             img: 'https://freeiconshop.com/wp-content/uploads/edd/android-flat.png',
-            text: "Lorem ipsum dolor sit amet, consectetur a elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
             id: 1
         },
         {
@@ -82,47 +83,59 @@ export const Home = (props) => {
         return (
             <div className="single-service" key={x.name}>
                 <img src={x.img}/>
-                <div className="border-cont">
-                    <h3 className="feature-service">{x.name}</h3>
-                    <p>{x.text}</p>
-                </div>
-            </div>
-        )
-    });    
-
-    const industriesData = [
-        {
-            name: "FinTech",
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ",
-        },
-        {
-            name: 'EdTech',
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ",
-        },
-        {
-            name: 'Hospitality',
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ",
-        },
-        {
-            name: 'Medical',
-            img: '',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ",
-        }
-    ];
-
-    const industriesJSX = industriesData.map(x => 
-        <div>
-            <img src={x.img}></img>
-            <div className="industry-card">
-                <h2>{x.name}</h2>
+                <h4 className="feature-service">{x.name}</h4>
                 <p>{x.text}</p>
             </div>
-        </div>
-    );
+        )
+    });
 
+    // const servicesJSX = servicesData.map(x => {
+    //     return (
+    //         <div
+    //     )
+    // })
+
+    
+
+    const industriesData = {
+        FinTech: {
+            img: '',
+            text: "Test for FinTech",
+        },
+        EdTech: {
+            img: '',
+            text: "Test for FinTech",
+        },
+        Hospitality: {
+            img: '',
+            text: "Test for FinTech",
+        },
+        Medical: {
+            img: '',
+            text: "Test for FinTech",
+        }
+    };
+        // {
+        //     name: 'FinTech',
+        //     img: '',
+        //     text: "Test for FinTech",
+        // },
+        // {
+        //     name: 'EdTech',
+        //     img: '',
+        //     text: "Test for EdTech",
+        // },
+        // {
+        //     name: 'Hospitality',
+        //     img: '',
+        //     text: "Test of Hospitality",
+        // },
+        // {
+        //     name: 'Medical',
+        //     img: '',
+        //     text: "Test for Medical",
+        // },
+    // ];
 
     let technologiesTable = technologyJSX.map((tech) => (
         <CardComponent
@@ -132,8 +145,16 @@ export const Home = (props) => {
         />
     ))
 
+    let industryListJSX = industriesList.map((industry) => 
+        {
+            let active = (industry === selIndustry)?true:false;
+            // debugger;
+            return <div className={"industry-card " + (active?"active":'')} onClick={(e)=>setSelIndustry(industry)} key={industry}>{industry}</div>
+        }
+    );
+
     const learnMoreJSX = (
-        <div className="learn-more mobile">
+        <div className="learn-more">
             <span className='learn-more'>Learn More</span>
             <ArrowForwardIcon/>
         </div>
@@ -160,19 +181,18 @@ export const Home = (props) => {
         },
       ];
 
+    // let industriesJSX = [];
 
     return (
-        <div className="home main-content">
-            <div className="landing-page secondary-color page">
+        <div className="home">
+            <div className="landing-page primary-color page">
                 <div className="primary-content">
                     <h1>Outsource to developers specialized to your needs</h1>
-                    {/* <img src={landingPic} className="landing-pic"/> */}
+                    <img src={landingPic} className="landing-pic"/>
                 </div>
                 <div className="secondary-content" >
                     <p>Necessitie can provide you with top developers that have skills focused on your needs so you know they will be able to excel at the tasks you throw at them.</p>
-                    <Button className="action-btn">Let's work together</Button>
-                    <Button className="action-btn outline tablet">Get a quote</Button>
-
+                    <Button className="work-together-btn">Let's work together</Button>
                     
                 </div>
             </div>
@@ -182,28 +202,26 @@ export const Home = (props) => {
                 </div>
                 
                 <div className="secondary-content">
-                    <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br className="mobile"/><br/>
+                    <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br/><br/>
                         A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust. </p>
                 </div>
             </div>
-            <div className="background-triangle"></div>
             <div className="services-page page">
-                
                 <div className="primary-content">
-                    <div className='services-primary-container'>
-                        <h2 className="services-header">Our speciality services</h2>
-                        <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
-                        <Button className="action-btn">See All Services</Button>
-                    </div>
+                    <h2 className="services-header">Our speciality services</h2>
                 </div>
                 <div className="secondary-content">
-                    <div className="services-container">
-                        {servicesJSX}
-                    </div>
+                    {servicesJSX}
+                    {/* {servicesData.map(x => {
+                        return (
+                            <div className="single-service" key={x.name}>
+                                <img src={x.img}/>
+                                <h4 className="feature-service">{x.name}</h4>
+                                <p>{x.text}</p>
+                            </div>
+                        )
+                    })} */}
                 </div>
-            </div>
-            <div className="graph-page page">
-
             </div>
             <div className="examples-page page">
                 <h2>Here's are some of the projects out team has worked on</h2>
@@ -214,15 +232,18 @@ export const Home = (props) => {
             <div className="industries-page page">
                 <div className="primary-content">
                 <h2 className="industries-header">We work across many industries</h2>
-                <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
-                <Button className="action-btn outline">Get a quote</Button>
-
-                    
+                    <p>While happy to work on any project you put before us, Necessitie has considerable experience in the following industries.</p>
+                    <div className="industries-div">
+                        <div className="industries-list">{industryListJSX}</div>
+                        
+                        <div>
+                            <h3>{selIndustry}</h3>
+                            <p>{industriesData[selIndustry].text}</p>
+                        </div>
+                    </div>
                 </div>
                 <div className="secondary-content">
-                <div className="industries-div">
-                        {industriesJSX}
-                    </div>
+                {learnMoreJSX}
                 </div>
                 
             </div>
@@ -232,19 +253,18 @@ export const Home = (props) => {
                     <img/>
                     <h4>Full team software outsourcing</h4>
                     <p>Necessitie has a range of scalable possibilities to meet your products needs.  Full independent front-end, back-end, or QA team? We will have that, joining in on meetings where you feel appropriate.</p>
-                    <br className='mobile'/> 
+                    <br/> 
                     <p>If you need to scale up, we can move to full service team, handling design and devops as well.</p>
                 </div>
                 <div className="secondary-content">
-                    <h4>IT staff augmentation</h4>
+                    <h3>IT staff augmentation</h3>
                     <p>Necessitie can help place people who know how to work in existing teams, right into yours.
-                    <br className='mobile'/><br/>Fast, efficient software developers, UI/UX designers, and QA/Sdet personelle at your fingertips. 
-                    <br className='mobile'/><br/>Avoid sourcing and recruitment issues.</p>
+                    <br/><br/>Fast, efficient software developers, UI/UX designers, and QA/Sdet personelle at your fingertips. 
+                    <br/><br/>Avoid sourcing and recruitment issues.</p>
                     {learnMoreJSX}
                 </div>
                 
             </div>
-            <div className="background-triangle tablet products"></div>
             <div className="technologies-page page">
                 <div className="primary-content">
                     <h2 className="technologies-header">Technologies</h2>
@@ -252,40 +272,19 @@ export const Home = (props) => {
                     {/* <button>Get a Quote</button> */}
                 </div>
                 <div className="secondary-content">
-                    <div className="technologies-list mobile">
-                        {technologyJSX.map(x => {
-                            return (
-                                <div className="single-tech" key={x.name}>
-                                    {/* <img src={x.img}/> */}
-                                    <h4 className="single-tech-name">{x.name}</h4>
-                                    <p>{x.text}</p>
-                                </div>
-                            )
-                        })}
-                    </div>
-                    <div className="tech-flex-cont tablet">
-                        {technologyJSX.slice(0,3).map(x => {
-                            return (
-                                <div className="single-tech" key={x.name}>
-                                    {/* <img src={x.img}/> */}
-                                    <h4 className="single-tech-name">{x.name}</h4>
-                                    <p>{x.text}</p>
-                                </div>
-                                )
-                            })}                        
-                        </div>
-                    <div className="tech-flex-cont tablet">
-                        {technologyJSX.slice(3,6).map(x => {
-                            return (
-                                <div className="single-tech" key={x.name}>
-                                    {/* <img src={x.img}/> */}
-                                    <h4 className="single-tech-name">{x.name}</h4>
-                                    <p>{x.text}</p>
-                                </div>
-                            )
-                        })}
-                    </div>
-                   
+                    {/* <Card.Group itemsPerRow={3}>
+                        {technologiesTable}
+                    </Card.Group> */}
+                    {/* REPLACED OLD MAPPING WITH COMPONENT MAPPING/ REUSABLE WITH OTHER TABLES} */}
+                    {technologyJSX.map(x => {
+                        return (
+                            <div className="single-tech" key={x.name}>
+                                <img src={x.img}/>
+                                <h4 className="single-tech-name">{x.name}</h4>
+                                <p>{x.text}</p>
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
             <ContactUs/>

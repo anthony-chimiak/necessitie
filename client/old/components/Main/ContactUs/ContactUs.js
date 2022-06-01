@@ -12,8 +12,7 @@ function ContactUs() {
     return (
         <div className="contact-page page">
         <h2 className="contact-header">Want to talk about your project?</h2>
-        <p className="mobile">We’re here to connect you with great developers perfect for your roles</p>
-        <div className="contact-flex-cont">
+        <p>We’re here to connect you with great developers perfect for your roles</p>
             <div className="secondary-content">
                 <Form className="contact-form">
                         <Form.Field
@@ -46,21 +45,19 @@ function ContactUs() {
                 </Form>
             </div>
             <div className="primary-content">
-                <p className="tablet">We’re here to connect you with great developers perfect for your roles</p>
                 <div className="location-row address">
                     <LocationOnIcon/>
                     <span>88 Starr Street, Brooklyn NY</span>
                 </div>
                 <div className="phone-row address">
                     <PhoneIcon/>
-                    <span onClick={() => {navigator.clipboard.writeText('16464348865')}}>1-646-434-8865</span>
+                    <span onClick={() => {navigator.clipboard.writeText('14437649308')}}>1-443-764-9308</span>
                 </div>
                 <div className="email-row address">
                     <EmailIcon/>
                     <a href="mailto:anthony@necessitie.com">anthony@necessitie.com</a>
                 </div>
             </div>
-        </div>
         {/* </div> */}
     </div>
     )

@@ -1,62 +1,95 @@
 
 @import '../client/src/_variables.scss';
+@import '../client/src/_mixins.scss';
 
-.contact-page {
-  background-color: $off-secondary-color;
-  padding-top: 8vh;
-  padding-bottom: 10vh;  
-  .contact-header {
-    font-family: Ubu;
-  }
-  .address {
-    margin-bottom: 2vh;
-    span, a {
-      margin-left: 4vw;
-      .phone-row, .email-row {
-        cursor: pointer;
-      }
+.App {
+  .contact-page.page {
+    background-color: $base-color;
+    color: $off-base-color;
+    padding: 8vh 8vw;
+    .contact-header {
+      color: $highlight-base-color;
     }
-  }
-  .secondary-content {
-    .contact-form {
-      margin-bottom: 5vh;
-      label {
-        color: #6B6EDB;
-        font-size: 1.1rem;
-      }
-      .submit-button {
-        button {
-          width: 100%;
-          background-color: #FF560E; //$submit-color
-          color: #FFFFFF;
+    .address {
+      margin-bottom: 2vh;
+      span, a {
+        margin-left: 4vw;
+        .phone-row, .email-row {
+          cursor: pointer;
         }
-      }
-    }
-  }
-  @include respond-to ('medium') {
-    .primary-content {
-      width: 50%;
-      float: left;
-      padding: 4px;
-      .contact-subheader {
-        font-family: Ubu;
       }
     }
     .secondary-content {
-      float: right;
-      width: 50%;
-      border-radius: 15px;
-      
       .contact-form {
-        .field {
-          width: 75%;
-          margin: auto;
-          padding-bottom: 10px;
-          padding-top: 10px;
+        margin-bottom: 5vh;
+        label {
+          color: $highlight-base-color;
+          font-size: 1.1rem;
+        }
+        .submit-button {
+          button {
+            width: 100%;
+            background-color: #FF560E; //$submit-color
+            color: #FFFFFF;
+          }
+        }
+      }
+    }
+    @include respond('tablet') {
+      padding: 12vh 5vw 5vh 10vw;
+      .contact-header {
+        width: 50%;
+      }
+      .contact-flex-cont {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        // align-items: flex-end;
+        gap: 6vw;
+
+      }
+      .primary-content {
+        width: 45%;
+        .contact-form {
+          .field {
+            width: 75%;
+            margin: auto;
+            padding-bottom: 10px;
+            padding-top: 10px;
+
+          }
+        } 
+      }
+      .secondary-content {
+        flex-grow: 4;
+        .contact-form {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 3vw;
+          row-gap: 3vh;
+          padding-right: 4vw;
+          .field {
+            width: 46%;
+            flex-grow:2;
+            &.form-opinion {
+              width: 96%;
+            }
+            &.submit-button {
+              width: 14vw;
+              flex-grow: 0;
+            }
+            label {
+              margin-bottom: 3vh;
+            }
+            input {
+              
+            }
+          }
+
 
         }
-      } 
+      }
     }
+    
   }
-  
 }
