@@ -5,12 +5,17 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
-import landingPic from "./../../../assets/images/necessitie-main-image.png"
+
+import MobileCarousel from './MobileCarousel';
+import ContactUs from '../ContactUs/ContactUs.js';
+
+//IMAGES
+import landingPic from "./../../../assets/images/landing-guy.png"
 import lodgiqEx from "./../../../assets/images/Lodgiq-example.png"
 import medidataEx from "./../../../assets/images/Medidata-example.png"
 import twineEx from "./../../../assets/images/twine-example.png"
-import MobileCarousel from './MobileCarousel';
-import ContactUs from '../ContactUs/ContactUs.js';
+
+//
 import './home.scss'
 
 export const Home = (props) => {

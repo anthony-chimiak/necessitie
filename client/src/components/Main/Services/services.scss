@@ -5,30 +5,153 @@
   p {
     line-height: 150%;
   }
+  @include respond(tablet) {
+    h3 {
+      font-size: 3rem;
+      line-height: 3.5rem;
+    }
+  }
   .landing-page {
     background-color: $off-secondary-color;
     text-align: center;
     h1 {
       padding: 3vh 8vw;
-      
+    }
+    @include respond(tablet) {
+      background-color: #FFFFFF;
+      text-align: left;
+      .primary-content {
+        h1 {
+          padding: 0vh 0vw;
+          margin-bottom: 4vh;
+        }
+      }
+      .secondary-content {
+        p {
+          width: 60%;
+        }
+        .action-btn {
+          margin-right: 3vw;
+        }
+      }
+
+
     }
   }
   .intro-page {
     background-color: #FFFFFF;
     color: $text-color;
     padding: 6vh 12vw;
+    @include respond(tablet) {
+      .primary-content {
+        display: flex;
+        gap: 3vw;
+
+        p {
+          width: 100%;
+        }
+      }
+    }
   }
   .background-triangle.intro {
     border-color: #FFFFFF transparent transparent transparent;
   }
   .webdev-page {
     background-color: $base-color;
+    @include respond(tablet) {
+      padding: 5vh 5vw;
+      .primary-content {
+        h2 {
+          margin-bottom: 6vh;
+        }
+        p {
+          width: 50%;
+        }
+      }
+    }
+  }
+  .white-spacer {
+    padding: 6vh;
+    content: "\A";
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+  }
+  .background-triangle.webdev {
+    border-color: #FFFFFF transparent transparent transparent;
+    padding-top: 4vh;
+  }
+  .design-page {
+    background-color: $base-color;
+    text-align: center;
+    @include respond(tablet) {
+      padding: 5vh 3vw;
+      text-align: left;
+      h2 {
+        margin-bottom: 6vh;
+      }
+      .primary-content {
+        display: flex;
+        div {
+          width: 50%;
+        }
+        .text-container {
+          width: 40%;
+        }
+      }
+    }
+  }
+  .qa-page {
+    background-color: $base-color;
+    text-align: center;
+    @include respond(tablet) {
+      padding: 5vh 3vw 15vh 3vw;
+      text-align: left;
+      .primary-content {
+        display: flex;
+        padding-left: 4vw;
+        h2 {
+          margin-bottom: 6vh;
+        }
+        div {
+          width: 50%;
+        }
+        .text-container {
+          width: 40%;
+        }
+      }
+    }
+  }
+  .process-page {
+    background-color: $process-color;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 7vh 15vw;
+    .primary-content {
+      h3 {
+        margin-bottom: 5vh;
+      }
+      h4 {
+        margin-bottom: 5vh;
+      }
+      .action-btn {
+        padding: 1.2rem 1.8rem;
+        width: auto;
+      }
+    }
+    @include respond(tablet) {
+      padding: 15vh 15vw;
+      .primary-content {
+        h2 {
+          margin-bottom: 8vh;
+        }
+        h4 {
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+      }
+    }
   }
 
-
-  .single-service {
-    padding: 5vh 13vw;
-  }
   .react-page {
     background-color: $off-base-color;
     color: #FFFFFF;
@@ -47,12 +170,40 @@
       color: #FFFFFF;
     }
   }
-  .qa-page {
+
+  .service-container {
+    border-radius: 30px;
     background-color: $secondary-color;
-    color: $base-color;
-  }
-  .process-page {
-    background-color: $off-base-color;
     color: #FFFFFF;
+    backdrop-filter: blur(20px);
+    box-shadow: 1px 0px 24px 0 rgba(0,0,0,.25);
+    text-align: center;
+    margin-top: 10vh;
+    padding: 5vh 16vw;
+    .single-service {
+      padding: 5vh 0vw;
+      border-bottom: 2px solid #4A4E5F;
+      &:last-child {
+        border-bottom: none;
+      }
+      h3 {
+        margin-bottom: 2.5vh;
+      }
+    }
+    @include respond(tablet) {
+      display: flex;
+      padding: 12vh 0vw;
+      text-align: left;
+      
+      .single-service {
+        border-right: 4px solid rgba(255,255,255,.20);
+        padding: 0vh 5vw;
+        border-bottom: none;
+        &:last-child {
+          border-right: none;
+          padding-left: 6vw;
+        }
+      }
+    }
   }
 }
