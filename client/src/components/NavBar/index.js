@@ -17,6 +17,10 @@ import Container from '@mui/material/Container';
 import Fab from '@mui/material/Fab';
 import { ThemeProvider } from "@mui/material/styles";
 import mainTheme from "./../Themes/themes";
+import logo from "./../../assets/images/logo_pic.png"
+import companyName from "./../../assets/images/necessitie_word_logo.png"
+
+
 
 
 
@@ -33,6 +37,8 @@ export const NavBar = (props) => {
   const handleClose = () => {
       setAnchorEl(null);
   };
+
+  const pages = ['Services', 'Industries', 'Technologies', 'Companies'];
 
     function HideOnScroll(props) {
         const { children } = props;
@@ -84,19 +90,46 @@ export const NavBar = (props) => {
             <span id="back-to-top-anchor"></span>
             <HideOnScroll {...props}>
               <AppBar color="navbar">
-                <Toolbar variant="dense" disableid="back-to-top-anchor">
-                <IconButton edge="end" color="action" aria-label="menu" sx={{ mr: 2 }} onClick={handleClick}>
-                      <MenuIcon
-                          id="main-menu-dropdown-button"
-                          aria-controls={open ? 'main-menu-dropdown' : undefined}
-                          aria-haspopup="true"
-                          aria-expanded={open ? 'true' : undefined}
-                          
-                      />
+                <Toolbar variant="dense" disableid="back-to-top-anchor" >
+                <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
+                  <img src={logo} className="logo"/>
+                  </Box>
+                  <Box                    
+                    noWrap
+                    component="a"
+                    href=""
+                    sx={{
+                      mr: 2,
+                      display: { xs: 'flex', md: 'none' },
+                      flexGrow: 1,
+                      color: 'inherit',
+                    }}
+                  >
+                  <img src={companyName} className="company-name"/>
+
+                  </Box>
+                  <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    {pages.map((page) => (
+                      <Button
+                        key={page}
+                        // onClick={handleCloseNavMenu}
+                        sx={{ my: 2, color: 'black', display: 'block' }}
+                      >
+                        {page}
+                      </Button>
+                    ))}
+                  </Box>
+                  <IconButton edge="end" color="action" aria-label="menu" sx={{  display: {xs: 'flex', md: 'none'}}} onClick={handleClick}>
+                    <MenuIcon
+                        id="main-menu-dropdown-button"
+                        aria-controls={open ? 'main-menu-dropdown' : undefined}
+                        aria-haspopup="true"
+                        aria-expanded={open ? 'true' : undefined}
+                    />
                   </IconButton> 
-                    <Typography variant="h6" color="inherit" component="div">
-                      <span className="title-first-letter">n</span><span className="title-e-letter">e</span><span className="title-c-letter">c</span><span className="title-e-letter">e</span>ssiti<span className="title-e-letter">e</span>
-                    </Typography>
+                  
+                  
+                  
 
                   
                   <Menu
@@ -106,6 +139,7 @@ export const NavBar = (props) => {
                       open={open}
                       onClose={handleClose}
                       disableScrollLock={true}
+                      className="mobile"
                   >
                       <MenuItem onClick={handleClose}>Home</MenuItem>
                       <MenuItem onClick={handleClose}>Services</MenuItem>

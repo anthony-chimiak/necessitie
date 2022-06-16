@@ -10,10 +10,19 @@ import MobileCarousel from './MobileCarousel';
 import ContactUs from '../ContactUs/ContactUs.js';
 
 //IMAGES
-import landingPic from "./../../../assets/images/landing-guy.png"
+// import landingPic from "./../../../assets/images/landing-guy.png"
 import lodgiqEx from "./../../../assets/images/Lodgiq-example.png"
 import medidataEx from "./../../../assets/images/Medidata-example.png"
 import twineEx from "./../../../assets/images/twine-example.png"
+import landingImg from "./../../../assets/images/home-landing.png" 
+import rocketImg from "./../../../assets/images/rocket.png" 
+import houseImg from "./../../../assets/images/industry-house.png" 
+import crossImg from "./../../../assets/images/industry-cross.png" 
+import pyramidImg from "./../../../assets/images/industry-pyramid.png" 
+import slabImg from "./../../../assets/images/industry-slab.png" 
+import sittingDudeImg from "./../../../assets/images/sitting-dude.png"
+import atomImg from "./../../../assets/images/atom.png"
+
 
 //
 import './home.scss'
@@ -98,34 +107,35 @@ export const Home = (props) => {
     const industriesData = [
         {
             name: "FinTech",
-            img: '',
+            img: houseImg,
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ",
         },
         {
             name: 'EdTech',
-            img: '',
+            img: pyramidImg,
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ",
         },
         {
             name: 'Hospitality',
-            img: '',
+            img: slabImg,
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ",
         },
         {
             name: 'Medical',
-            img: '',
+            img: crossImg,
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ",
         }
     ];
 
     const industriesJSX = industriesData.map(x => 
-        <div>
-            <img src={x.img}></img>
-            <div className="industry-card">
+        <>
+            <img src={x.img} className={"industry-img mobile " + x.name}></img>
+            <div className={"industry-card " + x.name}>
                 <h2>{x.name}</h2>
                 <p>{x.text}</p>
+                <img src={x.img} className={"industry-img tablet " + x.name}></img>
             </div>
-        </div>
+        </>
     );
 
 
@@ -171,15 +181,15 @@ export const Home = (props) => {
             <div className="landing-page secondary-color page">
                 <div className="primary-content">
                     <h1>Outsource to developers specialized to your needs</h1>
-                    {/* <img src={landingPic} className="landing-pic"/> */}
+                    <img src={landingImg} className="landing-img"/>
+
                 </div>
                 <div className="secondary-content" >
                     <p>Necessitie can provide you with top developers that have skills focused on your needs so you know they will be able to excel at the tasks you throw at them.</p>
                     <Button className="action-btn">Let's work together</Button>
                     <Button className="action-btn outline tablet">Get a quote</Button>
-
-                    
                 </div>
+
             </div>
             <div className="share-page page">
                 <div className='primary-content'>
@@ -193,19 +203,27 @@ export const Home = (props) => {
             </div>
             <div className="background-triangle"></div>
             <div className="services-page page">
+
                 
                 <div className="primary-content">
+                    <div className="rocket-container tablet">
+                        
+                    <img src={rocketImg} className="rocket-img"/>
+                    </div>
                     <div className='services-primary-container'>
                         <h2 className="services-header">Our speciality services</h2>
                         <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
                         <Button className="action-btn">See All Services</Button>
                     </div>
+
+
                 </div>
                 <div className="secondary-content">
                     <div className="services-container">
                         {servicesJSX}
                     </div>
                 </div>
+
             </div>
             <div className="graph-page page">
 
@@ -232,21 +250,28 @@ export const Home = (props) => {
                 
             </div>
             <div className="products-page page">
-                <div className="primary-content">
-                    <h2>How Necessitie can help you reach your goals</h2>
-                    <img/>
-                    <h4>Full team software outsourcing</h4>
-                    <p>Necessitie has a range of scalable possibilities to meet your products needs.  Full independent front-end, back-end, or QA team? We will have that, joining in on meetings where you feel appropriate.</p>
-                    <br className='mobile'/> 
-                    <p>If you need to scale up, we can move to full service team, handling design and devops as well.</p>
+                <div className="product-container">
+                    <div className="primary-content">
+                        <h2>How Necessitie can help you reach your goals</h2>
+                        <img/>
+                        <h4>Full team software outsourcing</h4>
+                        <p>Necessitie has a range of scalable possibilities to meet your products needs.  Full independent front-end, back-end, or QA team? We will have that, joining in on meetings where you feel appropriate.</p>
+                        <br className='mobile'/> 
+                        <p>If you need to scale up, we can move to full service team, handling design and devops as well.</p>
+                    </div>
+
+                    <div className="secondary-content">
+                        <h4>IT staff augmentation</h4>
+                        <p>Necessitie can help place people who know how to work in existing teams, right into yours.
+                        <br className='mobile'/><br/>Fast, efficient software developers, UI/UX designers, and QA/Sdet personelle at your fingertips. 
+                        <br className='mobile'/><br/>Avoid sourcing and recruitment issues.</p>
+                        {learnMoreJSX}
+                        <img src={sittingDudeImg} className="sitting-dude mobile"/>
+
+                    </div>
                 </div>
-                <div className="secondary-content">
-                    <h4>IT staff augmentation</h4>
-                    <p>Necessitie can help place people who know how to work in existing teams, right into yours.
-                    <br className='mobile'/><br/>Fast, efficient software developers, UI/UX designers, and QA/Sdet personelle at your fingertips. 
-                    <br className='mobile'/><br/>Avoid sourcing and recruitment issues.</p>
-                    {learnMoreJSX}
-                </div>
+                <img src={sittingDudeImg} className="sitting-dude tablet"/>
+
                 
             </div>
             <div className="background-triangle tablet products"></div>
@@ -255,6 +280,8 @@ export const Home = (props) => {
                     <h2 className="technologies-header">Technologies</h2>
                     <p>We would be happy to help you with problems in any of these areas (And beyond?)</p>
                     {/* <button>Get a Quote</button> */}
+                    <img src={atomImg} className="atom"/>
+
                 </div>
                 <div className="secondary-content">
                     <div className="technologies-list mobile">
@@ -290,7 +317,8 @@ export const Home = (props) => {
                             )
                         })}
                     </div>
-                   
+                    <img src={atomImg} className="atom mobile"/>
+
                 </div>
             </div>
             <ContactUs/>
