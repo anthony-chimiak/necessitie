@@ -21,9 +21,11 @@
     background-color: $off-secondary-color;
     color: $text-color;
     @include respond(tablet) {
-      padding: 10vh 7vw;
+      padding: 10vh 6vw 10vh 6vw;
       text-align: left;
       border-bottom: 1px solid black;
+      // display: flex;
+      // flex-wrap: wrap;
     }
     .primary-content {
       position: relative;
@@ -32,9 +34,19 @@
       font-style: normal;
       font-weight: 700;
       text-align: center;
+      .landing-img {
+        max-width: 60%;
+      }
       @include respond(tablet) {
         width: 70%;
         text-align: left;
+        .landing-img {
+          position: absolute;
+          top:6vh;
+          right: 0;
+          transform: translateX(85%);
+          max-width: 60%;
+        }
       }
       h1 {
         padding-bottom: 3vh;
@@ -45,8 +57,8 @@
         padding-bottom: 4vh;
         text-align: left;
       }
-
     }
+    
     .secondary-content {
       text-align: center;
 
@@ -126,11 +138,21 @@
       @include respond(tablet) {
         // float: right;
         display: flex;
-        justify-content: flex-end;
+        // justify-content: flex-end;
         text-align: left;
         .services-primary-container {
           width: 45%;
         }
+        .rocket-container {
+          flex-grow: 1;
+          .rocket-img {
+            position: absolute;
+            max-width: 30%;
+            transform: translate(5%, -50%);
+  
+          }
+        }
+
       }
     }
     .secondary-content {
@@ -191,15 +213,23 @@
         height: auto;
         padding: 12px;
       }
+      margin-bottom: 5vh;
 
     }
     .secondary-content {
       .industries-div {
         width: 100%;
         margin-bottom: 2.5vh;
+        .industry-img {
+          max-width: 50%;
+          &.EdTech {
+            margin-bottom: 3vh;
+          }
+        }
         .industry-card {
           background-color: $secondary-color;
           padding: 6vh 10vw;
+          margin-bottom: 9vh;
           text-align: center;
           border-radius: 30px;
           font-weight: 1000;
@@ -216,23 +246,77 @@
       }
     }
     @include respond(tablet) {
-      padding: 20vh 8vw;
+      padding: 20vh 6vw;
       .primary-content {
         margin-left: 2vw;
         text-align: left;
         width: 70%;
+        .action-btn {
+          width: auto;
+          padding: 2.5vh 4vw;
+        }
       }
       .secondary-content {
         .industries-div {
+          // width: 100%;
+          // height: 100vh;
+          // background: red;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          row-gap: 60vh;
+          // position: relative;
           .industry-card {
             text-align: left;
-            width: 30vw;
+            width: 27vw;
             padding: 3.5vh 2vw;
+            position: relative;
             h2 {
               font-size: 1.8rem;
               margin-bottom: 2vh;
               margin-top: 0;
             }
+            &.FinTech {
+              margin-top: 4vh;
+              .industry-img {
+                bottom: -10vh;
+                transform: translate(50%, 100%);
+              }
+            }
+            &.Medical {
+              order: 2;
+              margin-right: 5vw;
+              .industry-img {
+                bottom: -2vh;
+                left: -4vw;
+                transform: translate(-100%, 100%);
+
+              }
+            }
+            &.Hospitality {
+              margin-top: 30vh;
+              order: 3;
+              .industry-img {
+                top: -2vh;
+                right: -4vw;
+                transform: translate(100%, -100%);
+
+              }
+            }
+            &.EdTech {
+              order: 4;
+              margin-bottom: 20vh;
+              .industry-img {
+                top: -20vh;
+                // left: -4vw;
+                transform: translate(0%, -100%);
+  
+              }
+            }
+            .industry-img {
+              position: absolute;
+            }
+
           }
         }
       }
@@ -243,6 +327,8 @@
     padding: 10vh 10vw;
     background-color: $base-color;
     color: $off-base-color;
+    display: flex;
+    flex-wrap: wrap;
     .primary-content {
       margin-bottom: 5vh;
       h2 {
@@ -253,20 +339,45 @@
       .learn-more {
         margin-top: 3vh;
       }
+      .sitting-dude {
+        max-width: 65%;
+        transform: translateX(35%);
+      }
     }
     p {
       font-size:1rem;
     }
     @include respond(tablet) {
-      .primary-content {
+      .product-container {
         width: 50%;
+      }
+      .primary-content {
+        // width: 50%;
         margin-bottom: 10vh;
+        margin-top: 8vh;
+        text-align: left;
+        h2 {
+          text-align: left;
+        }
+        h4 {
+          font-size: 1.8rem;
+        }
+        p {
+          font-size: 1.3rem;
+        }
       }
       .secondary-content {
-        width: 50%;
+        // width: 50%;
       }
       h4 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+      }
+      p {
+        font-size: 1.3rem;
+      }
+      .sitting-dude {
+        max-width: 40%;
+        transform: translate(25%, 0%);
       }
     }
   }
@@ -282,6 +393,7 @@
     color: $off-base-color;
     text-align: center;
     padding: 5vh 8vw;
+    background-color: #FFFFFF;
     p {
       font-size: 1rem;
     }
@@ -304,18 +416,36 @@
         .single-tech {
           margin-bottom: 5vh;
         }
+        .atom {
+          max-width: 40%;
+          position: absolute;
+          transform: translate(-0%, -70%);
+        }
       }
     }  
     @include respond(tablet) {
       background-color: #FFFFFF;
       color: $off-base-color;
-      padding: 10vh 8vw;
+      padding: 10vh 6vw;
       .primary-content {
         display: flex;
-        margin-top: 5vh;
-
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
+        gap: 4vw;
+        p {
+          font-size: 1.3rem;
+          padding-top: 2vh;
+        }
+        .atom {
+          max-width: 25%;
+          transform: translate(0, -50%);
+          // margin-top: -14vh;
+        }
       }
       .secondary-content {
+        position: relative;
+        margin-top: -16vh;
         .tech-flex-cont {
           background-color: $secondary-color;
           display: flex;
@@ -325,6 +455,8 @@
           padding: 5vh 4.5vw;
           border-radius: 30px;
           gap: 3vw;
+          backdrop-filter: blur(20px);
+          box-shadow: 1px 0px 24px 0 rgba(0,0,0,.25);
           .single-tech {
             border-right: 4px solid rgba(255,255,255,.20);
             padding-bottom: 10vh;
@@ -334,8 +466,6 @@
               padding-right: 0vw;
             }
           }
-          
-
         }
       }
     }
