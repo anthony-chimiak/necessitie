@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
+import { Form, Input, TextArea, Button } from 'semantic-ui-react';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';

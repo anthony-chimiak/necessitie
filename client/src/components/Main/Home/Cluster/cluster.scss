@@ -1,0 +1,94 @@
+.clusterContainer {
+  // height: calc(100vh - 77px - 77px);
+  min-height: 500px;
+}
+
+.scene-container {
+  // height: calc(100vh - 77px - 77px);
+  min-height: 500px;
+}
+
+@media only screen and (max-width: 991px) {
+  .clusterContainer {
+    // height: calc(100vh - 77px - 77px);
+    min-height: auto;
+  }
+
+  .scene-container {
+    // height: calc(100vh - 77px - 77px);
+    min-height: auto;
+  }
+}
+
+.link {
+  stroke: black;
+  stroke-width: 2px;
+  pointer-events: all;
+}
+
+.node circle {
+  pointer-events: all;
+  stroke: #777;
+  stroke-width: 1px;
+}
+
+.clusterTable {
+  display: none;
+}
+
+/* You can add global styles to this file, and also import other style files */
+.scene-tooltip:hover {
+  cursor: pointer;
+}
+
+div.tooltip_cluster {
+  font-size: 12px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+.tooltip_cluster:hover {
+  visibility: visible;
+  cursor: pointer;
+}
+
+.legendCluster {
+  line-height: 30px;
+  color: #555;
+  width: 200px;
+  bottom: 2%;
+  position: absolute;
+  left: 10px;
+}
+
+.legendCluster i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+.clusterInfo {
+  padding: 6px 8px;
+  font: 16px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgb(0 0 0 / 20%);
+  border-radius: 5px;
+  width: auto !important;
+  bottom: 22px !important;
+  @media(min-width:1400px) {
+    bottom: 50px !important;
+  }
+}
+
+.scene-tooltip {
+  background-color: black;
+  color: red;
+}
+
+.cluster-node-text {
+  background-color: black;
+  color: black;
+}

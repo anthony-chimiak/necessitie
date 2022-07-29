@@ -13,7 +13,7 @@
 
   padding-top: 48px;
   .main-div {
-    background-color: #3B3F53;
+    background-color: #FFFFFF;
     @media only screen and (min-width: 600px) { 
       padding: 7.5vh 4vw;
     }
@@ -124,6 +124,11 @@
   z-index: 9999;
 }
 
+
+.action-color {
+  color: $action-color;
+}
+
 .mobile {
   @include respond(tablet) {
     display: none !important;
@@ -135,3 +140,5 @@
     display: none !important;
   }
 }
+
+

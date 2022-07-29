@@ -1,3 +1,6 @@
+@import '../client/src/_variables.scss';
+@import '../client/src/_mixins.scss';
+
 .navbar {
   height: 40px;
   position:fixed;
@@ -14,7 +17,25 @@
 
 .logo {
   max-width: 50%;
-  max-height: 5vh;
+  max-height: 4vh;
+}
+
+.logo-box {
+  min-width: 10vw;
+}
+
+.nav-link {
+  color: $off-base-color;
+  min-width: 9vw;
+  font-weight: 700;
+  &.active {
+    color: $action-color;
+  }
+  svg {
+    transform: translateY(25%);
+    margin-left: .5vw;
+    // margin-right: 2vw;
+  }
 }
 
 .company-name {

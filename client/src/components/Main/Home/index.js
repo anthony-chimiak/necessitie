@@ -1,13 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import CardComponent from './CardComponent.js'
-import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
+import { Button} from 'semantic-ui-react';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
+// import LocationOnIcon from '@mui/icons-material/LocationOn';
+// import PhoneIcon from '@mui/icons-material/Phone';
+// import EmailIcon from '@mui/icons-material/Email';
 
 import MobileCarousel from './MobileCarousel';
 import ContactUs from '../ContactUs/ContactUs.js';
+import { ForceGraph2D } from "react-force-graph";
+
+
+import NetworkCluster from './Cluster/clusterTest.jsx';
+// import NetworkCluster from './Cluster/cluster.jsx';
+
 
 //IMAGES
 // import landingPic from "./../../../assets/images/landing-guy.png"
@@ -22,6 +28,17 @@ import pyramidImg from "./../../../assets/images/industry-pyramid.png"
 import slabImg from "./../../../assets/images/industry-slab.png" 
 import sittingDudeImg from "./../../../assets/images/sitting-dude.png"
 import atomImg from "./../../../assets/images/atom.png"
+import servicesReactImg from "./../../../assets/images/Crypto/dent.png"
+import servicesPythonImg from "./../../../assets/images/Crypto/python.png"
+import servicesUxImg from "./../../../assets/images/element-equal.png"
+import servicesQaImg from "./../../../assets/images/Search/search-normal.png"
+import androidImg from "./../../../assets/images/Platform/android.png"
+import iosImg from "./../../../assets/images/Platform/apple.png"
+import frontendImg from "./../../../assets/images/Platform/frontend.png"
+import backendImg from "./../../../assets/images/Platform/message-programming.png"
+import crossPlatformImg from "./../../../assets/images/Platform/cross-platform.png"
+import aiImg from "./../../../assets/images/Platform/ai.png"
+
 
 
 //
@@ -33,38 +50,38 @@ export const Home = (props) => {
     const technologyJSX = [
         {
             name: 'Android',
-            img: 'https://freeiconshop.com/wp-content/uploads/edd/android-flat.png',
-            text: "Lorem ipsum dolor sit amet, consectetur a elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            img: androidImg,
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
             id: 1
         },
         {
             name: 'IOS',
-            img: 'https://icon-library.com/images/ios-icon/ios-icon-25.jpg',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            img: iosImg,
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
             id: 2
         },
         {
             name: 'Frontend',
-            img: 'https://cdn-icons-png.flaticon.com/512/2166/2166895.png',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            img: frontendImg,
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
             id: 3
         },
         {
             name: 'Backend',
-            img: 'https://cdn-icons-png.flaticon.com/512/2166/2166823.png',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            img: backendImg,
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
             id: 4
         },
         {
             name: 'Cross-platform',
-            img: 'https://cdn-icons-png.flaticon.com/512/2037/2037075.png',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            img: crossPlatformImg,
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
             id: 5
         },
         {
-            name: 'Articial-Intelligence',
-            img: 'https://cdn-icons-png.flaticon.com/512/1985/1985582.png',
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.",
+            name: 'Artificial-Intelligence',
+            img: aiImg,
+            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
             id: 6
         },
     ];
@@ -72,22 +89,26 @@ export const Home = (props) => {
     const servicesData = [
         {
             name: 'React Developers',
-            img: '',
+            class: 'react-developers-img',
+            img: servicesReactImg,
             text: "Developers with experience in all versions of React, but a focus on the Hooks/Context paradigm."
         },
         {
             name: 'Python Developers',
-            img: '',
+            class: 'python-developers-img',
+            img: servicesPythonImg,
             text: "Python Experts with a wider range of uses.  Data Analytics to backend work, Python is a powerfuly ally."
         },
         {
             name: 'UI/UX',
-            img: '',
+            class: 'ui-ux-img',
+            img: servicesUxImg,
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
         },
         {
             name: 'QA / Sdet Engineers',
-            img: '',
+            class: 'sdet-engineers-img',
+            img: servicesQaImg,
             text: "Quality Analysts and Test Engineers specializing in automated testing, continuous deployment, and process implementation."
         },
     ];
@@ -95,7 +116,7 @@ export const Home = (props) => {
     const servicesJSX = servicesData.map(x => {
         return (
             <div className="single-service" key={x.name}>
-                <img src={x.img}/>
+                <img src={x.img} className={x.class}/>
                 <div className="border-cont">
                     <h3 className="feature-service">{x.name}</h3>
                     <p>{x.text}</p>
@@ -128,14 +149,14 @@ export const Home = (props) => {
     ];
 
     const industriesJSX = industriesData.map(x => 
-        <>
+        <span key={x.name}>
             <img src={x.img} className={"industry-img mobile " + x.name}></img>
             <div className={"industry-card " + x.name}>
                 <h2>{x.name}</h2>
                 <p>{x.text}</p>
                 <img src={x.img} className={"industry-img tablet " + x.name}></img>
             </div>
-        </>
+        </span>
     );
 
 
@@ -175,6 +196,18 @@ export const Home = (props) => {
         },
       ];
 
+      function genRandomTree(N = 300) {
+        return {
+          nodes: [...Array(N).keys()].map((i) => ({ id: i })),
+          links: [...Array(N).keys()]
+            .filter((id) => id)
+            .map((id) => ({
+              source: id,
+              target: Math.round(Math.random() * (id - 1))
+            }))
+        };
+      }
+
 
     return (
         <div className="home main-content">
@@ -197,11 +230,11 @@ export const Home = (props) => {
                 </div>
                 
                 <div className="secondary-content">
-                    <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br className="mobile"/><br/>
+                    <p><span className='action-color'>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br className="mobile"/><br/>
                         A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust. </p>
                 </div>
             </div>
-            <div className="background-triangle"></div>
+            <div className="background-triangle tablet"></div>
             <div className="services-page page">
 
                 
@@ -212,7 +245,7 @@ export const Home = (props) => {
                     </div>
                     <div className='services-primary-container'>
                         <h2 className="services-header">Our speciality services</h2>
-                        <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
+                        <p>Find people that are <span className='action-color'>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
                         <Button className="action-btn">See All Services</Button>
                     </div>
 
@@ -225,14 +258,23 @@ export const Home = (props) => {
                 </div>
 
             </div>
-            <div className="graph-page page">
+            <div className="cluster-page page">
+                
+                <NetworkCluster/>
+                {/* <ForceGraph2D graphData={genRandomTree(30)} />; */}
 
             </div>
+           
+            {/* <div className="graph-page page">
+
+            </div> */}
             <div className="examples-page page">
-                <h2>Here's are some of the projects out team has worked on</h2>
-                <MobileCarousel images={images} activeStep={activeStep} setActiveStep={setActiveStep}/>
-                <h3>{images[activeStep].title}</h3>
-                <p>{images[activeStep].text}</p>
+                <div className="examples-container">
+                    <h2>Here's are some of the projects out team has worked on</h2>
+                    <MobileCarousel images={images} activeStep={activeStep} setActiveStep={setActiveStep}/>
+                    <h3>{images[activeStep].title}</h3>
+                    <p>{images[activeStep].text}</p>
+                </div>
             </div>
             <div className="industries-page page">
                 <div className="primary-content">
@@ -253,10 +295,8 @@ export const Home = (props) => {
                 <div className="product-container">
                     <div className="primary-content">
                         <h2>How Necessitie can help you reach your goals</h2>
-                        <img/>
                         <h4>Full team software outsourcing</h4>
                         <p>Necessitie has a range of scalable possibilities to meet your products needs.  Full independent front-end, back-end, or QA team? We will have that, joining in on meetings where you feel appropriate.</p>
-                        <br className='mobile'/> 
                         <p>If you need to scale up, we can move to full service team, handling design and devops as well.</p>
                     </div>
 
@@ -265,7 +305,7 @@ export const Home = (props) => {
                         <p>Necessitie can help place people who know how to work in existing teams, right into yours.
                         <br className='mobile'/><br/>Fast, efficient software developers, UI/UX designers, and QA/Sdet personelle at your fingertips. 
                         <br className='mobile'/><br/>Avoid sourcing and recruitment issues.</p>
-                        {learnMoreJSX}
+                        {/* {learnMoreJSX} */}
                         <img src={sittingDudeImg} className="sitting-dude mobile"/>
 
                     </div>
@@ -280,17 +320,19 @@ export const Home = (props) => {
                     <h2 className="technologies-header">Technologies</h2>
                     <p>We would be happy to help you with problems in any of these areas (And beyond?)</p>
                     {/* <button>Get a Quote</button> */}
-                    <img src={atomImg} className="atom"/>
+                    <img src={atomImg} className="atom tablet"/>
 
                 </div>
                 <div className="secondary-content">
                     <div className="technologies-list mobile">
-                        {technologyJSX.map(x => {
+                    <img src={atomImg} className="atom"/>
+                        {technologyJSX.map((x, i) => {
                             return (
                                 <div className="single-tech" key={x.name}>
-                                    {/* <img src={x.img}/> */}
-                                    <h4 className="single-tech-name">{x.name}</h4>
+                                    <img src={x.img}/>
+                                    <h3 className="single-tech-name">{x.name}</h3>
                                     <p>{x.text}</p>
+                                    {i!==technologyJSX.length-1&&<hr class="solid"></hr>}
                                 </div>
                             )
                         })}
@@ -317,9 +359,9 @@ export const Home = (props) => {
                             )
                         })}
                     </div>
-                    <img src={atomImg} className="atom mobile"/>
 
                 </div>
+                {/* <img src={atomImg} className="atom mobile"/> */}
             </div>
             <ContactUs/>
             {/* <div className="contact-page page">

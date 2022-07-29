@@ -1,0 +1,116 @@
+@import '../client/src/_variables.scss';
+@import '../client/src/_mixins.scss';
+
+.industries {
+  &.main-content {
+    @include respond(tablet) {
+      border-radius: 30px;
+      overflow: hidden;
+    }
+  }
+  .page {
+    @include respond(tablet) {
+      padding: 0px 6vw;
+      h3 {
+        font-size: 3rem;
+        line-height: 150%;
+      }
+    }
+  }
+  .landing-page {
+    background: $off-secondary-color;
+    text-align: center;
+    height: 100vh;
+    padding: 5vh 6vw;
+    .primary-content {
+      margin-top: 5vh;
+    }
+    .secondary-content {
+      margin-top: 50vh;
+    }
+    @include respond(tablet) {
+      background-color: #FFFFFF;
+      text-align: left;
+      height: auto;
+      .primary-content {
+        width: 50%;
+      }
+      .secondary-content {
+        margin-top: 5vh;
+        width: 50%;
+        .action-btn.outline {
+          margin-left: 2vw;
+        }
+      }
+    }
+  }
+  .intro-page {
+    background-color: #FFFFFF;
+    @include respond(tablet) {
+      .primary-content {
+        display: flex;
+        p {
+          width: 50%;
+        }
+      }
+    }
+
+  }
+  .background-triangle {
+    border-color: #FFFFFF transparent transparent transparent;
+
+  }
+  .list-page {
+    text-align: center;
+    background-color: #FFFFFF;
+    .primary-content {
+
+      .action-btn {
+        width: auto;
+        padding-left: 8vw;
+        padding-right: 8vw;
+      }
+    }
+    .secondary-content {
+      padding-top: 5vh;
+      .industries-list-container {
+        .industries-card {
+          background-color: $light-base-color;
+          border-radius: 30px;
+          margin-bottom: 10vh;
+          min-height: 30vh;
+          padding: 4vh 8vw;
+          backdrop-filter: blur(20px);
+          box-shadow: 1px 0px 24px 0 rgba(0,0,0,.25);
+          h3 {
+            margin: 3vh 0 4vh 0;
+          }
+        }
+      }
+    }
+    @include respond(tablet) {
+      text-align: left;
+      background-color: $base-color;
+      padding: 4vh 4vw;
+      .primary-content {
+        width: 65%;
+        padding: 0 2vw;
+      }
+      .secondary-content {
+        .industries-list-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6%;
+          .industries-card {
+            background-color: rgba(255,255,255,.3);
+            width: 47%;
+            padding: 2vw 4vh;
+            h3 {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

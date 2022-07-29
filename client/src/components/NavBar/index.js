@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,6 +13,7 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
 import Zoom from '@mui/material/Zoom';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Container from '@mui/material/Container';
 import Fab from '@mui/material/Fab';
 import { ThemeProvider } from "@mui/material/styles";
@@ -38,7 +39,9 @@ export const NavBar = (props) => {
       setAnchorEl(null);
   };
 
-  const pages = ['Services', 'Industries', 'Technologies', 'Companies'];
+  const pages = ['Services', 'Industries', 'Technologies', 'Contact'];
+  let location = useLocation();
+
 
     function HideOnScroll(props) {
         const { children } = props;
@@ -58,9 +61,9 @@ export const NavBar = (props) => {
           threshold: 100,
         });
 
-        const handleClick = (event) => {
+        const handleClickScroll = (event) => {
             const anchor = (event.target.ownerDocument || document).querySelector(
-              '#back-to-top-anchor',
+              '#main-menu-dropdown-button',
             );
         
             if (anchor) {
@@ -73,7 +76,7 @@ export const NavBar = (props) => {
         return (
         <Zoom in={trigger}>
             <Box
-            onClick={handleClick}
+            onClick={handleClickScroll}
             role="presentation"
             sx={{ position: 'fixed', bottom: 16, right: 16 }}
             >
@@ -91,35 +94,8 @@ export const NavBar = (props) => {
             <HideOnScroll {...props}>
               <AppBar color="navbar">
                 <Toolbar variant="dense" disableid="back-to-top-anchor" >
-                <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
-                  <img src={logo} className="logo"/>
-                  </Box>
-                  <Box                    
-                    noWrap
-                    component="a"
-                    href=""
-                    sx={{
-                      mr: 2,
-                      display: { xs: 'flex', md: 'none' },
-                      flexGrow: 1,
-                      color: 'inherit',
-                    }}
-                  >
-                  <img src={companyName} className="company-name"/>
-
-                  </Box>
-                  <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                    {pages.map((page) => (
-                      <Button
-                        key={page}
-                        // onClick={handleCloseNavMenu}
-                        sx={{ my: 2, color: 'black', display: 'block' }}
-                      >
-                        {page}
-                      </Button>
-                    ))}
-                  </Box>
-                  <IconButton edge="end" color="action" aria-label="menu" sx={{  display: {xs: 'flex', md: 'none'}}} onClick={handleClick}>
+                <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                <IconButton edge="end" color="action" aria-label="menu" sx={{  display: {xs: 'flex', md: 'none'}}} onClick={handleClick}>
                     <MenuIcon
                         id="main-menu-dropdown-button"
                         aria-controls={open ? 'main-menu-dropdown' : undefined}
@@ -128,10 +104,40 @@ export const NavBar = (props) => {
                     />
                   </IconButton> 
                   
+                </Box>
+                <Box className="logo-box" sx={{ display: { xs: 'none', md: 'flex' } }}>
+                  <Link to="/Home"><img src={logo} className="logo"/></Link>
                   
-                  
+                </Box>
+                <Box                    
+                  noWrap
+                  component="a"
+                  href=""
+                  sx={{
+                    mr: 2,
+                    display: { xs: 'flex', md: 'none' },
+                    flexGrow: 1,
+                    color: 'inherit',
+                  }}
+                >
+                  <img src={companyName} className="company-name"/>
+                </Box>
+                  <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    {pages.map((page) => (
+                      <Link
+                        key={page}
+                        className={page + '-nav-link nav-link ' + (location.pathname === `/${page}`?'active':'')}
+                        // onClick={handleCloseNavMenu}
+                        to={`/${page}`}
+                      >
+                        {page}
+                        {(location.pathname === `/${page}`?<KeyboardArrowUpIcon />:<KeyboardArrowDownIcon />)}
+                      </Link>
+                    ))}
+                  </Box>
 
                   
+                  <img src={logo} className="logo"/>
                   <Menu
                       id="main-menu-dropdown"
                       aria-labelledby="main-menu-dropdown-button"
@@ -139,13 +145,34 @@ export const NavBar = (props) => {
                       open={open}
                       onClose={handleClose}
                       disableScrollLock={true}
+                      // anchorOrigin={{
+                      //   vertical: 'bottom',
+                      //   horizontal: 'right',
+                      // }}
+                      // transformOrigin={{
+                      //   vertical: 'bottom',
+                      //   horizontal: 'right',
+                      // }}
+                      anchorOrigin={{
+                        vertical: "bottom",
+                        horizontal: "center",
+                      }}
+                      transformOrigin={{
+                        vertical: "top",
+                        horizontal: "right",
+                      }}
+                      PaperProps={{
+                        style: {
+                          left: '-50%',
+                          transform: 'translateX(%0) translateY(-0%)',
+                        }
+                      }}
                       className="mobile"
                   >
-                      <MenuItem onClick={handleClose}>Home</MenuItem>
-                      <MenuItem onClick={handleClose}>Services</MenuItem>
-                      <MenuItem onClick={handleClose}>Technologies</MenuItem>
-                      <MenuItem onClick={handleClose}>Industries</MenuItem>
-                      <MenuItem onClick={handleClose}>Contact Us</MenuItem>
+                      <MenuItem onClick={handleClose}><Link to="/Home">Home</Link></MenuItem>
+                      {pages.map((page) => (
+                        <MenuItem key={page} onClick={handleClose}><Link to={`${page}`}>{page}</Link></MenuItem>
+                      ))}
                   </Menu>
                 </Toolbar>
               </AppBar>

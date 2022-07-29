@@ -16,11 +16,12 @@ export const Main = (props) => {
         <div className="main-div">
             <Routes>
                 <Route exact path="/" element={<Home />}/>
-                {/* <Route exact path="/" element={<Services />}/> */}
-                <Route path="/services" element={<Services />}/> 
-                <Route path="/technologies" element={<Technologies />}/>
-                <Route path="/industries" element={<Industries />}/>
-                <Route path="/contactus" element={<ContactUs />}/>
+                <Route path="/Home" element={<Home />}/>
+                {/* <Route exact path="/" element={<Industries />}/> */}
+                <Route path="/Services" element={<Services />}/> 
+                <Route path="/Technologies" element={<Technologies />}/>
+                <Route path="/Industries" element={<Industries />}/>
+                <Route path="/Contact" element={<ContactUs />}/>
             </Routes>
         </div>
 

@@ -9,12 +9,14 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 
+
 export default function MobileCarousel(props) {
   const theme = useTheme();
   // const [activeStep, setActiveStep] = React.useState(0);
   const {activeStep, setActiveStep} = props;
   const {images} = props;
   const maxSteps = images.length;
+  const baseColor = "#EDEFFA"; 
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -38,40 +40,16 @@ export default function MobileCarousel(props) {
           alignItems: 'center',
           height: 50,
           pl: 2,
-          bgcolor: 'background.default',
+          bgcolor: 'inherit',
         }}
       >
         <Typography>{images[activeStep].label}</Typography>
       </Paper>
-      <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={activeStep}
-        onChangeIndex={handleStepChange}
-        enableMouseEvents
-      >
-        {images.map((step, index) => (
-          <div key={step.label}>
-            {Math.abs(activeStep - index) <= 2 ? (
-              <Box
-                component="img"
-                sx={{
-                  // height: 255,
-                  display: 'block',
-                  maxWidth: 400,
-                  overflow: 'hidden',
-                  width: '100%',
-                }}
-                src={step.imgPath}
-                alt={step.label}
-              />
-            ) : null}
-          </div>
-        ))}
-      </SwipeableViews>
       <MobileStepper
         steps={maxSteps}
         position="static"
         activeStep={activeStep}
+        classes="mobile-stepper"
         nextButton={
           <Button
             size="small"
@@ -97,6 +75,33 @@ export default function MobileCarousel(props) {
           </Button>
         }
       />
+      <SwipeableViews
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        index={activeStep}
+        onChangeIndex={handleStepChange}
+        enableMouseEvents
+      >
+        {images.map((step, index) => (
+          <div key={step.label}>
+            {Math.abs(activeStep - index) <= 2 ? (
+              <Box
+                component="img"
+                sx={{
+                  // height: 255,
+                  display: 'block',
+                  maxWidth: 400,
+                  overflow: 'hidden',
+                  width: '100%',
+                  background: "black",
+                }}
+                src={step.imgPath}
+                alt={step.label}
+              />
+            ) : null}
+          </div>
+        ))}
+      </SwipeableViews>
+      
     </Box>
   );
 }
