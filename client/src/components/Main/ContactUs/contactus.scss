@@ -5,10 +5,15 @@
 .App {
   .contact-page.page {
     background-color: $base-color;
-    color: $off-base-color;
+    color: $outline-color;
     padding: 8vh 8vw;
+    
     .contact-header {
-      color: $highlight-base-color;
+      text-align: left;
+      // color: $highlight-base-color;
+    }
+    p {
+      text-align: left;
     }
     .address {
       margin-bottom: 2vh;
@@ -19,24 +24,39 @@
         }
       }
     }
-    .secondary-content {
-      .contact-form {
-        margin-bottom: 5vh;
-        label {
-          color: $highlight-base-color;
-          font-size: 1.1rem;
-        }
-        .submit-button {
-          button {
-            width: 100%;
-            background-color: #FF560E; //$submit-color
-            color: #FFFFFF;
+    .contact-flex-cont {
+      margin-top: 4.5vh;
+      .secondary-content {
+        .contact-form {
+          margin-bottom: 5vh;
+          label {
+            color: $outline-color;
+            font-size: 1.1rem;
+          }
+          .submit-button {
+            button {
+              width: 100%;
+              background-color: $action-color;
+              border-radius: 0;
+              font-size: .85rem;
+              font-weight: 300;
+              height: 5vh;
+              color: #FFFFFF;
+              box-shadow: 0 4px 4px rgba(0,0,0,.25);
+            }
           }
         }
       }
     }
     @include respond('tablet') {
-      padding: 12vh 5vw 5vh 10vw;
+      padding: 0;
+      padding-bottom: 18vh;
+      background-color: $outline-color;
+      .contact-container {
+        padding: 12vh 5vw 5vh 10vw;
+        
+        background-color: $base-color;
+      }
       .contact-header {
         width: 50%;
         color: $off-base-color;

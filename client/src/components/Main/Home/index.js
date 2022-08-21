@@ -12,7 +12,6 @@ import { ForceGraph2D } from "react-force-graph";
 
 
 import NetworkCluster from './Cluster/clusterTest.jsx';
-// import NetworkCluster from './Cluster/cluster.jsx';
 
 
 //IMAGES
@@ -28,6 +27,7 @@ import pyramidImg from "./../../../assets/images/industry-pyramid.png"
 import slabImg from "./../../../assets/images/industry-slab.png" 
 import sittingDudeImg from "./../../../assets/images/sitting-dude.png"
 import atomImg from "./../../../assets/images/atom.png"
+import servicesMainImg from "./../../../assets/images/services.png"
 import servicesReactImg from "./../../../assets/images/Crypto/dent.png"
 import servicesPythonImg from "./../../../assets/images/Crypto/python.png"
 import servicesUxImg from "./../../../assets/images/element-equal.png"
@@ -38,6 +38,7 @@ import frontendImg from "./../../../assets/images/Platform/frontend.png"
 import backendImg from "./../../../assets/images/Platform/message-programming.png"
 import crossPlatformImg from "./../../../assets/images/Platform/cross-platform.png"
 import aiImg from "./../../../assets/images/Platform/ai.png"
+import industriesFullImg from "./../../../assets/images/allcubes.png"
 
 
 
@@ -148,15 +149,33 @@ export const Home = (props) => {
         }
     ];
 
+    // const industriesJSX = industriesData.map(x => 
+    //     <span key={x.name}>
+    //         <img src={x.img} className={"industry-img mobile " + x.name}></img>
+    //         <div className={"industry-card " + x.name}>
+    //             <h2>{x.name}</h2>
+    //             <p>{x.text}</p>
+    //             <img src={x.img} className={"industry-img tablet " + x.name}></img>
+    //         </div>
+    //     </span>
+    // );
+
+    // const industriesJSX = industriesData.map(x => 
+    //     <>
+    //         <img src={x.img} className={"industry-img mobile " + x.name}></img>
+    //             <h2>{x.name}</h2>
+    //             <p>{x.text}</p>
+    //             <img src={x.img} className={"industry-img tablet " + x.name}></img>
+    //     </>
+    // );
+
     const industriesJSX = industriesData.map(x => 
-        <span key={x.name}>
-            <img src={x.img} className={"industry-img mobile " + x.name}></img>
-            <div className={"industry-card " + x.name}>
-                <h2>{x.name}</h2>
+        <div className={x.name + ' industry-text'}>
+            {/* <img src={x.img} className={"industry-img mobile " + x.name}></img> */}
+                <h3>{x.name}</h3>
                 <p>{x.text}</p>
-                <img src={x.img} className={"industry-img tablet " + x.name}></img>
-            </div>
-        </span>
+                {/* <img src={x.img} className={"industry-img tablet " + x.name}></img> */}
+        </div>
     );
 
 
@@ -234,20 +253,26 @@ export const Home = (props) => {
                         A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust. </p>
                 </div>
             </div>
-            <div className="background-triangle tablet"></div>
+
+            <hr className="divider tablet"/>
+            {/* <div className="background-triangle tablet"></div> */}
             <div className="services-page page">
 
                 
                 <div className="primary-content">
-                    <div className="rocket-container tablet">
+                    {/* <div className="rocket-container tablet"> */}
                         
-                    <img src={rocketImg} className="rocket-img"/>
-                    </div>
+                    {/* <img src={rocketImg} className="rocket-img"/> */}
+                    {/* </div> */}
                     <div className='services-primary-container'>
                         <h2 className="services-header">Our speciality services</h2>
                         <p>Find people that are <span className='action-color'>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
                         <Button className="action-btn">See All Services</Button>
                     </div>
+                    <div className="service-img-container">
+                        <img src={servicesMainImg} className="service-main-img"/>
+                    </div>
+
 
 
                 </div>
@@ -261,71 +286,81 @@ export const Home = (props) => {
             <div className="cluster-page page">
                 
                 <NetworkCluster/>
-                {/* <ForceGraph2D graphData={genRandomTree(30)} />; */}
 
             </div>
            
-            {/* <div className="graph-page page">
 
-            </div> */}
             <div className="examples-page page">
-                <div className="examples-container">
+                <div className="examples-container mobile">
                     <h2>Here's are some of the projects out team has worked on</h2>
                     <MobileCarousel images={images} activeStep={activeStep} setActiveStep={setActiveStep}/>
                     <h3>{images[activeStep].title}</h3>
                     <p>{images[activeStep].text}</p>
                 </div>
+                <div className="examples-container tablet">
+                    <MobileCarousel images={images} activeStep={activeStep} setActiveStep={setActiveStep}/>
+                    <div className="examples-text-cont">
+                        <h2>Here's are some of the projects out team has worked on</h2>
+                        <h3>{images[activeStep].title}</h3>
+                        <p>{images[activeStep].text}</p>
+                    </div>
+                </div>
             </div>
             <div className="industries-page page">
                 <div className="primary-content">
-                <h2 className="industries-header">We work across many industries</h2>
-                <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
-                <Button className="action-btn outline">Get a quote</Button>
+                    <h2 className="industries-header">We work across many industries</h2>
+                    <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
+                    <Button className="action-btn outline">Get a quote</Button>
+
 
                     
                 </div>
+
                 <div className="secondary-content">
-                <div className="industries-div">
-                        {industriesJSX}
-                    </div>
+                    <img src={industriesFullImg} className="industries-chart"/>
+                    {industriesJSX}
+
+                    {/* <div className="industries-div">
+                    </div> */}
                 </div>
                 
             </div>
             <div className="products-page page">
-                <div className="product-container">
-                    <div className="primary-content">
-                        <h2>How Necessitie can help you reach your goals</h2>
-                        <h4>Full team software outsourcing</h4>
-                        <p>Necessitie has a range of scalable possibilities to meet your products needs.  Full independent front-end, back-end, or QA team? We will have that, joining in on meetings where you feel appropriate.</p>
-                        <p>If you need to scale up, we can move to full service team, handling design and devops as well.</p>
-                    </div>
+                <div className="product-insert">
+                    <div className="product-container">
+                        <div className="primary-content">
+                            <h2>How Necessitie can help you <span className="action-color-tablet">reach your goals!</span></h2>
+                            <h4>Full team software outsourcing</h4>
+                            <p>Necessitie has a range of scalable possibilities to meet your products needs.  Full independent front-end, back-end, or QA team? We will have that, joining in on meetings where you feel appropriate.</p>
+                            <p>If you need to scale up, we can move to full service team, handling design and devops as well.</p>
+                        </div>
 
-                    <div className="secondary-content">
-                        <h4>IT staff augmentation</h4>
-                        <p>Necessitie can help place people who know how to work in existing teams, right into yours.
-                        <br className='mobile'/><br/>Fast, efficient software developers, UI/UX designers, and QA/Sdet personelle at your fingertips. 
-                        <br className='mobile'/><br/>Avoid sourcing and recruitment issues.</p>
-                        {/* {learnMoreJSX} */}
-                        <img src={sittingDudeImg} className="sitting-dude mobile"/>
+                        <div className="secondary-content">
+                            <h4>IT staff augmentation</h4>
+                            <p>Necessitie can help place people who know how to work in existing teams, right into yours.
+                            <br className='mobile'/><br/>Fast, efficient software developers, UI/UX designers, and QA/Sdet personelle at your fingertips. 
+                            <br className='mobile'/><br/>Avoid sourcing and recruitment issues.</p>
+                            {/* {learnMoreJSX} */}
+                            <img src={sittingDudeImg} className="sitting-dude mobile"/>
 
+                        </div>
                     </div>
+                    <img src={sittingDudeImg} className="sitting-dude tablet"/>
                 </div>
-                <img src={sittingDudeImg} className="sitting-dude tablet"/>
 
                 
             </div>
-            <div className="background-triangle tablet products"></div>
+            {/* <div className="background-triangle tablet products"></div> */}
             <div className="technologies-page page">
                 <div className="primary-content">
-                    <h2 className="technologies-header">Technologies</h2>
+                    <h2 className="technologies-header">Technologies we are working with</h2>
                     <p>We would be happy to help you with problems in any of these areas (And beyond?)</p>
                     {/* <button>Get a Quote</button> */}
-                    <img src={atomImg} className="atom tablet"/>
+                    {/* <img src={atomImg} className="atom tablet"/> */}
 
                 </div>
                 <div className="secondary-content">
                     <div className="technologies-list mobile">
-                    <img src={atomImg} className="atom"/>
                         {technologyJSX.map((x, i) => {
                             return (
                                 <div className="single-tech" key={x.name}>
@@ -337,22 +372,25 @@ export const Home = (props) => {
                             )
                         })}
                     </div>
+                        
                     <div className="tech-flex-cont tablet">
                         {technologyJSX.slice(0,3).map(x => {
                             return (
                                 <div className="single-tech" key={x.name}>
-                                    {/* <img src={x.img}/> */}
+                                    <img src={x.img}/>
                                     <h4 className="single-tech-name">{x.name}</h4>
                                     <p>{x.text}</p>
                                 </div>
                                 )
-                            })}                        
+                            })}   
+                            <img src={atomImg} className="atom"/>                     
                         </div>
-                    <div className="tech-flex-cont tablet">
+                        
+                    <div className="tech-flex-cont second tablet">
                         {technologyJSX.slice(3,6).map(x => {
                             return (
                                 <div className="single-tech" key={x.name}>
-                                    {/* <img src={x.img}/> */}
+                                    <img src={x.img}/>
                                     <h4 className="single-tech-name">{x.name}</h4>
                                     <p>{x.text}</p>
                                 </div>
@@ -363,7 +401,9 @@ export const Home = (props) => {
                 </div>
                 {/* <img src={atomImg} className="atom mobile"/> */}
             </div>
-            <ContactUs/>
+            <div className="contact-page page">
+                <ContactUs/>
+            </div>
             {/* <div className="contact-page page">
                 <h2 className="contact-header">Want to talk about your project?</h2>
                 <p>We’re here to connect you with great developers perfect for your roles</p>

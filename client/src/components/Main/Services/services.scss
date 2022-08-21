@@ -3,7 +3,10 @@
 
 .services {
   p {
-    line-height: 150%;
+    line-height: 145%;
+  }
+  h2 {
+    margin-bottom: 4vh;
   }
   @include respond(tablet) {
     h3 {
@@ -12,7 +15,7 @@
     }
   }
   .landing-page {
-    background-color: $off-secondary-color;
+    background-color: #FFFFFF;
     text-align: center;
     h1 {
       padding: 3vh 8vw;
@@ -32,6 +35,7 @@
         }
         .action-btn {
           margin-right: 3vw;
+          background-color: $primary-color;
         }
       }
 
@@ -41,7 +45,19 @@
   .intro-page {
     background-color: #FFFFFF;
     color: $text-color;
-    padding: 6vh 12vw;
+    padding: 6vh 7vw;
+    .primary-content {
+      h2 {
+        text-align: center;
+        margin-bottom: 4vh;
+      }
+      p {
+        span {
+          color: $primary-color;
+          line-height: 1.7rem;
+        }
+      }
+    }
     @include respond(tablet) {
       .primary-content {
         display: flex;
@@ -49,7 +65,11 @@
 
         p {
           width: 100%;
+          span {
+            color: $primary-color;
+          }
         }
+
       }
     }
   }
@@ -57,7 +77,49 @@
     border-color: #FFFFFF transparent transparent transparent;
   }
   .webdev-page {
-    background-color: $base-color;
+    background-color: #FFFFFF;
+    margin: 0vh 2.5vw 5vh 2.5vw;
+    padding: 0;
+    .primary-content {
+      background-color: $base-color;
+      border-radius: 50px 0 0 0;
+
+      text-align: center;
+      padding: 10vh 6vw 5vh 6vw;
+      .action-btn {
+        width: 85%;
+        font-weight: 400;
+      }
+      p {
+        span {
+          color: $action-color;
+        }
+      }
+    }
+    .secondary-content {
+      background-color: #FFFFFF;
+      .service-container {
+        background-color: $outline-color;
+        color: #FFFFFF;
+        backdrop-filter: blur(20px);
+        box-shadow: 1px 0px 24px 0 rgba(0,0,0,.25);
+        text-align: center;
+        border-radius: 0 0 50px 0;
+        padding: 2vh 4vw 5vh 4vw;
+        .single-service {
+          padding: 4.5vh 0vw;
+          border: none;
+          h3 {
+            span {
+              color: $action-color;
+            }
+            margin-bottom: 2.5vh;
+            text-shadow: 0 4px 4px rgba(0,0,0,.25);
+          }
+        }
+
+      }
+    }
     @include respond(tablet) {
       padding: 5vh 5vw;
       .primary-content {
@@ -81,8 +143,26 @@
     padding-top: 4vh;
   }
   .design-page {
-    background-color: $base-color;
+    background-color: #FFFFFF;
     text-align: center;
+    .primary-content {
+      background-color: $base-color;   
+      padding: 13.5vh 0 5vh 0;
+      border-radius: 50px 0 0 0; 
+    }
+    h2 {
+      margin-bottom: 2.5vh;
+      color: $primary-color;
+      font-weight: 900
+    }
+    .action-btn {
+      background-color: $primary-color;
+    }
+    .service-container {
+      span {
+        color: $primary-color;
+      }
+    }
     @include respond(tablet) {
       padding: 5vh 3vw;
       text-align: left;
@@ -101,8 +181,18 @@
     }
   }
   .qa-page {
-    background-color: $base-color;
+    background-color: #FFFFFF;
     text-align: center;
+    .primary-content {
+      background-color: $base-color;
+      padding: 10vh 2vw 5vh 2vw;
+      border-radius: 50px 0 0 0;
+    }
+    .service-container {
+      span {
+        color: $action-color;
+      }
+    }
     @include respond(tablet) {
       padding: 5vh 3vw 15vh 3vw;
       text-align: left;
@@ -122,21 +212,26 @@
     }
   }
   .process-page {
-    background-color: $process-color;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    color: $outline-color;
     text-align: center;
-    padding: 7vh 15vw;
+    padding: 2vh 5vw;
     .primary-content {
+      margin-bottom: 5vh;
       h3 {
         margin-bottom: 5vh;
       }
       h4 {
-        margin-bottom: 5vh;
+        margin-bottom: 2vh;
       }
       .action-btn {
         padding: 1.2rem 1.8rem;
         width: auto;
       }
+    }
+    .mobile-product-img {
+      max-width: 100%;
+      margin-top: 5vh;
     }
     @include respond(tablet) {
       padding: 15vh 15vw;
@@ -172,20 +267,16 @@
   }
 
   .service-container {
-    border-radius: 30px;
-    background-color: $secondary-color;
+    border-radius: 0 0 50px 0;
+    background-color: $outline-color;
     color: #FFFFFF;
     backdrop-filter: blur(20px);
     box-shadow: 1px 0px 24px 0 rgba(0,0,0,.25);
     text-align: center;
-    margin-top: 10vh;
-    padding: 5vh 16vw;
+    // margin-top: 10vh;
+    padding: 1vh 3vw 4.5vh 3vw;
     .single-service {
-      padding: 5vh 0vw;
-      border-bottom: 2px solid #4A4E5F;
-      &:last-child {
-        border-bottom: none;
-      }
+      padding: 4.5vh 0vw;
       h3 {
         margin-bottom: 2.5vh;
       }
