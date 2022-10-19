@@ -142,7 +142,7 @@ const nodesData = [
     return {
         id: node.id,
         color: node.color,
-        name: node.link?node.name:`<div className="cluster-node-text">Test<div>NExt level</div> <span>span2</span><div>`,
+        name: node.link?node.name:`<div className="cluster-node-text">Test<div>Next level</div> <span>span2</span><div>`,
         link: node.link,
 
     }

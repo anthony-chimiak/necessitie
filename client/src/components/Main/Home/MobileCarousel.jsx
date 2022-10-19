@@ -49,7 +49,7 @@ export default function MobileCarousel(props) {
         steps={maxSteps}
         position="static"
         activeStep={activeStep}
-        classes="mobile-stepper"
+        // classes="mobile-stepper"
         nextButton={
           <Button
             size="small"

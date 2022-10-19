@@ -39,7 +39,7 @@ export const NavBar = (props) => {
       setAnchorEl(null);
   };
 
-  const pages = ['Services', 'Industries', 'Technologies', 'Contact'];
+  const pages = ['Services', 'Industries', 'Technologies', 'Company', 'Contact'];
   let location = useLocation();
 
 
@@ -145,14 +145,6 @@ export const NavBar = (props) => {
                       open={open}
                       onClose={handleClose}
                       disableScrollLock={true}
-                      // anchorOrigin={{
-                      //   vertical: 'bottom',
-                      //   horizontal: 'right',
-                      // }}
-                      // transformOrigin={{
-                      //   vertical: 'bottom',
-                      //   horizontal: 'right',
-                      // }}
                       anchorOrigin={{
                         vertical: "bottom",
                         horizontal: "center",
@@ -186,22 +178,6 @@ export const NavBar = (props) => {
         </Fab>
       </ScrollTop>
         </>
-
-    //</> <div 
-    //     className="navbar"
-    // >        
-    //     <nav
-    //         style={{
-    //             float: "right"
-    //         }}
-    //     >
-        // <Link to="/">Home</Link> |{" "}
-        // <Link to="/services">Services</Link> |{" "}
-        // <Link to="/technologies">Technologies</Link> |{" "}
-        // <Link to="/ContactUs">Contact Us</Link>
-        
-      /* </nav> */
-    // </div>
     )
 }
 

@@ -1,0 +1,247 @@
+@import '../client/src/_variables.scss';
+@import '../client/src/_mixins.scss';
+
+.company {
+  &.main-content {
+    @include respond(tablet) {
+      border-radius: 30px;
+      overflow: hidden;
+    }
+  }
+  .page {
+    @include respond(tablet) {
+      padding: 0px 6vw;
+      h3 {
+        font-size: 3rem;
+        line-height: 150%;
+      }
+    }
+  }
+  .landing-page {
+    background: #FFFFFF;
+    text-align: center;
+    height: 100vh;
+    padding: 5vh 6vw 0 6vw;
+    .primary-content {
+      margin-top: 5vh;
+    }
+    .secondary-content {
+    }
+    @include respond(tablet) {
+      background-color: #FFFFFF;
+      text-align: left;
+      height: auto;
+      .primary-content {
+        width: 50%;
+        margin-top: 0;
+      }
+      .secondary-content {
+        margin-top: 5vh;
+        width: 50%;
+      }
+    }
+  }
+  .intro-page {
+    background-color: #FFFFFF;
+    padding: 0 7vw 4vh 7vw;
+    .primary-content {
+
+    }
+    p {
+      // text-align: left;
+      span {
+        color: $action-color;
+      }
+    }
+    @include respond(tablet) {
+      .primary-content {
+
+        display: flex;
+        flex-basis: 50%;
+        gap: 3vw;
+        h2 {
+          flex-basis: 47%;
+
+          // flex-basis: 40%;
+        }
+        div {
+          flex-basis: 50%;
+
+          // flex-basis: 100%;
+        }
+
+      }
+      
+    }
+  }
+  .list-page {
+    padding: 0;
+    .primary-content {
+      padding: 6vh 4vw;
+      span {
+        color: $action-color;
+      }
+    }
+    .secondary-content {
+      padding: 6vh 5vw;
+      background-color: $off-secondary-color;
+      box-shadow: 0px 1px 24px -1px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(20px);
+      /* Note: backdrop-filter has minimal browser support */
+
+      border-radius: 0px 50px 0px 0px;
+      .single-tech {
+        margin-bottom: 5vh;
+        h2 {
+          color: $action-color;
+        }
+        &.alt {
+          h2 {
+            color: $action-color;
+          }
+        }
+      }
+    }
+    @include respond(tablet) {
+      // padding: 0 13.5vw;
+      // text-align: left;
+      .primary-content {
+        // display: flex;
+        // text-align: left;
+        padding: 13vh 0;
+        // gap: 3vw;
+        // h2 {
+        //   text-align: left;
+        // }
+        // p {
+        //   text-align: left;
+        // }
+      }
+    }
+  }
+  .who-page {
+    padding-bottom: 8vh;
+    .primary-content {
+      margin-bottom: 15vh;
+      .who-container {
+        background-color: $outline-color;
+        color: #FFFFFF;
+        text-align: center;
+        background: #3D4675;
+        box-shadow: 0px 1px 24px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(20px);
+        /* Note: backdrop-filter has minimal browser support */
+        border-radius: 60px;
+        padding: 4vh 6vw;
+        margin: 6vh 0;
+        .single-who {
+          margin-bottom: 2.5vh;
+          img {
+            width: 20%;
+          }
+          h4 {
+            margin-top: 2vh;
+          }
+
+        }
+      }
+    }
+    .secondary-content {
+      text-align: center;
+      h2 {
+        text-align: left;
+      }
+      h4 {
+        text-align: left;
+      }
+      p {
+        text-align: left;
+      }
+      span {
+        color: $action-color;
+      }
+      img {
+        width: 80%;
+      }
+    }
+    @include respond(tablet) {
+      .primary-content {
+
+        h2 {
+          margin-left: 7.5vw;
+          text-align: left;
+        }
+        .who-container {
+          border-radius: 130px 0 130px 0;
+          display: flex;
+          gap: 4vw;
+          .single-who {
+            h4 {
+              font-size: 2.1rem;
+              font-weight: 300;
+            }
+            p {
+              padding: 0 2vw;
+            }
+          }
+        }
+      }
+      .secondary-content {
+        padding: 0 7.5vw;
+        // display: flex;
+        position: relative;
+        h2 {
+          margin-bottom: 7vh;
+        }
+        h4 {
+          font-size: 2.15rem;
+        }
+        div {
+          width: 70%;
+        }
+        p {
+          margin-bottom: 7vh;
+        }
+        img {
+          width: 40%;
+          position: absolute;
+          top: 10vh;
+          right: 0;
+          transform: translateX(15%);
+        }
+      }
+    }
+  }
+  .final-page {
+    background-color: $outline-color;
+    color: #FFFFFF;
+    div {
+      margin-bottom: 5vh;
+    }
+    h2 {
+      text-align: left;
+    }
+    h4 {
+      text-align: left;
+      color: $action-color;
+    }
+    p {
+      text-align: left;
+    }
+    @include respond(tablet) {
+      background-color: $base-color;
+      color: $outline-color;
+      border-radius: 114px 0 114px 0;
+      margin: 0 1vw 20vh 4vw;
+      padding: 10vh 8vw;
+      h4 {
+        font-size: 2.15rem;
+        color: $primary-color;
+        margin-top: 6vh;
+      }
+      div {
+        margin-bottom: 10vh;
+      }
+    }
+  }
+}

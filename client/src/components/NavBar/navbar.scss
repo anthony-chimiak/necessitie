@@ -28,6 +28,8 @@
   color: $off-base-color;
   min-width: 9vw;
   font-weight: 700;
+  font-size: 1.4rem;
+  margin: 28px 1vw;
   &.active {
     color: $action-color;
   }
@@ -35,6 +37,9 @@
     transform: translateY(25%);
     margin-left: .5vw;
     // margin-right: 2vw;
+  }
+  &.Services-nav-link {
+    margin-left: 0;
   }
 }
 

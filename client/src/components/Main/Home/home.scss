@@ -14,27 +14,27 @@
       padding: 0px 6vw;
     }
   }
-  .landing-page{
+  .landing-page.page {
     // background: $primary-color;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    min-height: 100vh;
-    background-color: #FFFFFF;
+    // font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    // min-height: 100vh;
+    // background-color: #FFFFFF;
     // color: $text-color;
     @include respond(tablet) {
-      padding: 10vh 6vw 10vh 6vw;
+      padding: 10vh 13.5vw 10vh 13.5vw;
       text-align: left;
       // border-bottom: 1px solid black;
     }
     .primary-content {
-      position: relative;
-      padding-top: 6vh;   
-      // padding: 2rem;
-      font-style: normal;
-      font-weight: 700;
-      text-align: center;
-      .landing-img {
-        max-width: 60%;
-      }
+      // position: relative;
+      // padding-top: 6vh;   
+      // // padding: 2rem;
+      // font-style: normal;
+      // font-weight: 700;
+      // text-align: center;
+      // .landing-img {
+      //   max-width: 60%;
+      // }
       @include respond(tablet) {
         width: 70%;
         text-align: left;
@@ -46,24 +46,24 @@
           max-width: 60%;
         }
       }
-      h1 {
-        padding-bottom: 3vh;
-        text-align: left;
-        font-weight: 1200;
-      }
-      div {
-        padding-bottom: 4vh;
-        text-align: left;
-      }
+      // h1 {
+      //   padding-bottom: 3vh;
+      //   text-align: left;
+      //   font-weight: 1200;
+      // }
+      // div {
+      //   padding-bottom: 4vh;
+      //   text-align: left;
+      // }
     }
     
     .secondary-content {
-      text-align: center;
+      // text-align: center;
 
-      p {
-        line-height: 1.4rem;
-        margin-top: 4vh; 
-      }
+      // p {
+      //   line-height: 1.4rem;
+      //   margin-top: 4vh; 
+      // }
       @include respond(tablet) {
         text-align: left;
         width: 55%;
@@ -78,14 +78,14 @@
         
       }
     }
-    .secondary-text {
-      position: relative;
-      font-style: normal;
-      font-weight: normal;
-      /* or 150% */
-      text-align: center;
+    // .secondary-text {
+    //   position: relative;
+    //   font-style: normal;
+    //   font-weight: normal;
+    //   /* or 150% */
+    //   text-align: center;
   
-    }
+    // }
   }
   .share-page {
     // color: $text-color;
@@ -133,7 +133,10 @@
           color: $text-color;
         }
       }
-      text-align: left;
+      // text-align: left;
+      p {
+        text-align: left;
+      }
     }
 
   }
@@ -158,8 +161,12 @@
         padding-left: 5.5vw;
         .services-primary-container {
           width: 70%;
+          h2 {
+            text-align: left;
+          }
           p {
             // font-size: 1.15rem;
+            text-align: left;
           }
         }
         .service-img-container {
@@ -168,6 +175,7 @@
           .service-main-img {
             float:right;
             max-width: 80%;
+            margin-right: 2vw;
           }
         }
 
@@ -191,7 +199,7 @@
           width: 20%;
           margin-bottom: 2vh;
           margin-top: 2vh;
-          filter: invert(60%) sepia(42%) saturate(2208%) hue-rotate(330deg) brightness(101%) contrast(89%);
+          // filter: invert(60%) sepia(42%) saturate(2208%) hue-rotate(330deg) brightness(101%) contrast(89%);
           &.python-developers-img {
             width: 17%;
           }
@@ -235,11 +243,14 @@
               border-right: 3px solid rgba(10, 18, 58, .20);
               padding-right: 1vw;
               padding-left: 4vw;
-
+              p {
+                text-align: left;
+              }
             }
             .feature-service {
               margin-top: 0;
             }
+            
             &:last-child {
               .border-cont {
                 border-right: none;
@@ -298,6 +309,8 @@
         width: 50%;
         height: auto;
         padding: 12px;
+        border-color: $action-color;
+        color: $action-color;
       }
       margin-bottom: 8vh;
 
@@ -307,6 +320,26 @@
     }
     .secondary-content {
       position: relative;
+      .industry-card {
+        color: $primary-color;
+      }
+      .industry-img {
+        max-width: 43%;
+        &.EdTech {
+          margin-bottom: 3vh;
+          max-width: 38%;
+        }
+        &.FinTech {
+          transform: translateX(-14%);
+        }
+        &.Hospitality {
+          max-width: 50%;
+          transform: translateX(-13%);
+        }
+        &.Medical {
+          transform: translateX(-13%);
+        }
+      }
       .industry-text {
         color: $primary-color;
         max-width: 25%;
@@ -364,27 +397,6 @@
             transform: translateX(-13%);
           }
         }
-        // .single-industry {
-          // color: $primary-color;
-
-        // }
-        // .industry-card {
-        //   background-color: $secondary-color;
-        //   padding: 6vh 10vw;
-        //   margin-bottom: 9vh;
-        //   text-align: center;
-        //   border-radius: 30px;
-        //   font-weight: 1000;
-        //   box-shadow: 0 4px 4px rgba(0,0,0,.25);
-        //   h2 {
-        //     color: $off-action-color;
-        //     margin-top: 1vh;
-        //     margin-bottom: 4vh;
-        //   }
-        //   p {
-        //     color: #FFFFFF;
-        //   }
-        // }
       }
     }
     @include respond(tablet) {
@@ -395,6 +407,10 @@
         width: 70%;
         .industries-header {
           color: $primary-color;
+          text-align: left;
+        }
+        p {
+          text-align: left;
         }
         .action-btn {
           width: auto;
@@ -407,74 +423,92 @@
         }
       }
       .secondary-content {
-        .industries-div {
-          // width: 100%;
-          // height: 100vh;
-          // background: red;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          row-gap: 60vh;
-          // position: relative;
-          .industry-card {
-            text-align: left;
-            width: 27vw;
-            padding: 3.5vh 2vw;
-            position: relative;
-            h2 {
-              font-size: 1.8rem;
-              margin-bottom: 2vh;
-              margin-top: 0;
-            }
-            &.FinTech {
-              margin-top: 4vh;
-              .industry-img {
-                bottom: -10vh;
-                transform: translate(50%, 100%);
-              }
-            }
-            &.Medical {
-              order: 2;
-              margin-right: 5vw;
-              .industry-img {
-                bottom: -2vh;
-                left: -4vw;
-                transform: translate(-100%, 100%);
-
-              }
-            }
-            &.Hospitality {
-              margin-top: 30vh;
-              order: 3;
-              .industry-img {
-                top: -2vh;
-                right: -4vw;
-                transform: translate(100%, -100%);
-
-              }
-            }
-            &.EdTech {
-              order: 4;
-              margin-bottom: 20vh;
-              .industry-img {
-                top: -20vh;
-                // left: -4vw;
-                transform: translate(0%, -100%);
-  
-              }
-            }
-            .industry-img {
-              position: absolute;
-            }
-
+        p {
+          text-align: left;
+        }
+        .industry-text {
+          h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2vh;
+          }
+          &.Medical {
+            margin-left: 5vw;
+            width: 20vw;
+          }
+          // &.EdTech {
+          //   margin-right: 5vw;
+          //   width: 18vw;
+          // }
+          &.Hospitality {
+            margin-left: 10vw;
+            width: 20vw;
           }
         }
+        // .industries-div {
+
+        //   display: flex;
+        //   flex-wrap: wrap;
+        //   justify-content: space-between;
+        //   row-gap: 60vh;
+        //   .industry-text {
+        //     text-align: left;
+        //     width: 27vw;
+        //     padding: 3.5vh 2vw;
+        //     position: relative;
+        //     h3 {
+        //       font-size: 1.8rem;
+        //       margin-bottom: 2vh;
+        //       margin-top: 0;
+        //     }
+        //     &.FinTech {
+        //       margin-top: 4vh;
+        //       .industry-img {
+        //         bottom: -10vh;
+        //         transform: translate(50%, 100%);
+        //       }
+        //     }
+        //     &.Medical {
+        //       order: 2;
+        //       margin-right: 5vw;
+        //       .industry-img {
+        //         bottom: -2vh;
+        //         left: -4vw;
+        //         transform: translate(-100%, 100%);
+
+        //       }
+        //     }
+        //     &.Hospitality {
+        //       margin-top: 30vh;
+        //       order: 3;
+        //       .industry-img {
+        //         top: -2vh;
+        //         right: -4vw;
+        //         transform: translate(100%, -100%);
+
+        //       }
+        //     }
+        //     &.EdTech {
+        //       order: 4;
+        //       margin-bottom: 20vh;
+        //       .industry-img {
+        //         top: -20vh;
+        //         // left: -4vw;
+        //         transform: translate(0%, -100%);
+  
+        //       }
+        //     }
+        //     .industry-img {
+        //       position: absolute;
+        //     }
+
+        //   }
+        // }
       }
 
     }
   }
   .products-page {
-    padding: 10vh 10vw 2vh 10vw;
+    // padding: 10vh 10vw 2vh 10vw;
     background-color: $secondary-color;
     color: #FFFFFF;
     border-radius: 0 60px 0 0;
@@ -501,6 +535,7 @@
     }
     p {
       font-size:1rem;
+      text-align: left;
     }
     @include respond(tablet) {
       background-color: #FFFFFF;
@@ -510,7 +545,7 @@
         padding: 0vh 10vw 7vh 12vw;
         display: flex;
         flex-wrap: wrap;
-        background-color: $secondary-color;
+        background-color: $outline-color;
         border-radius: 0 114px 0 0;
         width: 88%;
       }
@@ -545,7 +580,8 @@
       // }
       .sitting-dude {
         max-width: 40%;
-        transform: translate(80%, 10%);
+        transform: translate(80%, 25%);
+        z-index: 9999;
       }
     }
   }
@@ -572,13 +608,12 @@
       .technologies-header {
         margin-bottom: 3vh;
       }
-      .technologies-subheader {
-      }
     }
     .secondary-content{
+      position:relative;
       .technologies-list {
         background-color: #FFFFFF;
-        border-radius: 30px;
+        border-radius: 50px;
         color: $secondary-color;
         padding: 5vh 6vw;
         // margin-bottom: 10vh;
@@ -606,8 +641,9 @@
       max-width: 25%;
       position: absolute;
       top: 0;
+      z-index: 99;
       right: 0;
-      transform: translate(-0%, -50%);
+      transform: translate(0%, -50%);
     } 
     @include respond(tablet) {
       background-color: #FFFFFF;
@@ -625,9 +661,11 @@
         p {
           font-size: 1.15rem;
           padding-top: 2vh;
+          text-align: left;
         }
         h2 {
           // line-height: 3.5rem;
+          text-align: left;
         }
         
       }
@@ -646,7 +684,7 @@
           backdrop-filter: blur(20px);
           box-shadow: 1px 0px 24px 0 rgba(0,0,0,.25);
           .single-tech {
-            border-right: 4px solid rgba(255,255,255,.20);
+            border-right: 4px solid rgba(0, 0, 0, 0.15);
             padding-bottom: 10vh;
             padding-right: 1vw;
             img {
@@ -660,6 +698,7 @@
             }
             p {
               font-size: 1.15rem;
+              text-align: left;
             }
             &:last-child {
               border: none;
@@ -673,77 +712,17 @@
       }
       .atom {
         max-width: 15%;
-        transform: translate(50%, 75%);
+        transform: translate(50%, 65%);
         bottom: 0;
         position:absolute;
         right:50%;
         z-index: 99;
-
-        // margin-top: -14vh;
       }
     }
   }
 
 
-  // .contact-page {
-  //   background-color: $off-secondary-color;
-  //   padding-top: 8vh;
-  //   padding-bottom: 10vh;  
-  //   .contact-header {
-  //     font-family: Ubu;
-  //   }
-  //   .address {
-  //     margin-bottom: 2vh;
-  //     span, a {
-  //       margin-left: 4vw;
-  //       .phone-row, .email-row {
-  //         cursor: pointer;
-  //       }
-  //     }
-  //   }
-  //   .secondary-content {
-  //     .contact-form {
-  //       margin-bottom: 5vh;
-  //       label {
-  //         color: #6B6EDB;
-  //         font-size: 1.1rem;
-  //       }
-  //       .submit-button {
-  //         button {
-  //           width: 100%;
-  //           background-color: #FF560E; //$submit-color
-  //           color: #FFFFFF;
-  //         }
-  //       }
-  //     }
-  //   }
-  //   @include respond-to ('medium') {
-  //     .primary-content {
-  //       width: 50%;
-  //       float: left;
-  //       padding: 4px;
-  //       .contact-subheader {
-  //         font-family: Ubu;
-  //       }
-  //     }
-  //     .secondary-content {
-  //       float: right;
-  //       width: 50%;
-  //       border-radius: 15px;
-        
-  //       .contact-form {
-  //         .field {
-  //           width: 75%;
-  //           margin: auto;
-  //           padding-bottom: 10px;
-  //           padding-top: 10px;
-  
-  //         }
-  //       } 
-  //     }
-  //   }
-    
-  // }
+
   .learn-more {
     color: #E84702;
     text-decoration-line: underline;
@@ -751,21 +730,11 @@
       transform: translate(10px, 5px);
     }
   }
-
 }
 
 .landing-page {
   h3 {
-    position: relative;
-    text-align: left;
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 2.4rem;
-    line-height: 3rem;
-    margin: 5rem 2rem;
-    
-    color: #424B5A;
+
 
     @include respond-to ('large') {
       position: absolute;
@@ -779,34 +748,34 @@
       line-height: 57px;
       color: #424B5A;
     }
-    &.post-header {
-      text-align: center;
-      margin: 5rem 3rem;
-      @include respond-to ('large') {
-        position: relative;
-        width: 700px;
-        height: 114px;
-        textAlign: center;
-        top: 610px;
+    // &.post-header {
+    //   text-align: center;
+    //   margin: 5rem 3rem;
+    //   @include respond-to ('large') {
+    //     position: relative;
+    //     width: 700px;
+    //     height: 114px;
+    //     textAlign: center;
+    //     top: 610px;
 
-        font-family: Ubumedium;
-        fontSize: 50px;
-        lineHeight: 57px;
-        color: #424B5A;
-      }
-    }
+    //     font-family: Ubumedium;
+    //     fontSize: 50px;
+    //     lineHeight: 57px;
+    //     color: #424B5A;
+    //   }
+    // }
   }
   .secondary-text {
-    position: relative;
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1rem;
-    line-height: 1.5rem;
-    margin: 2rem;
-    /* or 150% */
+    // position: relative;
+    // font-family: Ubuntu;
+    // font-style: normal;
+    // font-weight: normal;
+    // font-size: 1rem;
+    // line-height: 1.5rem;
+    // margin: 2rem;
+    // /* or 150% */
 
-    color: #A1AEB7;
+    // color: #A1AEB7;
     @include respond-to(large) {
       position: absolute;
       width: 590px;

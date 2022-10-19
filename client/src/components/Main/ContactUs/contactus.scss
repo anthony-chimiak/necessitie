@@ -37,7 +37,7 @@
             button {
               width: 100%;
               background-color: $action-color;
-              border-radius: 0;
+              border-radius: 3px;
               font-size: .85rem;
               font-weight: 300;
               height: 5vh;
@@ -59,7 +59,8 @@
       }
       .contact-header {
         width: 50%;
-        color: $off-base-color;
+        color: $outline-color;
+        font-size: 3.6rem;
       }
       .contact-flex-cont {
         display: flex;
@@ -67,6 +68,7 @@
         justify-content: flex-end;
         // align-items: flex-end;
         gap: 6vw;
+        margin-top: 3vh;
 
       }
       .primary-content {
@@ -106,11 +108,11 @@
               box-shadow: 1px 0px 4px 0 rgba(0,0,0,.25);
             }
             label {
-              margin-bottom: 3vh;
+              margin-bottom: 2vh;
             }
-            input {
+            // input {
               
-            }
+            // }
           }
 
 

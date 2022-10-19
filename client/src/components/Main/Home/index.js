@@ -11,7 +11,7 @@ import ContactUs from '../ContactUs/ContactUs.js';
 import { ForceGraph2D } from "react-force-graph";
 
 
-import NetworkCluster from './Cluster/clusterTest.jsx';
+// import NetworkCluster from '../Map/Cluster/clusterTest.jsx';
 
 
 //IMAGES
@@ -28,16 +28,16 @@ import slabImg from "./../../../assets/images/industry-slab.png"
 import sittingDudeImg from "./../../../assets/images/sitting-dude.png"
 import atomImg from "./../../../assets/images/atom.png"
 import servicesMainImg from "./../../../assets/images/services.png"
-import servicesReactImg from "./../../../assets/images/Crypto/dent.png"
-import servicesPythonImg from "./../../../assets/images/Crypto/python.png"
-import servicesUxImg from "./../../../assets/images/element-equal.png"
-import servicesQaImg from "./../../../assets/images/Search/search-normal.png"
-import androidImg from "./../../../assets/images/Platform/android.png"
-import iosImg from "./../../../assets/images/Platform/apple.png"
-import frontendImg from "./../../../assets/images/Platform/frontend.png"
-import backendImg from "./../../../assets/images/Platform/message-programming.png"
-import crossPlatformImg from "./../../../assets/images/Platform/cross-platform.png"
-import aiImg from "./../../../assets/images/Platform/ai.png"
+import servicesReactImg from "./../../../assets/images/Crypto/dent.svg"
+import servicesPythonImg from "./../../../assets/images/Crypto/python.svg"
+import servicesUxImg from "./../../../assets/images/element-equal.svg"
+import servicesQaImg from "./../../../assets/images/Search/search-normal.svg"
+import androidImg from "./../../../assets/images/Platform/android.svg"
+import iosImg from "./../../../assets/images/Platform/apple.svg"
+import frontendImg from "./../../../assets/images/Platform/frontend.svg"
+import backendImg from "./../../../assets/images/Platform/message-programming.svg"
+import crossPlatformImg from "./../../../assets/images/Platform/cross-platform.svg"
+import aiImg from "./../../../assets/images/Platform/ai.svg"
 import industriesFullImg from "./../../../assets/images/allcubes.png"
 
 
@@ -149,16 +149,16 @@ export const Home = (props) => {
         }
     ];
 
-    // const industriesJSX = industriesData.map(x => 
-    //     <span key={x.name}>
-    //         <img src={x.img} className={"industry-img mobile " + x.name}></img>
-    //         <div className={"industry-card " + x.name}>
-    //             <h2>{x.name}</h2>
-    //             <p>{x.text}</p>
-    //             <img src={x.img} className={"industry-img tablet " + x.name}></img>
-    //         </div>
-    //     </span>
-    // );
+    const industriesJSX = industriesData.map(x => 
+        <span key={x.name} className="mobile">
+            <img src={x.img} className={"industry-img mobile " + x.name}></img>
+            <div className={"industry-card " + x.name}>
+                <h2>{x.name}</h2>
+                <p>{x.text}</p>
+                <img src={x.img} className={"industry-img tablet " + x.name}></img>
+            </div>
+        </span>
+    );
 
     // const industriesJSX = industriesData.map(x => 
     //     <>
@@ -169,8 +169,8 @@ export const Home = (props) => {
     //     </>
     // );
 
-    const industriesJSX = industriesData.map(x => 
-        <div className={x.name + ' industry-text'}>
+    const industriesJSXTablet = industriesData.map(x => 
+        <div className={x.name + ' industry-text tablet'} key={x.name}>
             {/* <img src={x.img} className={"industry-img mobile " + x.name}></img> */}
                 <h3>{x.name}</h3>
                 <p>{x.text}</p>
@@ -233,7 +233,7 @@ export const Home = (props) => {
             <div className="landing-page secondary-color page">
                 <div className="primary-content">
                     <h1>Outsource to developers specialized to your needs</h1>
-                    <img src={landingImg} className="landing-img"/>
+                    {/* <img src={landingImg} className="landing-img"/> */}
 
                 </div>
                 <div className="secondary-content" >
@@ -243,7 +243,7 @@ export const Home = (props) => {
                 </div>
 
             </div>
-            <div className="share-page page">
+            <div className="share-page page main-template">
                 <div className='primary-content'>
                     <h2 className="share-header">Focused precision for your products</h2>
                 </div>
@@ -270,7 +270,7 @@ export const Home = (props) => {
                         <Button className="action-btn">See All Services</Button>
                     </div>
                     <div className="service-img-container">
-                        <img src={servicesMainImg} className="service-main-img"/>
+                        <img src={servicesMainImg} className="service-main-img tablet"/>
                     </div>
 
 
@@ -283,11 +283,11 @@ export const Home = (props) => {
                 </div>
 
             </div>
-            <div className="cluster-page page">
+            {/* <div className="cluster-page page">
                 
                 <NetworkCluster/>
 
-            </div>
+            </div> */}
            
 
             <div className="examples-page page">
@@ -317,8 +317,9 @@ export const Home = (props) => {
                 </div>
 
                 <div className="secondary-content">
-                    <img src={industriesFullImg} className="industries-chart"/>
+                    <img src={industriesFullImg} className="industries-chart tablet"/>
                     {industriesJSX}
+                    {industriesJSXTablet}
 
                     {/* <div className="industries-div">
                     </div> */}
@@ -339,7 +340,7 @@ export const Home = (props) => {
                             <h4>IT staff augmentation</h4>
                             <p>Necessitie can help place people who know how to work in existing teams, right into yours.
                             <br className='mobile'/><br/>Fast, efficient software developers, UI/UX designers, and QA/Sdet personelle at your fingertips. 
-                            <br className='mobile'/><br/>Avoid sourcing and recruitment issues.</p>
+                            <br className="tablet"></br> Avoid sourcing and recruitment issues.</p>
                             {/* {learnMoreJSX} */}
                             <img src={sittingDudeImg} className="sitting-dude mobile"/>
 
@@ -360,6 +361,8 @@ export const Home = (props) => {
 
                 </div>
                 <div className="secondary-content">
+                    <img src={atomImg} className="atom mobile"/>                     
+
                     <div className="technologies-list mobile">
                         {technologyJSX.map((x, i) => {
                             return (
@@ -367,7 +370,7 @@ export const Home = (props) => {
                                     <img src={x.img}/>
                                     <h3 className="single-tech-name">{x.name}</h3>
                                     <p>{x.text}</p>
-                                    {i!==technologyJSX.length-1&&<hr class="solid"></hr>}
+                                    {i!==technologyJSX.length-1&&<hr className="solid"></hr>}
                                 </div>
                             )
                         })}

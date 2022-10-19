@@ -6,40 +6,49 @@ import ContactUs from '../ContactUs/ContactUs';
 import './services.scss'
 
 import mobileProductImg from "./../../../assets/images/mobile-cubes.png" 
+import webDevSquare from "./../../../assets/images/web-dev-square.png"
+import personCutout from "./../../../assets/images/person-cutout.png"
+import flatBug from "./../../../assets/images/flat-bug.png"
+import servicesReactImg from "./../../../assets/images/Crypto/dent.svg"
+import servicesPythonImg from "./../../../assets/images/Crypto/python.svg"
+import servicesUxImg from "./../../../assets/images/element-equal.svg"
+import servicesQaImg from "./../../../assets/images/Search/search-normal.svg"
+import productIdea from "./../../../assets/images/product-ideation.png"
+// import  from "./../../../assets/images/.png"
+// import  from "./../../../assets/images/.png"
+// import  from "./../../../assets/images/.png"
+// import  from "./../../../assets/images/.png"
 
 
 const developersData = [
     {
         name: <><span>React</span> Developers</>,
         class: 'react',
+        title: 'Hire specialised React Developers',
+        img: servicesReactImg,
         text: 'Hire specialised React Developers If you have a necessitie for React Developers Our front-end team specializes in modern react development, hooks and context. As the web has been taken over primarily by javascript, the javascript ecosystem has been increasingly dominated by React, and our developers have been on the React ship since the beginning.'
     },
     {
         name: <><span>Python</span> Developers</>,
         class: 'python',
+        img: servicesPythonImg,
+        title: 'Hire specialised React Developers',
         text: 'Hire specialised React Developers If you have a necessitie for React Developers Our front-end team specializes in modern react development, hooks and context. As the web has been taken over primarily by javascript, the javascript ecosystem has been increasingly dominated by React, and our developers have been on the React ship since the beginning.'
     },
-    // {
-    //     name: "UI/UX Designers",
-    //     class: 'ux',
-    //     text: 'Hire specialised React Developers If you have a necessitie for React Developers Our front-end team specializes in modern react development, hooks and context. As the web has been taken over primarily by javascript, the javascript ecosystem has been increasingly dominated by React, and our developers have been on the React ship since the beginning.'
-    // },
-    // {
-    //     name: "QA Engineers",
-    //     class: 'qa',
-    //     text: 'Hire specialised React Developers If you have a necessitie for React Developers Our front-end team specializes in modern react development, hooks and context. As the web has been taken over primarily by javascript, the javascript ecosystem has been increasingly dominated by React, and our developers have been on the React ship since the beginning.'
-    // },
 ];
 
 const designersData = [
     {
         name: <><span>UI</span> Designers</>,
-        class: 'ux',
+        class: 'ui',
+        title: 'Hire specialised React Developers',
         text: 'Our Developers are intimately familiar with both ReactJS, React Native for app service, and a host of the available third party components.'
     },
     {
         name: <><span>UX</span> Designers</>,
         class: 'ux',
+        img: servicesUxImg,
+        title: 'Hire specialised React Developers',
         text: 'Our Developers are intimately familiar with both ReactJS, React Native for app service, and a host of the available third party components.'
     },
 ]
@@ -47,33 +56,50 @@ const designersData = [
 const qaData = [
     {
         name: <><span>Automated</span> QA</>,
-        class: 'ux',
+        class: 'automated-qa',
+        img: servicesQaImg,
+        title: 'Hire specialised React Developers',
         text: 'Our Developers are intimately familiar with both ReactJS, React Native for app service, and a host of the available third party components.'
     },
     {
         name: <><span>Manual</span> QA</>,
-        class: 'ux',
+        class: 'manual-qa',
+        title: 'Hire specialised React Developers',
         text: 'Our Developers are intimately familiar with both ReactJS, React Native for app service, and a host of the available third party components.'
     },
 ]
 
-const developersJSX = developersData.map(x => (
-    <div className={`${x.class} single-service`}>
-        <h3>{x.name}</h3>
+const combinedServiceJSX = developersData.concat(designersData).concat(qaData).map((x,i) => {})
+
+const developersJSX = developersData.map((x,i) => (
+    <div className={`${x.class} single-service`}  key={x.class}>
+        {i===1 && <hr className='divider tablet thick'/>}
+        <h3 className='mobile'>{x.name}</h3>
+        <h4 className='tablet'>{x.name}</h4>
+        {x.img &&<img src={x.img} className="tablet"/>}
+        <p className='tablet title'>{x.title}</p>
         <p>{x.text}</p>
     </div>
 ))
 
-const designersJSX = designersData.map(x => (
-    <div className={`${x.class} single-service`}>
-        <h3>{x.name}</h3>
+const designersJSX = designersData.map((x,i) => (
+    <div className={`${x.class} single-service`}  key={x.class}>
+        {i===1 && <hr className='divider tablet thick'/>}
+        <h3 className='mobile'>{x.name}</h3>
+        <h4 className='tablet'>{x.name}</h4>
+        {x.img &&<img src={x.img} className="tablet designer-img"/>} 
+        <p className='tablet title'>{x.title}</p>  
         <p>{x.text}</p>
     </div>
 ))
 
-const qaJSX = qaData.map(x => (
-    <div className={`${x.class} single-service`}>
-        <h3>{x.name}</h3>
+const qaJSX = qaData.map((x,i) => (
+    <div className={`${x.class} single-service`}  key={x.class}>
+        {i===1 && <hr className='divider tablet thick'/>}
+        <h3 className='mobile'>{x.name}</h3>
+        <h4 className='tablet'>{x.name}</h4>
+        {x.img &&<img src={x.img} className="tablet"/>}
+        <p className='tablet title'>{x.title}</p>
         <p>{x.text}</p>
     </div>
 ))
@@ -93,22 +119,34 @@ function Services(props) {
                 <Button className="action-btn outline tablet">Get a quote</Button>
             </div>
         </div>
-        <div className="intro-page page">
+        <div className="intro-page page main-template">
             <div className="primary-content">
-                <h2>Our Custom Software Development Services</h2>
+                <h2>Our custom software development services</h2>
                 <p><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.<br/><br/> 
 
                     A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust.</p>
             </div>
             <div className="secondary-content">
+                <hr className='divider tablet thick'/>
+                
             </div>
         </div>
-        {/* <div className="background-triangle intro"></div> */}
-        <div className="webdev-page page">
+        <div className="webdev-page page offered-services-page">
             <div className='primary-content'>
-                <h2>Web Development</h2>
-                <p>Find people that are <span>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truly utilize the tools at hand.</p>
-                <Button className="action-btn hire">Hire Top-Level Developers</Button>
+                <img src={webDevSquare} className="web-dev-square "/>
+
+                <div className='primary-content-cont'>
+                    <h2>Web Development</h2>
+                    <p>Find people that are <span>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truly utilize the tools at hand.</p>
+                    <div className='button-cont'>
+
+                        <Button className="action-btn hire">Hire Top-Level Developers</Button>
+                        <Button className="action-btn outline tablet">Get a quote</Button>
+                    </div>
+
+                    <div className="angled-triangle tablet"></div>
+                    
+                </div>
             </div>
             <div className='secondary-content'>
                 <div className="service-container">
@@ -116,15 +154,16 @@ function Services(props) {
                 </div>
             </div>
         </div>
-        <div className="white-spacer tablet"></div>
-        <div className="background-triangle webdev tablet"></div>
-        <div className="design-page page">
+        <div className="design-page page offered-services-page alt">
             <div className='primary-content'>
-                <div className="tablet">test</div>
-                <div className="text-container">
+            <img src={personCutout} className="flat-person "/>
+                <div className="text-container primary-content-cont">
                     <h2>Product Design</h2>
                     <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
-                    <Button className="action-btn hire">Hire Top-Level Designers</Button>
+                    <div className='button-cont'>
+                        <Button className="action-btn hire">Hire Top-Level Developers</Button>
+                        <Button className="action-btn outline tablet">Get a quote</Button>
+                    </div>
                 </div>
                 
             </div>
@@ -135,15 +174,20 @@ function Services(props) {
             </div>
         </div>
         <div className="white-spacer tablet"></div>
-        <div className="background-triangle webdev tablet"></div>
-        <div className="qa-page page">
+        <div className="qa-page page offered-services-page">
             <div className='primary-content'>
-                <div className="text-container">
+                <img src={flatBug} className="flat-bug "/>
+
+                <div className="text-container primary-content-cont">
                     <h2>Quality Assurance</h2>
                     <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
-                    <Button className="action-btn hire">Hire Top-Level Engineers</Button>
+                    <div className='button-cont'>
+
+                        <Button className="action-btn hire">Hire Top-Level Developers</Button>
+                        <Button className="action-btn outline tablet">Get a quote</Button>
+                    </div>
+                    <div className="angled-triangle tablet"></div>  
                 </div>
-                <div className="tablet">test</div>
             </div>
             <div className='secondary-content'>
                 <div className="service-container">
@@ -157,8 +201,8 @@ function Services(props) {
                 <h4>Competitive analysis and market insights</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
                 <img src={mobileProductImg} className="mobile-product-img mobile"/>
+                <img src={productIdea} className="tablet"/>
 
-                {/* <Button className="action-btn">Hire Top-Level Engineers</Button> */}
 
             </div>
             <div className='secondary-content'>

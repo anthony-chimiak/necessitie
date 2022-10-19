@@ -1,0 +1,13 @@
+.App {
+  padding: 0;
+  .main-div {
+    .map.main-content {
+      padding: 0;
+      border-radius: 0;
+      .cluster-page.page {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+}
