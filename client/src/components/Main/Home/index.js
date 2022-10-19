@@ -11,7 +11,7 @@ import ContactUs from '../ContactUs/ContactUs.js';
 import { ForceGraph2D } from "react-force-graph";
 
 
-// import NetworkCluster from '../Map/Cluster/clusterTest.jsx';
+import NetworkCluster from '../Map/Cluster/clusterTest.jsx';
 
 
 //IMAGES
@@ -160,21 +160,11 @@ export const Home = (props) => {
         </span>
     );
 
-    // const industriesJSX = industriesData.map(x => 
-    //     <>
-    //         <img src={x.img} className={"industry-img mobile " + x.name}></img>
-    //             <h2>{x.name}</h2>
-    //             <p>{x.text}</p>
-    //             <img src={x.img} className={"industry-img tablet " + x.name}></img>
-    //     </>
-    // );
 
     const industriesJSXTablet = industriesData.map(x => 
         <div className={x.name + ' industry-text tablet'} key={x.name}>
-            {/* <img src={x.img} className={"industry-img mobile " + x.name}></img> */}
                 <h3>{x.name}</h3>
                 <p>{x.text}</p>
-                {/* <img src={x.img} className={"industry-img tablet " + x.name}></img> */}
         </div>
     );
 
@@ -233,6 +223,7 @@ export const Home = (props) => {
             <div className="landing-page secondary-color page">
                 <div className="primary-content">
                     <h1>Outsource to developers specialized to your needs</h1>
+                    <NetworkCluster/>
                     {/* <img src={landingImg} className="landing-img"/> */}
 
                 </div>

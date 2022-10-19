@@ -2,7 +2,7 @@
  ** 3rd Party components and libraries
  ***************************************/
  import React, {useState, useMemo, useCallback, useEffect} from "react";
- import { ForceGraph3D } from "react-force-graph";
+ import { ForceGraph3D, ForceGraph2D } from "react-force-graph";
  import clusterData from './clustdata'
  import './cluster.scss'
 
@@ -10,18 +10,22 @@
  
  
  export const NetworkCluster = () => {
-  const [isZoomEnabled, setIsZoomEnabled] = [true];
+  const [isZoomEnabled, setIsZoomEnabled] = [false];
   const [highlightNodes, setHighlightNodes] = useState(new Set());
   const [highlightLinks, setHighlightLinks] = useState(new Set());
   const [hoverNode, setHoverNode] = useState(null);
   const [data, setData] = useState({ nodes: [
     {
-      id: 0,
+      id: 'Home',
       name: 'Home',
       link: "Home",
     }], links: [] });
 
+
   const NODE_R = 6;
+
+  const clusterNodes = clusterData.nodes;
+  const clusterLinks = clusterData.links;
 
   const updateHighlight = () => {
     setHighlightNodes(highlightNodes);
@@ -59,36 +63,48 @@
 
     updateHighlight();
   };
+  // debugger;
 
 
 
   useEffect(() => {
-    setInterval(() => {
-      // Add a new connected node every second
-      setData(({ nodes, links }) => {
-        debugger;
-        const id = nodes.length;
-        return {
-          nodes: [...nodes, { id }],
-          links: [...links, { source: id, target: Math.round(Math.random() * (id-1)) }]
-        };
-      });
-    }, 1000);
-  }, []);
+      setInterval(() => {
+        // Add a new connected node every second
+        
 
-    // const paintRing = useCallback((node, ctx) => {
-  //   // add ring just for highlighted nodes
-  //   ctx.beginPath();
-  //   ctx.arc(node.x, node.y, NODE_R * 1.4, 0, 2 * Math.PI, false);
-  //   ctx.fillStyle = node === hoverNode ? 'red' : 'orange';
-  //   ctx.fill();
-  // }, [hoverNode]);
+          setData(({ nodes, links }) => {
+            if (nodes?.length < clusterNodes.length) {
+            const {id} = clusterNodes[nodes.length];
+            const linksToAdd = clusterLinks.filter(x => x.target === id);
+            
+            return {
+              nodes: [...nodes, clusterNodes[nodes.length] ],
+              // links: [...links, { source: id, target: Math.round(Math.random() * (id-1)) }]
+              links: [...links, ...linksToAdd]
+            }} else {
+              return {
+                nodes: [...nodes],
+                links: [...links]
+              }
+            };
+          });
+        
+      }, 2000);
+    }, []);
+
+    const paintRing = useCallback((node, ctx) => {
+    // add ring just for highlighted nodes
+    ctx.beginPath();
+    ctx.arc(node.x, node.y, NODE_R * 1.4, 0, 2 * Math.PI, false);
+    ctx.fillStyle = node === hoverNode ? 'red' : 'orange';
+    ctx.fill();
+  }, [hoverNode]);
 
    return (
-    <ForceGraph3D 
+    <ForceGraph2D 
       // graphData={genRandomTree(30)} 
       graphData={data}
-      backgroundColor={"Black"}
+      backgroundColor={"White"}
       enableNavigationControls={isZoomEnabled}
       // linkWidth={1}
       // linkOpacity={1}
