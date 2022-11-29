@@ -9,7 +9,7 @@
   font-weight: normal;
   font-size: 1.2rem;
   line-height: 21px;
-  color: $secondary-color;
+  color: $gradient-color;
 
   padding-top: 80px;
 
@@ -64,19 +64,24 @@
   .main-div {
     background-color: #FFFFFF;
     @media only screen and (min-width: 600px) { 
-      padding: 7.5vh 0vw 0 0;
+      // padding: 7.5vh 0vw 0 0;
+      padding: 80px 0 0 0;
     }
   }
   .landing-page.page {
     @include respond(tablet) {
       padding: 29vh 13.5vw 0vh 13.5vw;
       text-align: left;
+      background: $secondary-color;
+      
+      color: #FFFFFF;
       p {
         text-align: left;
         margin-bottom: 6vh;
       }
       h1 {
         margin-bottom: 6.25vh;
+        margin-left: 20vw;
       }
       .secondary-content {
         display: flex;
@@ -170,6 +175,7 @@
       // margin-top: 50vh;
     }
     @include respond(tablet) {
+      min-height: calc(100vh - 80px);
       .primary-content {
         height: 17vh;
       }

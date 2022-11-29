@@ -1,299 +1,591 @@
+const distance = {
+  Home: 30,
+  Services: 70,
+  Industries: 50,
+  Technologies: 100,
+  Company: 150,
+  Contact: 20,
+}
+
 const nodesData = [
     {
+      id: 'Right-Grav',
+      fx: 0,
+      fy: 0,
+      color: 'black',
+      // val: 5,
+      name: 'Right-Grav',
+      gravitySource: true,
+    },
+    {
+      id: 'Left-Grav',
+      name: 'Left-Grav',
+      color: 'red',
+      width: 20,
+      gravitySource: true,
+    },
+    {
       id: 'Home',
-    //   color: 'black',
       name: 'Home',
       link: "Home",
+      gravityNode: "Left-Grav",
+      val: 2,
+      distance: distance.Home,
+      color: 'silver',
+      // counterClockwise: true,
+      arcTarg: 'Home-cap',
+      pullX: 30,
+    },
+    {
+      id: 'Home-cap',
+      name: 'Home-cap',
+      link: "Home-cap",
+      distance: distance.Home,
+      parent: "Home",
+      color: 'silver',
+      endCap: "Home",
     },
     {
       id: 'Services',
-    //   color: 'blue',
       name: 'Services',
       link: "Services",
-    },
-    {
-      id: 'Products',
-    //   color: 'blue',
-      name: 'Products',
-      link: "Products",
+      val: 2,
+      layer: 2,
+      distance: distance.Services,
+      gravityNode: "Right-Grav",
     },
     {
       id: 'Industries',
-    //   color: 'blue',
       name: 'Industries',
       link: "Industries",
+      val: 2,
+      distance: distance.Industries,
+      gravityNode: "Left-Grav",
+      dummies: 3,
+      dummyPosition: 3,
+      arcTarg: 'Industries',
     },
     {
       id: 'Technologies',
       color: 'blue',
       name: 'Technologies',
-      link: "Technologies"
+      link: "Technologies",
+      val: 2,
+      distance: distance.Technologies,
+      layer: 1,
+      gravityNode: "Left-Grav",
+      arcTarg: "Technologies",
+    },
+    {
+      id: 'Company',
+      name: 'Company1',
+      link: "Company",
+      val: 2,
+      distance: distance.Company,
+      gravityNode: "Right-Grav",
+      // arcTarg: 'Company',
     },
     {
       id: 'Contact',
       color: 'Red',
       name: 'Contact',
-      link: "Contact"
+      link: "Contact",
+      val: 2,
+      // pullX: -20,
+      distance: distance.Contact,
+      gravityNode: "Right-Grav",
+      arcTarg: 'Contact',
+      dummies: 0,
+      dummyPosition: 2,
     },
     {
       id: 'Web Development',
       color: 'Green',
       name: '',
+      distance: 6,
+      parent: "Services",
     },
     {
       id: 'Product Design',
       color: 'Green',
       name: '',
+      distance: 6,
+      layer: 1,
+      parent: "Services",
     },
     {
       id: 'Quality Assurance',
       color: 'Green',
       name: '',
+      distance: 6,
+      parent: "Services",
     },
     {
       id: 'Product Ideation',
       color: 'Green',
       name: '',
+      parent: "Services",
+      layer: 2,
+      arcTarg: 'Services'
     },
     {
       id: 'Fintech',
       color: 'Green',
       name: '',
+      parent: "Industries",
+      distance: distance.Industries,
+      layer: 1,
     },
     {
       id: 'Edtech',
       color: 'Green',
       name: '',
+      parent: "Industries",
+      distance: distance.Industries,
+      arcTarg: 'Industries',
+      layer: 1,
     },
     {
       id: 'Medical',
       color: 'Green',
       name: '',
+      parent: "Industries",
+      distance: distance.Industries,
+      layer: 1,
+      arcTarg: 'Hospitality'
     },
     {
       id: 'Hospitality',
       color: 'Green',
       name: '',
+      parent: "Industries",
+      distance: distance.Industries,
+      layer: 1,
     },
     {
       id: 'Android',
       color: 'Green',
+      parent: "Technologies",
       name: '',
+      // layer: 1,
     },
     {
       id: 'IOS',
       color: 'Green',
+      parent: "Technologies",
       name: '',
+      // layer: 1,
     },
     {
       id: 'Frontend',
       color: 'Green',
+      parent: "Technologies",
       name: '',
+      // layer: 1,
     },
     {
       id: 'Backend',
       color: 'Green',
+      parent: "Technologies",
       name: '',
+      // layer: 1,
     },
     {
       id: 'Cross-platform',
       color: 'Green',
+      parent: "Technologies",
       name: '',
+      arcTarg: "Android",
+      counterClockwise: true,
+      // layer: 1,
     },
     {
       id: 'Artificial Intelligence',
       color: 'Green',
+      parent: "Technologies",
       name: '',
+      arcTarg: "IOS"
+      // layer: 1,
     },
     {
       id: 'React Developers',
       color: 'Yellow',
       name: '',
+      parent: "Web Development",
+      arcTarg: "Web Development",
+      dummies: 1,
     },
     {
       id: 'Python Developers',
       color: 'Yellow',
       name: '',
+      parent: "Web Development",
+      arcTarg: "Web Development",
     },
     {
       id: 'UI Designers',
       color: 'Yellow',
       name: '',
+      parent: "Product Design",
+      arcTarg: "Product Design",
+      layer: 1,
     },
     {
       id: 'UX Designers',
       color: 'Yellow',
       name: '',
+      parent: "Product Design",
+      arcTarg: "Product Design",
+      layer: 1,
     },
     {
       id: 'Automated QA',
       color: 'Yellow',
       name: '',
+      parent: "Quality Assurance",
+      arcTarg: 'Quality Assurance',
+      layer: 2,
     },
     {
       id: 'Manual QA',
       color: 'Yellow',
       name: '',
+      parent: "Quality Assurance",
+      arcTarg: 'Quality Assurance',
+      layer: 2,
     },
+    // {
+    //   id: 'Company',
+    //   name: 'Company2',
+    //   link: "Company",
+    //   distance: distance.Company,
+    //   gravityNode: "Right-Grav",
+    //   // arcTarg: "Company-cap",
+    // },
+    {
+      id: 'Company-cap',
+      name: 'Company-cap',
+      link: "Company-cap",
+      distance: distance.Company,
+      gravityNode: "Right-Grav",
+      arcTarg: "Company",
+      // counterClockwise: true,
+      
+    },
+    {
+      id: 'Company-extra',
+      name: 'Company3',
+      link: "Company",
+      distance: distance.Company,
+      gravityNode: "Right-Grav",
+      layer: 1,
+      arcTarg: 'Company-extra-cap',
+      // counterClockwise: true,
+    },
+    {
+      id: 'Company-extra-cap',
+      name: 'Company',
+      link: "Company",
+      distance: distance.Company,
+      gravityNode: "Right-Grav",
+      layer: 1,
+    },
+    {
+      id: 'Contact-extra',
+      name: 'Contact',
+      link: "Contact",
+      distance: distance.Contact,
+      gravityNode: "Right-Grav",
+      layer: 1,
+      arcTarg:"Contact-extra-cap",
+      counterClockwise: true,
+    },
+    {
+      id: 'Contact-extra-cap',
+      name: 'Contact',
+      link: "Contact",
+      distance: distance.Contact,
+      gravityNode: "Right-Grav",
+      layer: 1,
+    },
+
 
   ];
 
-  const nodes = nodesData.map(node => {
-    return {
-        id: node.id,
-        color: node.color,
-        name: node.link?node.name:`<div className="cluster-node-text">${node.id}<div>Next level</div> <span>span2</span><div>`,
-        link: node.link,
+  const findParent = (node) => {
+    if (node.parent) {
+      const parentNode = nodesData.find(node2 => node2.id === node.parent);
+      return findParent(parentNode);
     }
+    return node;
+  }
+
+  for (let i = 0, total = nodesData.length; i < total; i++) {
+    let node = nodesData[i];
+    if (node.dummies) {
+      const dummyNodes = [];
+      for (let j = 0; j < node.dummies; j++) {
+        dummyNodes.push({
+          ...node,
+          id: node.id + `-dummy${j}`,
+          name: node.name + `-dummy${j}`,
+          arcTarg: null,
+          dummies: 0,
+          val: .3,
+        })
+      }
+      const startDummyNodes = dummyNodes.splice(0, node.dummyPosition||0);
+      nodesData.splice(i,0,...startDummyNodes);
+      i += startDummyNodes.length
+      nodesData.splice(i+1,0,...dummyNodes);
+    }
+  }
+
+  let nodes = nodesData.map(node => {
+    const parentNode = findParent(node)||"Left-Grav";
+    return {
+        ...node,
+        distance: parentNode.distance,
+        gravityNode: parentNode.gravityNode,
+        val: node.val||1,
+        name: node.link?node.name:`<div className="cluster-node-text">${node.id}<div>Next level</div> <span>span2</span><div>`,
+    };
   });
 
-  const links = [
-    {
-      color: "#272D38",
-      source: 'Home',
-      target: 'Services'
-    },
-    {
-      color: "#272D38",
-      source: 'Home',
-      target: 'Products'
-    },
-    {
-      color: "#272D38",
-      source: 'Home',
-      target: 'Industries'
-    },
-    {
-      color: "#272D38",
-      source: 'Home',
-      target: 'Technologies'
-    },
-    {
-      color: "grey",
-      source: 'Home',
-      target: 'Contact',
-      width: 10,
-    },
-    {
-      color: "Green",
-      source: 'Services',
-      target: 'Web Development'
-    },
-    {
-      color: "Green",
-      source: 'Services',
-      target: 'Product Design'
-    },
-    {
-      color: "Green",
-      source: 'Services',
-      target: 'Quality Assurance'
-    },
-    {
-      color: "Green",
-      source: 'Services',
-      target: 'Product Ideation'
-    },
-    {
-      color: "Green",
-      source: 'Industries',
-      target: 'Fintech'
-    },
-    {
-      color: "Green",
-      source: 'Industries',
-      target: 'Edtech'
-    },
-    {
-      color: "Green",
-      source: 'Industries',
-      target: 'Medical'
-    },
-    {
-      color: "Green",
-      source: 'Industries',
-      target: 'Hospitality'
-    },
-    {
-      color: "Green",
-      source: 'Technologies',
-      target: 'Android'
-    },
-    {
-      color: "Green",
-      source: 'Technologies',
-      target: 'IOS'
-    },
-    {
-      color: "Green",
-      source: 'Technologies',
-      target: 'Frontend'
-    },
-    {
-      color: "Green",
-      source: 'Technologies',
-      target: 'Backend'
-    },
-    {
-      color: "Green",
-      source: 'Technologies',
-      target: 'Cross-platform'
-    },
-    {
-      color: "Green",
-      source: 'Technologies',
-      target: 'Artificial Intelligence'
-    },
-    {
-      color: "black",
-      source: 'Web Development',
-      target: 'React Developers'
-    },
-    {
-      color: "black",
-      source: 'Web Development',
-      target: 'Python Developers'
-    },
-    {
-      color: "black",
-      source: 'Product Design',
-      target: 'UI Designers'
-    },
-    {
-      color: "black",
-      source: 'Product Design',
-      target: 'UX Designers'
-    },
-    {
-      color: "black",
-      source: 'Quality Assurance',
-      target: 'Automated QA'
-    },
-    {
-      color: "black",
-      source: 'Quality Assurance',
-      target: 'Manual QA'
-    },
+  nodes = nodes.map(node => {
+    const orbitNodes = nodes.filter(orbNode => (orbNode.gravitySource === node.gravitySource)&&(orbNode.distance === node.distance)&&(orbNode.layer === node.layer));
+    return {
+      ...node, 
+      orbitNodes:orbitNodes,
+    }
+  })
 
-  ];
+  const links = nodesData.filter(node => !node.gravitySource).map(node => {
+    const parentNode = findParent(node)||"Left-Grav";
 
-const clusterData = {
+
+    const link = {
+      color: 'black',
+      source: parentNode.gravityNode,
+      target: node.id,
+      layer: node.layer,
+      invis: true,
+      distance: parentNode.distance,
+      initialDistance: parentNode.distance,
+      arcTarg: node.arcTarg,
+      counterClockwise: node.counterClockwise,
+    }
+    return link;
+  });
+
+  const clusterData = {
     nodes: nodes,
     links: links
 }
 
-clusterData.links.forEach(link => {
-    const a = clusterData.nodes.find(el => el.id === link.source);
-    const b = clusterData.nodes.find(el => el.id === link.target);
-    !a.neighbors && (a.neighbors = []);
-    !b.neighbors && (b.neighbors = []);
-    a.neighbors.push(b);
-    b.neighbors.push(a);
+  // const links2 = [
+  //   {
+  //     color: "#272D38",
+  //     source: 'Left-Grav',
+  //     target: 'Home',
+      
+  //     // invis: true,
+  //   },
+  //   {
+  //     color: "#272D38",
+  //     source: 'Left-Grav',
+  //     target: 'Home-cap',
+  //     // invis: true,
+  //   },
+  //   {
+  //     color: "#272D38",
+  //     source: 'Home',
+  //     target: 'Home-cap',
+  //     gravity: "Left-Grav"
+  //   },
+  //   {
+  //     color: "#272D38",
+  //     source: 'Right-Grav',
+  //     target: 'Services',
+  //     invis: true,
+  //   },
 
-    !a.links && (a.links = []);
-    !b.links && (b.links = []);
-    a.links.push(link);
-    b.links.push(link);
-  });
+  //   {
+  //     color: "#272D38",
+  //     source: 'Left-Grav',
+  //     target: 'Industries',
+  //     invis: true,
+  //   },
+  //   {
+  //     color: "#272D38",
+  //     source: 'Industries',
+  //     target: 'Industries',
+  //     gravity: 'Left-Grav',
+  //     invis: true,
+  //   },
+  //   {
+  //     color: "#272D38",
+  //     source: 'Left-Grav',
+  //     target: 'Technologies',
+  //     distance: 100,
+  //     invis: true,
+  //   },
+  //   {
+  //     color: "#272D38",
+  //     source: "Right-Grav",
+  //     target: "Company",
+  //     invis: true,
+  //   },
+  //   {
+  //     color: "grey",
+  //     source: 'Right-Grav',
+  //     target: 'Contact',
+  //     width: 10,
+  //     invis: true,
+  //   },
+  //   {
+  //     color: "Green",
+  //     source: 'Services',
+  //     target: 'Web Development'
+  //   },
+  //   {
+  //     color: "Green",
+  //     source: 'Services',
+  //     target: 'Product Design'
+  //   },
+  //   {
+  //     color: "Green",
+  //     source: 'Services',
+  //     target: 'Quality Assurance'
+  //   },
+  //   {
+  //     color: "Green",
+  //     source: 'Services',
+  //     target: 'Product Ideation'
+  //   },
+  //   {
+  //     color: "Green",
+  //     source: 'Industries',
+  //     target: 'Fintech'
+  //   },
+  //   {
+  //     color: "Green",
+  //     source: 'Industries',
+  //     target: 'Edtech'
+  //   },
+  //   {
+  //     color: "Green",
+  //     source: 'Industries',
+  //     target: 'Medical'
+  //   },
+  //   {
+  //     color: "Green",
+  //     source: 'Industries',
+  //     target: 'Hospitality'
+  //   },
+  //   {
+  //     color: "Green",
+  //     source: 'Technologies',
+  //     target: 'Android'
+  //   },
+  //   {
+  //     color: "Green",
+  //     source: 'Technologies',
+  //     target: 'IOS'
+  //   },
+  //   {
+  //     color: "Green",
+  //     source: 'Technologies',
+  //     target: 'Frontend'
+  //   },
+  //   {
+  //     color: "Green",
+  //     source: 'Technologies',
+  //     target: 'Backend'
+  //   },
+  //   {
+  //     color: "Green",
+  //     source: 'Technologies',
+  //     target: 'Cross-platform'
+  //   },
+  //   {
+  //     color: "Green",
+  //     source: 'Technologies',
+  //     target: 'Artificial Intelligence'
+  //   },
+  //   {
+  //     color: "black",
+  //     source: 'Web Development',
+  //     target: 'React Developers'
+  //   },
+  //   {
+  //     color: "black",
+  //     source: 'Web Development',
+  //     target: 'Python Developers'
+  //   },
+  //   {
+  //     color: "black",
+  //     source: 'Product Design',
+  //     target: 'UI Designers'
+  //   },
+  //   {
+  //     color: "black",
+  //     source: 'Product Design',
+  //     target: 'UX Designers'
+  //   },
+  //   {
+  //     color: "black",
+  //     source: 'Quality Assurance',
+  //     target: 'Automated QA'
+  //   },
+  //   {
+  //     color: "black",
+  //     source: 'Quality Assurance',
+  //     target: 'Manual QA'
+  //   },
+  //   {
+  //     color: 'blue',
+  //     source: 'Company',
+  //     target: 'Company',
+  //     curvature: 1,
+  //     rotation: 0,
+  //     orbitalDistance: 30,
+  //   }
+
+  // ];
+
+// nodes.forEach(node => {
+//   if (node.endCap) {
+//     links.push({
+//       color: '#FFFFFF',
+//       source: node.id,
+//       target: node.endCap,
+//       orbitalDistance: node.orbitalDistance,
+//       gravity: "Left-Grav",
+//       noForce: true,
+//     })
+//   }
+// })
+
+
+
+
+
+// clusterData.links.forEach(link => {
+//   if (link.gravity) {
+//     link.gravitySource = clusterData.nodes.find(el => el.id === link.gravity);
+//   }
+//   const a = clusterData.nodes.find(el => el.id === link.source);
+//   const b = clusterData.nodes.find(el => el.id === link.target);
+//   !a.neighbors && (a.neighbors = []);
+//   !b.neighbors && (b.neighbors = []);
+//   a.neighbors.push(b);
+//   b.neighbors.push(a);
+
+//   !a.links && (a.links = []);
+//   !b.links && (b.links = []);
+//   a.links.push(link);
+//   b.links.push(link);
+// });
 
 export default clusterData;

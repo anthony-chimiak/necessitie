@@ -34,7 +34,7 @@ import crossPlatformImg from "./../../../assets/images/Platform/cross-platform.s
 import aiImg from "./../../../assets/images/Platform/ai.svg"
 import industriesFullImg from "./../../../assets/images/allcubes.png"
 
-import NetworkCluster from './Cluster/clusterTest.jsx';
+import NetworkCluster from './Cluster/clusterTest2.jsx';
 
 import './map.scss'
 

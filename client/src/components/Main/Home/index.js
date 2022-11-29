@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useRef, useLayoutEffect} from "react";
+
 import CardComponent from './CardComponent.js'
 import { Button} from 'semantic-ui-react';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -46,6 +47,9 @@ import industriesFullImg from "./../../../assets/images/allcubes.png"
 import './home.scss'
 
 export const Home = (props) => {
+    const landingRef = useRef(null);
+    const [landingWidth, setLandingWidth] = useState(0);
+    const [landingHeight, setLandingHeight] = useState(0);
     const industriesList = ['FinTech', 'EdTech', 'Hospitality', 'Medical'];
     const [activeStep, setActiveStep] = React.useState(0);
     const technologyJSX = [
@@ -217,21 +221,28 @@ export const Home = (props) => {
         };
       }
 
+    
+
+    useLayoutEffect(() => {
+        setLandingWidth(landingRef.current.offsetWidth);
+        setLandingHeight(landingRef.current.offsetHeight);
+      }, []);
+
 
     return (
         <div className="home main-content">
-            <div className="landing-page secondary-color page">
-                <div className="primary-content">
-                    <h1>Outsource to developers specialized to your needs</h1>
-                    <NetworkCluster/>
-                    {/* <img src={landingImg} className="landing-img"/> */}
+            <div className="landing-page secondary-color page" ref={landingRef}>
+                    <NetworkCluster width={landingWidth} height={landingHeight}/>
+                {/* <div className="primary-content">
+                
+                    <h1>WE BUILD SOFTWARE</h1>
 
-                </div>
-                <div className="secondary-content" >
+                </div> */}
+                {/* <div className="secondary-content" >
                     <p>Necessitie can provide you with top developers that have skills focused on your needs so you know they will be able to excel at the tasks you throw at them.</p>
                     <Button className="action-btn">Let's work together</Button>
                     <Button className="action-btn outline tablet">Get a quote</Button>
-                </div>
+                </div> */}
 
             </div>
             <div className="share-page page main-template">
