@@ -9,6 +9,7 @@
  import clusterData from './clustdata'
  import SizeMe from 'react-sizeme'
  import './cluster.scss'
+import { createContext } from "react";
 
  
  
@@ -61,15 +62,17 @@
     const fg = forceRef.current;
     highlightNodes.clear();
     highlightLinks.clear();
-    if (node && node.neighbors) {
+    // if (node && node.neighbors) {
+    if (node && node.catagoryNodes) {
+
       highlightNodes.add(node);
-      node.neighbors.forEach(neighbor => highlightNodes.add(neighbor));
-      node.links.forEach(link => highlightLinks.add(link));
+      node.catagoryNodes.forEach(catagoryNode => highlightNodes.add(clusterNodeHash[catagoryNode.id]||null));
+      // node.links.forEach(link => highlightLinks.add(link));
     }
 
     setHoverNode(node || null);
     updateHighlight();
-    fg.stopAnimation(true);
+    // fg.stopAnimation(true);
   };
 
   const handleNodeClick = node => {
@@ -249,6 +252,10 @@
       let ty = arcTarget.y;
       let r = Math.sqrt((sx - gx)**2 + (sy - gy)**2);
       ctx.beginPath();
+      if (highlightNodes.has(target)) {
+        ctx.lineWidth = 2;
+      }
+      // ctx.lineWidth=5;
       if (target.id == arcTarget.id) {
         ctx.arc(gx, gy, r, 0, 2*Math.PI);
       } else {
@@ -269,7 +276,7 @@
     rightGrav.fy = (height*4/screenDiv - 20);
     rightGrav.fy = 0;
     leftGrav.fx = -(width/screenDiv);
-    leftGrav.fy = -(height/2 - 10);
+    leftGrav.fy = -(height/2);
     homeNode.fx = leftGrav.fx + (width/screenDiv)/8;
     homeNode.fy = leftGrav.fy + (height/screenDiv)/8;
     // homeNode.fx = 0
@@ -294,10 +301,9 @@
       nodeCanvasObjectMode={node => highlightNodes.has(node) ? 'before' : undefined}
       nodeCanvasObject={paintRing}
       nodeVisibility={node => !node.invis}
-      // centerAt={[0, -height/4, 20]}
       // nodeWidth={'width'}
       // nodeRelSize={1}
-      // onNodeHover={handleNodeHover}
+      onNodeHover={handleNodeHover}
       // onLinkHover={handleLinkHover}
       // cooldownTicks={400}
       // onNodeDragEnd={handleNodeDragEnd}

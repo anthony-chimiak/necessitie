@@ -39,7 +39,7 @@ const nodesData = [
     {
       id: 'Home-cap',
       name: 'Home-cap',
-      link: "Home-cap",
+      link: "Home",
       distance: distance.Home,
       parent: "Home",
       color: 'silver',
@@ -265,7 +265,7 @@ const nodesData = [
     {
       id: 'Company-cap',
       name: 'Company-cap',
-      link: "Company-cap",
+      link: "Company",
       distance: distance.Company,
       gravityNode: "Right-Grav",
       arcTarg: "Company",
@@ -353,10 +353,13 @@ const nodesData = [
   });
 
   nodes = nodes.map(node => {
-    const orbitNodes = nodes.filter(orbNode => (orbNode.gravitySource === node.gravitySource)&&(orbNode.distance === node.distance)&&(orbNode.layer === node.layer));
+    const catagoryNodes = nodes.filter(catNode => (catNode.gravitySource === node.gravitySource)&&(catNode.distance === node.distance));
+    const orbitNodes = catagoryNodes.filter(orbNode => orbNode.layer === node.layer);
+    
     return {
       ...node, 
       orbitNodes:orbitNodes,
+      catagoryNodes: catagoryNodes,
     }
   })
 
