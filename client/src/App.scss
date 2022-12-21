@@ -4,14 +4,14 @@
 
 .App {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  ;
+  
   font-style: normal;
   font-weight: normal;
   font-size: 1.2rem;
   line-height: 21px;
   color: $gradient-color;
 
-  padding-top: 80px;
+  // padding-top: 80px;
 
   @media only screen and (min-width: 600px) { 
     font-size: 1rem;
@@ -25,8 +25,8 @@
     line-height: 2.4rem;
 
     @media only screen and (min-width: 600px) { 
-      font-size: 4.5rem;
-      line-height: 5.4rem;
+      font-size: 6rem;
+      line-height: 7.2rem;
     }
     
   }
@@ -37,8 +37,8 @@
     text-align: center;
     font-weight: 700;
     @media only screen and (min-width: 600px) { 
-      font-size: 3.2rem;
-      line-height: 4rem;
+      font-size: 5.3rem;
+      line-height: 7rem;
     }
   }
   
@@ -46,8 +46,15 @@
     font-size: 1.4rem;
     line-height: 24px;  
   }
-
+  
   h4 {
+    @include respond(tablet) {
+      font-size: 4.3rem;
+      color: $outline-color;
+    }
+  }
+
+  h5 {
     font-size: 1.17rem;
     font-weight: 600;
   }
@@ -65,29 +72,28 @@
     background-color: #FFFFFF;
     @media only screen and (min-width: 600px) { 
       // padding: 7.5vh 0vw 0 0;
-      padding: 80px 0 0 0;
+      // padding: 80px 0 0 0;
     }
   }
   .landing-page.page {
     @include respond(tablet) {
       padding: 29vh 13.5vw 0vh 13.5vw;
       text-align: left;
-      background: $secondary-color;
       
-      color: #FFFFFF;
+      color: $third-off-color;
       p {
         text-align: left;
         margin-bottom: 6vh;
       }
-      h1 {
-        margin-bottom: 6.25vh;
-        margin-left: 20vw;
-      }
+      // h1 {
+      //   margin-bottom: 6.25vh;
+      //   margin-left: 20vw;
+      // }
       .secondary-content {
-        display: flex;
-        flex-wrap: wrap;
-        column-gap: 2vw;
-        margin-top: 0;
+        // display: flex;
+        // flex-wrap: wrap;
+        // column-gap: 2vw;
+        // margin-top: 0;
         p {
           flex-basis: 100%;
           margin-bottom: 0;
@@ -160,6 +166,34 @@
         font-weight: 400;
       }
     }
+    &.second-page {
+      @include respond(tablet) {
+        padding: 10vh 0 0 19vw;
+        text-align: left;
+        .primary-content {
+          h2 {
+            color: $third-off-color;
+            text-align: left;
+            padding: 0;
+            flex-basis: 70%;
+            span {
+              color: $action-color;
+            }
+          }
+        }
+        .secondary-content {
+          margin-left: 0vw;
+          margin-top: 2vh;
+          padding: 0;
+          width: 45%;
+          p {
+            color: $third-off-color;
+            
+          }
+        }
+
+      }
+    }
   }
 
 
@@ -169,17 +203,27 @@
     min-height: 100vh;
     text-align: center;
     .primary-content {
-      height: 50vh;
+      // height: 50vh;
     }
     .secondary-content {
       // margin-top: 50vh;
     }
     @include respond(tablet) {
-      min-height: calc(100vh - 80px);
+      min-height: calc(100vh);
+      h1 {
+        text-transform: uppercase;
+      }
       .primary-content {
-        height: 17vh;
+        padding: 29vh 0vw 0vh 19vw;
+        color: $third-off-color;
+        span {
+          color: $off-action-color;
+        }
+        // height: 17vh;
       }
       .secondary-content {
+        padding: 5vh 0vw 0vh 19vw;
+        width: 45%;
         p {
           margin-bottom: 4vh;
         }

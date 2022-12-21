@@ -1,7 +1,7 @@
 /**************************************
  ** 3rd Party components and libraries
  ***************************************/
- import React, {useState, useMemo, useCallback, useEffect, useRef} from "react";
+ import React, {useState, useLayoutEffect, useEffect, useRef} from "react";
  import { ForceGraph3D, ForceGraph2D } from "react-force-graph";
  import * as d3 from "d3";
  import { forceSimulation, forceManyBody, forceLink, forceCenter } from 'd3-force'
@@ -20,13 +20,15 @@ import { createContext } from "react";
   const [highlightLinks, setHighlightLinks] = useState(new Set());
   const [hoverNode, setHoverNode] = useState(null);
   const [tickNum, setTickNum] = useState(0);
+  const [landingWidth, setLandingWidth] = useState(0);
+  const [landingHeight, setLandingHeight] = useState(0);
   const data = {
     nodes: clusterData.nodes,
     links: clusterData.links
   };
   const clusterNodeHash = {};
   clusterData.nodes.forEach(node => clusterNodeHash[node.id] = node);
-  const {height, width} = props;
+  const {landingRef} = props;
 
   const forceRef = useRef(null);
   const NODE_R = 6;
@@ -138,9 +140,6 @@ import { createContext } from "react";
 
   useEffect(() => {
     const fg = forceRef.current;
-    // fg.d3Force('center', null);
-    // fg.d3Force('charge', null);
-    // fg.d3Force('link', null);
     fg.d3Force('link').distance((link) => {
       let distance = link.distance||30;
       if (link.layer) {
@@ -152,91 +151,28 @@ import { createContext } from "react";
 
 
     fg.d3Force('charge').strength(-10).distanceMax(50);
-    fg.d3Force('center').strength(1).y(-height/4).x(0);
-    // fg.d3Force('customCenter', customCenterFunc);
+    fg.d3Force('center').strength(1).y(-landingHeight/4).x(0);
 
-    
-    // fg.pauseAnimation(true);
-    // debugger;
-
-
-    // fg.d3Force("border", pushInBorders);
-    // function pushInBorders(alpha) {
-    //   clusterNodes.forEach((node) => {
-    //     const widthBorder = -width/screenDiv;
-    //     const heightBorder = -(height/screenDiv + 20);
-    //     if (node.x < (widthBorder - 50) ) {
-    //       // debugger;
-    //       // node.x += (widthBorder - node.x);
-    //       node.vx += (widthBorder - node.x)/100
-    //     }
-    //     if (node.y < (heightBorder - 50)) {
-    //       node.vy += (heightBorder - node.y)/100;
-    //     }
-    //   })
-    // } 
-    // fg.d3Force('center').strength(2);
-      
-    // }).strength((link) => {
-    //   if (link.noForce) {
-    //     return 0;
-    //   }
-    //   return 1;
-    //   });
-    // fg.d3Force('radial', d3.forceRadial(200).x(100));
-    // fg.d3Force('link', customLinkFunc);
-    // fg.d3Force("x", d3.forceX().strength(0).x(customForceFunc));
-
-    // fg.d3Force('x', d3.forceX()).strength(30);
-
-    // fg.d3Force('x', d3.forceX(node => {
-    //   return node.pullX||node.vx;
-    // }));
-    // fg.d3Force("cluster", clustering)//<<------- CUSTOM FORCE 
-    // function clustering(alpha) {
-    //   clusterNodes.forEach(function(node) {
-    //     if (node.orbitNodes.length) {
-    //       node.orbitNodes.forEach(function(tempNode) {
-    //         const secondNode = clusterNodeHash[tempNode.id];
-    //         const distance = Math.sqrt((node.x - secondNode.x)**2 + (node.y - secondNode.y)**2);
-    //         if (distance > 0) {
-    //           const slope = findSlope(node.x, node.y, secondNode.x, secondNode.y);
-
-    //         }
-    //       })
-    //     }
-    //   });
-    // }
+  }, [landingHeight, landingWidth])
 
 
 
-
-
-    // fg.d3Force('y', d3.forceX(node => {
-    //   return -50;
-    // }));
-    // fg.d3Force('y', d3.forceY(customYFunc));
-    // fg.d3Force("x", d3.forceX().strength(0).x(customForceFunc));
-    // forceRef.current.d3Force("link").strength(1).distance(20).iterations(10);
-    // const simulation = d3.forceSimulation(nodes)
-    // .force("charge", d3.forceManyBody().strength(-30))
-    // .force("link", d3.forceLink(links).strength(1).distance(20).iterations(10))
-    // .on("tick", ticked);
-
-  })
-
-
-
-  const paintRing = useCallback((node, ctx) => {
+  const paintRing = (node, ctx) => {
     // add ring just for highlighted nodes
     // ctx.beginPath();
     // ctx.arc(node.x, node.y, 50, 10, 2 * Math.PI);
     // ctx.stroke();
+    if (highlightNodes.has(node)) {
+      let radius = node.val||1;
+      ctx.arc(node.x, node.y, radius * 1.5 + 3.5, 0, 2 * Math.PI, false);
+      ctx.fillStyle = node === hoverNode ? 'red' : 'orange';
+      ctx.fill();
+      ctx.fillStyle = 'black';
+    } else {
+      
+    }
 
-    ctx.arc(node.x, node.y, NODE_R * 1.4, 0, 2 * Math.PI, false);
-    ctx.fillStyle = node === hoverNode ? 'red' : 'orange';
-    ctx.fill();
-  }, [hoverNode]); 
+  }; 
 
   const linkArc = (link, ctx) => {
 
@@ -251,11 +187,16 @@ import { createContext } from "react";
       let tx = arcTarget.x;
       let ty = arcTarget.y;
       let r = Math.sqrt((sx - gx)**2 + (sy - gy)**2);
+      
       ctx.beginPath();
       if (highlightNodes.has(target)) {
         ctx.lineWidth = 2;
+      } else {
+        ctx.lineWidth = 1;
       }
       // ctx.lineWidth=5;
+      // ctx.strokestyle = "red";
+      ctx.strokeStyle = "rgba(0,0,0,.5)";
       if (target.id == arcTarget.id) {
         ctx.arc(gx, gy, r, 0, 2*Math.PI);
       } else {
@@ -265,6 +206,16 @@ import { createContext } from "react";
     }
   }
 
+  useLayoutEffect(() => {
+    setLandingWidth(landingRef?.current?.offsetWidth || window.innerWidth);
+    setLandingHeight(landingRef?.current?.offsetHeight || window.innerHeight);
+  }, []);
+
+  window.addEventListener('resize', () => {
+    setLandingWidth(landingRef?.current?.offsetWidth || window.innerWidth);
+    setLandingHeight(landingRef?.current?.offsetHeight || window.innerHeight);
+  });
+
   useEffect(() => {
     const fg = forceRef.current;
     let rightGrav = clusterNodeHash["Right-Grav"];
@@ -272,33 +223,35 @@ import { createContext } from "react";
     let homeNode = clusterNodeHash["Home"];
     let contactNode = clusterNodeHash['Contact'];
     // const screenDiv = 4;
-    rightGrav.fx = width/screenDiv;
-    rightGrav.fy = (height*4/screenDiv - 20);
-    rightGrav.fy = 0;
-    leftGrav.fx = -(width/screenDiv);
-    leftGrav.fy = -(height/2);
-    homeNode.fx = leftGrav.fx + (width/screenDiv)/8;
-    homeNode.fy = leftGrav.fy + (height/screenDiv)/8;
+    rightGrav.fx = landingWidth/screenDiv;
+    // rightGrav.fy = (landingHeight*4/screenDiv - 20);
+    rightGrav.fy = -landingHeight/40;
+    leftGrav.fx = -(landingWidth/screenDiv);
+    leftGrav.fy = -(landingHeight/2);
+    homeNode.fx = leftGrav.fx + (landingWidth/screenDiv)/8;
+    homeNode.fy = leftGrav.fy + (landingHeight/screenDiv)/8;
     // homeNode.fx = 0
-    // homeNode.fy=-height/4;
-    contactNode.fx = rightGrav.fx - (width/screenDiv)/12;
-    contactNode.fy = rightGrav.fy - (height/screenDiv)/12;
+    // homeNode.fy=-landingHeight/4;
+    contactNode.fx = rightGrav.fx - (landingWidth/screenDiv)/12;
+    contactNode.fy = rightGrav.fy - (landingHeight/screenDiv)/12;
 
     clusterLinks.forEach(link => {
-      link.distance = link.initialDistance/1000*width;
+      link.distance = link.initialDistance/1000*landingWidth;
     })
-    // fg.current.centerAt(0, height/4);
+    // fg.current.centerAt(0, landingHeight/4);
 
 
 
-  },[height, width])
+  },[landingHeight, landingWidth])
+
+  
 
    return (
       <ForceGraph2D 
       enableNavigationControls={isZoomEnabled}
       enableZoomInteraction={isZoomEnabled}
       graphData={data}
-      nodeCanvasObjectMode={node => highlightNodes.has(node) ? 'before' : undefined}
+      nodeCanvasObjectMode={node => highlightNodes.has(node) ? 'after' : undefined}
       nodeCanvasObject={paintRing}
       nodeVisibility={node => !node.invis}
       // nodeWidth={'width'}
@@ -315,7 +268,8 @@ import { createContext } from "react";
         width = link.width||width;
         return width;
       }}
-      height={height*2}
+      height={landingHeight*2}
+      width={landingWidth}
       
       // linkVisibility={link => !link.invis}
       // linkCurvature="curvature"

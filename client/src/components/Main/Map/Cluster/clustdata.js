@@ -74,7 +74,7 @@ const nodesData = [
       distance: distance.Technologies,
       layer: 1,
       gravityNode: "Left-Grav",
-      arcTarg: "Technologies",
+      arcTarg: "Industries",
     },
     {
       id: 'Company',
@@ -254,6 +254,13 @@ const nodesData = [
       arcTarg: 'Quality Assurance',
       layer: 2,
     },
+    // {
+    //   id: 'empty-space',
+    //   invis: true,
+    //   name: "company-deadnode",
+    //   val: 0,
+    //   gravityNode: "Right-Grav",
+    // },
     // {
     //   id: 'Company',
     //   name: 'Company2',

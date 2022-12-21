@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@react-hook/resize-observer": "^1.2.6",
     "d3": "^7.6.1",
     "d3-force": "^3.0.0",
     "react-force-graph-3d": "^1.21.12",

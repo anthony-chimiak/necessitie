@@ -8,6 +8,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 // import EmailIcon from '@mui/icons-material/Email';
 
 import MobileCarousel from './MobileCarousel';
+import SlantedImager from './SlantedImager';
 import ContactUs from '../ContactUs/ContactUs.js';
 import { ForceGraph2D } from "react-force-graph";
 
@@ -48,8 +49,6 @@ import './home.scss'
 
 export const Home = (props) => {
     const landingRef = useRef(null);
-    const [landingWidth, setLandingWidth] = useState(0);
-    const [landingHeight, setLandingHeight] = useState(0);
     const industriesList = ['FinTech', 'EdTech', 'Hospitality', 'Medical'];
     const [activeStep, setActiveStep] = React.useState(0);
     const technologyJSX = [
@@ -207,6 +206,12 @@ export const Home = (props) => {
             title:'Drug and procedure recording application',
             text:'Due to being in the medical field, there was an extreme focus on integratting the development team directly with the SDET teams.  Developers would be working side by side with Automation QA engineers, setting up those teams was one of our specialities.',
         },
+        {
+            label: 'testImg',
+            imgPath: landingImg,
+            title:'Drug and procedure recording application',
+            text:'Due to being in the medical field, there was an extreme focus on integratting the development team directly with the SDET teams.  Developers would be working side by side with Automation QA engineers, setting up those teams was one of our specialities.',
+        }
       ];
 
       function genRandomTree(N = 300) {
@@ -223,31 +228,32 @@ export const Home = (props) => {
 
     
 
-    useLayoutEffect(() => {
-        setLandingWidth(landingRef.current.offsetWidth);
-        setLandingHeight(landingRef.current.offsetHeight);
-      }, []);
+
 
 
     return (
         <div className="home main-content">
             <div className="landing-page secondary-color page" ref={landingRef}>
-                    <NetworkCluster width={landingWidth} height={landingHeight}/>
-                {/* <div className="primary-content">
+                    <NetworkCluster landingRef={landingRef}/>
                 
-                    <h1>WE BUILD SOFTWARE</h1>
+                <div className="primary-content">
+                
+                    <h1>Let <span>Necessitie</span> help you</h1>
 
-                </div> */}
-                {/* <div className="secondary-content" >
+                </div>
+                <div className="secondary-content" >
                     <p>Necessitie can provide you with top developers that have skills focused on your needs so you know they will be able to excel at the tasks you throw at them.</p>
                     <Button className="action-btn">Let's work together</Button>
-                    <Button className="action-btn outline tablet">Get a quote</Button>
-                </div> */}
+                    {/* <Button className="action-btn outline tablet">Get a quote</Button> */}
+                </div>
 
             </div>
-            <div className="share-page page main-template">
+            <div className="share-page page main-template second-page">
                 <div className='primary-content'>
-                    <h2 className="share-header">Focused precision for your products</h2>
+                    <h2 className="share-header">Focused precision for <span>your products</span></h2>
+                    <div className="service-img-container">
+                        <img src={servicesMainImg} className="service-main-img tablet"/>
+                    </div>
                 </div>
                 
                 <div className="secondary-content">
@@ -267,13 +273,11 @@ export const Home = (props) => {
                     {/* <img src={rocketImg} className="rocket-img"/> */}
                     {/* </div> */}
                     <div className='services-primary-container'>
-                        <h2 className="services-header">Our speciality services</h2>
-                        <p>Find people that are <span className='action-color'>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
-                        <Button className="action-btn">See All Services</Button>
+                        <h4 className="services-header">Our speciality services</h4>
+                        {/* <p>Find people that are <span className='action-color'>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
+                        <Button className="action-btn">See All Services</Button> */}
                     </div>
-                    <div className="service-img-container">
-                        <img src={servicesMainImg} className="service-main-img tablet"/>
-                    </div>
+                    
 
 
 
@@ -295,16 +299,20 @@ export const Home = (props) => {
             <div className="examples-page page">
                 <div className="examples-container mobile">
                     <h2>Here's are some of the projects out team has worked on</h2>
-                    <MobileCarousel images={images} activeStep={activeStep} setActiveStep={setActiveStep}/>
+                    <MobileCarousel showImage={true} images={images} activeStep={activeStep} setActiveStep={setActiveStep}/>
                     <h3>{images[activeStep].title}</h3>
                     <p>{images[activeStep].text}</p>
                 </div>
                 <div className="examples-container tablet">
-                    <MobileCarousel images={images} activeStep={activeStep} setActiveStep={setActiveStep}/>
+                    <div className="examples-img-cont">
+                        <SlantedImager images={images} activeStep={activeStep}/>
+                    </div>
                     <div className="examples-text-cont">
                         <h2>Here's are some of the projects out team has worked on</h2>
                         <h3>{images[activeStep].title}</h3>
                         <p>{images[activeStep].text}</p>
+                        <MobileCarousel  showImage={false} images={images} activeStep={activeStep} setActiveStep={setActiveStep}/>
+
                     </div>
                 </div>
             </div>
@@ -333,13 +341,13 @@ export const Home = (props) => {
                     <div className="product-container">
                         <div className="primary-content">
                             <h2>How Necessitie can help you <span className="action-color-tablet">reach your goals!</span></h2>
-                            <h4>Full team software outsourcing</h4>
+                            <h5>Full team software outsourcing</h5>
                             <p>Necessitie has a range of scalable possibilities to meet your products needs.  Full independent front-end, back-end, or QA team? We will have that, joining in on meetings where you feel appropriate.</p>
                             <p>If you need to scale up, we can move to full service team, handling design and devops as well.</p>
                         </div>
 
                         <div className="secondary-content">
-                            <h4>IT staff augmentation</h4>
+                            <h5>IT staff augmentation</h5>
                             <p>Necessitie can help place people who know how to work in existing teams, right into yours.
                             <br className='mobile'/><br/>Fast, efficient software developers, UI/UX designers, and QA/Sdet personelle at your fingertips. 
                             <br className="tablet"></br> Avoid sourcing and recruitment issues.</p>
@@ -383,7 +391,7 @@ export const Home = (props) => {
                             return (
                                 <div className="single-tech" key={x.name}>
                                     <img src={x.img}/>
-                                    <h4 className="single-tech-name">{x.name}</h4>
+                                    <h5 className="single-tech-name">{x.name}</h5>
                                     <p>{x.text}</p>
                                 </div>
                                 )
@@ -396,7 +404,7 @@ export const Home = (props) => {
                             return (
                                 <div className="single-tech" key={x.name}>
                                     <img src={x.img}/>
-                                    <h4 className="single-tech-name">{x.name}</h4>
+                                    <h5 className="single-tech-name">{x.name}</h5>
                                     <p>{x.text}</p>
                                 </div>
                             )

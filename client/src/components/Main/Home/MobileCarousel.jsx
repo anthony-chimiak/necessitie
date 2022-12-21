@@ -14,7 +14,7 @@ export default function MobileCarousel(props) {
   const theme = useTheme();
   // const [activeStep, setActiveStep] = React.useState(0);
   const {activeStep, setActiveStep} = props;
-  const {images} = props;
+  const {images, showImage} = props;
   const maxSteps = images.length;
   const baseColor = "#EDEFFA"; 
 
@@ -88,7 +88,8 @@ export default function MobileCarousel(props) {
                 component="img"
                 sx={{
                   // height: 255,
-                  display: 'block',
+                  display: showImage?'block':'none',
+                 
                   maxWidth: 400,
                   overflow: 'hidden',
                   width: '100%',

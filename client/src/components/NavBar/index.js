@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -31,6 +31,7 @@ import './navbar.scss';
 
 export const NavBar = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [scrolled, setScrolled] = useState(false);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
       setAnchorEl(event.currentTarget);
@@ -39,40 +40,60 @@ export const NavBar = (props) => {
       setAnchorEl(null);
   };
 
-  const pages = ['Services', 'Industries', 'Technologies', 'Company', 'Contact'];
+  const heightTrigger = useScrollTrigger({
+    // disableHysteresis: true,
+    threshold: 100,
+    // target: props.window ? window() : undefined
+  });
+
+  const pages = ['Home', 'Services', 'Industries', 'Technologies', 'Company', 'Contact'];
   let location = useLocation();
 
+  function getScrollPosition() {
+    return window.pageYOffset !== undefined
+      ? window.pageYOffset
+      : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+  }
 
-    function HideOnScroll(props) {
-        const { children } = props;
-        const trigger = useScrollTrigger();
-      
-        return (
-          <Slide appear={false} direction="down" in={!trigger}>
-            {children}
-          </Slide>
-        );
-      }
+  function updateScrolledState() {
+    if (getScrollPosition() > 100) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  }
 
-      function ScrollTop(props) {
-        const { children } = props;
-        const trigger = useScrollTrigger({
-          disableHysteresis: true,
-          threshold: 100,
+  function HideOnScroll(props) {
+      const { children } = props;
+      const trigger = useScrollTrigger();
+    
+      return (
+        <Slide appear={false} direction="down" in={!trigger}>
+          {children}
+        </Slide>
+      );
+    }
+
+  function ScrollTop(props) {
+    const { children } = props;
+    const trigger = useScrollTrigger({
+      disableHysteresis: true,
+      threshold: 100,
+    });
+
+
+  const handleClickScroll = (event) => {
+      const anchor = (event.target.ownerDocument || document).querySelector(
+        '#main-menu-dropdown-button',
+      );
+  
+      if (anchor) {
+        anchor.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
         });
-
-        const handleClickScroll = (event) => {
-            const anchor = (event.target.ownerDocument || document).querySelector(
-              '#main-menu-dropdown-button',
-            );
-        
-            if (anchor) {
-              anchor.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center',
-              });
-            }
-          };
+      }
+    };
         return (
         <Zoom in={trigger}>
             <Box
@@ -86,13 +107,26 @@ export const NavBar = (props) => {
         );
     }
       
-      
+    useEffect(() => {
+      updateScrolledState();
+      window.addEventListener('scroll', updateScrolledState);
+      return () => window.removeEventListener('scroll', updateScrolledState);
+    }, []);
+
     return (
         <>
           <ThemeProvider theme={mainTheme}>
             <span id="back-to-top-anchor"></span>
             <HideOnScroll {...props}>
-              <AppBar color="navbar">
+              <AppBar 
+                color={scrolled?"navbar":"navbarClear"} 
+                // classes={scrolled?'past-top':''} 
+                sx={{
+                  boxShadow:scrolled?'box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)':'none',
+                  height: '80px',
+                }}
+                // transition="box-shadow 4s"
+              >
                 <Toolbar variant="dense" disableid="back-to-top-anchor" >
                 <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                 <IconButton edge="end" color="action" aria-label="menu" sx={{  display: {xs: 'flex', md: 'none'}}} onClick={handleClick}>
@@ -105,7 +139,12 @@ export const NavBar = (props) => {
                   </IconButton> 
                   
                 </Box>
-                <Box className="logo-box" sx={{ display: { xs: 'none', md: 'flex' } }}>
+                <Box className="logo-box" sx={{ 
+                  opacity:heightTrigger?'0':'0', 
+                  // transition: 'opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1)',
+                  flexGrow: 3, 
+                  display: { xs: 'none', md: 'flex' } 
+                  }}>
                   <Link to="/Home"><img src={logo} className="logo"/></Link>
                   
                 </Box>
@@ -131,13 +170,26 @@ export const NavBar = (props) => {
                         to={`/${page}`}
                       >
                         {page}
-                        {(location.pathname === `/${page}`?<KeyboardArrowUpIcon />:<KeyboardArrowDownIcon />)}
+                        {/* {(location.pathname === `/${page}`?<KeyboardArrowUpIcon />:<KeyboardArrowDownIcon />)} */}
                       </Link>
                     ))}
                   </Box>
+                  <Button className="action-btn outline tablet" sx={{
+                    border:'1px solid black',
+                    width: '13vw',
+                    height: '5.5vh',
+                    fontSize: '1.3rem',
+                    borderRadius: '10px',
+                    fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
+                    textTransform: 'none',
+                    height: '5.5vh',
+                    minHeight: '50px',
+                    padding: '0',
+                    border: '2px solid #4539CF',
+                    color: "#4539CF",
+                    }}>Get a quote</Button>
 
-                  
-                  <img src={logo} className="logo"/>
+                  {/* <img src={logo} className="logo"/> */}
                   <Menu
                       id="main-menu-dropdown"
                       aria-labelledby="main-menu-dropdown-button"

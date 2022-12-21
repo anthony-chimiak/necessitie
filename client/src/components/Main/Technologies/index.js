@@ -80,7 +80,7 @@ function Technologies(props) {
     const ItListJSX = ItList.map(x => 
         <div className={'single-IT ' + x.class} >
             <img src={x.img} />
-            <h4>{x.name}</h4>
+            <h5>{x.name}</h5>
             <p>{x.text}</p>
         </div>  
     );
@@ -97,7 +97,7 @@ function Technologies(props) {
             <div className={'single-tech' + (i%2?' alt':'') + (tabAlt?" tabAlt":'')}>
                 {x.img && <img src={x.img}/> }
                 <h2 className='mobile'>{x.name}</h2>
-                <h4 className='tablet'>{x.name}</h4>
+                <h5 className='tablet'>{x.name}</h5>
                 <p>{x.text}</p>
             </div>
         )

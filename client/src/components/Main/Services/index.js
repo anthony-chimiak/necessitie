@@ -75,7 +75,7 @@ const developersJSX = developersData.map((x,i) => (
     <div className={`${x.class} single-service`}  key={x.class}>
         {i===1 && <hr className='divider tablet thick'/>}
         <h3 className='mobile'>{x.name}</h3>
-        <h4 className='tablet'>{x.name}</h4>
+        <h5 className='tablet'>{x.name}</h5>
         {x.img &&<img src={x.img} className="tablet"/>}
         <p className='tablet title'>{x.title}</p>
         <p>{x.text}</p>
@@ -86,7 +86,7 @@ const designersJSX = designersData.map((x,i) => (
     <div className={`${x.class} single-service`}  key={x.class}>
         {i===1 && <hr className='divider tablet thick'/>}
         <h3 className='mobile'>{x.name}</h3>
-        <h4 className='tablet'>{x.name}</h4>
+        <h5 className='tablet'>{x.name}</h5>
         {x.img &&<img src={x.img} className="tablet designer-img"/>} 
         <p className='tablet title'>{x.title}</p>  
         <p>{x.text}</p>
@@ -97,7 +97,7 @@ const qaJSX = qaData.map((x,i) => (
     <div className={`${x.class} single-service`}  key={x.class}>
         {i===1 && <hr className='divider tablet thick'/>}
         <h3 className='mobile'>{x.name}</h3>
-        <h4 className='tablet'>{x.name}</h4>
+        <h5 className='tablet'>{x.name}</h5>
         {x.img &&<img src={x.img} className="tablet"/>}
         <p className='tablet title'>{x.title}</p>
         <p>{x.text}</p>
@@ -198,7 +198,7 @@ function Services(props) {
         <div className="process-page page">
             <div className='primary-content'>
                 <h2>Our Product Ideation & Strategy process</h2>
-                <h4>Competitive analysis and market insights</h4>
+                <h5>Competitive analysis and market insights</h5>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
                 <img src={mobileProductImg} className="mobile-product-img mobile"/>
                 <img src={productIdea} className="tablet"/>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useRef, useLayoutEffect} from "react";
 import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
 import ContactUs from '../ContactUs/ContactUs';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
@@ -13,12 +13,17 @@ import orangeStack from "./../../../assets/images/industry-orange-stack-square.p
 import orangeCone from "./../../../assets/images/fin-cone-orange.png"
 import blueLock from "./../../../assets/images/blue-lock.png"
 
+import NetworkCluster from '../Map/Cluster/clusterTest.jsx';
+
 
 
 
 import './industries.scss'
 
 function Industries(props) {
+    const landingRef = useRef(null);
+    const [landingWidth, setLandingWidth] = useState(0);
+    const [landingHeight, setLandingHeight] = useState(0);
     const industriesList = [
         {
             name: 'FinTech',
@@ -84,10 +89,21 @@ function Industries(props) {
         </div>)
     });
 
+    useLayoutEffect(() => {
+        setLandingWidth(landingRef.current.offsetWidth);
+        setLandingHeight(landingRef.current.offsetHeight);
+      }, []);
+
+      window.addEventListener('resize', () => {
+        setLandingWidth(landingRef.current.offsetWidth);
+        setLandingHeight(landingRef.current.offsetHeight);
+      });
+
     
     return (
         <div className='industries main-content'>
-            <div className="landing-page primary-color page">
+            <div className="landing-page primary-color page" ref={landingRef}>
+            <NetworkCluster width={landingWidth} height={landingHeight}/>
                 <div className="primary-content">
                     <h1>Industries</h1>
                 </div>
@@ -125,7 +141,7 @@ function Industries(props) {
                                     <div className={"industries-card " + x.name +(i%2?' alt':'')} key={x.name}>
                                         <img src={x.img} className="tablet" />
                                         <h3 className="mobile">{x.name}</h3> 
-                                        <h4 className="tablet">{x.name}</h4> 
+                                        <h5 className="tablet">{x.name}</h5> 
                                         <p className="mobile">{x.text}</p>
                                         <p className="tablet">{x.tabletText}</p>
                                     </div>

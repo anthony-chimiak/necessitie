@@ -33,7 +33,7 @@ function Technologies(props) {
     ].map(x => (
       <div className={"single-who " + x.name} key={x.name}>
         <img src={x.img}/>
-        <h4>{x.name}</h4>
+        <h5>{x.name}</h5>
         <p>{x.text}</p>
       </div>
     ));
@@ -85,11 +85,11 @@ function Technologies(props) {
                     <div>
 
                       <h2>We believe in what we do and that <span>drives us to excel</span></h2>
-                      <h4>Team as a service</h4>
+                      <h5>Team as a service</h5>
                       <p className="mobile">Our dedicated team focus completely on you, we help define your goals and provide honest advice about wheter going remote is the right option for your organization </p>
                       <p className='tablet'>Our dedicated team focus completely on you, We help Define your goals and provide honest advice about wheter going remote is the right option for your organization We assemble engineering team tailored to your desired skill set designed to blend flawlessly with your in house engineers</p>
 
-                      <h4>Team as a service</h4>
+                      <h5>Team as a service</h5>
                       <p className="mobile">Our dedicated team focus completely on you, we help define your goals and provide honest advice about wheter going remote is the right option for your organization </p>
                       <p className='tablet'>Our dedicated team focus completely on you, We help Define your goals and provide honest advice about wheter going remote is the right option for your organization We assemble engineering team tailored to your desired skill set designed to blend flawlessly with your in house engineers</p>
 
@@ -100,7 +100,7 @@ function Technologies(props) {
             <div className='final-page page'>
                 <div className='primary-content'>
                     <h2>Focusing on reals people needs</h2>
-                    <h4>Human-Centered Design</h4>
+                    <h5>Human-Centered Design</h5>
                     <p className='mobile'>For every screen we design and build, the person interacting with that screen is top of mind. What are their needs? </p>
                     <p className='mobile'>More importantly, what are the behaviors motivating those needs? By taking a human-centered design approach, we’re able to better meet and anticipate people’s expectations as they interact with your business and products.</p>
                     <p className='tablet'>For every screen we design and build, the person interacting with that screen is top of mind. What are their needs? More importantly, what are the behaviors motivating those needs? By taking a human-centered design approach, we’re able to better meet and anticipate people’s expectations as they interact with your business and products.</p>
@@ -108,7 +108,7 @@ function Technologies(props) {
                 </div>
                 <div className='second-content'>
                     <h2>A global approche to agile</h2>
-                    <h4>Agile Software Development</h4>
+                    <h5>Agile Software Development</h5>
                     <p className='mobile'>Agile software development allows teams to deliver quickly, collaborate often, and continually improve their product. </p>
                     <p className='mobile'>We take a slightly modified approach to the Agile methodology that maximizes those benefits while utilizing a global development model.</p>
                     <p className='tablet'>Agile software development allows teams to deliver quickly, collaborate often, and continually improve their product. We take a slightly modified approach to the Agile methodology that maximizes those benefits while utilizing a global development model.</p>
@@ -116,7 +116,7 @@ function Technologies(props) {
                 </div>
                 <div className='third-content'>
                     <h2>Where secure delivery meet efficiancy</h2>
-                    <h4>Secure Delivery</h4>
+                    <h5>Secure Delivery</h5>
                     <p className='mobile'>Effective security and privacy protocols are critical to every step of the development process — from single, standalone applications to complex cloud infrastructure. </p>
                     <p className='mobile'>They should strike a balance between protecting data and information while creating a seamless process for users that imposes as little friction as possible. </p>
                     <p className='mobile'>With our SOC 2 Type II certification, we leverage our heightened internal security controls to further support our clients’ more sensitive needs.</p>

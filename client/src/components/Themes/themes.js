@@ -17,6 +17,9 @@ const mainTheme = createTheme({
     navbar: {
       main: '#FFFFFF'
     },
+    navbarClear: {
+      main: 'rgba(255,255,255,.01)'
+    },
     action: {
       main: '#FF900E'
     }
