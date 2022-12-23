@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState, useRef, useLayoutEffect} from "react";
 import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
 import ContactUs from '../ContactUs/ContactUs';
+import NetworkCluster from '../Map/Cluster/clusterTest.jsx';
+
 
 import './technologies.scss'
 
@@ -16,6 +18,8 @@ import connectedCircles from "./../../../assets/images/data.svg"
 
 
 function Technologies(props) {
+    const landingRef = useRef(null);
+
     
     const technologiesList = [
         {
@@ -78,7 +82,7 @@ function Technologies(props) {
     ];
 
     const ItListJSX = ItList.map(x => 
-        <div className={'single-IT ' + x.class} >
+        <div className={'single-IT ' + x.class} key={x.name}>
             <img src={x.img} />
             <h5>{x.name}</h5>
             <p>{x.text}</p>
@@ -94,7 +98,7 @@ function Technologies(props) {
             iterator = 0;
         }
         return (
-            <div className={'single-tech' + (i%2?' alt':'') + (tabAlt?" tabAlt":'')}>
+            <div className={'single-tech' + (i%2?' alt':'') + (tabAlt?" tabAlt":'')} key={x.name}>
                 {x.img && <img src={x.img}/> }
                 <h2 className='mobile'>{x.name}</h2>
                 <h5 className='tablet'>{x.name}</h5>
@@ -106,23 +110,24 @@ function Technologies(props) {
 
     return (
         <div className='technologies main-content'>
-            <div className="landing-page primary-color page">
+            <div className="landing-page primary-color page" ref={landingRef}>
+            <NetworkCluster landingRef={landingRef}/>
                 <div className="primary-content">
-                    <h1>Technologies</h1>
+                    <h1>New <span>Technologies</span> we work with</h1>
                 </div>
                 <div className="secondary-content" >
                     <p>Necessitie can provide you with top developers that have skills focused on your needs so you know they will be able to excel at the tasks you throw at them.</p>
                     <Button className="action-btn">Let's work together</Button>
-                    <Button className="action-btn outline tablet">Get a quote</Button>
+                    {/* <Button className="action-btn outline tablet">Get a quote</Button> */}
 
                 </div>
             </div>
-            <div className="intro-page page main-template">
+            <div className="intro-page page main-template second-page">
                 <div className="primary-content">
-                    <h2 >Focused precision for your products</h2>
-                    <p><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br/><br/>  A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust.</p>
+                    <h2 >Focused precision <span>for your</span> products</h2>
                 </div>
                 <div className="secondary-content">
+                    <p><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br/><br/>  A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust.</p>
                 </div>
 
             </div>
@@ -131,8 +136,8 @@ function Technologies(props) {
 
             <div className="list-page page">
                 <div className="primary-content">
-                    <h2>Technologies we are working for</h2>
-                    <p>Find people that are <span>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
+                    <h4>Technologies we are working with</h4>
+                    {/* <p>Find people that are <span>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p> */}
 
                 </div>
                 <div className="secondary-content">

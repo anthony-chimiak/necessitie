@@ -7,8 +7,8 @@
   }
   @include respond(tablet) {
     h3 {
-      font-size: 3rem;
-      line-height: 3.5rem;
+      // font-size: 3rem;
+      // line-height: 3.5rem;
     }
   }
 
@@ -17,7 +17,7 @@
       background-color: $primary-color;
     }
     @include respond(tablet) {
-      background-color: #FFFFFF;
+      // background-color: #FFFFFF;
       text-align: left;
       .action-btn {
         background-color: $action-color;
@@ -29,7 +29,7 @@
       }
       .secondary-content {
         p {
-          width: 60%;
+          // width: 60%;
         }
 
 
@@ -54,6 +54,7 @@
       }
     }
     @include respond(tablet) {
+      background-color: inherit;
       .primary-content {
         display: flex;
         gap: 3vw;
@@ -127,47 +128,84 @@
       }
     }
     @include respond(tablet) {
+      background-color: inherit;
       .primary-content {
         img {
-          bottom: 0px;
-          right: 50%;
-          top: inherit;
-          z-index: 9999;
-          width: 40%;
-          transform: translateX(50%);
+          transform: translateX(-18%);
+          // position: inherit;
+          // top: auto;
+          // transform: inherit;
+          // width: 50%;
+          // margin-top: 16vh;
         }
       }
     }
   }
+  .services-flex-container {
+    display: flex;
+    border-radius: 60px;
+  }
   
-  .design-page {
-    background-color: #FFFFFF;
+  .design-page.offered-services-page {
+    // background-color: #FFFFFF;
     text-align: center;
     margin: 8vh 2.5vw 5vh 2.5vw;
     padding: 0;
-    .primary-content {
-      background-color: $base-color;   
-      padding: 13.5vh 0 5vh 0;
-      border-radius: 50px 0 0 0; 
-      position: relative;
-      img {
-        position: absolute;
-        top: 0;
-        width: 40%;
-        transform: translate(-50%, -30%);
+    .services-flex-container {
+      .primary-content {
+        // background-color: $base-color;   
+        padding: 13.5vh 0 5vh 0;
+        border-radius: 50px 0 0 0; 
+        position: relative;
+        .primary-content-cont{
+          color: $title-primary-blue;
+        }
+        img {
+          position: absolute;
+          top: 0;
+          width: 40%;
+          transform: translate(-50%, -30%);
+        }
       }
-    }
-    h2 {
-      margin-bottom: 2.5vh;
-      color: $primary-color;
-      font-weight: 900
-    }
-    .action-btn {
-      background-color: $primary-color;
-    }
-    .service-container {
-      span {
+      h2 {
+        margin-bottom: 2.5vh;
         color: $primary-color;
+        font-weight: 900
+      }
+      .action-btn {
+        background-color: $primary-color;
+      }
+      .service-container {
+        span {
+          color: $primary-color;
+        }
+      }
+      @include respond(tablet) {
+        background-color: #EDEFFA;
+        .primary-content {
+          .primary-content-cont {
+            color: $title-primary-blue;
+            h4 {
+              color: $title-primary-blue;
+              text-align: left;
+            }
+          }
+          img {
+            position: inherit;
+            top: auto;
+            transform: inherit;
+            width: 50%;
+            margin-top: 8vh;
+            margin-left: 8vw;
+          }
+        }
+        .secondary-content {
+          background-color: #EDEFFA;
+          color: $title-primary-blue;
+          .service-container {
+            color: $title-primary-blue;
+          }
+        }
       }
     }
   }
@@ -193,103 +231,128 @@
         color: $action-color;
       }
     }
+    @include respond(tablet) {
+      background-color: inherit;
+    }
   }
   .offered-services-page {
     @include respond(tablet) {
-      display: flex;
-      .primary-content {
-        // background: linear-gradient(10deg, #FFFFFF 0 30%, $outline-color 30% 100%);
-        background: $outline-color;
+      .services-flex-container {
+        display: flex;
+        border-radius: 60px;
+        box-shadow: 0px 4px 40px 4px rgba(0, 0, 0, 0.25);
+        padding: 10vh 6vw 5vh 6vw;
+        gap: 7vw;
+        background-color: $title-primary-blue;
         color: #FFFFFF;
-        border-radius: 0;
-        flex-basis: 50%;
-        padding: 10vh 6vw 5vh 10vw;
-        img {
-          bottom: 3vh;
-          right: 50%;
-          top: inherit;
-          z-index: 9999;
-          width: 30%;
-          transform: translateX(50%);
-        }
-        .primary-content-cont {
-          position: relative;
-          height: 100%;
-          .button-cont {
-            display: flex;
-            .action-btn {
-              font-size: .95rem;
-              padding-left: 0;
-              padding-right: 0;
-              width: 50%;
-              &.outline {
-                border-color: $action-color;
-                color: $action-color;
-              }
-            }
-          }
-          .angled-triangle {
-            margin: -5vh -10vw;
-          }
-        }
-        h2 {
-          margin-bottom: 6vh;
-          text-align: left;
-        }
-        p {
-          text-align: left;
-        }
-      }
-      .secondary-content {
-        flex-basis: 50%;
-        background-color: $base-color;
-        border-radius: 0;
-        padding: 3vh 8vw;
-        .service-container {
-          text-align: left;
-          background-color: $base-color;
-          color: $outline-color;
-          padding: 0;
+
+        .primary-content {
+          // background: linear-gradient(10deg, #FFFFFF 0 30%, $outline-color 30% 100%);
+          background: inherit;
+          // color: #FFFFFF;
           border-radius: 0;
-          box-shadow:none;
-          
-          .single-service {
-            padding: 1vh 0 4vh 0;
-            h5 {
-              font-size: 2.15rem;
-              font-weight: 700;
-              margin-bottom: 5vh;
-              display: inline-block;
-              span {
-                color: $action-color;
+          flex: 1 1 0;
+          width: 0;
+          padding: 0;
+          // border-radius: 60px 0 0 60px;
+          img {
+            position: inherit;
+            top: auto;
+            transform: inherit;
+            width: 50%;
+            margin-top: 8vh;
+            margin-left: 15vw;
+            // bottom: 3vh;
+            // right: 50%;
+            // top: inherit;
+            // z-index: 9999;
+            // width: 30%;
+            // transform: translateX(50%);
+          }
+          .primary-content-cont {
+            position: relative;
+            // height: 100%;
+            h4 {
+              color: #FFFFFF;
+            }
+            .button-cont {
+              display: flex;
+              .action-btn {
+                font-size: .95rem;
+                padding-left: 0;
+                padding-right: 0;
+                width: 50%;
+                &.outline {
+                  border-color: $action-color;
+                  color: $action-color;
+                }
               }
             }
-            img {
-              width: 11%;
-              filter: brightness(0) saturate(100%) invert(49%) sepia(84%) saturate(431%) hue-rotate(332deg) brightness(96%) contrast(81%);
-              transform: translate(40%, 30%);
-              &.designer-img {
-                filter: brightness(0) saturate(100%) invert(36%) sepia(90%) saturate(2568%) hue-rotate(226deg) brightness(94%) contrast(99%);
-              }
+            .angled-triangle {
+              margin: -5vh -10vw;
             }
-            p {
-              text-align: left;
-              &.title {
-                font-weight: 500;
+          }
+          h2 {
+            margin-bottom: 6vh;
+            text-align: left;
+          }
+          p {
+            text-align: left;
+          }
+        }
+        .secondary-content {
+          flex: 1 1 0;
+          width: 0;
+          background-color: inherit;
+          // background-color: $title-primary-blue;
+          // border-radius: 0 60px 60px 0;
+          .service-container {
+            text-align: left;
+            background-color: inherit;
+            // color: #FFFFFF;
+            padding: 0;
+            border-radius: 0;
+            box-shadow:none;
+            
+            .single-service {
+              padding: 1vh 0 4vh 0;
+              h5 {
+                font-size: 2.15rem;
+                font-weight: 700;
+                margin-bottom: 5vh;
+                display: inline-block;
+                span {
+                  color: $action-color;
+                }
+              }
+
+              img {
+                width: 11%;
+                filter: brightness(0) saturate(100%) invert(49%) sepia(84%) saturate(431%) hue-rotate(332deg) brightness(96%) contrast(81%);
+                transform: translate(40%, 30%);
+                &.designer-img {
+                  filter: brightness(0) saturate(100%) invert(36%) sepia(90%) saturate(2568%) hue-rotate(226deg) brightness(94%) contrast(99%);
+                }
+              }
+              p {
+                text-align: left;
+                &.title {
+                  font-weight: 500;
+                }
               }
             }
           }
         }
       }
       &.page {
-        padding: 0;
+        padding: 0 7vw;
         margin: 0;
         margin-bottom: 7vh;
       }
       &.alt {
         .primary-content {
-          background: $base-color;
-          color: $outline-color;
+          background: inherit;
+          // color: $outline-color;
           .primary-content-cont {
             .action-btn{
               &.outline {
@@ -303,8 +366,8 @@
           background: $outline-color;
           color: #FFFFFF;
           .service-container {
-            background: $outline-color;
-            color: #FFFFFF;
+            
+            // color: #FFFFFF;
             .single-service {
               h5 {
                 span {

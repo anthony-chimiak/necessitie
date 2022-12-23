@@ -9,7 +9,7 @@
   font-weight: normal;
   font-size: 1.2rem;
   line-height: 21px;
-  color: $gradient-color;
+  color: $title-primary-blue;
 
   // padding-top: 80px;
 
@@ -45,6 +45,10 @@
   h3 {
     font-size: 1.4rem;
     line-height: 24px;  
+    @include respond(tablet) {
+      font-size: 5rem;
+      line-height: 6rem;
+    }
   }
   
   h4 {
@@ -55,8 +59,15 @@
   }
 
   h5 {
-    font-size: 1.17rem;
+    font-size: 2.5rem;
     font-weight: 600;
+  }
+
+  h6 {
+    @include respond(tablet) {
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+    }
   }
 
   p {
@@ -72,15 +83,16 @@
     background-color: #FFFFFF;
     @media only screen and (min-width: 600px) { 
       // padding: 7.5vh 0vw 0 0;
+      background-color: #EEEFF2;
       // padding: 80px 0 0 0;
     }
   }
   .landing-page.page {
     @include respond(tablet) {
-      padding: 29vh 13.5vw 0vh 13.5vw;
+      padding: 0;
       text-align: left;
       
-      color: $third-off-color;
+      color: $title-primary-blue;
       p {
         text-align: left;
         margin-bottom: 6vh;
@@ -172,10 +184,11 @@
         text-align: left;
         .primary-content {
           h2 {
-            color: $third-off-color;
+            color: $title-primary-blue;
             text-align: left;
             padding: 0;
-            flex-basis: 70%;
+            flex-basis: 80%;
+            max-width: 56vw;
             span {
               color: $action-color;
             }
@@ -187,7 +200,7 @@
           padding: 0;
           width: 45%;
           p {
-            color: $third-off-color;
+            color: $title-primary-blue;
             
           }
         }
@@ -215,7 +228,8 @@
       }
       .primary-content {
         padding: 29vh 0vw 0vh 19vw;
-        color: $third-off-color;
+        color: $title-primary-blue;
+        width: 70%;
         span {
           color: $off-action-color;
         }
@@ -223,7 +237,7 @@
       }
       .secondary-content {
         padding: 5vh 0vw 0vh 19vw;
-        width: 45%;
+        width: 53%;
         p {
           margin-bottom: 4vh;
         }

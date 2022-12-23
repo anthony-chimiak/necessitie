@@ -12,8 +12,7 @@
     @include respond(tablet) {
       padding: 0px 6vw;
       h3 {
-        font-size: 3rem;
-        line-height: 150%;
+
       }
     }
   }
@@ -28,16 +27,16 @@
     .secondary-content {
     }
     @include respond(tablet) {
-      background-color: #FFFFFF;
+      background-color: inherit;
       text-align: left;
       height: auto;
       .primary-content {
-        width: 50%;
+        // width: 50%;
         margin-top: 0;
       }
       .secondary-content {
-        margin-top: 5vh;
-        width: 50%;
+        // margin-top: 5vh;
+        // width: 50%;
       }
     }
   }
@@ -54,6 +53,7 @@
       }
     }
     @include respond(tablet) {
+      background-color: inherit;
       .primary-content {
 
         display: flex;
@@ -175,13 +175,22 @@
           border-radius: 130px 0 130px 0;
           display: flex;
           gap: 4vw;
+          background-color: $title-primary-blue;
+          padding: 8vh 7vw 6vh 7vw;
           .single-who {
+            margin-bottom: 0;
             h5 {
               font-size: 2.1rem;
               font-weight: 300;
+              margin-top: 1vh;
+              margin-bottom: .5vh;
             }
             p {
               padding: 0 2vw;
+              line-height: 1.5rem;
+            }
+            img {
+              width: 25%;
             }
           }
         }
@@ -190,8 +199,10 @@
         padding: 0 7.5vw;
         // display: flex;
         position: relative;
-        h2 {
+        h4 {
           margin-bottom: 7vh;
+          line-height: 5.1rem;
+          text-align: left;
         }
         h5 {
           font-size: 2.15rem;
@@ -201,11 +212,12 @@
         }
         p {
           margin-bottom: 7vh;
+          line-height: 1.5rem;
         }
         img {
           width: 40%;
           position: absolute;
-          top: 10vh;
+          top: 18vh;
           right: 0;
           transform: translateX(15%);
         }
@@ -224,20 +236,25 @@
     h5 {
       text-align: left;
       color: $action-color;
+
     }
     p {
       text-align: left;
     }
     @include respond(tablet) {
-      background-color: $base-color;
+      background-color: $secondary-orange;
       color: $outline-color;
-      border-radius: 114px 0 114px 0;
-      margin: 0 1vw 20vh 4vw;
+      border-radius: 114px 114px 114px 114px;
+      margin: 0 1vw 10vh 4vw;
       padding: 10vh 8vw;
       h5 {
-        font-size: 2.15rem;
+        // font-size: 2.15rem;
         color: $primary-color;
         margin-top: 6vh;
+        margin-bottom: 3vh;
+        &:first-child {
+          color: $title-primary-blue;
+        }
       }
       div {
         margin-bottom: 10vh;

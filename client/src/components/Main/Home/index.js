@@ -93,25 +93,25 @@ export const Home = (props) => {
     const servicesData = [
         {
             name: 'React Developers',
-            class: 'react-developers-img',
+            class: 'react-developers',
             img: servicesReactImg,
             text: "Developers with experience in all versions of React, but a focus on the Hooks/Context paradigm."
         },
         {
             name: 'Python Developers',
-            class: 'python-developers-img',
+            class: 'python-developers',
             img: servicesPythonImg,
             text: "Python Experts with a wider range of uses.  Data Analytics to backend work, Python is a powerfuly ally."
         },
         {
             name: 'UI/UX',
-            class: 'ui-ux-img',
+            class: 'ui-ux',
             img: servicesUxImg,
             text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
         },
         {
             name: 'QA / Sdet Engineers',
-            class: 'sdet-engineers-img',
+            class: 'sdet-engineers',
             img: servicesQaImg,
             text: "Quality Analysts and Test Engineers specializing in automated testing, continuous deployment, and process implementation."
         },
@@ -119,10 +119,10 @@ export const Home = (props) => {
 
     const servicesJSX = servicesData.map(x => {
         return (
-            <div className="single-service" key={x.name}>
-                <img src={x.img} className={x.class}/>
+            <div className={`single-service ${x.class}`} key={x.name}>
+                <img src={x.img} className={x.class + '-img'}/>
                 <div className="border-cont">
-                    <h3 className="feature-service">{x.name}</h3>
+                    <h6 className="feature-service">{x.name}</h6>
                     <p>{x.text}</p>
                 </div>
             </div>
@@ -257,8 +257,8 @@ export const Home = (props) => {
                 </div>
                 
                 <div className="secondary-content">
-                    <p><span className='action-color'>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br className="mobile"/><br/>
-                        A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust. </p>
+                    <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br className="mobile"/><br/></p>
+                        {/* A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust. </p> */}
                 </div>
             </div>
 
@@ -308,9 +308,9 @@ export const Home = (props) => {
                         <SlantedImager images={images} activeStep={activeStep}/>
                     </div>
                     <div className="examples-text-cont">
-                        <h2>Here's are some of the projects out team has worked on</h2>
-                        <h3>{images[activeStep].title}</h3>
-                        <p>{images[activeStep].text}</p>
+                        <h5>Here's are some of the projects out team has worked on</h5>
+                        <p><b>{images[activeStep].title}</b><br/>{images[activeStep].text}</p>
+                        {/* <p>{images[activeStep].text}</p> */}
                         <MobileCarousel  showImage={false} images={images} activeStep={activeStep} setActiveStep={setActiveStep}/>
 
                     </div>
@@ -320,7 +320,7 @@ export const Home = (props) => {
                 <div className="primary-content">
                     <h2 className="industries-header">We work across many industries</h2>
                     <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
-                    <Button className="action-btn outline">Get a quote</Button>
+                    <Button className="action-btn outline mobile">Get a quote</Button>
 
 
                     
@@ -356,7 +356,9 @@ export const Home = (props) => {
 
                         </div>
                     </div>
-                    <img src={sittingDudeImg} className="sitting-dude tablet"/>
+                    <div className="sitting-dude-container">
+                        <img src={sittingDudeImg} className="sitting-dude tablet"/>
+                    </div>
                 </div>
 
                 
@@ -364,8 +366,8 @@ export const Home = (props) => {
             {/* <div className="background-triangle tablet products"></div> */}
             <div className="technologies-page page">
                 <div className="primary-content">
-                    <h2 className="technologies-header">Technologies we are working with</h2>
-                    <p>We would be happy to help you with problems in any of these areas (And beyond?)</p>
+                    <h3 className="technologies-header">Technologies we are working with</h3>
+                    {/* <p>We would be happy to help you with problems in any of these areas (And beyond?)</p> */}
                     {/* <button>Get a Quote</button> */}
                     {/* <img src={atomImg} className="atom tablet"/> */}
 

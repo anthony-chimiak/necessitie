@@ -6,7 +6,7 @@ import Services from './Services';
 import Technologies from './Technologies';
 import Industries from './Industries';
 import Company from './Company';
-import ContactUs from './ContactUs/ContactUs';
+import ContactUs from './ContactUs';
 
 import './main.scss'
 

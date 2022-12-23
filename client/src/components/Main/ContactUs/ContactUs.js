@@ -11,7 +11,7 @@ import './contactus.scss'
 function ContactUs() {
     return (
         <div className="contact-container">
-            <h2 className="contact-header">Want to talk about your project?</h2>
+            <p className="contact-header">Want to talk about your project?</p>
             <p className="mobile">We’re here to connect you with great developers perfect for your roles</p>
             <div className="contact-flex-cont">
                 <div className="secondary-content">

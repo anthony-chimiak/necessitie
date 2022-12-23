@@ -11,20 +11,17 @@
   .page {
     @include respond(tablet) {
       padding: 0px 6vw;
-      h3 {
-        font-size: 3rem;
-        line-height: 150%;
-      }
+
     }
   }
   .landing-page {
     @include respond(tablet) {
-      background-color: #FFFFFF;
+      // background-color: #FFFFFF;
       text-align: left;
       height: auto;
       .primary-content {
-        width: 50%;
-        margin-top: 0vh;
+        // width: 50%;
+        // margin-top: 0vh;
       }
       .secondary-content {
         margin-top: 5vh;
@@ -51,6 +48,7 @@
       }
     }
     @include respond(tablet) {
+      background-color: inherit;
       .primary-content {
         display: flex;
         gap: 10vw;
@@ -117,20 +115,23 @@
     @include respond(tablet) {
       text-align: left;
       padding: 4vh 6vw 0 6vw;
+      background-color: inherit;
       .primary-content {
         // width: 65%;
-        padding: 0 7.5vw;
+        padding: 0 5.5vw 0 7.5vw;
         display: flex;
         margin-top: 10vh;
         gap: 3%;
-        h2 {
+        h4 {
           // width: 70%;
           text-align: left;
-          flex-basis: 47%;
+          margin-bottom: 0;
+          // flex-basis: 47%;
         }
         p {
           text-align: left;
           flex-basis: 50%;
+          margin-top: 6vh;
         }
       }
       margin-top: 10vh;
@@ -188,8 +189,7 @@
       padding: 5vh 7vw;
       position: relative;
       h3 {
-        font-size: 1.5rem;
-        margin-bottom: 3vh;
+
       }
       .read-more {
         color: $action-color;
@@ -237,12 +237,10 @@
       .primary-content {
         padding: 10vh 13.5vw;
         text-align: left;
-        box-shadow: 8px 0px 27px -1px rgba(0, 0, 0, 0.25);
         backdrop-filter: blur(20px);
         h3 {
           color: $primary-color;
-          font-size: 3rem;
-          margin-bottom: 8vh;
+
         }
         .flex-cont {
           display: flex;
@@ -282,17 +280,24 @@
         }
       }
       .secondary-content {
-        background-color: #FFFFFF;
+        background-color: inherit;
         margin: 15vh 0;
-        h2 {
+        padding: 5vh 6vw;
+        h4 {
           text-align: left;
-          margin-bottom: 10vh;
+          margin-bottom: 3vh;
+          margin-left: 4vw;
         }
         text-align: left;
 
         .flex-cont {
           display: flex;
           gap: 3%;
+          background-color: $secondary-orange;
+          box-shadow: -2px 6px 27px -1px rgba(0, 0, 0, 0.25);
+          backdrop-filter: blur(10px);
+          border-radius: 30px;
+          padding: 3vh 5vw 5vh 5vw;
           .single-delivery {
             flex-basis: 25%;
             img {
@@ -305,6 +310,7 @@
               line-height: 1.72rem;
             }
             h2 {
+              margin: 0;
               color: $outline-color;
               font-size: 2.2rem;
             }

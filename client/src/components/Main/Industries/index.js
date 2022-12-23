@@ -90,13 +90,13 @@ function Industries(props) {
     });
 
     useLayoutEffect(() => {
-        setLandingWidth(landingRef.current.offsetWidth);
-        setLandingHeight(landingRef.current.offsetHeight);
+        setLandingWidth(landingRef?.current?.offsetWidth);
+        setLandingHeight(landingRef?.current?.offsetHeight);
       }, []);
 
       window.addEventListener('resize', () => {
-        setLandingWidth(landingRef.current.offsetWidth);
-        setLandingHeight(landingRef.current.offsetHeight);
+        setLandingWidth(landingRef?.current?.offsetWidth);
+        setLandingHeight(landingRef?.current?.offsetHeight);
       });
 
     
@@ -105,21 +105,22 @@ function Industries(props) {
             <div className="landing-page primary-color page" ref={landingRef}>
             <NetworkCluster width={landingWidth} height={landingHeight}/>
                 <div className="primary-content">
-                    <h1>Industries</h1>
+                    <h1><span>Industries</span> we work in</h1>
                 </div>
                 <div className="secondary-content" >
                     <p>Necessitie can provide you with top developers that have skills focused on your needs so you know they will be able to excel at the tasks you throw at them.</p>
                     <Button className="action-btn">Let's work together</Button>
-                    <Button className="action-btn outline tablet">Get a quote</Button>
+                    {/* <Button className="action-btn outline tablet">Get a quote</Button> */}
 
                 </div>
             </div>
-            <div className="intro-page page main-template">
+            <div className="intro-page second-page page main-template">
                 <div className="primary-content">
                     <h2 >Industries Title</h2>
-                    <p><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br/><br/>  A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust.</p>
                 </div>
                 <div className="secondary-content">
+                    <p><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br/><br/>  A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust.</p>
+
                 </div>
                 <hr className='divider tablet thick'/>
             </div>
@@ -127,7 +128,7 @@ function Industries(props) {
 
             <div className="list-page page ">
                 <div className="primary-content">
-                    <h2>Necessitie’s industries specialities</h2>
+                    <h4>Necessitie’s industries specialities</h4>
                     <p>Find people that are <span>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
                     {/* <Button className="action-btn outline mobile">Get a quote</Button> */}
 
@@ -136,7 +137,7 @@ function Industries(props) {
                     <div className="industries-list-container">
                         {industriesList.map((x, i) => {
                             return (
-                                <>
+                                <React.Fragment key={x}>
                                     <img src={x.img} className="mobile" />
                                     <div className={"industries-card " + x.name +(i%2?' alt':'')} key={x.name}>
                                         <img src={x.img} className="tablet" />
@@ -145,7 +146,7 @@ function Industries(props) {
                                         <p className="mobile">{x.text}</p>
                                         <p className="tablet">{x.tabletText}</p>
                                     </div>
-                                </>
+                                </React.Fragment>
                             )
                         })}
                     </div>
@@ -180,7 +181,7 @@ function Industries(props) {
 
                 </div>
                 <div className='secondary-content'>
-                    <h2>A process that delivers</h2>
+                    <h4>A process that delivers</h4>
                     <div className='flex-cont'>
                         {deliveryJSX}
                     </div>
