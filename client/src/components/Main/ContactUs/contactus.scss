@@ -5,11 +5,14 @@
 .App {
   .contact-page.page {
     background-color: $base-color;
-    color: $outline-color;
+    color: $title-primary-blue;
     padding: 8vh 8vw;
     
     .contact-header {
       text-align: left;
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 1.7rem;
       // color: $highlight-base-color;
     }
     p {

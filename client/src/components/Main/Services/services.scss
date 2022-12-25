@@ -42,15 +42,23 @@
     padding: 6vh 7vw;
     .primary-content {
       h2 {
-        text-align: center;
-        margin: 0vh 2vw 4vh 2vw;
+        // text-align: center;
+        // margin: 0vh 2vw 4vh 2vw;
       }
       p {
         span {
-          color: $primary-color;
-          line-height: 1.7rem;
+          // color: $primary-color;
+          // line-height: 1.7rem;
         }
         text-align: left;
+      }
+    }
+    .secondary-content {
+      p {
+        text-align: left;
+      }
+      h1 {
+        text-align: left;;
       }
     }
     @include respond(tablet) {
@@ -75,13 +83,14 @@
   .background-triangle.intro {
     border-color: #FFFFFF transparent transparent transparent;
   }
-  .webdev-page {
+  .webdev-page.third-page {
     background-color: #FFFFFF;
     margin: 0vh 2.5vw 5vh 2.5vw;
     padding: 0;
     .primary-content {
       position: relative;
-      padding: 16vh 2vw 7vh 2vw;
+      padding: 16vh 2vw 5vh 2vw;
+      margin-bottom: 5vh;
       background-color: $base-color;
       border-radius: 50px 0 0 0;
 
@@ -105,7 +114,7 @@
     .secondary-content {
       background-color: #FFFFFF;
       .service-container {
-        background-color: $outline-color;
+        background-color: $title-primary-blue;
         color: #FFFFFF;
         backdrop-filter: blur(20px);
         box-shadow: 1px 0px 24px 0 rgba(0,0,0,.25);
@@ -142,8 +151,11 @@
     }
   }
   .services-flex-container {
-    display: flex;
-    border-radius: 60px;
+    @include respond(tablet) {
+
+      display: flex;
+      border-radius: 60px;
+    }
   }
   
   .design-page.offered-services-page {
@@ -153,10 +165,11 @@
     padding: 0;
     .services-flex-container {
       .primary-content {
-        // background-color: $base-color;   
+        background-color: $base-color;   
         padding: 13.5vh 0 5vh 0;
         border-radius: 50px 0 0 0; 
         position: relative;
+        // margin-bottom: .5vh;
         .primary-content-cont{
           color: $title-primary-blue;
         }
@@ -387,10 +400,22 @@
     padding: 2vh 5vw;
     .primary-content {
       margin-bottom: 5vh;
+      // text-align: left;
       h3 {
         margin-bottom: 5vh;
       }
+      h2 {
+        text-align: left;
+        font-weight: 700;
+      }
       h5 {
+        margin-bottom: 2vh;
+      }
+      p {
+        text-align: left;
+      }
+      b {
+        text-align: left;
         margin-bottom: 2vh;
       }
       .action-btn {
@@ -404,6 +429,7 @@
     }
     @include respond(tablet) {
       padding: 15vh 15vw;
+      background-color: inherit;
       .primary-content {
         img {
           width: 100%;

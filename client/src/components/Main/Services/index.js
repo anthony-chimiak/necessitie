@@ -124,7 +124,9 @@ function Services(props) {
         </div>
         <div className="intro-page page main-template second-page">
             <div className="primary-content">
-                <h2>Our custom <span>Software</span> Development Services</h2>
+                <h2 className="tablet">Our custom <span>Software</span> Development Services</h2>
+                <h1 className="mobile">Our custom <span>Software</span> Development Services</h1>
+
             </div>
             <div className="secondary-content">
             <p><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.<br/><br/> 
@@ -134,7 +136,7 @@ function Services(props) {
                 
             </div>
         </div>
-        <div className="webdev-page page offered-services-page">
+        <div className="webdev-page page offered-services-page third-page">
             <div className="services-flex-container">
                 <div className='primary-content'>
                     <img src={webDevSquare} className="web-dev-square mobile"/>
@@ -209,9 +211,10 @@ function Services(props) {
         </div>
         <div className="process-page page">
             <div className='primary-content'>
-                <h3>Our Product Ideation & Strategy process</h3>
-                {/* <h5>Competitive analysis and market insights</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p> */}
+                <h3 className="tablet">Our Product Ideation & Strategy process</h3>
+                <h2 className="mobile">Our Product Ideation & Strategy process</h2>
+                <p className="mobile secondary-header"><b>Competitive analysis and market insights</b></p>
+                <p className="mobile">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p> 
                 <img src={mobileProductImg} className="mobile-product-img mobile"/>
                 <img src={productIdea} className="tablet"/>
 

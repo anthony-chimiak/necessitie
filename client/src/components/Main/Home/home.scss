@@ -118,11 +118,11 @@
       }
 
       .share-header {
-        font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        // font-family: -apple-system, BlinkMacSystemFont, sans-serif;
         // text-align: left;
         // padding-top: 4vh;
-        padding: 0 3vw 4vh 3vw;
-        text-align: center;
+        // padding: 0 3vw 4vh 3vw;
+        // text-align: center;
         @include respond(tablet) {
           // text-align: left;
           // padding: 0 0 4vh 0;
@@ -152,13 +152,13 @@
   .services-page {
     // background-color: #FFFFFF;
     text-align: left;
-    padding-top: 12vh;
-    padding-bottom: 3.5vh;
+    // padding-top: 12vh;
+    // padding-bottom: 3.5vh;
     @include respond(tablet) {
       padding-bottom: 15vh;
     }
     .primary-content {  
-      text-align: center;
+      // text-align: center;
       padding-bottom: 5vh;
       .services-header {
         font-family: -apple-system, BlinkMacSystemFont, sans-serif;
@@ -199,6 +199,12 @@
       }
       .single-service {
         margin-bottom: 8vh;
+        h2 {
+          text-align: center;
+        }
+        p {
+          text-align: center;
+        }
         img {
           width: 20%;
           margin-bottom: 2vh;
@@ -352,6 +358,7 @@
     text-align: center;
     .industries-header {
       margin-bottom: 3vh;
+      text-align: left
     }
     .primary-content {
 
@@ -363,7 +370,9 @@
         color: $action-color;
       }
       margin-bottom: 8vh;
-
+      p {
+        text-align: left;
+      }
     }
     .industries-chart {
       max-width: 80%;
@@ -451,6 +460,7 @@
     }
     @include respond(tablet) {
       padding: 20vh 6vw;
+      background-color: inherit;
       .primary-content {
         margin-left: 2vw;
         text-align: left;
@@ -561,7 +571,7 @@
   }
   .products-page {
     // padding: 10vh 10vw 2vh 10vw;
-    background-color: $secondary-color;
+    background-color: $title-primary-blue;
     color: #FFFFFF;
     border-radius: 0 60px 0 0;
     display: flex;
@@ -586,7 +596,7 @@
       }
     }
     p {
-      font-size:1rem;
+      // font-size:1rem;
       text-align: left;
     }
     @include respond(tablet) {
@@ -656,7 +666,7 @@
     background-color: #373939;
     text-align: center;
     padding: 11vh 6vw;
-    background-color: #FFFFFF;
+    background-color: inherit;
     position: relative;
     p {
       font-size: 1.15rem;
@@ -672,10 +682,10 @@
       .technologies-list {
         background-color: #FFFFFF;
         border-radius: 50px;
-        color: $secondary-color;
+        color: $title-primary-blue;
         padding: 5vh 6vw;
         // margin-bottom: 10vh;
-        backdrop-filter: blur(20px);
+        // backdrop-filter: blur(20px);
         box-shadow: 1px 0px 24px 0 rgba(0,0,0,.25);
         .single-tech {
           margin-bottom: 3vh;
@@ -683,6 +693,10 @@
             max-width: 18%;
           }
           h3 {
+            margin-top: .5vh;
+            color: $action-color;
+          }
+          h2 {
             margin-top: .5vh;
             color: $action-color;
           }

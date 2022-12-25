@@ -132,10 +132,11 @@
         }
       }
       .secondary-content {
-        border-radius: 114px 0 0 114px;
+        // border-radius: 114px 0 0 114px;
         margin-bottom: 10vh;
         box-shadow: none;
         padding: 0 5vw;
+        background-color: inherit;
         .industries-list-container {
           display: flex;
           gap: 20%;

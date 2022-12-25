@@ -134,7 +134,7 @@ function Technologies(props) {
             <hr className='divider thick tablet'></hr>
             {/* <div className="background-triangle into tablet"></div> */}
 
-            <div className="list-page page">
+            <div className="list-page page third-page">
                 <div className="primary-content">
                     <h4>Technologies we are working with</h4>
                     {/* <p>Find people that are <span>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p> */}

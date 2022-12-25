@@ -122,7 +122,9 @@ export const Home = (props) => {
             <div className={`single-service ${x.class}`} key={x.name}>
                 <img src={x.img} className={x.class + '-img'}/>
                 <div className="border-cont">
-                    <h6 className="feature-service">{x.name}</h6>
+                    <h6 className="feature-service tablet">{x.name}</h6>
+                    <h2 className="feature-service mobile">{x.name}</h2>
+
                     <p>{x.text}</p>
                 </div>
             </div>
@@ -250,21 +252,23 @@ export const Home = (props) => {
             </div>
             <div className="share-page page main-template second-page">
                 <div className='primary-content'>
-                    <h2 className="share-header">Focused precision for <span>your products</span></h2>
+                    <h1 className="share-header mobile">Focused precision for <span>your products</span></h1>
+                    <h2 className="share-header tablet">Focused precision for <span>your products</span></h2>
                     <div className="service-img-container">
                         <img src={servicesMainImg} className="service-main-img tablet"/>
                     </div>
                 </div>
                 
                 <div className="secondary-content">
-                    <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br className="mobile"/><br/></p>
-                        {/* A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust. </p> */}
+                    <p className="tablet">Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br className="mobile"/><br/></p>
+                    <p className="mobile"><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br className="mobile"/><br/>
+                        A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust. </p>
                 </div>
             </div>
 
             <hr className="divider tablet"/>
             {/* <div className="background-triangle tablet"></div> */}
-            <div className="services-page page">
+            <div className="services-page page third-page">
 
                 
                 <div className="primary-content">
@@ -273,9 +277,11 @@ export const Home = (props) => {
                     {/* <img src={rocketImg} className="rocket-img"/> */}
                     {/* </div> */}
                     <div className='services-primary-container'>
-                        <h4 className="services-header">Our speciality services</h4>
-                        {/* <p>Find people that are <span className='action-color'>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
-                        <Button className="action-btn">See All Services</Button> */}
+                        <h4 className="services-header tablet">Our speciality services</h4>
+                        <h2 className="services-header mobile">Our speciality services</h2>
+
+                        <p>Find people that are <span className='action-color mobile'>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
+                        <Button className="action-btn mobile">See All Services</Button>
                     </div>
                     
 
@@ -341,13 +347,16 @@ export const Home = (props) => {
                     <div className="product-container">
                         <div className="primary-content">
                             <h2>How Necessitie can help you <span className="action-color-tablet">reach your goals!</span></h2>
-                            <h5>Full team software outsourcing</h5>
+                            <h5 className="tablet ">Full team software outsourcing</h5>
+                            <p className="mobile title-primary-orange"><b>Full team software outsourcing</b></p>
+
                             <p>Necessitie has a range of scalable possibilities to meet your products needs.  Full independent front-end, back-end, or QA team? We will have that, joining in on meetings where you feel appropriate.</p>
                             <p>If you need to scale up, we can move to full service team, handling design and devops as well.</p>
                         </div>
 
                         <div className="secondary-content">
-                            <h5>IT staff augmentation</h5>
+                            <h5 className="tablet">IT staff augmentation</h5>
+                            <p className="mobile"><b>IT staff augmentation</b></p>
                             <p>Necessitie can help place people who know how to work in existing teams, right into yours.
                             <br className='mobile'/><br/>Fast, efficient software developers, UI/UX designers, and QA/Sdet personelle at your fingertips. 
                             <br className="tablet"></br> Avoid sourcing and recruitment issues.</p>
@@ -367,7 +376,7 @@ export const Home = (props) => {
             <div className="technologies-page page">
                 <div className="primary-content">
                     <h3 className="technologies-header">Technologies we are working with</h3>
-                    {/* <p>We would be happy to help you with problems in any of these areas (And beyond?)</p> */}
+                    <p className="mobile">We would be happy to help you with problems in any of these areas (And beyond?)</p>
                     {/* <button>Get a Quote</button> */}
                     {/* <img src={atomImg} className="atom tablet"/> */}
 
@@ -380,7 +389,9 @@ export const Home = (props) => {
                             return (
                                 <div className="single-tech" key={x.name}>
                                     <img src={x.img}/>
-                                    <h3 className="single-tech-name">{x.name}</h3>
+                                    <h3 className="single-tech-name tablet">{x.name}</h3>
+                                    <h2 className="single-tech-name mobile">{x.name}</h2>
+
                                     <p>{x.text}</p>
                                     {i!==technologyJSX.length-1&&<hr className="solid"></hr>}
                                 </div>

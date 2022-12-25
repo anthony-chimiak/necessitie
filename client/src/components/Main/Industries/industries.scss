@@ -72,8 +72,9 @@
     background-color: #FFFFFF;
     .primary-content {
       h2 {
-        margin-left: 5vw;
-        margin-right: 5vw;
+        width:80%;
+        // margin-left: 5vw;
+        // margin-right: 5vw;
       }
       .action-btn {
         width: auto;
@@ -90,9 +91,10 @@
       padding-top: 5vh;
       .industries-list-container {
         img {
-          width: 50%;
+          width: 40%;
         }
         margin-top: 5vh;
+        text-align: center;
         .industries-card {
           background-color: $base-color;
           border-radius: 0px 60px;
@@ -101,6 +103,9 @@
           h3 {
             margin: 2vh 0 1vh 0;
             color: $primary-color;
+          }
+          p {
+            text-align: center;
           }
           &.alt {
             background-color: $outline-color;
@@ -183,46 +188,50 @@
   .delivery-page {
     padding: 0;
     .primary-content {
-      background-color: $off-secondary-color;
+      background-color: $secondary-orange;
       color: $primary-color;
       text-align: center;
       padding: 5vh 7vw;
       position: relative;
-      h3 {
-
+      h2 {
+        text-align: left;
+      }
+      p {
+        text-align: left;
       }
       .read-more {
         color: $action-color;
         font-size: 1.3rem;
-        font-style: underline;
+        text-decoration: underline;
+        text-align: center;
         svg {
           transform: translateY(25%);
         }
       }
       img {
-        width: 45%;
+        width: 35%;
         position: absolute;
-        transform: translateX(10%);
+        transform: translateX(50%);
       }
     }
     .secondary-content {
-      margin: 10vh 5vw;
+      margin: 17h 0vw;
       text-align: center;
       background-color: $off-secondary-color;
       border-radius: 50px 50px 50px 0px;
       padding: 5vh 10vw;
       .single-delivery {
-        padding: 0vh 0vw;
+        padding: 1vh 0vw;
         img {
           display: inline-block;
-          max-width: 17%;
-          transform: translate(-20%, 40%);
+          max-width: 12%;
+          transform: translate(-20%, 31%);
         }
         h2 {
           color: $action-color;
           font-weight: 700;
           display: inline-block;
-          margin-bottom: 4vh
+          margin-bottom: 3vh;
         }
         &.alt {
           h2 {
@@ -238,6 +247,7 @@
         padding: 10vh 13.5vw;
         text-align: left;
         backdrop-filter: blur(20px);
+        background-color: inherit;
         h3 {
           color: $primary-color;
 

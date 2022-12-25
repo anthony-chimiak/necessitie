@@ -103,7 +103,7 @@ function Industries(props) {
     return (
         <div className='industries main-content'>
             <div className="landing-page primary-color page" ref={landingRef}>
-            <NetworkCluster width={landingWidth} height={landingHeight}/>
+            <NetworkCluster width={landingWidth} height={landingHeight} />
                 <div className="primary-content">
                     <h1><span>Industries</span> we work in</h1>
                 </div>
@@ -116,7 +116,8 @@ function Industries(props) {
             </div>
             <div className="intro-page second-page page main-template">
                 <div className="primary-content">
-                    <h2 >Industries Title</h2>
+                    <h2 className="tablet">Industries Title</h2>
+                    <h1 className="mobile">Industries Title</h1>
                 </div>
                 <div className="secondary-content">
                     <p><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br/><br/>  A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust.</p>
@@ -126,9 +127,11 @@ function Industries(props) {
             </div>
             {/* <hr class="divider tablet thick"></hr> */}
 
-            <div className="list-page page ">
+            <div className="list-page page third-page">
                 <div className="primary-content">
-                    <h4>Necessitie’s industries specialities</h4>
+                    <h4 className="tablet">Necessitie’s industries specialities</h4>
+                    <h2 className="mobile">Necessitie’s industries specialities</h2>
+
                     <p>Find people that are <span>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
                     {/* <Button className="action-btn outline mobile">Get a quote</Button> */}
 
@@ -137,14 +140,14 @@ function Industries(props) {
                     <div className="industries-list-container">
                         {industriesList.map((x, i) => {
                             return (
-                                <React.Fragment key={x}>
+                                <React.Fragment key={x.name}>
                                     <img src={x.img} className="mobile" />
                                     <div className={"industries-card " + x.name +(i%2?' alt':'')} key={x.name}>
                                         <img src={x.img} className="tablet" />
                                         <h3 className="mobile">{x.name}</h3> 
                                         <h5 className="tablet">{x.name}</h5> 
                                         <p className="mobile">{x.text}</p>
-                                        <p className="tablet">{x.tabletText}</p>
+                                        <div className="tablet">{x.tabletText}</div>
                                     </div>
                                 </React.Fragment>
                             )
@@ -155,7 +158,8 @@ function Industries(props) {
             </div>
             <div className="delivery-page page">
                 <div className='primary-content mobile'>
-                    <h3>Secure Delivery</h3>
+                    <h3 className="tablet">Secure Delivery</h3>
+                    <h2 className="mobile">Secure Delivery</h2>
                     <p>Effective security and privacy protocols are critical to every step of the development process — from single, standalone applications to complex cloud infrastructure. </p>
                     <p className='read-more'>Read More  <ArrowDownwardIcon/></p>
                     <p className="hidden"></p>
@@ -181,7 +185,8 @@ function Industries(props) {
 
                 </div>
                 <div className='secondary-content'>
-                    <h4>A process that delivers</h4>
+                    <h4 className="tablet">A process that delivers</h4>
+                    <h2 className="mobile">A process that delivers</h2>
                     <div className='flex-cont'>
                         {deliveryJSX}
                     </div>

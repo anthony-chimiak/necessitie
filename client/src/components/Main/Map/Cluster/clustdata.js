@@ -1,3 +1,6 @@
+import { isMobile } from "react-device-detect";
+
+
 const distance = {
   Home: 30,
   Services: 70,
@@ -350,11 +353,13 @@ const nodesData = [
 
   let nodes = nodesData.map(node => {
     const parentNode = findParent(node)||"Left-Grav";
+    let val = node.val||1;
+    if (isMobile) val /= 4;
     return {
         ...node,
         distance: parentNode.distance,
         gravityNode: parentNode.gravityNode,
-        val: node.val||1,
+        val: val,
         name: node.link?node.name:`<div className="cluster-node-text">${node.id}<div>Next level</div> <span>span2</span><div>`,
     };
   });

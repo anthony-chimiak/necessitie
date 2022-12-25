@@ -71,7 +71,7 @@ function Technologies(props) {
 
             </div>
 
-            <div className="list-page page main-template mobile">
+            <div className="list-page page main-template mobile third-page">
                 <div className="primary-content">
                     <h4>Scale your Development design and build <span>great apps!</span></h4>
                     <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>

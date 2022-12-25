@@ -5,6 +5,7 @@
  import { ForceGraph3D, ForceGraph2D } from "react-force-graph";
  import * as d3 from "d3";
  import { forceSimulation, forceManyBody, forceLink, forceCenter } from 'd3-force'
+ import { isMobile } from "react-device-detect";
 
  import clusterData from './clustdata'
  import SizeMe from 'react-sizeme'
@@ -22,13 +23,15 @@ import { createContext } from "react";
   const [tickNum, setTickNum] = useState(0);
   const [landingWidth, setLandingWidth] = useState(0);
   const [landingHeight, setLandingHeight] = useState(0);
+  const {landingRef} = props;
   const data = {
     nodes: clusterData.nodes,
     links: clusterData.links
   };
+
   const clusterNodeHash = {};
   clusterData.nodes.forEach(node => clusterNodeHash[node.id] = node);
-  const {landingRef} = props;
+
 
   const forceRef = useRef(null);
   const NODE_R = 6;
@@ -149,9 +152,14 @@ import { createContext } from "react";
     })
     .iterations(4);
 
-
-    fg.d3Force('charge').strength(-10).distanceMax(50);
-    fg.d3Force('center').strength(1).y(-landingHeight/4).x(0);
+    if (isMobile) {
+      fg.d3Force('charge').strength(-10).distanceMax(50);
+      fg.d3Force('center').strength(1).y(-landingHeight/8).x(0);
+    } else {
+      
+      fg.d3Force('charge').strength(-10).distanceMax(50);
+      fg.d3Force('center').strength(1).y(-landingHeight/4).x(0);
+    }
 
   }, [landingHeight, landingWidth])
 
@@ -194,6 +202,7 @@ import { createContext } from "react";
       } else {
         ctx.lineWidth = 1;
       }
+      if (isMobile) ctx.lineWidth = ctx.lineWidth/1.5;
       // ctx.lineWidth=5;
       // ctx.strokestyle = "red";
       ctx.strokeStyle = "rgba(0,0,0,.5)";
@@ -228,12 +237,17 @@ import { createContext } from "react";
     rightGrav.fy = -landingHeight/40;
     leftGrav.fx = -(landingWidth/screenDiv);
     leftGrav.fy = -(landingHeight/2);
+    if (isMobile) {
+      leftGrav.fy = -landingHeight/4;
+      rightGrav.fy = landingHeight/40;
+    }
     homeNode.fx = leftGrav.fx + (landingWidth/screenDiv)/8;
     homeNode.fy = leftGrav.fy + (landingHeight/screenDiv)/8;
     // homeNode.fx = 0
     // homeNode.fy=-landingHeight/4;
     contactNode.fx = rightGrav.fx - (landingWidth/screenDiv)/12;
     contactNode.fy = rightGrav.fy - (landingHeight/screenDiv)/12;
+    
 
     clusterLinks.forEach(link => {
       link.distance = link.initialDistance/1000*landingWidth;
@@ -268,7 +282,7 @@ import { createContext } from "react";
         width = link.width||width;
         return width;
       }}
-      height={landingHeight*2}
+      height={isMobile?landingHeight:landingHeight*2}
       width={landingWidth}
       
       // linkVisibility={link => !link.invis}

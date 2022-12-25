@@ -59,8 +59,10 @@
   }
 
   h5 {
-    font-size: 2.5rem;
-    font-weight: 600;
+    @include respond(tablet) {
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
   }
 
   h6 {
@@ -83,14 +85,15 @@
     background-color: #FFFFFF;
     @media only screen and (min-width: 600px) { 
       // padding: 7.5vh 0vw 0 0;
-      background-color: #EEEFF2;
+      background:  linear-gradient(#EEEFF2, #FFFFFF);
       // padding: 80px 0 0 0;
     }
   }
   .landing-page.page {
+    // margin: 13vh 17vw 5vh 12vw;
+    text-align: left;
     @include respond(tablet) {
       padding: 0;
-      text-align: left;
       
       color: $title-primary-blue;
       p {
@@ -154,8 +157,8 @@
       font-weight: 900;
       height: 5.5vh;
       min-height: 50px;
-      padding: 1rem 1.5rem;
-      width: 65%;
+      padding: 1rem 2.3rem;
+      min-width: 65%;
       height: 5.7vh;
       border-radius: 10px;
       margin-top: 3.5vh;
@@ -179,16 +182,34 @@
       }
     }
     &.second-page {
+      text-align: left;
+      color: $title-primary-blue;
+      padding-bottom: 4vh;
+      span {
+        color: $action-color;
+      }
+      .primary-content {
+        margin-bottom: 5vh;
+        p {
+          text-align: left;
+        }
+      }
+      .secondary-content {
+        // text-align:left;
+        p {
+          text-align: left;
+        }
+      }
       @include respond(tablet) {
         padding: 10vh 0 0 19vw;
-        text-align: left;
+        
         .primary-content {
           h2 {
             color: $title-primary-blue;
             text-align: left;
             padding: 0;
             flex-basis: 80%;
-            max-width: 56vw;
+            max-width: 54vw;
             span {
               color: $action-color;
             }
@@ -207,6 +228,20 @@
 
       }
     }
+    &.third-page {
+      text-align: left;
+      padding-top: 0;
+      .primary-content {
+        text-align: center;
+        padding-bottom: 0;
+      }
+      h2 {
+        text-align: left;
+      }
+      p {
+        text-align: left;
+      }
+    }
   }
 
 
@@ -214,25 +249,37 @@
   .landing-page{
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     min-height: 100vh;
-    text-align: center;
+    text-align: left;
+    padding: 0;
     .primary-content {
       // height: 50vh;
+      margin: 13vh 15vw 3vh 14vw;
+      span {
+        color: $off-action-color;
+      }
     }
     .secondary-content {
       // margin-top: 50vh;
+      margin: 0 14vw;
+      text-align: center;
+      p {
+        text-align: left;
+      }
+      
+    }
+    h1 {
+      text-transform: uppercase;
     }
     @include respond(tablet) {
       min-height: calc(100vh);
       h1 {
-        text-transform: uppercase;
+        
       }
       .primary-content {
         padding: 29vh 0vw 0vh 19vw;
         color: $title-primary-blue;
         width: 70%;
-        span {
-          color: $off-action-color;
-        }
+        
         // height: 17vh;
       }
       .secondary-content {
@@ -309,6 +356,10 @@ box-shadow: -1596px 0px 4px rgba(0, 0, 0, 0.25);
   @include respond(mobile) {
     color: $action-color;
   }
+}
+
+.title-primary-orange {
+  color: $off-action-color;
 }
 
 .mobile {
