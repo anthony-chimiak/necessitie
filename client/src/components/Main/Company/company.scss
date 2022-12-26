@@ -17,13 +17,13 @@
     }
   }
   .landing-page {
-    background: #FFFFFF;
-    text-align: center;
-    height: 100vh;
-    padding: 5vh 6vw 0 6vw;
-    .primary-content {
-      margin-top: 5vh;
-    }
+    // background: #FFFFFF;
+    // text-align: center;
+    // height: 100vh;
+    // padding: 5vh 6vw 0 6vw;
+    // .primary-content {
+    //   margin-top: 5vh;
+    // }
     .secondary-content {
     }
     @include respond(tablet) {
@@ -41,17 +41,17 @@
     }
   }
   .intro-page {
-    background-color: #FFFFFF;
-    padding: 0 7vw 4vh 7vw;
-    .primary-content {
+    // background-color: #FFFFFF;
+    // padding: 0 7vw 4vh 7vw;
+    // .primary-content {
 
-    }
-    p {
-      // text-align: left;
-      span {
-        color: $action-color;
-      }
-    }
+    // }
+    // p {
+    //   // text-align: left;
+    //   span {
+    //     // color: $action-color;
+    //   }
+    // }
     @include respond(tablet) {
       background-color: inherit;
       .primary-content {
@@ -75,9 +75,10 @@
     }
   }
   .list-page {
-    padding: 0;
+    // padding: 0;
+    padding-bottom: 0;
     .primary-content {
-      padding: 6vh 4vw;
+      // padding: 6vh 4vw;
       span {
         color: $action-color;
       }
@@ -121,8 +122,9 @@
   }
   .who-page {
     padding-bottom: 8vh;
+    padding-top: 2vh;
     .primary-content {
-      margin-bottom: 15vh;
+      margin-bottom: 8vh;
       .who-container {
         background-color: $outline-color;
         color: #FFFFFF;
@@ -141,6 +143,9 @@
           }
           h5 {
             margin-top: 2vh;
+          }
+          h4 {
+            margin-bottom: 1vh;
           }
 
         }
@@ -167,7 +172,7 @@
     @include respond(tablet) {
       .primary-content {
 
-        h2 {
+        h4 {
           margin-left: 7.5vw;
           text-align: left;
         }
@@ -225,18 +230,19 @@
     }
   }
   .final-page {
-    background-color: $outline-color;
-    color: #FFFFFF;
+    background-color: $secondary-orange;
+    color: $title-primary-blue;
+    padding-bottom: 1px;
     div {
-      margin-bottom: 5vh;
+      margin-bottom: 10vh;
     }
     h2 {
       text-align: left;
     }
-    h5 {
+    h4 {
       text-align: left;
       color: $action-color;
-
+      margin-bottom: 1vh;
     }
     p {
       text-align: left;
@@ -244,9 +250,9 @@
     @include respond(tablet) {
       background-color: $secondary-orange;
       color: $outline-color;
-      border-radius: 114px 114px 114px 114px;
+      border-radius: 60px;
       margin: 0 1vw 10vh 4vw;
-      padding: 10vh 8vw;
+      padding: 10vh 6vw 5vh;
       h5 {
         // font-size: 2.15rem;
         color: $primary-color;

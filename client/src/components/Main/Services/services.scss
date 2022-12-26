@@ -194,8 +194,11 @@
         }
       }
       @include respond(tablet) {
+              // padding:4vh 6vw 5vh 6vw;
+
         background-color: #EDEFFA;
         .primary-content {
+          padding: 5vh 0;
           .primary-content-cont {
             color: $title-primary-blue;
             h4 {
@@ -284,6 +287,7 @@
           }
           .primary-content-cont {
             position: relative;
+            text-align: left;
             // height: 100%;
             h4 {
               color: #FFFFFF;
@@ -360,7 +364,7 @@
       &.page {
         padding: 0 7vw;
         margin: 0;
-        margin-bottom: 7vh;
+        margin-bottom: 22vh;
       }
       &.alt {
         .primary-content {
@@ -428,7 +432,7 @@
       margin-top: 5vh;
     }
     @include respond(tablet) {
-      padding: 15vh 15vw;
+      padding: 10vh 15vw 15vh;
       background-color: inherit;
       .primary-content {
         img {

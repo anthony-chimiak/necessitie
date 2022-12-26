@@ -84,7 +84,9 @@ function Technologies(props) {
     const ItListJSX = ItList.map(x => 
         <div className={'single-IT ' + x.class} key={x.name}>
             <img src={x.img} />
-            <h5>{x.name}</h5>
+            <h5 className="tablet">{x.name}</h5>
+            <h4 className="mobile">{x.name}</h4>
+
             <p>{x.text}</p>
         </div>  
     );
@@ -123,21 +125,25 @@ function Technologies(props) {
                 </div>
             </div>
             <div className="intro-page page main-template second-page">
+                <hr className='divider thick tablet'></hr>
                 <div className="primary-content">
-                    <h2 >Focused precision <span>for your</span> products</h2>
+                    <h2 className="tablet">Focused precision <span>for your</span> products</h2>
+                    <h1 className="mobile">Focused precision <span>for your</span> products</h1>
+
                 </div>
                 <div className="secondary-content">
                     <p><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br/><br/>  A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust.</p>
                 </div>
 
             </div>
-            <hr className='divider thick tablet'></hr>
+            
             {/* <div className="background-triangle into tablet"></div> */}
 
             <div className="list-page page third-page">
                 <div className="primary-content">
-                    <h4>Technologies we are working with</h4>
-                    {/* <p>Find people that are <span>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p> */}
+                    <h4 className="tablet">Technologies we are working with</h4>
+                    <h2 className="mobile">Technologies we are working with</h2>
+                    <p className="mobile">Find people that are <span>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
 
                 </div>
                 <div className="secondary-content">

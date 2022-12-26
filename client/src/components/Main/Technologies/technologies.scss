@@ -18,17 +18,17 @@
     }
   }
   .landing-page {
-    background: #FFFFFF;
-    text-align: center;
-    height: 100vh;
-    padding: 5vh 6vw 0 6vw;
+    // background: #FFFFFF;
+    // text-align: center;
+    // height: 100vh;
+    // padding: 5vh 6vw 0 6vw;
     .primary-content {
-      margin-top: 5vh;
+      // margin-top: 5vh;
     }
     .secondary-content {
       // margin-top: 50vh;
       .action-btn {
-        background-color: $primary-color;
+        // background-color: $primary-color;
       }
     }
     @include respond(tablet) {
@@ -78,14 +78,17 @@
   }
   .list-page {
     padding: 0;
+    margin-bottom: 5vh;
     .primary-content {
-      padding: 6vh 4vw;
+      // padding: 6vh 4vw;
+      margin:0 7vw;
       p {
-        width: 50%;
+        // width: 50%;
       }
     }
     .secondary-content {
-      padding: 6vh 5vw;
+      padding: 4vh 10vw;
+      margin-top: 7vh;
       background-color: $off-secondary-color;
       box-shadow: 0px 1px 24px -1px rgba(0, 0, 0, 0.25);
       backdrop-filter: blur(20px);
@@ -93,7 +96,7 @@
 
       border-radius: 0px 50px 0px 0px;
       .single-tech {
-        margin-bottom: 3vh;
+        margin-bottom: 4vh;
         position: relative;
         img {
           width: 30%;
@@ -103,6 +106,11 @@
         h2 {
           color: $primary-color;
           margin-bottom: 3vh;
+          text-align: center;
+        
+        }
+        p {
+          text-align: center;
         }
         &.alt {
           h2 {
@@ -110,7 +118,7 @@
           }
           img {
             width: 35%;
-            transform: translate(-5vw, -45%);
+            transform: translate(0, -45%);
           }
         }
 
@@ -119,9 +127,11 @@
     @include respond(tablet) {
       padding: 0;
       .primary-content {
-        padding: 0vh 13.5vw;
+        padding: 0vh 12vw;
         display: flex;
         gap: 3%;
+        margin: 0;
+        width: 80%;
         h2 {
           text-align: left;
           flex-basis: 47%;
@@ -181,11 +191,11 @@
       text-align: center;
       background-color: $outline-color;
       color: #FFFFFF;
-      padding: 5vh 5vw;
+      padding: 6vh 9vw;
       .single-IT {
         margin-bottom: 4.5vh;
         img {
-          width: 15%;
+          width: 16%;
         }
         h5 {
           margin-bottom: 3vh;
@@ -222,12 +232,17 @@
             margin-bottom: 4vh;
           }
           img {
-            width: 27%;
+            width: 35%;
           }
           &.it-audit {
             img {
 
-              width: 24%;
+              width: 45%;
+            }
+          }
+          &.digital-trans {
+            img {
+              width: 32%;
             }
           }
         }

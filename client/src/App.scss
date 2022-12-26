@@ -33,7 +33,7 @@
   
   h2 {
     font-size: 1.5rem;
-    line-height: 1.7rem;
+    line-height: 1.8rem;
     text-align: center;
     font-weight: 700;
     @media only screen and (min-width: 600px) { 
@@ -52,9 +52,12 @@
   }
   
   h4 {
+    font-size: 1.3rem;
+    line-height: 2.2rem;
     @include respond(tablet) {
       font-size: 4.3rem;
       color: $outline-color;
+      line-height: 5rem;
     }
   }
 
@@ -190,6 +193,11 @@
       }
       .primary-content {
         margin-bottom: 5vh;
+        @include respond(tablet) {
+          margin-top: 2vh;
+          margin-bottom: 0;
+          gap: 0;
+        }
         p {
           text-align: left;
         }
@@ -277,6 +285,7 @@
       }
       .primary-content {
         padding: 29vh 0vw 0vh 19vw;
+        margin: 0;
         color: $title-primary-blue;
         width: 70%;
         
@@ -285,6 +294,8 @@
       .secondary-content {
         padding: 5vh 0vw 0vh 19vw;
         width: 53%;
+        margin: 0;
+        text-align: left;
         p {
           margin-bottom: 4vh;
         }

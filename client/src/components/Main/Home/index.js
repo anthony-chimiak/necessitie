@@ -266,7 +266,7 @@ export const Home = (props) => {
                 </div>
             </div>
 
-            <hr className="divider tablet"/>
+            {/* <hr className="divider tablet"/> */}
             {/* <div className="background-triangle tablet"></div> */}
             <div className="services-page page third-page">
 
@@ -280,7 +280,7 @@ export const Home = (props) => {
                         <h4 className="services-header tablet">Our speciality services</h4>
                         <h2 className="services-header mobile">Our speciality services</h2>
 
-                        <p>Find people that are <span className='action-color mobile'>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
+                        <p className="mobile">Find people that are <span className='action-color mobile'>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
                         <Button className="action-btn mobile">See All Services</Button>
                     </div>
                     

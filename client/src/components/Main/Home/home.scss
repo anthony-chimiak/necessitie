@@ -21,8 +21,8 @@
     // background-color: #FFFFFF;
     // color: $text-color;
     @include respond(tablet) {
-      padding: 0;
-      text-align: left;
+      // padding: 0;
+      // text-align: left;
       // border-bottom: 1px solid black;
     }
     .primary-content {
@@ -36,8 +36,8 @@
       //   max-width: 60%;
       // }
       @include respond(tablet) {
-        width: 70%;
-        text-align: left;
+        // width: 70%;
+        // text-align: left;
         .landing-img {
           position: absolute;
           top:6vh;
@@ -111,8 +111,9 @@
 
           .service-main-img {
             float:right;
-            max-width: 100%;
+            max-width: 95%;
             margin-right: 0vw;
+            transform: translateY(35%);
           }
         }
       }
@@ -149,7 +150,7 @@
     }
 
   }
-  .services-page {
+  .services-page.page.third-page {
     // background-color: #FFFFFF;
     text-align: left;
     // padding-top: 12vh;
@@ -459,7 +460,7 @@
       }
     }
     @include respond(tablet) {
-      padding: 20vh 6vw;
+      padding: 20vh 6vw 15vh;
       background-color: inherit;
       .primary-content {
         margin-left: 2vw;

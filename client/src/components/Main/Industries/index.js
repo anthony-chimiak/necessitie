@@ -115,6 +115,7 @@ function Industries(props) {
                 </div>
             </div>
             <div className="intro-page second-page page main-template">
+            <hr className='divider tablet thick'/>
                 <div className="primary-content">
                     <h2 className="tablet">Industries Title</h2>
                     <h1 className="mobile">Industries Title</h1>
@@ -123,7 +124,6 @@ function Industries(props) {
                     <p><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br/><br/>  A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust.</p>
 
                 </div>
-                <hr className='divider tablet thick'/>
             </div>
             {/* <hr class="divider tablet thick"></hr> */}
 

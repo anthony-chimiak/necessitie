@@ -122,7 +122,10 @@ function Services(props) {
                 {/* <Button className="action-btn outline tablet">Get a quote</Button> */}
             </div>
         </div>
+        
         <div className="intro-page page main-template second-page">
+                        <hr className="divider tablet thick"/>
+
             <div className="primary-content">
                 <h2 className="tablet">Our custom <span>Software</span> Development Services</h2>
                 <h1 className="mobile">Our custom <span>Software</span> Development Services</h1>
@@ -132,7 +135,7 @@ function Services(props) {
             <p><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.<br/><br/> 
                         A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust.</p>
 
-                <hr className='divider tablet thick'/>
+                {/* <hr className='divider tablet thick'/> */}
                 
             </div>
         </div>
