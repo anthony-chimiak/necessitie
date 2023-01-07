@@ -1,5 +1,7 @@
 import React, {useState, useRef, useLayoutEffect} from "react";
 import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
+import { isMobile } from "react-device-detect";
+
 import ContactUs from '../ContactUs/ContactUs';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
@@ -22,31 +24,33 @@ import './industries.scss'
 
 function Industries(props) {
     const landingRef = useRef(null);
+    const landingRefMobile = useRef(null)
+
     const [landingWidth, setLandingWidth] = useState(0);
     const [landingHeight, setLandingHeight] = useState(0);
     const industriesList = [
         {
             name: 'FinTech',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ',
+            text: 'A focus on security, but also efficiency helps products work at the speeds necessary to quickly process large amounts of data to make decisions',
             tabletText: <><p>Necessitie has spent time working with in the fast paced fintech ecosphere, understanding the need for high performing, and secure products. </p>
             <p>We offer staff augmentation of developers specifically with fintech experience, as well as vetting processes focusing on fundmanetal knowledge of economics and finance that assist developers in understanding project needs quickly and efficiently.</p></>,
             img: blueHouse,
         },
         {
             name: 'EdTech',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ',
+            text: 'Prioritizing User Experience and engaging designs help to keep users motivated to continue improving themselves',
             tabletText: <><p>Necessitie has spent time working with in the fast paced fintech ecosphere, understanding the need for high performing, and secure products. </p>
             <p>We offer staff augmentation of developers specifically with fintech experience, as well as vetting processes focusing on fundmanetal knowledge of economics and finance that assist developers in understanding project needs quickly and efficiently.</p></>,            img: orangeCone,
         },
         {
             name: 'Medical',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ',
+            text: 'Imbedded QA/Developer hybrid teams for increased cooperation to meet government standards on reliability',
             tabletText: <><p>Necessitie has spent time working with in the fast paced fintech ecosphere, understanding the need for high performing, and secure products. </p>
             <p>We offer staff augmentation of developers specifically with fintech experience, as well as vetting processes focusing on fundmanetal knowledge of economics and finance that assist developers in understanding project needs quickly and efficiently.</p></>,            img: blueCross,
         },
         {
             name: 'Hospitality',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ',
+            text: 'Compacting huge industry wide datasets to digestable well crafted data visualiation models',
             tabletText: <><p>Necessitie has spent time working with in the fast paced fintech ecosphere, understanding the need for high performing, and secure products. </p>
             <p>We offer staff augmentation of developers specifically with fintech experience, as well as vetting processes focusing on fundmanetal knowledge of economics and finance that assist developers in understanding project needs quickly and efficiently.</p></>,            img: orangeStack,
         }
@@ -56,22 +60,22 @@ function Industries(props) {
         {
             name: "Assess",
             img: Num1,
-            text: "Every project starts with a conversation about your company’s goals and challenges. From there we identify the developers best suited to your technical and strategic needs.",
+            text: "Every project begins with a discussion of the objectives and difficulties facing your business. From there, we choose the developers who would best meet your technical and strategic requirements.",
         },
         {
             name: "Screen",
             img: Num2,
-            text: "We go through our roster of ace engineers and identify the ones who best fit your needs. You’ll have their CVs in your inbox within 24 hours.",
+            text: "We choose the top engineers from our pool of A-listers based on which ones best meet your requirements. Within a day, their resumes will be in your email.",
         },
         {
             name: "Select",
             img: Num3,
-            text: "You interview our engineers to zero in on the perfect match. Select the candidates you want for your custom build.",
+            text: "You conduct interviews with our engineers to find the best fit. For your custom build, choose the candidates you desire.",
         },
         {
             name: "Start",
             img: Num4,
-            text: "We’re officially off to the races! We’ll schedule a kickoff for both your team and ours.",
+            text: "And its finally underway! We'll arrange for both your team and ours to kick off.",
 
         },
     ];
@@ -89,39 +93,46 @@ function Industries(props) {
         </div>)
     });
 
-    useLayoutEffect(() => {
-        setLandingWidth(landingRef?.current?.offsetWidth);
-        setLandingHeight(landingRef?.current?.offsetHeight);
-      }, []);
+    // useLayoutEffect(() => {
+    //     setLandingWidth(landingRef?.current?.offsetWidth);
+    //     setLandingHeight(landingRef?.current?.offsetHeight);
+    //   }, []);
 
-      window.addEventListener('resize', () => {
-        setLandingWidth(landingRef?.current?.offsetWidth);
-        setLandingHeight(landingRef?.current?.offsetHeight);
-      });
+    //   window.addEventListener('resize', () => {
+    //     setLandingWidth(landingRef?.current?.offsetWidth);
+    //     setLandingHeight(landingRef?.current?.offsetHeight);
+    //   });
 
     
     return (
         <div className='industries main-content'>
             <div className="landing-page primary-color page" ref={landingRef}>
-            <NetworkCluster width={landingWidth} height={landingHeight} />
+            {!isMobile &&<NetworkCluster landingRef={landingRef} page="Industries"/>}
                 <div className="primary-content">
-                    <h1><span>Industries</span> we work in</h1>
+                    {/* <h1><span>Industries</span> we work in</h1> */}
+                    <h1>Targeted <span>industries</span> with web solutions</h1>
                 </div>
                 <div className="secondary-content" >
-                    <p>Necessitie can provide you with top developers that have skills focused on your needs so you know they will be able to excel at the tasks you throw at them.</p>
+                    <p>Our web development company specializes in serving a diverse range of industries, including e-commerce, healthcare, finance, and hotel organizations.</p>
                     <Button className="action-btn">Let's work together</Button>
                     {/* <Button className="action-btn outline tablet">Get a quote</Button> */}
 
                 </div>
+                {isMobile && <div className="mobile-cluster-container">
+                    <div className="mobile-cluster cover"></div> 
+                    <div className="mobile-cluster" id="cluster-container" ref={landingRefMobile}>
+                        <NetworkCluster landingRef={landingRefMobile} page="Industries"/>
+                    </div>
+                </div>}
             </div>
             <div className="intro-page second-page page main-template">
             <hr className='divider tablet thick'/>
                 <div className="primary-content">
-                    <h2 className="tablet">Industries Title</h2>
-                    <h1 className="mobile">Industries Title</h1>
+                    <h2 className="tablet">Expertise in <span>a diverse selection</span> of industries</h2>
+                    <h1 className="mobile">Expertise in <span>a diverse selection</span> of industries</h1>
                 </div>
                 <div className="secondary-content">
-                    <p><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br/><br/>  A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust.</p>
+                    <p><span>We have the expertise</span> and flexibility to meet the unique needs of each industry, offering custom web solutions that drive business growth and success.<br/><br/>  </p>
 
                 </div>
             </div>
@@ -132,7 +143,7 @@ function Industries(props) {
                     <h4 className="tablet">Necessitie’s industries specialities</h4>
                     <h2 className="mobile">Necessitie’s industries specialities</h2>
 
-                    <p>Find people that are <span>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
+                    <p>Knowledge in these fields help understand not just the  <span>technical, but also the business needs</span> of various asks, so we can help you properly prioritize to get out the most important parts of your product out as quickly as possible</p>
                     {/* <Button className="action-btn outline mobile">Get a quote</Button> */}
 
                 </div>
@@ -185,8 +196,8 @@ function Industries(props) {
 
                 </div>
                 <div className='secondary-content'>
-                    <h4 className="tablet">A process that delivers</h4>
-                    <h2 className="mobile">A process that delivers</h2>
+                    <h4 className="tablet">A process that works</h4>
+                    <h2 className="mobile">A process that works</h2>
                     <div className='flex-cont'>
                         {deliveryJSX}
                     </div>

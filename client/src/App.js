@@ -11,12 +11,8 @@ import NavBar from './components/NavBar'
 export const App = () => {
   return (
     <div className="App">
-      {/* <AppBar></AppBar> */}
       <NavBar/>
       <Main />
-      {/* <ForceGraph2D graphData={genRandomTree(30)} />; */}
-
-      
     </div>
   );
 }

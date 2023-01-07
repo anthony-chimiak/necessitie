@@ -21,8 +21,8 @@
   h1 {
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 1100;
-    font-size: 1.8rem;
-    line-height: 2.4rem;
+    font-size: 2.85rem;
+    line-height: 3.4rem;
 
     @media only screen and (min-width: 600px) { 
       font-size: 6rem;
@@ -94,6 +94,7 @@
   }
   .landing-page.page {
     // margin: 13vh 17vw 5vh 12vw;
+    height: 100vh;
     text-align: left;
     @include respond(tablet) {
       padding: 0;
@@ -145,7 +146,7 @@
   }
 
   .page {
-    padding: 10vh 7vw;
+    padding: 10vh 11vw;
     // padding-right: 6vw;
     text-align: left;
     @media only screen and (min-width: 600px) { 
@@ -156,7 +157,7 @@
     .action-btn {
       background-color: $action-color;
       color: #FFFFFF;
-      font-size:1.2rem;
+      font-size:4vw;
       font-weight: 900;
       height: 5.5vh;
       min-height: 50px;
@@ -188,15 +189,16 @@
       text-align: left;
       color: $title-primary-blue;
       padding-bottom: 4vh;
+      padding-top: 0;
       span {
         color: $action-color;
       }
       .primary-content {
         margin-bottom: 5vh;
-        @include respond(tablet) {
-          margin-top: 2vh;
-          margin-bottom: 0;
-          gap: 0;
+        h1 {
+          font-size: 1.8rem;
+          line-height: 2.4rem;
+          width: 55%;
         }
         p {
           text-align: left;
@@ -212,12 +214,16 @@
         padding: 10vh 0 0 19vw;
         
         .primary-content {
+          margin-top: 2vh;
+          margin-bottom: 0;
+          gap: 0;
           h2 {
             color: $title-primary-blue;
             text-align: left;
             padding: 0;
             flex-basis: 80%;
             max-width: 54vw;
+            position: relative;
             span {
               color: $action-color;
             }
@@ -230,7 +236,7 @@
           width: 45%;
           p {
             color: $title-primary-blue;
-            
+            position: relative;
           }
         }
 
@@ -251,43 +257,71 @@
       }
     }
   }
+  .mobile-cluster-container {
+    height: 40vh;
 
+    // margin-top: -15vh;
+    .mobile-cluster {
+      margin-left: -11vw;
+      height: 60vh;
+      // position: absolute;
+      z-index: 0;
+      // z-index: 9999;
+      // position: relative;
+      &.cover {
+        height: 80vh;
+        position: absolute;
+        z-index: 9999;
+        // background-color: black;
+        width: 100%;
+        // pointer-events: none;
+      }
+    }
+  }
 
 
   .landing-page{
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    min-height: 100vh;
+    min-height: 40vh;
     text-align: left;
-    padding: 0;
+    padding-bottom: 0;
+    // padding: 0;
     .primary-content {
+      padding-top: 4vh;
       // height: 50vh;
-      margin: 13vh 15vw 3vh 14vw;
+      // margin: 13vh 15vw 3vh 14vw;
+      // padding: 13vh 10vw 3vh 10vw;
+      margin-bottom: 4vh;
+      h1 {
+        text-transform: uppercase;
+        // font-size: 8vw;
+      }
       span {
         color: $off-action-color;
       }
     }
     .secondary-content {
       // margin-top: 50vh;
-      margin: 0 14vw;
-      text-align: center;
+      // margin: 0 14vw;
+      text-align: left;
       p {
         text-align: left;
+        line-height: 1.7rem;
+        // font-size: 2vh;
       }
       
     }
-    h1 {
-      text-transform: uppercase;
-    }
+
     @include respond(tablet) {
       min-height: calc(100vh);
       h1 {
-        
+        position: relative;
       }
       .primary-content {
         padding: 29vh 0vw 0vh 19vw;
         margin: 0;
         color: $title-primary-blue;
-        width: 70%;
+        width: 80%;
         
         // height: 17vh;
       }
@@ -298,6 +332,10 @@
         text-align: left;
         p {
           margin-bottom: 4vh;
+          position: relative;
+        }
+        button {
+          position: relative;
         }
       }
     }

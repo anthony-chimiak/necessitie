@@ -1,5 +1,7 @@
 import React, {useState, useRef, useLayoutEffect} from "react";
 import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
+import { isMobile } from "react-device-detect";
+
 import ContactUs from '../ContactUs/ContactUs';
 import NetworkCluster from '../Map/Cluster/clusterTest.jsx';
 
@@ -19,65 +21,66 @@ import connectedCircles from "./../../../assets/images/data.svg"
 
 function Technologies(props) {
     const landingRef = useRef(null);
+    const landingRefMobile = useRef(null)
 
     
     const technologiesList = [
         {
             name: 'IOS',
             img: '',
-            text: 'Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et   ',
+            text: "Our team of experienced iOS developers is proficient in using Swift and other tools to create intuitive and visually appealing mobile apps for iPhone and iPad.",
         },
         {
             name: 'Android',
             img: flatAndriod,
-            text: 'Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et   ',
+            text: "Our skilled Android developers leverage the power of Java and the Android SDK to build robust and high-performing apps for a variety of devices.",
         },
         {
             name: 'Backend',
             img: '',
-            text: 'Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et   ',
+            text: "Our backend developers specialize in building scalable and secure server-side infrastructure to support the needs of our clients' web and mobile applications.",
         },
         {
             name: 'Frontend',
             img: '',
-            text: 'Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et   ',
+            text: "Our frontend developers are experts in using HTML, CSS, and JavaScript to create dynamic and responsive user interfaces for web and mobile applications.",
         },
         {
             name: 'AI',
             img: flatCorners,
-            text: 'Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et   ',
+            text: "Our team of AI experts use the newest machine learning techniques to build intelligent systems that can analyze and interpret data, solve complex problems, and learn and adapt over time.",
         },
         {
             name: 'Crossplatform',
             img: '',
-            text: 'Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et   ',
+            text: "Our cross-platform development team utilizes tools such as React Native and Flutter to create apps that can run smoothly on both iOS and Android devices, saving time and resources for our clients.",
         },
     ];
 
     const ItList = [
         {
-            name: 'Full-cycle software development',
+            name: 'Full-service software development',
             img: refreshCircle,
             class: 'full-cycle',
-            text: 'Necessitie delivers cutting-edge end-to-end software development services for businesses worldwide',
+            text: 'Necessitie provides organizations all around the world with cutting-edge, full-service software development services.',
         },
         {
             name: 'IT staff augmentation',
             img: addUser,
             class: 'it-staff',
-            text: 'Our company provides senior and mid-level development team as a service to enhance in-house IT departments and meet the needs of software development projects of any size',
+            text: "To support internal IT departments and satisfy the demands of software development projects of any scale, our firm offers senior and mid-level development teams as a service.",
         },
         {
             name: 'IT audit & consulting',
             img: talkingHeads,
             class: 'it-audit',
-            text: 'We help optimize business processes, supporting technological solutions, implementing highly efficient workflows, and identifying problematic aspects of the business.',
+            text: "We support technical solutions, build extremely effective workflows, and identify problematic areas of the organization in order to help optimize business operations.",
         },
         {
             name: 'Digital transformation',
             img: connectedCircles,
             class: 'digital-trans tablet',
-            text: "Our team of IT professionals creates effective software systems to empower businesses with digital innovations and intelligent automation",
+            text: "Our team of IT experts develops powerful software systems to equip businesses with technological advancements and intelligent automation",
         }
     ];
 
@@ -113,26 +116,32 @@ function Technologies(props) {
     return (
         <div className='technologies main-content'>
             <div className="landing-page primary-color page" ref={landingRef}>
-            <NetworkCluster landingRef={landingRef}/>
+            {!isMobile && <NetworkCluster landingRef={landingRef} page="Technologies"/>}
                 <div className="primary-content">
-                    <h1>New <span>Technologies</span> we work with</h1>
+                    <h1>Expertise in modern web <span>technologies</span></h1>
                 </div>
                 <div className="secondary-content" >
-                    <p>Necessitie can provide you with top developers that have skills focused on your needs so you know they will be able to excel at the tasks you throw at them.</p>
+                    <p>Our team has expertise in a variety of modern web technologies, including React, Python, Selenium, and Tensorflow enabling us to build custom web solutions that meet the specific needs of our clients.</p>
                     <Button className="action-btn">Let's work together</Button>
                     {/* <Button className="action-btn outline tablet">Get a quote</Button> */}
 
                 </div>
+                {isMobile && <div className="mobile-cluster-container">
+                    <div className="mobile-cluster cover"></div> 
+                    <div className="mobile-cluster" id="cluster-container" ref={landingRefMobile}>
+                        <NetworkCluster landingRef={landingRefMobile} page="Technologies"/>
+                    </div>
+                </div>}
             </div>
             <div className="intro-page page main-template second-page">
                 <hr className='divider thick tablet'></hr>
                 <div className="primary-content">
-                    <h2 className="tablet">Focused precision <span>for your</span> products</h2>
-                    <h1 className="mobile">Focused precision <span>for your</span> products</h1>
+                    <h2 className="tablet">Future's edge <span>technologies</span> for every problem</h2>
+                    <h1 className="mobile">Future's edge <span>technologies</span> for every problem</h1>
 
                 </div>
                 <div className="secondary-content">
-                    <p><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br/><br/>  A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust.</p>
+                    <p><span>In addition to our technical skills</span>, we also place a strong emphasis on user experience design and testing. We use tools like A/B testing and user interviews to ensure that our solutions are intuitive and easy to use, delivering the best possible experience for our clients' customers.</p>
                 </div>
 
             </div>
@@ -143,7 +152,7 @@ function Technologies(props) {
                 <div className="primary-content">
                     <h4 className="tablet">Technologies we are working with</h4>
                     <h2 className="mobile">Technologies we are working with</h2>
-                    <p className="mobile">Find people that are <span>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
+                    <p className="mobile">Overall, our team has the <span>knowledge and skills to deliver</span> custom web solutions that meet the specific needs of our clients, using the latest technologies and a user-centered approach to ensure the best possible results.</p>
 
                 </div>
                 <div className="secondary-content">

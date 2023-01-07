@@ -10,12 +10,15 @@ const distance = {
   Contact: 20,
 }
 
+const titlePrimaryBlue = "rgba(75,75,145)";
+const titlePrimaryOrange = "rgba(241,125,76)";
+
 const nodesData = [
     {
       id: 'Right-Grav',
       fx: 0,
       fy: 0,
-      color: 'black',
+      homeColor: 'black',
       // val: 5,
       name: 'Right-Grav',
       gravitySource: true,
@@ -23,7 +26,7 @@ const nodesData = [
     {
       id: 'Left-Grav',
       name: 'Left-Grav',
-      color: 'red',
+      homeColor: 'red',
       width: 20,
       gravitySource: true,
     },
@@ -31,10 +34,11 @@ const nodesData = [
       id: 'Home',
       name: 'Home',
       link: "Home",
+      homeHighlightNode: true,
       gravityNode: "Left-Grav",
       val: 2,
       distance: distance.Home,
-      color: 'silver',
+      homeColor: 'silver',
       // counterClockwise: true,
       arcTarg: 'Home-cap',
       pullX: 30,
@@ -45,7 +49,7 @@ const nodesData = [
       link: "Home",
       distance: distance.Home,
       parent: "Home",
-      color: 'silver',
+      homeColor: 'silver',
       endCap: "Home",
     },
     {
@@ -70,7 +74,7 @@ const nodesData = [
     },
     {
       id: 'Technologies',
-      color: 'blue',
+      homeHighlightNode: true,
       name: 'Technologies',
       link: "Technologies",
       val: 2,
@@ -81,8 +85,9 @@ const nodesData = [
     },
     {
       id: 'Company',
-      name: 'Company1',
+      name: 'Company',
       link: "Company",
+      homeHighlightNode: true,
       val: 2,
       distance: distance.Company,
       gravityNode: "Right-Grav",
@@ -90,7 +95,7 @@ const nodesData = [
     },
     {
       id: 'Contact',
-      color: 'Red',
+      homeHighlightNode: true,
       name: 'Contact',
       link: "Contact",
       val: 2,
@@ -103,14 +108,14 @@ const nodesData = [
     },
     {
       id: 'Web Development',
-      color: 'Green',
+      homeColor: 'Green',
       name: '',
       distance: 6,
       parent: "Services",
     },
     {
       id: 'Product Design',
-      color: 'Green',
+      homeColor: 'Green',
       name: '',
       distance: 6,
       layer: 1,
@@ -118,14 +123,14 @@ const nodesData = [
     },
     {
       id: 'Quality Assurance',
-      color: 'Green',
+      homeColor: 'Green',
       name: '',
       distance: 6,
       parent: "Services",
     },
     {
       id: 'Product Ideation',
-      color: 'Green',
+      homeColor: 'Green',
       name: '',
       parent: "Services",
       layer: 2,
@@ -133,7 +138,7 @@ const nodesData = [
     },
     {
       id: 'Fintech',
-      color: 'Green',
+      homeHighlightNode: true,
       name: '',
       parent: "Industries",
       distance: distance.Industries,
@@ -141,7 +146,7 @@ const nodesData = [
     },
     {
       id: 'Edtech',
-      color: 'Green',
+      homeHighlightNode: true,
       name: '',
       parent: "Industries",
       distance: distance.Industries,
@@ -150,7 +155,7 @@ const nodesData = [
     },
     {
       id: 'Medical',
-      color: 'Green',
+      homeHighlightNode: true,
       name: '',
       parent: "Industries",
       distance: distance.Industries,
@@ -159,7 +164,7 @@ const nodesData = [
     },
     {
       id: 'Hospitality',
-      color: 'Green',
+      homeHighlightNode: true,
       name: '',
       parent: "Industries",
       distance: distance.Industries,
@@ -167,35 +172,35 @@ const nodesData = [
     },
     {
       id: 'Android',
-      color: 'Green',
+      homeColor: 'Green',
       parent: "Technologies",
       name: '',
       // layer: 1,
     },
     {
       id: 'IOS',
-      color: 'Green',
+      homeColor: 'Green',
       parent: "Technologies",
       name: '',
       // layer: 1,
     },
     {
       id: 'Frontend',
-      color: 'Green',
+      homeColor: 'Green',
       parent: "Technologies",
       name: '',
       // layer: 1,
     },
     {
       id: 'Backend',
-      color: 'Green',
+      homeColor: 'Green',
       parent: "Technologies",
       name: '',
       // layer: 1,
     },
     {
       id: 'Cross-platform',
-      color: 'Green',
+      homeColor: 'Green',
       parent: "Technologies",
       name: '',
       arcTarg: "Android",
@@ -204,7 +209,7 @@ const nodesData = [
     },
     {
       id: 'Artificial Intelligence',
-      color: 'Green',
+      homeColor: 'Green',
       parent: "Technologies",
       name: '',
       arcTarg: "IOS"
@@ -212,7 +217,7 @@ const nodesData = [
     },
     {
       id: 'React Developers',
-      color: 'Yellow',
+      homeColor: 'Yellow',
       name: '',
       parent: "Web Development",
       arcTarg: "Web Development",
@@ -220,14 +225,14 @@ const nodesData = [
     },
     {
       id: 'Python Developers',
-      color: 'Yellow',
+      homeColor: 'Yellow',
       name: '',
       parent: "Web Development",
       arcTarg: "Web Development",
     },
     {
       id: 'UI Designers',
-      color: 'Yellow',
+      homeColor: 'Yellow',
       name: '',
       parent: "Product Design",
       arcTarg: "Product Design",
@@ -235,7 +240,7 @@ const nodesData = [
     },
     {
       id: 'UX Designers',
-      color: 'Yellow',
+      homeColor: 'Yellow',
       name: '',
       parent: "Product Design",
       arcTarg: "Product Design",
@@ -243,7 +248,7 @@ const nodesData = [
     },
     {
       id: 'Automated QA',
-      color: 'Yellow',
+      homeColor: 'Yellow',
       name: '',
       parent: "Quality Assurance",
       arcTarg: 'Quality Assurance',
@@ -251,7 +256,7 @@ const nodesData = [
     },
     {
       id: 'Manual QA',
-      color: 'Yellow',
+      homeColor: 'Yellow',
       name: '',
       parent: "Quality Assurance",
       arcTarg: 'Quality Assurance',
@@ -275,6 +280,7 @@ const nodesData = [
     {
       id: 'Company-cap',
       name: 'Company-cap',
+      homeHighlightNode: true,
       link: "Company",
       distance: distance.Company,
       gravityNode: "Right-Grav",
@@ -294,7 +300,7 @@ const nodesData = [
     },
     {
       id: 'Company-extra-cap',
-      name: 'Company',
+      name: 'Company1',
       link: "Company",
       distance: distance.Company,
       gravityNode: "Right-Grav",
@@ -359,6 +365,7 @@ const nodesData = [
         ...node,
         distance: parentNode.distance,
         gravityNode: parentNode.gravityNode,
+        homeColor: node.homeHighlightNode?titlePrimaryOrange:titlePrimaryBlue,
         val: val,
         name: node.link?node.name:`<div className="cluster-node-text">${node.id}<div>Next level</div> <span>span2</span><div>`,
     };

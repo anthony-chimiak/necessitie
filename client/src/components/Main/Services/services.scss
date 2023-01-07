@@ -85,12 +85,16 @@
   }
   .webdev-page.third-page {
     background-color: #FFFFFF;
-    margin: 0vh 2.5vw 5vh 2.5vw;
-    padding: 0;
+    // margin: 0vh 2.5vw 5vh 2.5vw;
+    // margin-bottom: 5vh;
+    // padding: 0;
+    margin-top: 8vh;
     .primary-content {
       position: relative;
-      padding: 16vh 2vw 5vh 2vw;
-      margin-bottom: 5vh;
+      // padding: 16vh 4vw 5vh 4vw;
+      // padding-top: 16vh;
+      // padding-bottom: 5vh;
+      margin-bottom: 0vh;
       background-color: $base-color;
       border-radius: 50px 0 0 0;
 
@@ -106,6 +110,7 @@
         font-weight: 400;
       }
       p {
+        text-align: center;
         span {
           color: $action-color;
         }
@@ -120,9 +125,9 @@
         box-shadow: 1px 0px 24px 0 rgba(0,0,0,.25);
         text-align: center;
         border-radius: 0 0 50px 0;
-        padding: 2vh 4vw 5vh 4vw;
+        // padding: 4vh 4vw 5vh 4vw;
         .single-service {
-          padding: 4.5vh 0vw;
+          padding: 3vh 0vw;
           border: none;
           h3 {
             span {
@@ -131,6 +136,9 @@
             margin-bottom: 2.5vh;
             text-shadow: 0 4px 4px rgba(0,0,0,.25);
             font-size: 1.5rem;
+          }
+          p {
+            text-align: center;
           }
         }
 
@@ -161,12 +169,13 @@
   .design-page.offered-services-page {
     // background-color: #FFFFFF;
     text-align: center;
-    margin: 8vh 2.5vw 5vh 2.5vw;
-    padding: 0;
+    // margin: 8vh 2.5vw 5vh 2.5vw;
+    // padding: 0;
     .services-flex-container {
       .primary-content {
         background-color: $base-color;   
-        padding: 13.5vh 0 5vh 0;
+        // padding: 13.5vh 0 5vh 0;
+        // padding-top: 13.5vh
         border-radius: 50px 0 0 0; 
         position: relative;
         // margin-bottom: .5vh;
@@ -228,11 +237,11 @@
   .qa-page {
     background-color: #FFFFFF;
     text-align: center;
-    margin: 8vh 2.5vw 5vh 2.5vw;
-    padding: 0;
+    // margin: 8vh 2.5vw 5vh 2.5vw;
+    // padding: 0;
     .primary-content {
       background-color: $base-color;
-      padding: 10vh 2vw 5vh 2vw;
+      // padding: 10vh 2vw 5vh 2vw;
       border-radius: 50px 0 0 0;
       position: relative;
       img {
@@ -252,6 +261,16 @@
     }
   }
   .offered-services-page {
+    // margin-bottom: 5vh;
+    padding: 5vh 8vw 0;
+    .services-flex-container {
+      .primary-content {
+        padding: 14vh 4vw 5vh;
+      }
+      .secondary-content {
+        // padding: 14vh 4vw 5vh;
+      }
+    }
     @include respond(tablet) {
       .services-flex-container {
         display: flex;
@@ -401,7 +420,8 @@
     background-color: #FFFFFF;
     color: $outline-color;
     text-align: center;
-    padding: 2vh 5vw;
+    // padding: 2vh 5vw;
+    padding-top: 6vh;
     .primary-content {
       margin-bottom: 5vh;
       // text-align: left;
@@ -481,7 +501,7 @@
     box-shadow: 1px 0px 24px 0 rgba(0,0,0,.25);
     text-align: center;
     // margin-top: 10vh;
-    padding: 1vh 3vw 4.5vh 3vw;
+    padding: 6vh 4vw 5vh;
     .single-service {
       padding: 4.5vh 0vw;
       h3 {

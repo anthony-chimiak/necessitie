@@ -49,14 +49,7 @@
     }
   }
   .intro-page {
-    background-color: #FFFFFF;
-    padding: 0 7vw 4vh 7vw;
-    .primary-content {
-      h2 {
-        margin: 0vh 3vw 4vh 3vw;
-      }
 
-    }
     p {
       text-align: left;
       span {
@@ -77,31 +70,31 @@
     }
   }
   .list-page {
-    padding: 0;
-    margin-bottom: 5vh;
+
+    // margin-bottom: 5vh;
     .primary-content {
       // padding: 6vh 4vw;
-      margin:0 7vw;
+      // margin:0 7vw;
       p {
         // width: 50%;
       }
     }
     .secondary-content {
-      padding: 4vh 10vw;
+      padding: 4vh 9vw;
       margin-top: 7vh;
       background-color: $off-secondary-color;
       box-shadow: 0px 1px 24px -1px rgba(0, 0, 0, 0.25);
       backdrop-filter: blur(20px);
       /* Note: backdrop-filter has minimal browser support */
 
-      border-radius: 0px 50px 0px 0px;
+      border-radius: 50px;
       .single-tech {
         margin-bottom: 4vh;
         position: relative;
         img {
           width: 30%;
           position: absolute;
-          transform: translate(60vw, -25%);
+          transform: translate(42vw, -25%);
         }
         h2 {
           color: $primary-color;
@@ -118,7 +111,7 @@
           }
           img {
             width: 35%;
-            transform: translate(0, -45%);
+            transform: translate(-24%, -30%);
           }
         }
 

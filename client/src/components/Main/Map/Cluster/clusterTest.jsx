@@ -10,10 +10,10 @@
  import clusterData from './clustdata'
  import SizeMe from 'react-sizeme'
  import './cluster.scss'
-import { createContext } from "react";
+ import { createContext } from "react";
 
  
- 
+ let posY = 0;
  
  export const NetworkCluster = (props) => {
   const [isZoomEnabled, setIsZoomEnabled] = [false];
@@ -23,15 +23,26 @@ import { createContext } from "react";
   const [tickNum, setTickNum] = useState(0);
   const [landingWidth, setLandingWidth] = useState(0);
   const [landingHeight, setLandingHeight] = useState(0);
-  const {landingRef} = props;
+  const [scrollY, setScrollY] = useState(0);
+  const {landingRef, page} = props;
   const data = {
     nodes: clusterData.nodes,
     links: clusterData.links
   };
+  if (isMobile) {
+    // data.nodes.map(node => node.val*=1.2);
+      // {
+    //   return {
+    //     ...node, 
+    //     // val:((node?.val)*2 || 1)
+    //     val:node.val
+    //   }
+    // })  
+  }
 
   const clusterNodeHash = {};
   clusterData.nodes.forEach(node => clusterNodeHash[node.id] = node);
-
+  clusterDataColorSetter(clusterNodeHash, page);
 
   const forceRef = useRef(null);
   const NODE_R = 6;
@@ -145,8 +156,17 @@ import { createContext } from "react";
     const fg = forceRef.current;
     fg.d3Force('link').distance((link) => {
       let distance = link.distance||30;
+      // if (isMobile) {
+      //   distance *= 1.5;
+      // }
       if (link.layer) {
-        distance+=(link.layer*15);
+        if (isMobile) {
+          distance+=(link.layer*6.5);
+        } else {
+
+          distance+=(link.layer*15);
+        }
+        
       }
       return distance;
     })
@@ -202,11 +222,15 @@ import { createContext } from "react";
       } else {
         ctx.lineWidth = 1;
       }
-      if (isMobile) ctx.lineWidth = ctx.lineWidth/1.5;
+      if (isMobile) ctx.lineWidth = ctx.lineWidth/1.2;
       // ctx.lineWidth=5;
-      // ctx.strokestyle = "red";
-      ctx.strokeStyle = "rgba(0,0,0,.5)";
-      if (target.id == arcTarget.id) {
+      // ctx.strokeStyle = "rgba(0,0,0,.5)";
+      let lineColor = target.color || 'gray';
+      if (target.id === page) {
+        lineColor = 'rgba(241,125,76)';
+      }
+      if (lineColor.includes('rgba')) ctx.strokeStyle = lineColor.slice(0, lineColor.length -1) + ",.5)";
+      if (target.id == arcTarget.id) {  //Checks if same target to make a full circle
         ctx.arc(gx, gy, r, 0, 2*Math.PI);
       } else {
         ctx.arc(gx, gy, r, Math.atan2(sy - gy, sx - gx), Math.atan2(ty - gy, tx-gx), link.counterClockwise||false);
@@ -215,15 +239,45 @@ import { createContext } from "react";
     }
   }
 
+  function clusterDataColorSetter(data, page) {
+    if (page === "Home") {
+      for (const key in data) {
+        data[key].color = data[key].homeColor;
+      }
+    } else if (page && data[page]) {
+      for (const key in data) {
+        data[key].color = "rgba(75,75,145)";
+      }
+      const pageNode = data[page];
+      pageNode?.catagoryNodes?.map(catagoryNode => {
+        data[catagoryNode.id].color = "rgba(241,125,76)";
+      })
+      data[page].color = "red";
+    }
+  }
+
+
   useLayoutEffect(() => {
     setLandingWidth(landingRef?.current?.offsetWidth || window.innerWidth);
     setLandingHeight(landingRef?.current?.offsetHeight || window.innerHeight);
   }, []);
 
-  window.addEventListener('resize', () => {
-    setLandingWidth(landingRef?.current?.offsetWidth || window.innerWidth);
-    setLandingHeight(landingRef?.current?.offsetHeight || window.innerHeight);
+  useEffect(() => {
+    function handleResize() {
+      setLandingWidth(landingRef?.current?.offsetWidth || window.innerWidth);
+      setLandingHeight(landingRef?.current?.offsetHeight || window.innerHeight);
+    } 
+    window.addEventListener('resize', () => handleResize);
+    return () => window.removeEventListener('resize', handleResize)
   });
+
+  // useEffect(() => {
+  //   if (forceRef) {
+  //     debugger;
+
+  //   }
+
+  // }, [forceRef]);
 
   useEffect(() => {
     const fg = forceRef.current;
@@ -239,7 +293,8 @@ import { createContext } from "react";
     leftGrav.fy = -(landingHeight/2);
     if (isMobile) {
       leftGrav.fy = -landingHeight/4;
-      rightGrav.fy = landingHeight/40;
+      // rightGrav.fy = landingHeight/40;
+      rightGrav.fy = -landingHeight/10;
     }
     homeNode.fx = leftGrav.fx + (landingWidth/screenDiv)/8;
     homeNode.fy = leftGrav.fy + (landingHeight/screenDiv)/8;
@@ -251,6 +306,9 @@ import { createContext } from "react";
 
     clusterLinks.forEach(link => {
       link.distance = link.initialDistance/1000*landingWidth;
+      if (isMobile) {
+        link.distance *= 1.5;
+      }
     })
     // fg.current.centerAt(0, landingHeight/4);
 
@@ -258,12 +316,53 @@ import { createContext } from "react";
 
   },[landingHeight, landingWidth])
 
-  
+  // function handleTouchEvent(e) {
+  //   if (e.target.localName === 'canvas') {
+  //     e.preventDefault();
+  //     // slide_down();
+      
+  //   }
+
+  // }
+  // document.addEventListener('scroll', handleTouchEvent, true);
+  // const canvas = document.querySelector('canvas');
+  // if (canvas) {
+  //   const events = ['mousedown', 'touchstart', 'touchmove', 'touchend', 'touchcancel'];
+  //   for (const event of canvas.__on) {
+  //     canvas.removeEventListener(event.type, event.listener);
+  //   }
+  // }
+
+  useEffect(() => {
+  //  const forceGraphContainer = document.getElementsByClassName('force-graph-container')[0];
+  //  const clusterContainer = document.getElementById('cluster-container');
+  //  forceGraphContainer.addEventListener('pointerdown', (ev) => {
+  //   // console.log('pointerdown pageY is ' + ev.pageY)
+  //   posY = ev.pageY;
+  //   console.log(posY);
+  //   setScrollY(ev.pageY);
+  //   // console.log(ev);
+  // });
+  // forceGraphContainer.addEventListener('pointermove', (ev) => {
+  //   // window.scrollBy(0,(scrollY-ev.pageY));
+  //   // console.log('scrollY is '+scrollY);
+  //   // console.log('pageY is ' + ev.pageY);
+  //   setScrollY(ev.pageY);
+  //   posY= ev.pageY;
+  //   console.log(posY);
+  // });
+  // forceGraphContainer.addEventListener('pointerup', (ev) => {
+  //   // console.log(ev);
+  // });
+
+  })
+
 
    return (
       <ForceGraph2D 
       enableNavigationControls={isZoomEnabled}
       enableZoomInteraction={isZoomEnabled}
+      // enablePointerInteraction={false}
       graphData={data}
       nodeCanvasObjectMode={node => highlightNodes.has(node) ? 'after' : undefined}
       nodeCanvasObject={paintRing}
@@ -275,6 +374,7 @@ import { createContext } from "react";
       // cooldownTicks={400}
       // onNodeDragEnd={handleNodeDragEnd}
       // onNodeDrag={handleNodeDrag}
+      id='test'
       minZoom={2}
       autoPauseRedraw={false}
       linkWidth={link => {
@@ -283,6 +383,7 @@ import { createContext } from "react";
         return width;
       }}
       height={isMobile?landingHeight:landingHeight*2}
+      // height={landingHeight}
       width={landingWidth}
       
       // linkVisibility={link => !link.invis}

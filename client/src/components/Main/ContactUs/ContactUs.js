@@ -12,7 +12,7 @@ function ContactUs() {
     return (
         <div className="contact-container">
             <p className="contact-header">Want to talk about your project?</p>
-            <p className="mobile">We’re here to connect you with great developers perfect for your roles</p>
+            <p className="mobile">At our agency, we specialize in matching businesses with top-quality developers who are the perfect fit for their specific roles. Whether you need a full team or just a few key players, we can help you find the talent you need to take your project to the next level.</p>
             <div className="contact-flex-cont">
                 <div className="secondary-content">
                     <Form className="contact-form">

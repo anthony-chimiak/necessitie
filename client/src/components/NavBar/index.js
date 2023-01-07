@@ -4,6 +4,8 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { isMobile } from "react-device-detect";
+
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -14,6 +16,7 @@ import Slide from '@mui/material/Slide';
 import Zoom from '@mui/material/Zoom';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Container from '@mui/material/Container';
 import Fab from '@mui/material/Fab';
 import { ThemeProvider } from "@mui/material/styles";
@@ -28,6 +31,7 @@ import companyName from "./../../assets/images/necessitie_word_logo.png"
 
 // import TemporaryDrawer from './TemporaryDrawer'
 import './navbar.scss';
+import './../../App.scss';
 
 export const NavBar = (props) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -39,6 +43,8 @@ export const NavBar = (props) => {
   const handleClose = () => {
       setAnchorEl(null);
   };
+
+  const navBarHeight = isMobile?"60px":"80px";
 
   const heightTrigger = useScrollTrigger({
     // disableHysteresis: true,
@@ -123,22 +129,12 @@ export const NavBar = (props) => {
                 // classes={scrolled?'past-top':''} 
                 sx={{
                   boxShadow:scrolled?'box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)':'none',
-                  height: '80px',
+                  height: {navBarHeight},
                 }}
                 // transition="box-shadow 4s"
               >
                 <Toolbar variant="dense" disableid="back-to-top-anchor" >
-                <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                <IconButton edge="end" color="action" aria-label="menu" sx={{  display: {xs: 'flex', md: 'none'}}} onClick={handleClick}>
-                    <MenuIcon
-                        id="main-menu-dropdown-button"
-                        aria-controls={open ? 'main-menu-dropdown' : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? 'true' : undefined}
-                    />
-                  </IconButton> 
-                  
-                </Box>
+
                 <Box className="logo-box" sx={{ 
                   opacity:heightTrigger?'0':'0', 
                   // transition: 'opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1)',
@@ -155,7 +151,7 @@ export const NavBar = (props) => {
                   sx={{
                     mr: 2,
                     display: { xs: 'flex', md: 'none' },
-                    flexGrow: 1,
+                    flexGrow: 4,
                     color: 'inherit',
                   }}
                 >
@@ -188,18 +184,29 @@ export const NavBar = (props) => {
                     border: '2px solid #4539CF',
                     color: "#4539CF",
                     }}>Get a quote</Button>
+                  <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent:"right"}}>
+                    <IconButton edge="start"  color="action" aria-label="menu" sx={{  display: {xs: 'flex', md: 'none'}, }} onClick={handleClick}>
+                      <MenuIcon
+                          id="main-menu-dropdown-button"
+                          aria-controls={open ? 'main-menu-dropdown' : undefined}
+                          aria-haspopup="true"
+                          aria-expanded={open ? 'true' : undefined}
+                      />
+                    </IconButton> 
+                  </Box>
 
                   {/* <img src={logo} className="logo"/> */}
                   <Menu
                       id="main-menu-dropdown"
                       aria-labelledby="main-menu-dropdown-button"
-                      anchorEl={anchorEl}
+                      // anchorEl={anchorEl}
                       open={open}
                       onClose={handleClose}
                       disableScrollLock={true}
+                      // width={600}
                       anchorOrigin={{
-                        vertical: "bottom",
-                        horizontal: "center",
+                        vertical: "top",
+                        horizontal: "right",
                       }}
                       transformOrigin={{
                         vertical: "top",
@@ -207,16 +214,23 @@ export const NavBar = (props) => {
                       }}
                       PaperProps={{
                         style: {
+                          width: "80vw",
                           left: '-50%',
                           transform: 'translateX(%0) translateY(-0%)',
+                          padding: "2vh 3vw"
                         }
                       }}
+                      // PopoverClasses={'TEST'}
                       className="mobile"
                   >
-                      <MenuItem onClick={handleClose}><Link to="/Home">Home</Link></MenuItem>
+                      <MenuItem><img src={companyName} className="company-name-menu"/></MenuItem>
+
+                      {/* <MenuItem onClick={handleClose}><Link to="/Home">Home</Link></MenuItem> */}
                       {pages.map((page) => (
-                        <MenuItem key={page} onClick={handleClose}><Link to={`${page}`}>{page}</Link></MenuItem>
+                        <MenuItem key={page} onClick={handleClose} className="nav-menu-item-container">
+                          <Link to={`${page}`} className="nav-menu-item"><span>{page}</span> <ArrowForwardIcon className="menu-arrow"/></Link></MenuItem>
                       ))}
+                      <MenuItem><Button className="action-btn">Let's work together</Button></MenuItem>
                   </Menu>
                 </Toolbar>
               </AppBar>

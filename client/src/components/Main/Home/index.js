@@ -3,6 +3,8 @@ import React, {useState, useRef, useLayoutEffect} from "react";
 import CardComponent from './CardComponent.js'
 import { Button} from 'semantic-ui-react';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { isMobile } from "react-device-detect";
+
 // import LocationOnIcon from '@mui/icons-material/LocationOn';
 // import PhoneIcon from '@mui/icons-material/Phone';
 // import EmailIcon from '@mui/icons-material/Email';
@@ -41,6 +43,11 @@ import backendImg from "./../../../assets/images/Platform/message-programming.sv
 import crossPlatformImg from "./../../../assets/images/Platform/cross-platform.svg"
 import aiImg from "./../../../assets/images/Platform/ai.svg"
 import industriesFullImg from "./../../../assets/images/allcubes.png"
+import oneBackDown from "./SlantImages/1-BackDown.png"
+import oneBackUp from "./SlantImages/1-BackUp.png"
+import oneCenter from "./SlantImages/1-LaptopCenter.png"
+import oneLeft from "./SlantImages/1-left.png"
+import oneUpRight from "./SlantImages/1-UpRight.png"
 
 
 
@@ -49,43 +56,44 @@ import './home.scss'
 
 export const Home = (props) => {
     const landingRef = useRef(null);
+    const landingRefMobile = useRef(null)
     const industriesList = ['FinTech', 'EdTech', 'Hospitality', 'Medical'];
     const [activeStep, setActiveStep] = React.useState(0);
     const technologyJSX = [
         {
             name: 'Android',
             img: androidImg,
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
+            text: "Our team of experienced developers specializes in Android app development, delivering high-quality, user-friendly applications for a range of devices.",
             id: 1
         },
         {
             name: 'IOS',
             img: iosImg,
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
+            text: "Our iOS app development team has a proven track record of creating intuitive, visually appealing applications for iPhone and iPad users.",
             id: 2
         },
         {
             name: 'Frontend',
             img: frontendImg,
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
+            text: "Our frontend developers have a strong understanding of user experience and design principles, creating visually appealing and intuitive websites and applications.",
             id: 3
         },
         {
             name: 'Backend',
             img: backendImg,
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
+            text: "Our backend developers are experts in building scalable, reliable, and secure systems to power your website or application. From server-side logic to data storage and management, we have the skills and experience to handle it all.",
             id: 4
         },
         {
             name: 'Cross-platform',
             img: crossPlatformImg,
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
+            text: "Our cross-platform development team has the skills and experience  to deliver solutions that can reach a wider audience and provide a seamless user experience across devices.",
             id: 5
         },
         {
             name: 'Artificial-Intelligence',
             img: aiImg,
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod",
+            text: "Our artificial intelligence team has expertise in machine learning, natural language processing, and data analysis, allowing us to build innovative solutions that can process, analyze, and understand large amounts of data.",
             id: 6
         },
     ];
@@ -95,7 +103,7 @@ export const Home = (props) => {
             name: 'React Developers',
             class: 'react-developers',
             img: servicesReactImg,
-            text: "Developers with experience in all versions of React, but a focus on the Hooks/Context paradigm."
+            text: "Developers with years of experience deploying cutting-edge, large-scale React Hooks/Context applications."
         },
         {
             name: 'Python Developers',
@@ -107,13 +115,13 @@ export const Home = (props) => {
             name: 'UI/UX',
             class: 'ui-ux',
             img: servicesUxImg,
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
+            text: "Designers who help you create a compelling product that is customer focused.  Simple to use, beautiful, and useful."
         },
         {
             name: 'QA / Sdet Engineers',
             class: 'sdet-engineers',
             img: servicesQaImg,
-            text: "Quality Analysts and Test Engineers specializing in automated testing, continuous deployment, and process implementation."
+            text: "Engineers who help you create products that are effective, adaptable, and straightforward to maintain through manual and automated testing."
         },
     ];
 
@@ -135,22 +143,22 @@ export const Home = (props) => {
         {
             name: "FinTech",
             img: houseImg,
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ",
+            text: "Our web development team has a proven track record of delivering custom financial technology solutions that help businesses streamline operations, reduce costs, and improve the customer experience. From payment processing systems to data analytics tools, we have the expertise to deliver the solutions your business needs to succeed.",
         },
         {
             name: 'EdTech',
             img: pyramidImg,
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ",
+            text: "Our team has a wealth of experience developing custom solutions for the education technology industry, including tools for improving student engagement, streamlining administrative tasks, and facilitating remote learning.",
         },
         {
             name: 'Hospitality',
             img: slabImg,
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ",
+            text: "We have a strong track record of helping hospitality businesses optimize their revenue streams through custom solutions that streamline pricing and inventory management. From advanced data analytics to real-time recommendations, we have the tools and expertise to help your business increase profitability and reach its full potential.",
         },
         {
             name: 'Medical',
             img: crossImg,
-            text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ",
+            text: "Our web development team has a proven track record of delivering custom solutions for hospitality businesses that optimize revenue through sophisticated pricing and inventory management strategies.",
         }
     ];
 
@@ -192,28 +200,34 @@ export const Home = (props) => {
     const images = [
         {
             label: 'Lodgiq',
-            imgPath: lodgiqEx,
+            imgPath: oneCenter,
             title:'Powerful tool for large hotel owners',
-            text: "Lodgiq is a hotel revenue management service.  We helped integrate machine learning data with a fast responsive UI by priority based preloading data on assumptions of how individual users liked to navigate a page"
+            text: "We helped a hotel revenue management service integrate machine learning data with a custom data flow fast responsive UI by priority based preloading data based on predicting user actions."
         },
         {
             label: 'Twine',
-            imgPath: twineEx,
+            imgPath: oneBackUp,
             title:'Social Medium App for CPO\'s',
-            text:'Brought in to help architect how the various services would communicate and talk with each other',
+            text:'Necessitie was brought in to architect a new app that included a range of features and tools to help CPOs stay connected with their peers, share best practices and industry insights, and find new sourcing opportunities.',
         },
         {
             label: 'Medidata',
-            imgPath: medidataEx,
+            imgPath: oneBackDown,
             title:'Drug and procedure recording application',
-            text:'Due to being in the medical field, there was an extreme focus on integratting the development team directly with the SDET teams.  Developers would be working side by side with Automation QA engineers, setting up those teams was one of our specialities.',
+            text:'We developed a custom web-based tool that allows patients to easily schedule and complete medical tests from the comfort of their own homes. The application includes a range of features to ensure a smooth and efficient testing experience, including online appointment scheduling, real-time test results, and secure data storage.',
         },
         {
-            label: 'testImg',
-            imgPath: landingImg,
-            title:'Drug and procedure recording application',
-            text:'Due to being in the medical field, there was an extreme focus on integratting the development team directly with the SDET teams.  Developers would be working side by side with Automation QA engineers, setting up those teams was one of our specialities.',
-        }
+            label: 'Alchemai Edge',
+            imgPath: oneLeft,
+            title:'Future focused Risk Management software',
+            text:'Our web development agency recently had the pleasure of working on a custom web-based tool for a leading risk management company. The tool is designed to help organizations assess and mitigate risk in a variety of areas, including financial, operational, and compliance risk. Our development team built a user-friendly platform that allows users to easily identify and prioritize risks, create and track risk mitigation plans, and measure the effectiveness of those plans.',
+        },
+        //         {
+        //     label: 'testImg2',
+        //     imgPath: oneUpRight,
+        //     title:'Drug and procedure recording application',
+        //     text:'Due to being in the medical field, there was an extreme focus on integratting the development team directly with the SDET teams.  Developers would be working side by side with Automation QA engineers, setting up those teams was one of our specialities.',
+        // }
       ];
 
       function genRandomTree(N = 300) {
@@ -235,21 +249,29 @@ export const Home = (props) => {
 
     return (
         <div className="home main-content">
-            <div className="landing-page secondary-color page" ref={landingRef}>
-                    <NetworkCluster landingRef={landingRef}/>
+            <div className="landing-page secondary-color page" ref={landingRef} >
+                    {!isMobile && <NetworkCluster landingRef={landingRef} page="Home" className="tablet"/>}
                 
                 <div className="primary-content">
                 
-                    <h1>Let <span>Necessitie</span> help you</h1>
+                    <h1>Let <span>Necessitie</span> be your tech solution</h1>
 
                 </div>
                 <div className="secondary-content" >
-                    <p>Necessitie can provide you with top developers that have skills focused on your needs so you know they will be able to excel at the tasks you throw at them.</p>
+                    <p>Whether you need a Minimum Viable Product, UX/UI services, or assistance scaling your business, Necessitie can help you make your product ideas a reality.</p>
                     <Button className="action-btn">Let's work together</Button>
                     {/* <Button className="action-btn outline tablet">Get a quote</Button> */}
                 </div>
-
+                {isMobile && <div className="mobile-cluster-container">
+                    <div className="mobile-cluster cover"></div> 
+                    <div className="mobile-cluster" id="cluster-container" ref={landingRefMobile}>
+                        <NetworkCluster landingRef={landingRefMobile} page="Home"/>
+                    </div>
+                </div>}
             </div>
+            
+            
+
             <div className="share-page page main-template second-page">
                 <div className='primary-content'>
                     <h1 className="share-header mobile">Focused precision for <span>your products</span></h1>
@@ -324,8 +346,8 @@ export const Home = (props) => {
             </div>
             <div className="industries-page page">
                 <div className="primary-content">
-                    <h2 className="industries-header">We work across many industries</h2>
-                    <p>Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
+                    <h2 className="industries-header">We specialize in serving clients from a wide range of industries</h2>
+                    <p>"Seek out experts in the specific technology you are looking to implement, rather than generalists who may not have the necessary experience to fully utilize the tools available.</p>
                     <Button className="action-btn outline mobile">Get a quote</Button>
 
 
@@ -350,16 +372,13 @@ export const Home = (props) => {
                             <h5 className="tablet ">Full team software outsourcing</h5>
                             <p className="mobile title-primary-orange"><b>Full team software outsourcing</b></p>
 
-                            <p>Necessitie has a range of scalable possibilities to meet your products needs.  Full independent front-end, back-end, or QA team? We will have that, joining in on meetings where you feel appropriate.</p>
-                            <p>If you need to scale up, we can move to full service team, handling design and devops as well.</p>
+                            <p>At our web development agency, we offer full team software outsourcing services to help businesses outsource their software development needs. Our team of experienced developers can handle projects of any size and complexity, providing a cost-effective and efficient solution for companies looking to expand their in-house capabilities or reduce development costs.</p>
                         </div>
 
                         <div className="secondary-content">
                             <h5 className="tablet">IT staff augmentation</h5>
                             <p className="mobile"><b>IT staff augmentation</b></p>
-                            <p>Necessitie can help place people who know how to work in existing teams, right into yours.
-                            <br className='mobile'/><br/>Fast, efficient software developers, UI/UX designers, and QA/Sdet personelle at your fingertips. 
-                            <br className="tablet"></br> Avoid sourcing and recruitment issues.</p>
+                            <p>Our IT staff augmentation services allow businesses to supplement their in-house IT team with skilled professionals on a temporary or ongoing basis. Whether you need extra resources for a specific project or ongoing support, our team of experienced IT professionals can provide the expertise and support you need to meet your business goals. With our staff augmentation services, you can quickly and easily scale your IT team to meet the needs of your business without the long-term commitment of hiring additional employees.</p>
                             {/* {learnMoreJSX} */}
                             <img src={sittingDudeImg} className="sitting-dude mobile"/>
 
@@ -375,8 +394,8 @@ export const Home = (props) => {
             {/* <div className="background-triangle tablet products"></div> */}
             <div className="technologies-page page">
                 <div className="primary-content">
-                    <h3 className="technologies-header">Technologies we are working with</h3>
-                    <p className="mobile">We would be happy to help you with problems in any of these areas (And beyond?)</p>
+                    <h3 className="technologies-header">Expertise in Our Core Technologies: Delivering Quality Software Solutions</h3>
+                    <p className="mobile">Innovative Solutions Tailored to Your Business Needs</p>
                     {/* <button>Get a Quote</button> */}
                     {/* <img src={atomImg} className="atom tablet"/> */}
 

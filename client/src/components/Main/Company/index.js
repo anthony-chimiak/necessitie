@@ -1,5 +1,7 @@
-import React, {useState, useRef, useLayoutEffect} from "react";
-import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
+import React, {useRef} from "react";
+import { Button } from 'semantic-ui-react';
+import { isMobile } from "react-device-detect";
+
 import ContactUs from '../ContactUs/ContactUs';
 import NetworkCluster from '../Map/Cluster/clusterTest.jsx';
 
@@ -16,6 +18,7 @@ import './company.scss'
 
 function Technologies(props) {
     const landingRef = useRef(null);
+    const landingRefMobile = useRef(null)
 
     const whoListJSX = [
       {
@@ -46,16 +49,22 @@ function Technologies(props) {
     return (
         <div className='company main-content'>
             <div className="landing-page secondary-color page" ref={landingRef}>
-                <NetworkCluster landingRef={landingRef}/>
+                {!isMobile && <NetworkCluster landingRef={landingRef} page="Company"/>}
                 <div className="primary-content">
-                    <h1>Our Amazing <span>Company</span></h1>
+                    <h1>endless possibilities from our <span>company</span> to yours</h1>
                 </div>
                 <div className="secondary-content" >
-                    <p>Necessitie can provide you with top developers that have skills focused on your needs so you know they will be able to excel at the tasks you throw at them.</p>
-                    <Button className="action-btn tablet">Let's work together</Button>
+                    <p>Our team of experienced professionals is dedicated to helping your company achieve its goals through the use of innovative technology solutions.</p>
+                    <Button className="action-btn">Let's work together</Button>
                     {/* <Button className="action-btn outline tablet">Get a quote</Button> */}
 
                 </div>
+                {isMobile && <div className="mobile-cluster-container">
+                    <div className="mobile-cluster cover"></div> 
+                    <div className="mobile-cluster" id="cluster-container" ref={landingRefMobile}>
+                        <NetworkCluster landingRef={landingRefMobile} page="Company"/>
+                    </div>
+                </div>}
             </div>
             <div className="intro-page page main-template second-page">
                 <hr className="divider thick tablet"/>
