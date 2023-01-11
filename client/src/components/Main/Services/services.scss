@@ -121,7 +121,7 @@
       .service-container {
         background-color: $title-primary-blue;
         color: #FFFFFF;
-        backdrop-filter: blur(20px);
+        backdrop-filter: none;
         box-shadow: 1px 0px 24px 0 rgba(0,0,0,.25);
         text-align: center;
         border-radius: 0 0 50px 0;
@@ -196,6 +196,7 @@
       }
       .action-btn {
         background-color: $primary-color;
+        width: auto;
       }
       .service-container {
         span {
@@ -264,6 +265,9 @@
     // margin-bottom: 5vh;
     padding: 5vh 8vw 0;
     .services-flex-container {
+      .action-btn {
+        width: auto;
+      }
       .primary-content {
         padding: 14vh 4vw 5vh;
       }
@@ -314,7 +318,7 @@
             .button-cont {
               display: flex;
               .action-btn {
-                font-size: .95rem;
+                font-size: 1.2rem;
                 padding-left: 0;
                 padding-right: 0;
                 width: 50%;
@@ -497,7 +501,7 @@
     border-radius: 0 0 50px 0;
     background-color: $outline-color;
     color: #FFFFFF;
-    backdrop-filter: blur(20px);
+    backdrop-filter: none;
     box-shadow: 1px 0px 24px 0 rgba(0,0,0,.25);
     text-align: center;
     // margin-top: 10vh;

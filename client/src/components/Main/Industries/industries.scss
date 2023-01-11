@@ -109,7 +109,7 @@
             text-align: center;
           }
           &.alt {
-            background-color: $outline-color;
+            // background-color: $title-primary-blue;
             color: #FFFFFF;
             h3 {
               color: $action-color;
@@ -137,7 +137,7 @@
         p {
           text-align: left;
           flex-basis: 50%;
-          margin-top: 6vh;
+          margin-top: 2vh;
         }
       }
       margin-top: 10vh;
@@ -151,16 +151,16 @@
         .industries-list-container {
           display: flex;
           flex-wrap: wrap;
-          gap: 6%;
-          background: $outline-color;
+          gap: 10%;
+          background: $title-primary-blue;
           border-radius: 114px 114px 0 0;
           padding: 4vh 7vw 12vh 7vw;
           
           .industries-card {
-            background-color: $outline-color;
+            background-color: $title-primary-blue;
             border-radius: 114px 114px 0 0;
             position: relative;
-            flex-basis: 47%;
+            flex-basis: 45%;
             // border-radius:inherit;
             color: #FFFFFF;
             // width: 47%;
@@ -171,7 +171,7 @@
               position: absolute;
               right: 8vw;
               top:0;
-              transform: translateY(-15%);
+              transform: translateY(0%);
               width: 40%;
             }
             h5 {
@@ -273,6 +273,9 @@
               gap: 2vw;
               button {
                 flex-basis: 50%;
+                min-width: 45%;
+                height: 3.5vh;
+                min-height: 4.5vh;
                 &.hire {
                   background-color: $primary-color;
                   font-size: .95rem;
@@ -289,7 +292,7 @@
           width: 20%;
           position: absolute;
           /* transform: translateX(10%); */
-          right: 15vw;
+          right: 23vw;
           bottom: -4vh;
         }
       }

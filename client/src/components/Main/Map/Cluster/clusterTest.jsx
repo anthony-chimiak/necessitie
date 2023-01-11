@@ -92,8 +92,9 @@
   };
 
   const handleNodeClick = node => {
-    if (node && node.link) {
-      window.open(`/${node.link}`, "_self");
+    const link = node.link || node.parent;
+    if (node && link) {
+      window.open(`/${link}`, "_self");
     } 
   }
 

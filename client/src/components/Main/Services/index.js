@@ -4,6 +4,7 @@ import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-re
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { isMobile } from "react-device-detect";
 
+import {toContact} from './../../helperFunctions'
 import ContactUs from '../ContactUs/ContactUs';
 import NetworkCluster from '../Map/Cluster/clusterTest.jsx';
 import './services.scss'
@@ -29,14 +30,14 @@ const developersData = [
         class: 'react',
         title: "Expertise in React development for hire",
         img: servicesReactImg,
-        text: "Our team of expert React developers has extensive experience building modern, high-performance web and mobile applications. React's reusable components and virtual DOM make it easy to build and maintain large scale applications, while its strong developer community ensures it stays up-to-date. Hiring our React developers ensures your project is in capable hands and allows you to focus on other important aspects of your business."
+        text: "React developers who have extensive experience building modern, high-performance web and mobile applications. React's reusable components and virtual DOM make it easy to build and maintain large scale applications, while its strong developer community ensures it stays up-to-date."
     },
     {
         name: <><span>Python</span> Developers</>,
         class: 'python',
         img: servicesPythonImg,
         title: "Experienced Python developers for your project"        ,
-        text: "Our team of expert Python developers has the skills and experience to build reliable, scalable applications. Python is a powerful programming language that is popular for a wide range of tasks, including data analysis, machine learning, and web development. Its large standard library and active developer community make it easy to find solutions and keep your project current. Hiring our Python developers ensures your project is in capable hands and allows you to focus on other important aspects of your business."
+        text: "Python developers who will help you build reliable, scalable applications. Python is a powerful programming language that is popular for a wide range of tasks, including data analysis, machine learning, and web development."
     },
 ];
 
@@ -46,7 +47,7 @@ const designersData = [
         class: 'ux',
         img: servicesUxImg,
         title: "Expert UX developers for your business",
-        text: "Our team of UX developers has the skills and experience to create user-centered designs that meet the needs of your business and your users. From user research to prototyping and testing, we have a deep understanding of the design process and are able to deliver high-quality solutions that drive business growth."
+        text: "UX developers with the skills to create user-centered designs that meet the needs of your business and your users. From user research to prototyping and testing, we have a deep understanding of the design process and how that relates to your users."
 
 
     },
@@ -54,7 +55,7 @@ const designersData = [
         name: <><span>UI</span> Designers</>,
         class: 'ui',
         title: "Talented UI designers for your project",
-        text: "Our team of UI designers has the talent and experience to create visually appealing and user-friendly designs that meet the needs of your business and your users. From concept development to implementation, we have a thorough understanding of the design process and are able to deliver exceptional results that drive business growth."
+        text: "UI designers with the talent and experience to create visually appealing and user-friendly designs that meet the needs of your business and your users. From concept development to implementation, we strive to make not just good, but enjoyable sites."
     },
 
 ]
@@ -73,7 +74,7 @@ const qaData = [
         name: <><span>Manual</span> QA</>,
         class: 'manual-qa',
         title: 'Hire attentive manual testers',
-        text: "Quality assurance professionals provide high-quality manual testing services at competitive prices. With many individual eyes on your product, our manual testing services help to ensure the overall quality of your software."
+        text: "We alss provide great manual testing services at competitive prices. With many individual eyes on your product, our manual testing services help to ensure the overall quality of your software with a more hands on approach."
     },
 ]
 
@@ -146,8 +147,7 @@ function Services(props) {
 
             </div>
             <div className="secondary-content">
-            <p><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truly utilize the tools at hand.<br/><br/> 
-                        A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust.</p>
+            <p className="">Ask a developer if they know a language or skill and they say they have it all.  And sure there is some truth to this, you know one language you can pick up another pretty fast.<br className="mobile"/><br/>But why wait for them to get comfortable?  We will only put you with people who have a <span>real fluent mastery of the languages and skills</span> we have listed.</p>
 
                 {/* <hr className='divider tablet thick'/> */}
                 
@@ -187,7 +187,7 @@ function Services(props) {
             <div className='primary-content'>
                 <div className="text-container primary-content-cont">
                     <h4>Product Design</h4>
-                    <p>Our team of expert recruiters has already found top-quality professionals for your business, whether you need a full team or just a few key players. Our extensive network and rigorous vetting process ensure that we are able to deliver the best candidates for your specific needs.</p>
+                    <p>Our expert recruiters has already found top-quality professionals for your business, whether you need a full team or just a few key players. An extensive network and rigorous vetting process ensure that we are able to deliver the best candidates for your specific needs.</p>
                     <div className='button-cont'>
                         <Button className="action-btn hire">Hire Top-Level Developers</Button>
                         {/* <Button className="action-btn outline tablet">Get a quote</Button> */}
@@ -210,7 +210,7 @@ function Services(props) {
 
                 <div className="text-container primary-content-cont">
                     <h2>Quality Assurance</h2>
-                    <p>Our team of quality assurance professionals has the skills and experience to thoroughly test and validate software, ensuring that it meets the required specifications and functions as intended. From manual testing to automated testing, we have a deep understanding of the quality assurance process and are able to deliver high-quality results that meet the needs of your business.</p>
+                    <p>Quality assurance is essential, and our professionals have no issues thoroughly testing and validating software, ensuring that it meets the required specifications and functions as intended. From manual testing to automated testing, we have a deep understanding of the quality assurance process.</p>
                     <div className='button-cont'>
                         <Button className="action-btn hire">Hire Top-Level Developers</Button>
                         {/* <Button className="action-btn outline tablet">Get a quote</Button> */}

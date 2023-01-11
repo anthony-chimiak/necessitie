@@ -2,6 +2,7 @@ import React, {useState, useRef, useLayoutEffect} from "react";
 import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
 import { isMobile } from "react-device-detect";
 
+import {toContact} from './../../helperFunctions'
 import ContactUs from '../ContactUs/ContactUs';
 import NetworkCluster from '../Map/Cluster/clusterTest.jsx';
 
@@ -28,32 +29,32 @@ function Technologies(props) {
         {
             name: 'IOS',
             img: '',
-            text: "Our team of experienced iOS developers is proficient in using Swift and other tools to create intuitive and visually appealing mobile apps for iPhone and iPad.",
+            text: "Experienced iOS developers proficient in using Swift and other tools to create intuitive and visually appealing mobile apps for iPhone and iPad.",
         },
         {
             name: 'Android',
             img: flatAndriod,
-            text: "Our skilled Android developers leverage the power of Java and the Android SDK to build robust and high-performing apps for a variety of devices.",
+            text: "Skilled Android developers who leverage the power of Java and the Android SDK to build robust and high-performing apps for a variety of devices.",
         },
         {
             name: 'Backend',
             img: '',
-            text: "Our backend developers specialize in building scalable and secure server-side infrastructure to support the needs of our clients' web and mobile applications.",
+            text: "Our backend developers specialize in building scalable and secure server-side infrastructure to support the needs of our clients.",
         },
         {
             name: 'Frontend',
             img: '',
-            text: "Our frontend developers are experts in using HTML, CSS, and JavaScript to create dynamic and responsive user interfaces for web and mobile applications.",
+            text: "Talented frontend developers who are experts in using HTML, CSS, and JavaScript creating dynamic and responsive user interfaces for web and mobile applications.",
         },
         {
             name: 'AI',
             img: flatCorners,
-            text: "Our team of AI experts use the newest machine learning techniques to build intelligent systems that can analyze and interpret data, solve complex problems, and learn and adapt over time.",
+            text: "AI is the future, and our AI experts use the newest machine learning techniques to build intelligent systems that can analyze and interpret data, solve complex problems, and learn and adapt over time.",
         },
         {
             name: 'Crossplatform',
             img: '',
-            text: "Our cross-platform development team utilizes tools such as React Native and Flutter to create apps that can run smoothly on both iOS and Android devices, saving time and resources for our clients.",
+            text: "Finally our cross-platform development team utilizes tools such as React Native and Flutter to create apps that can run smoothly on both iOS and Android devices, saving time and resources for our clients.",
         },
     ];
 
@@ -122,8 +123,7 @@ function Technologies(props) {
                 </div>
                 <div className="secondary-content" >
                     <p>Our team has expertise in a variety of modern web technologies, including React, Python, Selenium, and Tensorflow enabling us to build custom web solutions that meet the specific needs of our clients.</p>
-                    <Button className="action-btn">Let's work together</Button>
-                    {/* <Button className="action-btn outline tablet">Get a quote</Button> */}
+                    <Button className="action-btn"  onClick={toContact}>Let's work together</Button>
 
                 </div>
                 {isMobile && <div className="mobile-cluster-container">
@@ -152,7 +152,7 @@ function Technologies(props) {
                 <div className="primary-content">
                     <h4 className="tablet">Technologies we are working with</h4>
                     <h2 className="mobile">Technologies we are working with</h2>
-                    <p className="mobile">Overall, our team has the <span>knowledge and skills to deliver</span> custom web solutions that meet the specific needs of our clients, using the latest technologies and a user-centered approach to ensure the best possible results.</p>
+                    <p className="mobile">Below are a few of the technologies we have a lot of experience working with.  It's not an exhaustive list, but should give an idea of some of our better areas of expertise </p>
 
                 </div>
                 <div className="secondary-content">

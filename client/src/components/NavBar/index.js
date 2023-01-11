@@ -6,6 +6,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { isMobile } from "react-device-detect";
 
+import {toContact} from './../helperFunctions'
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -81,7 +82,7 @@ export const NavBar = (props) => {
     }
 
   function ScrollTop(props) {
-    const { children } = props;
+    const { children, window } = props;
     const trigger = useScrollTrigger({
       disableHysteresis: true,
       threshold: 100,
@@ -90,7 +91,7 @@ export const NavBar = (props) => {
 
   const handleClickScroll = (event) => {
       const anchor = (event.target.ownerDocument || document).querySelector(
-        '#main-menu-dropdown-button',
+        '#back-to-top-anchor',
       );
   
       if (anchor) {
@@ -170,7 +171,7 @@ export const NavBar = (props) => {
                       </Link>
                     ))}
                   </Box>
-                  <Button className="action-btn outline tablet" sx={{
+                  <Button className="action-btn outline tablet" onClick={toContact} sx={{
                     border:'1px solid black',
                     width: '13vw',
                     height: '5.5vh',
@@ -185,7 +186,7 @@ export const NavBar = (props) => {
                     color: "#4539CF",
                     }}>Get a quote</Button>
                   <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent:"right"}}>
-                    <IconButton edge="start"  color="action" aria-label="menu" sx={{  display: {xs: 'flex', md: 'none'}, }} onClick={handleClick}>
+                    <IconButton edge="end"  color="action" aria-label="menu" sx={{  display: {xs: 'flex', md: 'none'}, }} onClick={handleClick}>
                       <MenuIcon
                           id="main-menu-dropdown-button"
                           aria-controls={open ? 'main-menu-dropdown' : undefined}
@@ -199,7 +200,7 @@ export const NavBar = (props) => {
                   <Menu
                       id="main-menu-dropdown"
                       aria-labelledby="main-menu-dropdown-button"
-                      // anchorEl={anchorEl}
+                      anchorEl={anchorEl}
                       open={open}
                       onClose={handleClose}
                       disableScrollLock={true}

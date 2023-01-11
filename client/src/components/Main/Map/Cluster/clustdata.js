@@ -20,6 +20,7 @@ const nodesData = [
       fy: 0,
       homeColor: 'black',
       // val: 5,
+      invis: true,
       name: 'Right-Grav',
       gravitySource: true,
     },
@@ -28,6 +29,7 @@ const nodesData = [
       name: 'Left-Grav',
       homeColor: 'red',
       width: 20,
+      invis: true,
       gravitySource: true,
     },
     {
@@ -45,7 +47,7 @@ const nodesData = [
     },
     {
       id: 'Home-cap',
-      name: 'Home-cap',
+      name: 'Home',
       link: "Home",
       distance: distance.Home,
       parent: "Home",
@@ -110,6 +112,7 @@ const nodesData = [
       id: 'Web Development',
       homeColor: 'Green',
       name: '',
+      text: "Create visually appealing, user-friendly websites",
       distance: 6,
       parent: "Services",
     },
@@ -118,6 +121,7 @@ const nodesData = [
       homeColor: 'Green',
       name: '',
       distance: 6,
+      text: "Artistic designs to make your ideas match your expectations",
       layer: 1,
       parent: "Services",
     },
@@ -125,6 +129,7 @@ const nodesData = [
       id: 'Quality Assurance',
       homeColor: 'Green',
       name: '',
+      text: "Testing and validation, ensuring smooth deployments",
       distance: 6,
       parent: "Services",
     },
@@ -133,6 +138,7 @@ const nodesData = [
       homeColor: 'Green',
       name: '',
       parent: "Services",
+      text: 'Ideation, Brainstorming, and roadmaps to add clarity to your future',
       layer: 2,
       arcTarg: 'Services'
     },
@@ -140,6 +146,7 @@ const nodesData = [
       id: 'Fintech',
       homeHighlightNode: true,
       name: '',
+      text: "Efficiency to make quick work of large datasets",
       parent: "Industries",
       distance: distance.Industries,
       layer: 1,
@@ -148,6 +155,7 @@ const nodesData = [
       id: 'Edtech',
       homeHighlightNode: true,
       name: '',
+      text: "Ease of use takes center stage for students and teachers",
       parent: "Industries",
       distance: distance.Industries,
       arcTarg: 'Industries',
@@ -157,6 +165,7 @@ const nodesData = [
       id: 'Medical',
       homeHighlightNode: true,
       name: '',
+      text: "Quality Assurance to make sure all medical tests are definitive",
       parent: "Industries",
       distance: distance.Industries,
       layer: 1,
@@ -166,6 +175,7 @@ const nodesData = [
       id: 'Hospitality',
       homeHighlightNode: true,
       name: '',
+      text: "Combining speed and ease of use to get the data there, but make it easy to understand",
       parent: "Industries",
       distance: distance.Industries,
       layer: 1,
@@ -175,6 +185,7 @@ const nodesData = [
       homeColor: 'Green',
       parent: "Technologies",
       name: '',
+      text: "Leverage the Android SDK to build robust and high-performing apps",
       // layer: 1,
     },
     {
@@ -182,6 +193,7 @@ const nodesData = [
       homeColor: 'Green',
       parent: "Technologies",
       name: '',
+      text: "Proficiency in Swift to create intuitive apps",
       // layer: 1,
     },
     {
@@ -189,6 +201,7 @@ const nodesData = [
       homeColor: 'Green',
       parent: "Technologies",
       name: '',
+      text: 'Experts in React, Vue, Angular, and even Vanilla JS will help you choose the tool for the task',
       // layer: 1,
     },
     {
@@ -196,6 +209,7 @@ const nodesData = [
       homeColor: 'Green',
       parent: "Technologies",
       name: '',
+      text: 'Scalable and secure server-side infrastructure',
       // layer: 1,
     },
     {
@@ -203,6 +217,7 @@ const nodesData = [
       homeColor: 'Green',
       parent: "Technologies",
       name: '',
+      text: "Utilizes tools such as React Native and Flutter to create multiplatform apps",
       arcTarg: "Android",
       counterClockwise: true,
       // layer: 1,
@@ -212,6 +227,7 @@ const nodesData = [
       homeColor: 'Green',
       parent: "Technologies",
       name: '',
+      text: "Analyze and interpret data, solve complex problems, and learn and adapt over time",
       arcTarg: "IOS"
       // layer: 1,
     },
@@ -219,7 +235,9 @@ const nodesData = [
       id: 'React Developers',
       homeColor: 'Yellow',
       name: '',
+      text: "A huge library of reusable components help power its virtual DOM",
       parent: "Web Development",
+      invis: true,
       arcTarg: "Web Development",
       dummies: 1,
     },
@@ -227,6 +245,7 @@ const nodesData = [
       id: 'Python Developers',
       homeColor: 'Yellow',
       name: '',
+      text: "Versatile language for data analysis, machine learning, and web development",
       parent: "Web Development",
       arcTarg: "Web Development",
     },
@@ -234,6 +253,7 @@ const nodesData = [
       id: 'UI Designers',
       homeColor: 'Yellow',
       name: '',
+      text: "Create visually appealing and user-friendly designs",
       parent: "Product Design",
       arcTarg: "Product Design",
       layer: 1,
@@ -242,6 +262,7 @@ const nodesData = [
       id: 'UX Designers',
       homeColor: 'Yellow',
       name: '',
+      text: "Create user-centered designs that meet the needs of your business",
       parent: "Product Design",
       arcTarg: "Product Design",
       layer: 1,
@@ -250,6 +271,7 @@ const nodesData = [
       id: 'Automated QA',
       homeColor: 'Yellow',
       name: '',
+      text: "Save time, reduce costs, and improve the overall quality of your software",
       parent: "Quality Assurance",
       arcTarg: 'Quality Assurance',
       layer: 2,
@@ -258,6 +280,7 @@ const nodesData = [
       id: 'Manual QA',
       homeColor: 'Yellow',
       name: '',
+      text: "Ensure the overall quality of your software with a more hands on approach",
       parent: "Quality Assurance",
       arcTarg: 'Quality Assurance',
       layer: 2,
@@ -279,7 +302,7 @@ const nodesData = [
     // },
     {
       id: 'Company-cap',
-      name: 'Company-cap',
+      name: 'Company',
       homeHighlightNode: true,
       link: "Company",
       distance: distance.Company,
@@ -290,7 +313,7 @@ const nodesData = [
     },
     {
       id: 'Company-extra',
-      name: 'Company3',
+      name: 'Company',
       link: "Company",
       distance: distance.Company,
       gravityNode: "Right-Grav",
@@ -300,7 +323,7 @@ const nodesData = [
     },
     {
       id: 'Company-extra-cap',
-      name: 'Company1',
+      name: 'Company',
       link: "Company",
       distance: distance.Company,
       gravityNode: "Right-Grav",
@@ -343,10 +366,13 @@ const nodesData = [
       for (let j = 0; j < node.dummies; j++) {
         dummyNodes.push({
           ...node,
-          id: node.id + `-dummy${j}`,
-          name: node.name + `-dummy${j}`,
+          name: node.name,
+          id: node.id + " ".repeat(j),
+          // name: node.name + `-dummy${j}`,
+          
           arcTarg: null,
           dummies: 0,
+          dummyNode: true,
           val: .3,
         })
       }
@@ -367,7 +393,7 @@ const nodesData = [
         gravityNode: parentNode.gravityNode,
         homeColor: node.homeHighlightNode?titlePrimaryOrange:titlePrimaryBlue,
         val: val,
-        name: node.link?node.name:`<div className="cluster-node-text">${node.id}<div>Next level</div> <span>span2</span><div>`,
+        name: node.link?node.name:`<div className="cluster-node-text">${node.id}<br/><span>${node.text}</span><div>`,
     };
   });
 

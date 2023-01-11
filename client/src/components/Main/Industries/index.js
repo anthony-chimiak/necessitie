@@ -2,6 +2,7 @@ import React, {useState, useRef, useLayoutEffect} from "react";
 import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
 import { isMobile } from "react-device-detect";
 
+import {toContact} from './../../helperFunctions'
 import ContactUs from '../ContactUs/ContactUs';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
@@ -113,9 +114,8 @@ function Industries(props) {
                     <h1>Targeted <span>industries</span> with web solutions</h1>
                 </div>
                 <div className="secondary-content" >
-                    <p>Our web development company specializes in serving a diverse range of industries, including e-commerce, healthcare, finance, and hotel organizations.</p>
-                    <Button className="action-btn">Let's work together</Button>
-                    {/* <Button className="action-btn outline tablet">Get a quote</Button> */}
+                    <p>Our web development company specializes in serving a diverse range of industries, including e-commerce, healthcare, finance, and hospitality.</p>
+                    <Button className="action-btn"  onClick={toContact}>Let's work together</Button>
 
                 </div>
                 {isMobile && <div className="mobile-cluster-container">
@@ -143,8 +143,7 @@ function Industries(props) {
                     <h4 className="tablet">Necessitie’s industries specialities</h4>
                     <h2 className="mobile">Necessitie’s industries specialities</h2>
 
-                    <p>Knowledge in these fields help understand not just the  <span>technical, but also the business needs</span> of various asks, so we can help you properly prioritize to get out the most important parts of your product out as quickly as possible</p>
-                    {/* <Button className="action-btn outline mobile">Get a quote</Button> */}
+                    <p>Knowledge in these fields help us understand not just the  <span>technical, but also the business needs</span> of various asks, so we can help you properly prioritize to balance speed of task with importance to the project</p>
 
                 </div>
                 <div className="secondary-content">
@@ -183,8 +182,8 @@ function Industries(props) {
                             <p><span>Effective security and privacy protocols</span> are critical to every step of the development process — from single, standalone applications to complex cloud infrastructure.</p>
                             <p>They should strike a balance between protecting data and information while creating a seamless process for users that imposes as little friction as possible. With our SOC 2 Type II certification, we leverage our heightened internal security controls to further support our clients’ more sensitive needs.</p>
                             <div className='button-cont'>
-                                <Button className="action-btn hire">Hire Top-Level Developers</Button>
-                                <Button className="action-btn outline tablet">Get a quote</Button>
+                                <Button className="action-btn hire"  onClick={toContact}>Hire Top-Level Developers</Button>
+                                {/* <Button className="action-btn outline tablet">Get a quote</Button> */}
                             </div>
                         </div>
                         <div className='right-side flex-child'>

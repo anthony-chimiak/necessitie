@@ -1,6 +1,7 @@
 import React, {useState, useRef, useLayoutEffect} from "react";
 
 import CardComponent from './CardComponent.js'
+import {toContact} from './../../helperFunctions'
 import { Button} from 'semantic-ui-react';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { isMobile } from "react-device-detect";
@@ -115,7 +116,7 @@ export const Home = (props) => {
             name: 'UI/UX',
             class: 'ui-ux',
             img: servicesUxImg,
-            text: "Designers who help you create a compelling product that is customer focused.  Simple to use, beautiful, and useful."
+            text: "Designers who help you create a compelling product that is customer focused.  Simple to use, beautiful, and easy."
         },
         {
             name: 'QA / Sdet Engineers',
@@ -143,22 +144,30 @@ export const Home = (props) => {
         {
             name: "FinTech",
             img: houseImg,
-            text: "Our web development team has a proven track record of delivering custom financial technology solutions that help businesses streamline operations, reduce costs, and improve the customer experience. From payment processing systems to data analytics tools, we have the expertise to deliver the solutions your business needs to succeed.",
+            text: "Custom financial technology solutions to streamline operations, reduce costs, and improve the customer experience.",
+            longText: "Our web development team has a proven track record of delivering custom financial technology solutions that help businesses streamline operations, reduce costs, and improve the customer experience. From payment processing systems to data analytics tools, we have the expertise to deliver the solutions your business needs to succeed.",
+
         },
         {
             name: 'EdTech',
             img: pyramidImg,
-            text: "Our team has a wealth of experience developing custom solutions for the education technology industry, including tools for improving student engagement, streamlining administrative tasks, and facilitating remote learning.",
+            text: "Create tools for improving student engagement, streamlining administrative tasks, and facilitating remote learning.",
+            longText: "Our team has a wealth of experience developing custom solutions for the education technology industry, including tools for improving student engagement, streamlining administrative tasks, and facilitating remote learning.",
+
         },
         {
             name: 'Hospitality',
             img: slabImg,
-            text: "We have a strong track record of helping hospitality businesses optimize their revenue streams through custom solutions that streamline pricing and inventory management. From advanced data analytics to real-time recommendations, we have the tools and expertise to help your business increase profitability and reach its full potential.",
+            text: "From advanced data analytics to real-time recommendations, we can help your business reach its full potential.",
+            longText: "We have a strong track record of helping hospitality businesses optimize their revenue streams through custom solutions that streamline pricing and inventory management. From advanced data analytics to real-time recommendations, we have the tools and expertise to help your business increase profitability and reach its full potential.",
+
         },
         {
             name: 'Medical',
             img: crossImg,
-            text: "Our web development team has a proven track record of delivering custom solutions for hospitality businesses that optimize revenue through sophisticated pricing and inventory management strategies.",
+            text: "Create intuitive, user-friendly websites that effectively communicate important information to patients and administrators",
+            longText: "Our web development team has a proven track record of delivering custom solutions for hospitality businesses that optimize revenue through sophisticated pricing and inventory management strategies.",
+
         }
     ];
 
@@ -259,8 +268,7 @@ export const Home = (props) => {
                 </div>
                 <div className="secondary-content" >
                     <p>Whether you need a Minimum Viable Product, UX/UI services, or assistance scaling your business, Necessitie can help you make your product ideas a reality.</p>
-                    <Button className="action-btn">Let's work together</Button>
-                    {/* <Button className="action-btn outline tablet">Get a quote</Button> */}
+                    <Button className="action-btn" onClick={toContact}>Let's work together</Button>
                 </div>
                 {isMobile && <div className="mobile-cluster-container">
                     <div className="mobile-cluster cover"></div> 
@@ -282,9 +290,9 @@ export const Home = (props) => {
                 </div>
                 
                 <div className="secondary-content">
-                    <p className="tablet">Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br className="mobile"/><br/></p>
-                    <p className="mobile"><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand. <br className="mobile"/><br/>
-                        A broad range front end developer will get the job done, but a React specialist will get it done faster, and more robust. </p>
+                    <p className="tablet">Find people that are specialists in the technology you are looking to use, not wide range generalists that lack the experience to truly utilize the tools at hand. <br className="mobile"/><br/></p>
+                    <p className="mobile"><span>Find people that are specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truly utilize the tools at hand. <br className="mobile"/><br/>
+                        A broad range front end developer might get the job done, but a React specialist will get it done faster, and more robust. </p>
                 </div>
             </div>
 
@@ -299,11 +307,11 @@ export const Home = (props) => {
                     {/* <img src={rocketImg} className="rocket-img"/> */}
                     {/* </div> */}
                     <div className='services-primary-container'>
-                        <h4 className="services-header tablet">Our speciality services</h4>
-                        <h2 className="services-header mobile">Our speciality services</h2>
+                        <h4 className="services-header tablet">Our areas of expertise</h4>
+                        <h2 className="services-header mobile">Our areas of expertise</h2>
 
-                        <p className="mobile">Find people that are <span className='action-color mobile'>specialists</span> in the technology you are looking to use, not wide range generalists that lack the experience to truely utilize the tools at hand.</p>
-                        <Button className="action-btn mobile">See All Services</Button>
+                        <p className="mobile">We have the most <span>modern and ubiquiteous technologies</span> under our belt, as well as a number of more esoteric choices when the need arises.</p>
+                        <Button className="action-btn mobile" onClick={toContact}>See All Services</Button>
                     </div>
                     
 
@@ -347,8 +355,8 @@ export const Home = (props) => {
             <div className="industries-page page">
                 <div className="primary-content">
                     <h2 className="industries-header">We specialize in serving clients from a wide range of industries</h2>
-                    <p>"Seek out experts in the specific technology you are looking to implement, rather than generalists who may not have the necessary experience to fully utilize the tools available.</p>
-                    <Button className="action-btn outline mobile">Get a quote</Button>
+                    <p>Seek out experts in the specific technology you are looking to implement, rather than generalists who may not have the necessary experience to fully utilize the tools available.</p>
+                    <Button className="action-btn outline mobile"  onClick={toContact}>Get a quote</Button>
 
 
                     
@@ -396,8 +404,6 @@ export const Home = (props) => {
                 <div className="primary-content">
                     <h3 className="technologies-header">Expertise in Our Core Technologies: Delivering Quality Software Solutions</h3>
                     <p className="mobile">Innovative Solutions Tailored to Your Business Needs</p>
-                    {/* <button>Get a Quote</button> */}
-                    {/* <img src={atomImg} className="atom tablet"/> */}
 
                 </div>
                 <div className="secondary-content">
