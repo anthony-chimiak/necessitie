@@ -5,7 +5,7 @@
  import { ForceGraph3D, ForceGraph2D } from "react-force-graph";
  import * as d3 from "d3";
  import { forceSimulation, forceManyBody, forceLink, forceCenter } from 'd3-force'
- import { isMobile } from "react-device-detect";
+//  import { isMobile } from "react-device-detect";
 
  import clusterData from './clustdata'
  import SizeMe from 'react-sizeme'
@@ -14,6 +14,7 @@
 
  
  let posY = 0;
+ let isMobileCluster = false;
  
  export const NetworkCluster = (props) => {
   const [isZoomEnabled, setIsZoomEnabled] = [false];
@@ -24,7 +25,7 @@
   const [landingWidth, setLandingWidth] = useState(0);
   const [landingHeight, setLandingHeight] = useState(0);
   const [scrollY, setScrollY] = useState(0);
-  const {landingRef, page} = props;
+  const {landingRef, page, isMobile} = props;
   const data = {
     nodes: clusterData.nodes,
     links: clusterData.links

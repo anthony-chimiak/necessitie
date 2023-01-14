@@ -1,6 +1,6 @@
 import React, {useState, useRef, useLayoutEffect} from "react";
 import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
-import { isMobile } from "react-device-detect";
+// import { isMobile } from "react-device-detect";
 
 import {toContact} from './../../helperFunctions'
 import ContactUs from '../ContactUs/ContactUs';
@@ -25,7 +25,9 @@ import './industries.scss'
 
 function Industries(props) {
     const landingRef = useRef(null);
-    const landingRefMobile = useRef(null)
+    const landingRefMobile = useRef(null);
+    const { isMobile } = props;
+
 
     const [landingWidth, setLandingWidth] = useState(0);
     const [landingHeight, setLandingHeight] = useState(0);
@@ -108,7 +110,7 @@ function Industries(props) {
     return (
         <div className='industries main-content'>
             <div className="landing-page primary-color page" ref={landingRef}>
-            {!isMobile &&<NetworkCluster landingRef={landingRef} page="Industries"/>}
+            {!isMobile &&<NetworkCluster isMobile={isMobile} landingRef={landingRef} page="Industries"/>}
                 <div className="primary-content">
                     {/* <h1><span>Industries</span> we work in</h1> */}
                     <h1>Targeted <span>industries</span> with web solutions</h1>
@@ -121,7 +123,7 @@ function Industries(props) {
                 {isMobile && <div className="mobile-cluster-container">
                     <div className="mobile-cluster cover"></div> 
                     <div className="mobile-cluster" id="cluster-container" ref={landingRefMobile}>
-                        <NetworkCluster landingRef={landingRefMobile} page="Industries"/>
+                        <NetworkCluster isMobile={isMobile} landingRef={landingRefMobile} page="Industries"/>
                     </div>
                 </div>}
             </div>

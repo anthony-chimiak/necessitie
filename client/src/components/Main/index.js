@@ -13,18 +13,18 @@ import './main.scss'
 
 
 export const Main = (props) => {
-
+    const { isMobile } = props;
     return (
         <div className="main-div">
             {/* <Map /> */}
             <Routes>
-                <Route exact path="/" element={<Home />}/>
-                <Route path="/Home" element={<Home />}/>
-                <Route path="/Services" element={<Services />}/> 
-                <Route path="/Industries" element={<Industries />}/>
-                <Route path="/Technologies" element={<Technologies />}/>
-                <Route path="/Company" element={<Company />}/>
-                <Route path="/Contact" element={<ContactUs />}/>
+                <Route exact path="/" element={<Home isMobile={isMobile}/>}/>
+                <Route path="/Home" element={<Home isMobile={isMobile}/>}/>
+                <Route path="/Services" element={<Services isMobile={isMobile}/>}/> 
+                <Route path="/Industries" element={<Industries isMobile={isMobile}/>}/>
+                <Route path="/Technologies" element={<Technologies isMobile={isMobile}/>}/>
+                <Route path="/Company" element={<Company isMobile={isMobile}/>}/>
+                <Route path="/Contact" element={<ContactUs isMobile={isMobile}/>}/>
             </Routes>
         </div>
 

@@ -1,4 +1,4 @@
-import { isMobile } from "react-device-detect";
+// import { isMobile } from "react-device-detect";
 
 
 const distance = {
@@ -9,6 +9,8 @@ const distance = {
   Company: 150,
   Contact: 20,
 }
+
+const isMobile = window.innerWidth<=480;
 
 const titlePrimaryBlue = "rgba(75,75,145)";
 const titlePrimaryOrange = "rgba(241,125,76)";

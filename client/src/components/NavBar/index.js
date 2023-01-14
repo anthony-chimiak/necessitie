@@ -4,7 +4,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { isMobile } from "react-device-detect";
+// import { isMobile } from "react-device-detect";
 
 import {toContact} from './../helperFunctions'
 import IconButton from '@mui/material/IconButton';
@@ -45,6 +45,7 @@ export const NavBar = (props) => {
       setAnchorEl(null);
   };
 
+  const { isMobile } = props;
   const navBarHeight = isMobile?"60px":"80px";
 
   const heightTrigger = useScrollTrigger({

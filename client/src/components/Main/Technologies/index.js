@@ -1,6 +1,6 @@
 import React, {useState, useRef, useLayoutEffect} from "react";
 import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
-import { isMobile } from "react-device-detect";
+// import { isMobile } from "react-device-detect";
 
 import {toContact} from './../../helperFunctions'
 import ContactUs from '../ContactUs/ContactUs';
@@ -23,6 +23,7 @@ import connectedCircles from "./../../../assets/images/data.svg"
 function Technologies(props) {
     const landingRef = useRef(null);
     const landingRefMobile = useRef(null)
+    const { isMobile } = props;
 
     
     const technologiesList = [
@@ -117,7 +118,7 @@ function Technologies(props) {
     return (
         <div className='technologies main-content'>
             <div className="landing-page primary-color page" ref={landingRef}>
-            {!isMobile && <NetworkCluster landingRef={landingRef} page="Technologies"/>}
+            {!isMobile && <NetworkCluster isMobile={isMobile} landingRef={landingRef} page="Technologies"/>}
                 <div className="primary-content">
                     <h1>Expertise in modern web <span>technologies</span></h1>
                 </div>
@@ -129,7 +130,7 @@ function Technologies(props) {
                 {isMobile && <div className="mobile-cluster-container">
                     <div className="mobile-cluster cover"></div> 
                     <div className="mobile-cluster" id="cluster-container" ref={landingRefMobile}>
-                        <NetworkCluster landingRef={landingRefMobile} page="Technologies"/>
+                        <NetworkCluster isMobile={isMobile} landingRef={landingRefMobile} page="Technologies"/>
                     </div>
                 </div>}
             </div>

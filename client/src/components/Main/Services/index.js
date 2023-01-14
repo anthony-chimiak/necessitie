@@ -2,7 +2,7 @@ import React, {useState, useRef} from 'react';
 // import CardComponent from './CardComponent.js'
 import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { isMobile } from "react-device-detect";
+// import { isMobile } from "react-device-detect";
 
 import {toContact} from './../../helperFunctions'
 import ContactUs from '../ContactUs/ContactUs';
@@ -117,10 +117,11 @@ const qaJSX = qaData.map((x,i) => (
 function Services(props) {
     const landingRef = useRef(null);
     const landingRefMobile = useRef(null);
+    const { isMobile } = props;
     return(
     <div className="services">
         <div className="landing-page page" ref={landingRef}>
-            {!isMobile && <NetworkCluster landingRef={landingRef} page="Services"/>}
+            {!isMobile && <NetworkCluster isMobile={isMobile} landingRef={landingRef} page="Services"/>}
 
             <div className="primary-content">
                 <h1>Customized <span>Services</span> for Your Unique Needs</h1>
@@ -133,7 +134,7 @@ function Services(props) {
             {isMobile && <div className="mobile-cluster-container">
                 <div className="mobile-cluster cover"></div> 
                 <div className="mobile-cluster" id="cluster-container" ref={landingRefMobile}>
-                    <NetworkCluster landingRef={landingRefMobile} page="Services"/>
+                    <NetworkCluster isMobile={isMobile} landingRef={landingRefMobile} page="Services"/>
                 </div>
             </div>}
         </div>

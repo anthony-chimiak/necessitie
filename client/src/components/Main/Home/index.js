@@ -4,7 +4,7 @@ import CardComponent from './CardComponent.js'
 import {toContact} from './../../helperFunctions'
 import { Button} from 'semantic-ui-react';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import { isMobile } from "react-device-detect";
+// import { isMobile } from "react-device-detect";
 
 // import LocationOnIcon from '@mui/icons-material/LocationOn';
 // import PhoneIcon from '@mui/icons-material/Phone';
@@ -86,6 +86,7 @@ export const Home = (props) => {
     const landingRefMobile = useRef(null)
     const industriesList = ['FinTech', 'EdTech', 'Hospitality', 'Medical'];
     const [activeStep, setActiveStep] = React.useState(0);
+    const { isMobile } = props;
     const technologyJSX = [
         {
             name: 'Android',
@@ -291,7 +292,7 @@ export const Home = (props) => {
     return (
         <div className="home main-content">
             <div className="landing-page secondary-color page" ref={landingRef} >
-                    {!isMobile && <NetworkCluster landingRef={landingRef} page="Home" className="tablet"/>}
+                    {!isMobile && <NetworkCluster isMobile={isMobile} landingRef={landingRef} page="Home" className="tablet" />}
                 
                 <div className="primary-content">
                 
@@ -305,7 +306,7 @@ export const Home = (props) => {
                 {isMobile && <div className="mobile-cluster-container">
                     <div className="mobile-cluster cover"></div> 
                     <div className="mobile-cluster" id="cluster-container" ref={landingRefMobile}>
-                        <NetworkCluster landingRef={landingRefMobile} page="Home"/>
+                        <NetworkCluster isMobile={isMobile} landingRef={landingRefMobile} page="Home"/>
                     </div>
                 </div>}
             </div>

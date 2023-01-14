@@ -1,6 +1,6 @@
 import React, {useRef} from "react";
 import { Button } from 'semantic-ui-react';
-import { isMobile } from "react-device-detect";
+// import { isMobile } from "react-device-detect";
 
 import {toContact} from './../../helperFunctions'
 import ContactUs from '../ContactUs/ContactUs';
@@ -20,6 +20,8 @@ import './company.scss'
 function Technologies(props) {
     const landingRef = useRef(null);
     const landingRefMobile = useRef(null)
+
+    const { isMobile } = props;
 
     const whoListJSX = [
       {
@@ -50,7 +52,7 @@ function Technologies(props) {
     return (
         <div className='company main-content'>
             <div className="landing-page secondary-color page" ref={landingRef}>
-                {!isMobile && <NetworkCluster landingRef={landingRef} page="Company"/>}
+                {!isMobile && <NetworkCluster isMobile={isMobile} landingRef={landingRef} page="Company"/>}
                 <div className="primary-content">
                     <h1>A <span>team</span> you can enjoy creating with</h1>
                 </div>
@@ -62,7 +64,7 @@ function Technologies(props) {
                 {isMobile && <div className="mobile-cluster-container">
                     <div className="mobile-cluster cover"></div> 
                     <div className="mobile-cluster" id="cluster-container" ref={landingRefMobile}>
-                        <NetworkCluster landingRef={landingRefMobile} page="Company"/>
+                        <NetworkCluster isMobile={isMobile} landingRef={landingRefMobile} page="Company"/>
                     </div>
                 </div>}
             </div>
