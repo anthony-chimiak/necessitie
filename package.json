@@ -3,6 +3,7 @@
     "@react-hook/resize-observer": "^1.2.6",
     "d3": "^7.6.1",
     "d3-force": "^3.0.0",
+    "react-force-graph": "^1.41.18",
     "react-force-graph-3d": "^1.21.12",
     "react-sizeme": "^3.0.2",
     "react-swipeable-views": "^0.14.0"
