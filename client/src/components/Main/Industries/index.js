@@ -85,9 +85,9 @@ function Industries(props) {
         return (
         <div className={x.name + (i%2?" alt":" ") + " single-delivery"} key={x.name}>
             {/* <div className=''> */}
-                <img src={x.img} className={x.name + ' mobile'}/>
+                <img loading="lazy" src={x.img} className={x.name + ' mobile'}/>
                 <h2>{x.name}</h2>
-                <img src={x.img} className={x.name + ' tablet'}/>
+                <img loading="lazy" src={x.img} className={x.name + ' tablet'}/>
 
             {/* </div> */}
             <p>{x.text}</p>
@@ -151,9 +151,9 @@ function Industries(props) {
                         {industriesList.map((x, i) => {
                             return (
                                 <React.Fragment key={x.name}>
-                                    <img src={x.img} className="mobile" />
+                                    <img loading="lazy" src={x.img} className="mobile" />
                                     <div className={"industries-card " + x.name +(i%2?' alt':'')} key={x.name}>
-                                        <img src={x.img} className="tablet" />
+                                        <img loading="lazy" src={x.img} className="tablet" />
                                         <h3 className="mobile">{x.name}</h3> 
                                         <h5 className="tablet">{x.name}</h5> 
                                         <p className="mobile">{x.text}</p>
@@ -173,7 +173,7 @@ function Industries(props) {
                     <p>Effective security and privacy protocols are critical to every step of the development process — from single, standalone applications to complex cloud infrastructure. </p>
                     <p className='read-more'>Read More  <ArrowDownwardIcon/></p>
                     <p className="hidden"></p>
-                    <img src={blueLock}/>
+                    <img loading="lazy" src={blueLock}/>
                 </div>
                 <div className='primary-content tablet'>
                     <h3>Security</h3>
@@ -191,7 +191,7 @@ function Industries(props) {
                             <p>We control access to source code in a very similar way. Additionally, our support teams can monitor your system post-launch, keeping an eye on any suspicious patterns. <br/>Should we detect any odd activity, we offer guidance on the next steps to minimize any potential damage.</p>
                         </div>
                     </div>
-                    <img src={blueLock}/>
+                    <img loading="lazy" src={blueLock}/>
 
                 </div>
                 <div className='secondary-content'>

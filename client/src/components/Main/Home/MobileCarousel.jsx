@@ -14,7 +14,7 @@ export default function MobileCarousel(props) {
   const theme = useTheme();
   // const [activeStep, setActiveStep] = React.useState(0);
   const {activeStep, setActiveStep} = props;
-  const {images, showImage} = props;
+  const {images, showImage, backgroundImg} = props;
   const maxSteps = images.length;
   const baseColor = "#EDEFFA"; 
 
@@ -41,9 +41,10 @@ export default function MobileCarousel(props) {
           height: 50,
           pl: 2,
           bgcolor: 'inherit',
+          textAlign: 'center',
         }}
       >
-        <Typography>{images[activeStep].label}</Typography>
+      <Typography className="carousel-title tablet">{images[activeStep].label}</Typography>
       </Paper>
       <MobileStepper
         steps={maxSteps}
@@ -75,12 +76,14 @@ export default function MobileCarousel(props) {
           </Button>
         }
       />
+      <div className="tablet-cont"><img src={backgroundImg} className="examples-tablet"/></div>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
+        
         {images.map((step, index) => (
           <div key={step.label}>
             {Math.abs(activeStep - index) <= 2 ? (
@@ -95,14 +98,15 @@ export default function MobileCarousel(props) {
                   width: '100%',
                   background: "black",
                 }}
-                src={step.imgPath}
+                src={step.mobileImg}
                 alt={step.label}
               />
             ) : null}
           </div>
         ))}
       </SwipeableViews>
-      
+      <Typography className="carousel-title mobile">{images[activeStep].label}</Typography>
+
     </Box>
   );
 }

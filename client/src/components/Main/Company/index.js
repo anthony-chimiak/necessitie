@@ -39,7 +39,7 @@ function Technologies(props) {
       },
     ].map(x => (
       <div className={"single-who " + x.name} key={x.name}>
-        <img src={x.img}/>
+        <img loading="lazy" src={x.img}/>
         <h5 className="tablet">{x.name}</h5>
         <h4 className="mobile">{x.name}</h4>
         <p>{x.text}</p>
@@ -115,7 +115,7 @@ function Technologies(props) {
                       {/* <p className='tablet'>Our dedicated team focus completely on you, We help Define your goals and provide honest advice about wheter going remote is the right option for your organization We assemble engineering team tailored to your desired skill set designed to blend flawlessly with your in house engineers</p> */}
 
                     </div>
-                    <img src={flatScreen} className=''/>
+                    <img loading="lazy" src={flatScreen} className=''/>
                 </div>
             </div>
             <div className='final-page page'>

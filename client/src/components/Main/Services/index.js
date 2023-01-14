@@ -85,7 +85,7 @@ const developersJSX = developersData.map((x,i) => (
         {i===1 && <hr className='divider tablet thick'/>}
         <h3 className='mobile'>{x.name}</h3>
         <h5 className='tablet'>{x.name}</h5>
-        {x.img &&<img src={x.img} className="tablet"/>}
+        {x.img &&<img loading="lazy" src={x.img} className="tablet"/>}
         <p className='tablet title'>{x.title}</p>
         <p>{x.text}</p>
     </div>
@@ -96,7 +96,7 @@ const designersJSX = designersData.map((x,i) => (
         {i===1 && <hr className='divider tablet thick'/>}
         <h3 className='mobile'>{x.name}</h3>
         <h5 className='tablet'>{x.name}</h5>
-        {x.img &&<img src={x.img} className="tablet designer-img"/>} 
+        {x.img &&<img loading="lazy" src={x.img} className="tablet designer-img"/>} 
         <p className='tablet title'>{x.title}</p>  
         <p>{x.text}</p>
     </div>
@@ -107,7 +107,7 @@ const qaJSX = qaData.map((x,i) => (
         {i===1 && <hr className='divider tablet thick'/>}
         <h3 className='mobile'>{x.name}</h3>
         <h5 className='tablet'>{x.name}</h5>
-        {x.img &&<img src={x.img} className="tablet"/>}
+        {x.img &&<img loading="lazy" src={x.img} className="tablet"/>}
         <p className='tablet title'>{x.title}</p>
         <p>{x.text}</p>
     </div>
@@ -156,7 +156,7 @@ function Services(props) {
         <div className="webdev-page page offered-services-page third-page">
             <div className="services-flex-container">
                 <div className='primary-content'>
-                    <img src={webDevSquare} className="web-dev-square mobile"/>
+                    <img loading="lazy" src={webDevSquare} className="web-dev-square mobile"/>
 
                     <div className='primary-content-cont'>
                         <h4>Web Development</h4>
@@ -170,7 +170,7 @@ function Services(props) {
                         {/* <div className="angled-triangle tablet"></div> */}
                         
                     </div>
-                    <img src={webDevSquare} className="web-dev-square tablet"/>
+                    <img loading="lazy" src={webDevSquare} className="web-dev-square tablet"/>
 
                 </div>
                 <div className='secondary-content'>
@@ -193,7 +193,7 @@ function Services(props) {
                         {/* <Button className="action-btn outline tablet">Get a quote</Button> */}
                     </div>
                 </div>
-                <img src={personCutout} className="flat-person "/>
+                <img loading="lazy" src={personCutout} className="flat-person "/>
             </div>
             <div className='secondary-content'>
                 <div className="service-container">
@@ -217,7 +217,7 @@ function Services(props) {
                     </div>
                     {/* <div className="angled-triangle tablet"></div>   */}
                 </div>
-                <img src={flatBug} className="flat-bug "/>
+                <img loading="lazy" src={flatBug} className="flat-bug "/>
             </div>
             <div className='secondary-content'>
                 <div className="service-container">
@@ -232,8 +232,8 @@ function Services(props) {
                 <h2 className="mobile">Our Product Ideation & Strategy process</h2>
                 <p className="mobile secondary-header"><b>Competitive analysis and market insights</b></p>
                 <p className="mobile">Brainstorming, Market Research, User Interviews, and prototyping to generate innovative ideas for new products and services</p> 
-                <img src={mobileProductImg} className="mobile-product-img mobile"/>
-                <img src={productIdea} className="tablet"/>
+                <img loading="lazy" src={mobileProductImg} className="mobile-product-img mobile"/>
+                <img loading="lazy" src={productIdea} className="tablet"/>
 
 
             </div>

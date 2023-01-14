@@ -26,6 +26,8 @@ import medidataEx from "./../../../assets/images/Medidata-example.png"
 import twineEx from "./../../../assets/images/twine-example.png"
 import landingImg from "./../../../assets/images/home-landing.png" 
 import rocketImg from "./../../../assets/images/rocket.png" 
+// import mobileTwineExample from "./../../../assets/images/mobile-twine-example.png"
+import laptopImg from "./../../../assets/images/laptop.png" 
 import houseImg from "./../../../assets/images/industry-house.png" 
 import crossImg from "./../../../assets/images/industry-cross.png" 
 import pyramidImg from "./../../../assets/images/industry-pyramid.png" 
@@ -44,12 +46,36 @@ import backendImg from "./../../../assets/images/Platform/message-programming.sv
 import crossPlatformImg from "./../../../assets/images/Platform/cross-platform.svg"
 import aiImg from "./../../../assets/images/Platform/ai.svg"
 import industriesFullImg from "./../../../assets/images/allcubes.png"
-import oneBackDown from "./SlantImages/1-BackDown.png"
-import oneBackUp from "./SlantImages/1-BackUp.png"
-import oneCenter from "./SlantImages/1-LaptopCenter.png"
-import oneLeft from "./SlantImages/1-left.png"
-import oneUpRight from "./SlantImages/1-UpRight.png"
-
+import twineUpRight from "./SlantImages/1-UpRight.png"
+import twineBackDown from "./SlantImages/1-BackDown.png"
+import twineBackUp from "./SlantImages/1-BackUp.png"
+import twineCenter from "./SlantImages/1-LaptopCenter.png"
+import twineLeft from "./SlantImages/1-left.png"
+import lodgiqBackDown from "./SlantImages/2-BackDown.png"
+import lodgiqBackUp from "./SlantImages/2-BackUp.png"
+import lodgiqCenter from "./SlantImages/2-LaptopCenter.png"
+import lodgiqLeft from "./SlantImages/2-DownLeft.png"
+import lodgiqUpRight from "./SlantImages/2-UpRight.png"
+import lodgiq2BackDown from "./SlantImages/3-BackDown.png"
+import lodgiq2BackUp from "./SlantImages/3-BackUp.png"
+import lodgiq2Center from "./SlantImages/3-LaptopCenter.png"
+import lodgiq2Left from "./SlantImages/3-DownLeft.png"
+import lodgiq2UpRight from "./SlantImages/3-UpRight.png"
+import medidataBackDown from "./SlantImages/4-BackDown.png"
+import medidataBackUp from "./SlantImages/4-BackUp.png"
+import medidataCenter from "./SlantImages/4-LaptopCenter.png"
+import medidataLeft from "./SlantImages/4-DownLeft.png"
+import medidataUpRight from "./SlantImages/4-UpRight.png"
+import lodgiq3BackDown from "./SlantImages/5-BackDown.png"
+import lodgiq3BackUp from "./SlantImages/5-BackUp.png"
+import lodgiq3Center from "./SlantImages/5-LaptopCenter.png"
+import lodgiq3Left from "./SlantImages/5-DownLeft.png"
+import lodgiq3UpRight from "./SlantImages/5-UpRight.png"
+import mobileTablet from "./MobileCarouselImages/tablet3.png"
+import mobileLodgiq from "./MobileCarouselImages/mobile-lodgiq-example.png"
+import mobileLodgiq2 from "./MobileCarouselImages/mobile-lodgiq2-example.png"
+import mobileTwine from "./MobileCarouselImages/mobile-twine-example.png"
+import testImg from "./SlantImages/test-image.png"
 
 
 //
@@ -129,7 +155,7 @@ export const Home = (props) => {
     const servicesJSX = servicesData.map(x => {
         return (
             <div className={`single-service ${x.class}`} key={x.name}>
-                <img src={x.img} className={x.class + '-img'}/>
+                <img loading="lazy" src={x.img} className={x.class + '-img'}/>
                 <div className="border-cont">
                     <h6 className="feature-service tablet">{x.name}</h6>
                     <h2 className="feature-service mobile">{x.name}</h2>
@@ -173,11 +199,11 @@ export const Home = (props) => {
 
     const industriesJSX = industriesData.map(x => 
         <span key={x.name} className="mobile">
-            <img src={x.img} className={"industry-img mobile " + x.name}></img>
+            <img loading="lazy" src={x.img} className={"industry-img mobile " + x.name}></img>
             <div className={"industry-card " + x.name}>
                 <h2>{x.name}</h2>
                 <p>{x.text}</p>
-                <img src={x.img} className={"industry-img tablet " + x.name}></img>
+                <img loading="lazy" src={x.img} className={"industry-img tablet " + x.name}></img>
             </div>
         </span>
     );
@@ -209,34 +235,40 @@ export const Home = (props) => {
     const images = [
         {
             label: 'Lodgiq',
-            imgPath: oneCenter,
+            imgPath: lodgiqCenter,
+            mobileImg: mobileLodgiq,
             title:'Powerful tool for large hotel owners',
             text: "We helped a hotel revenue management service integrate machine learning data with a custom data flow fast responsive UI by priority based preloading data based on predicting user actions."
         },
         {
             label: 'Twine',
-            imgPath: oneBackUp,
+            imgPath: twineCenter,
+            mobileImg: mobileTwine,
             title:'Social Medium App for CPO\'s',
             text:'Necessitie was brought in to architect a new app that included a range of features and tools to help CPOs stay connected with their peers, share best practices and industry insights, and find new sourcing opportunities.',
         },
         {
             label: 'Medidata',
-            imgPath: oneBackDown,
+            imgPath: medidataCenter,
+            mobileImg: mobileLodgiq2,
             title:'Drug and procedure recording application',
             text:'We developed a custom web-based tool that allows patients to easily schedule and complete medical tests from the comfort of their own homes. The application includes a range of features to ensure a smooth and efficient testing experience, including online appointment scheduling, real-time test results, and secure data storage.',
         },
         {
             label: 'Alchemai Edge',
-            imgPath: oneLeft,
+            imgPath: lodgiq3Center,
+            mobileImg: "",
             title:'Future focused Risk Management software',
-            text:'Our web development agency recently had the pleasure of working on a custom web-based tool for a leading risk management company. The tool is designed to help organizations assess and mitigate risk in a variety of areas, including financial, operational, and compliance risk. Our development team built a user-friendly platform that allows users to easily identify and prioritize risks, create and track risk mitigation plans, and measure the effectiveness of those plans.',
+            text:'Our web development agency recently had the pleasure of working on a custom web-based tool for a leading risk management company. The tool is designed to help organizations assess and mitigate risk in a variety of areas, including financial, operational, and compliance risk.',
         },
-        //         {
-        //     label: 'testImg2',
-        //     imgPath: oneUpRight,
-        //     title:'Drug and procedure recording application',
-        //     text:'Due to being in the medical field, there was an extreme focus on integratting the development team directly with the SDET teams.  Developers would be working side by side with Automation QA engineers, setting up those teams was one of our specialities.',
-        // }
+        //Our development team built a user-friendly platform that allows users to easily identify and prioritize risks, create and track risk mitigation plans, and measure the effectiveness of those plans
+        {
+            label: 'And your project next',
+            imgPath: lodgiq2Center,
+            title:"A forwards thinking solution to today's problems",
+            text:"Where will your ideas take you? Single page apps, complex development, beautiful customer facing website?  We can't wait to show off the work we do together",
+        },
+
       ];
 
       function genRandomTree(N = 300) {
@@ -285,7 +317,7 @@ export const Home = (props) => {
                     <h1 className="share-header mobile">Focused precision for <span>your products</span></h1>
                     <h2 className="share-header tablet">Focused precision for <span>your products</span></h2>
                     <div className="service-img-container">
-                        <img src={servicesMainImg} className="service-main-img tablet"/>
+                        <img loading="lazy" src={servicesMainImg} className="service-main-img tablet"/>
                     </div>
                 </div>
                 
@@ -304,7 +336,7 @@ export const Home = (props) => {
                 <div className="primary-content">
                     {/* <div className="rocket-container tablet"> */}
                         
-                    {/* <img src={rocketImg} className="rocket-img"/> */}
+                    {/* <img loading="lazy" src={rocketImg} className="rocket-img"/> */}
                     {/* </div> */}
                     <div className='services-primary-container'>
                         <h4 className="services-header tablet">Our areas of expertise</h4>
@@ -335,9 +367,10 @@ export const Home = (props) => {
             <div className="examples-page page">
                 <div className="examples-container mobile">
                     <h2>Here's are some of the projects out team has worked on</h2>
-                    <MobileCarousel showImage={true} images={images} activeStep={activeStep} setActiveStep={setActiveStep}/>
-                    <h3>{images[activeStep].title}</h3>
-                    <p>{images[activeStep].text}</p>
+                    <h5>{images[activeStep].title}</h5>
+                    <p className="examples-text">{images[activeStep].text}</p>
+                    <MobileCarousel showImage={true} images={images} activeStep={activeStep} setActiveStep={setActiveStep} backgroundImg={mobileTablet}/>
+                    
                 </div>
                 <div className="examples-container tablet">
                     <div className="examples-img-cont">
@@ -345,7 +378,7 @@ export const Home = (props) => {
                     </div>
                     <div className="examples-text-cont">
                         <h5>Here's are some of the projects out team has worked on</h5>
-                        <p><b>{images[activeStep].title}</b><br/>{images[activeStep].text}</p>
+                        <p className="examples-main-text"><b>{images[activeStep].title}</b><br/>{images[activeStep].text}</p>
                         {/* <p>{images[activeStep].text}</p> */}
                         <MobileCarousel  showImage={false} images={images} activeStep={activeStep} setActiveStep={setActiveStep}/>
 
@@ -363,7 +396,7 @@ export const Home = (props) => {
                 </div>
 
                 <div className="secondary-content">
-                    <img src={industriesFullImg} className="industries-chart tablet"/>
+                    <img loading="lazy" src={industriesFullImg} className="industries-chart tablet"/>
                     {industriesJSX}
                     {industriesJSXTablet}
 
@@ -388,12 +421,12 @@ export const Home = (props) => {
                             <p className="mobile"><b>IT staff augmentation</b></p>
                             <p>Our IT staff augmentation services allow businesses to supplement their in-house IT team with skilled professionals on a temporary or ongoing basis. Whether you need extra resources for a specific project or ongoing support, our team of experienced IT professionals can provide the expertise and support you need to meet your business goals. With our staff augmentation services, you can quickly and easily scale your IT team to meet the needs of your business without the long-term commitment of hiring additional employees.</p>
                             {/* {learnMoreJSX} */}
-                            <img src={sittingDudeImg} className="sitting-dude mobile"/>
+                            <img loading="lazy" src={sittingDudeImg} className="sitting-dude mobile"/>
 
                         </div>
                     </div>
                     <div className="sitting-dude-container">
-                        <img src={sittingDudeImg} className="sitting-dude tablet"/>
+                        <img loading="lazy" src={sittingDudeImg} className="sitting-dude tablet"/>
                     </div>
                 </div>
 
@@ -407,13 +440,13 @@ export const Home = (props) => {
 
                 </div>
                 <div className="secondary-content">
-                    <img src={atomImg} className="atom mobile"/>                     
+                    <img loading="lazy" src={atomImg} className="atom mobile"/>                     
 
                     <div className="technologies-list mobile">
                         {technologyJSX.map((x, i) => {
                             return (
                                 <div className="single-tech" key={x.name}>
-                                    <img src={x.img}/>
+                                    <img loading="lazy" src={x.img}/>
                                     <h3 className="single-tech-name tablet">{x.name}</h3>
                                     <h2 className="single-tech-name mobile">{x.name}</h2>
 
@@ -428,20 +461,20 @@ export const Home = (props) => {
                         {technologyJSX.slice(0,3).map(x => {
                             return (
                                 <div className="single-tech" key={x.name}>
-                                    <img src={x.img}/>
+                                    <img loading="lazy" src={x.img}/>
                                     <h5 className="single-tech-name">{x.name}</h5>
                                     <p>{x.text}</p>
                                 </div>
                                 )
                             })}   
-                            <img src={atomImg} className="atom"/>                     
+                            <img loading="lazy" src={atomImg} className="atom"/>                     
                         </div>
                         
                     <div className="tech-flex-cont second tablet">
                         {technologyJSX.slice(3,6).map(x => {
                             return (
                                 <div className="single-tech" key={x.name}>
-                                    <img src={x.img}/>
+                                    <img loading="lazy" src={x.img}/>
                                     <h5 className="single-tech-name">{x.name}</h5>
                                     <p>{x.text}</p>
                                 </div>
@@ -450,7 +483,7 @@ export const Home = (props) => {
                     </div>
 
                 </div>
-                {/* <img src={atomImg} className="atom mobile"/> */}
+                {/* <img loading="lazy" src={atomImg} className="atom mobile"/> */}
             </div>
             <div className="contact-page page">
                 <ContactUs/>

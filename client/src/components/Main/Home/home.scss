@@ -290,18 +290,40 @@
 
   }
   .examples-page {
-    padding-top: 4vh;
-    padding-bottom: 6vh;
+    padding: 0;
     background-color: #FFFFFF;
     .examples-container {
       background-color: $base-color;
       border-radius: 60px 60px 0 0;
       text-align: center;
       padding: 5vh 8vw 0vh 8vw;
-
+      .examples-text {
+        font-size: .9rem;
+        min-height: 20vh;
+      }
       .MuiMobileStepper-root {
         background-color: inherit;
       }
+      .examples-tablet {
+        width:100%;
+        height: 59vw;
+        position: absolute;
+        left:0;
+        top:0;
+      }
+      .react-swipeable-view-container {
+        margin-top: 2.6vw;
+
+      }
+      .tablet-cont {
+        margin: -3vw;
+        position: relative;
+      }
+      .carousel-title.mobile {
+        font-size: 2.1rem;
+        padding: 4vh 0;
+      }
+
 
     }
     @include respond(tablet) {
@@ -312,6 +334,7 @@
         // margin-left: 18vw;
         display: flex;
         flex-wrap: nowrap;
+        gap: 10vw;
 
         padding: 0;
         .examples-img-cont {
@@ -322,36 +345,69 @@
             // width: 40%;
           }
           .examples-img {
-            width: 100%;
+            width: 140%;
             position: absolute;
-            transition: .5s;
-            opacity: .8;
+            transition: .3s;
+            opacity: 1;
             
             &.index-0 {
               position: absolute;
               opacity: 1;
-              left: 20vw;
-              top: 15vh;
+              left: -7vw;
+              top: -15vh;
+              z-index: 3;
+
               // top: 10vh;
               // left: 10vw;
             }
             &.index-1 {
-              left: 0vw;
-              top: 0vh;
+              left: -23vw;
+              top: -32vh;
+              width: 137%;
+              opacity: .7;
+              transform: perspective(200vw) rotateY(0deg) rotate(1.5deg) skew(0deg, 0deg);
+              z-index:2
             }
             &.index-2 {
-              left: 40vw;
-              top: 0vh;
+              width: 146%;
+              transform: perspective(200vw) rotateY(13deg) skew(0deg, -3deg);
+              left: -33vw;
+              top: -15vh;
+              opacity: .7;
+              z-index: 1;
             }
             &.index-3 {
-              left: 0vw;
-              top: 30vh;
+              width: 158%;
+              transform: perspective(20vw) rotateY(1deg) skew(0deg, -6deg);
+              left: -30vw;
+              top: 6vh;
+              opacity: .7;
+              z-index: 4;
+            }
+            &.index-4 {
+              left: 15vw;
+              top: -23vh;
+              width: 116%;
+              transform: perspective(70vw) rotateY(1deg) skew(0deg, 3deg);
+              opacity: .7;
+              z-index: 5;
             }
           }
         }
         .examples-text-cont {
-          flex-basis: 40vw;
-          padding: 15vh 8vw 3vh 0vw;
+          flex-basis: 30vw;
+          padding: 10vh 8vw 3vh 0vw;
+          z-index: 7;
+          .examples-main-text {
+            min-height: 30vh;
+            
+          }
+          .carousel-title {
+            font-size: 2.0rem;
+            text-align: center;
+            flex-grow: 1;
+            color: $title-primary-blue;
+          }
         }
       }
     }

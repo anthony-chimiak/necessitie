@@ -2,6 +2,8 @@ import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
+import laptopImg from "./../../../assets/images/laptop.png" 
+
 
 export default function SlantedImager(props) {
   const {images, activeStep} = props;
@@ -18,8 +20,9 @@ export default function SlantedImager(props) {
   }
   return (
     <div className="slanted-imager-cont">
+      <img loading="lazy" src={laptopImg} className="container-laptop examples-img index-0"/>
       {images.map((image, i) => {
-        return <img key={image.label} src={image.imgPath} className={`examples-img index-${relIndexPosArr[activeStep][i]}`}/>
+        return <img key={image.label} loading="lazy" src={image.imgPath} className={`examples-img index-${relIndexPosArr[activeStep][i]}`}/>
       })}
 
     </div>

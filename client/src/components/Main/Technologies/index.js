@@ -87,7 +87,7 @@ function Technologies(props) {
 
     const ItListJSX = ItList.map(x => 
         <div className={'single-IT ' + x.class} key={x.name}>
-            <img src={x.img} />
+            <img loading="lazy" src={x.img} />
             <h5 className="tablet">{x.name}</h5>
             <h4 className="mobile">{x.name}</h4>
 
@@ -105,7 +105,7 @@ function Technologies(props) {
         }
         return (
             <div className={'single-tech' + (i%2?' alt':'') + (tabAlt?" tabAlt":'')} key={x.name}>
-                {x.img && <img src={x.img}/> }
+                {x.img && <img loading="lazy" src={x.img}/> }
                 <h2 className='mobile'>{x.name}</h2>
                 <h5 className='tablet'>{x.name}</h5>
                 <p>{x.text}</p>

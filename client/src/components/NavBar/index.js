@@ -142,7 +142,7 @@ export const NavBar = (props) => {
                   flexGrow: 3, 
                   display: { xs: 'none', md: 'flex' } 
                   }}>
-                  <Link to="/Home"><img src={logo} className="logo"/></Link>
+                  <Link to="/Home"><img loading="lazy" src={logo} className="logo"/></Link>
                   
                 </Box>
                 <Box                    
@@ -156,7 +156,7 @@ export const NavBar = (props) => {
                     color: 'inherit',
                   }}
                 >
-                  <img src={companyName} className="company-name"/>
+                  <img loading="lazy" src={companyName} className="company-name"/>
                 </Box>
                   <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                     {pages.map((page) => (
@@ -196,7 +196,7 @@ export const NavBar = (props) => {
                     </IconButton> 
                   </Box>
 
-                  {/* <img src={logo} className="logo"/> */}
+                  {/* <img loading="lazy" src={logo} className="logo"/> */}
                   <Menu
                       id="main-menu-dropdown"
                       aria-labelledby="main-menu-dropdown-button"
@@ -224,7 +224,7 @@ export const NavBar = (props) => {
                       // PopoverClasses={'TEST'}
                       className="mobile"
                   >
-                      <MenuItem><img src={companyName} className="company-name-menu"/></MenuItem>
+                      <MenuItem><img loading="lazy" src={companyName} className="company-name-menu"/></MenuItem>
 
                       {/* <MenuItem onClick={handleClose}><Link to="/Home">Home</Link></MenuItem> */}
                       {pages.map((page) => (

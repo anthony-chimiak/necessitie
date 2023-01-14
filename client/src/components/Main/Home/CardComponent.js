@@ -7,7 +7,7 @@ function CardComponent(props) {
 return(
     <Card>
       <Image src={image} wrapped ui={false} />
-      <img src={image}/>
+      <img loading="lazy" src={image}/>
       <Card.Content>
         <Card.Header>{name}</Card.Header>
       </Card.Content>
