@@ -5,6 +5,7 @@
  import { ForceGraph3D, ForceGraph2D } from "react-force-graph";
  import * as d3 from "d3";
  import { forceSimulation, forceManyBody, forceLink, forceCenter } from 'd3-force'
+ import { redirect } from "react-router-dom";
 //  import { isMobile } from "react-device-detect";
 
  import clusterData from './clustdata'
@@ -95,7 +96,7 @@
   const handleNodeClick = node => {
     const link = node.link || node.parent;
     if (node && link) {
-      window.open(`/${link}`, "_self");
+      redirect(`/${link}`);
     } 
   }
 

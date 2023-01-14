@@ -76,7 +76,7 @@ export default function MobileCarousel(props) {
           </Button>
         }
       />
-      <div className="tablet-cont"><img src={backgroundImg} className="examples-tablet"/></div>
+      <div className="tablet-cont mobile"><img src={backgroundImg} className="examples-tablet"/></div>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={activeStep}
