@@ -34,7 +34,7 @@ import crossPlatformImg from "./../../../assets/images/Platform/cross-platform.s
 import aiImg from "./../../../assets/images/Platform/ai.svg"
 import industriesFullImg from "./../../../assets/images/allcubes.png"
 
-import NetworkCluster from './Cluster/clusterTest2.jsx';
+// import NetworkCluster from './Cluster/clusterTest2.jsx';
 
 import './map.scss'
 
@@ -42,7 +42,7 @@ export const Home = (props) => {
     return (
         <div className="map main-content">
             <div className="cluster-page page">
-                <NetworkCluster/>
+                {/* <NetworkCluster/> */}
             </div>
         </div>
     )
