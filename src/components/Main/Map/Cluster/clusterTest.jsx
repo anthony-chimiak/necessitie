@@ -5,7 +5,7 @@
  import { ForceGraph3D, ForceGraph2D } from "react-force-graph";
  import * as d3 from "d3";
  import { forceSimulation, forceManyBody, forceLink, forceCenter } from 'd3-force'
- import { redirect } from "react-router-dom";
+ import { useNavigate } from "react-router-dom";
 //  import { isMobile } from "react-device-detect";
 
  import clusterData from './clustdata'
@@ -27,6 +27,7 @@
   const [landingHeight, setLandingHeight] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const {landingRef, page, isMobile} = props;
+  const navigate = useNavigate();
   const data = {
     nodes: clusterData.nodes,
     links: clusterData.links
@@ -96,7 +97,7 @@
   const handleNodeClick = node => {
     const link = node.link || node.parent;
     if (node && link) {
-      redirect(`/${link}`);
+      navigate(`/${link}`);
     } 
   }
 

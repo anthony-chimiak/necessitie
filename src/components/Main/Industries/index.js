@@ -2,7 +2,7 @@ import React, {useState, useRef, useLayoutEffect} from "react";
 import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-react';
 // import { isMobile } from "react-device-detect";
 
-import {toContact} from './../../helperFunctions'
+ import { useNavigate } from "react-router-dom";
 import ContactUs from '../ContactUs/ContactUs';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
@@ -27,6 +27,10 @@ function Industries(props) {
     const landingRef = useRef(null);
     const landingRefMobile = useRef(null);
     const { isMobile } = props;
+    const navigate = useNavigate();
+    const toContact = () => {
+        navigate(`/Contact`);
+    };
 
 
     const [landingWidth, setLandingWidth] = useState(0);

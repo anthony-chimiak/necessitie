@@ -1,7 +1,7 @@
 import React, {useState, useRef, useLayoutEffect} from "react";
 
 import CardComponent from './CardComponent.js'
-import {toContact} from './../../helperFunctions'
+ import { useNavigate } from "react-router-dom";
 import { Button} from 'semantic-ui-react';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 // import { isMobile } from "react-device-detect";
@@ -87,6 +87,10 @@ export const Home = (props) => {
     const industriesList = ['FinTech', 'EdTech', 'Hospitality', 'Medical'];
     const [activeStep, setActiveStep] = React.useState(0);
     const { isMobile } = props;
+    const navigate = useNavigate();
+    const toContact = () => {
+        navigate(`/Contact`);
+    };
     const technologyJSX = [
         {
             name: 'Android',

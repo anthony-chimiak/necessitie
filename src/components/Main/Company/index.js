@@ -2,7 +2,7 @@ import React, {useRef} from "react";
 import { Button } from 'semantic-ui-react';
 // import { isMobile } from "react-device-detect";
 
-import {toContact} from './../../helperFunctions'
+ import { useNavigate } from "react-router-dom";
 import ContactUs from '../ContactUs/ContactUs';
 import NetworkCluster from '../Map/Cluster/clusterTest.jsx';
 
@@ -20,6 +20,11 @@ import './company.scss'
 function Technologies(props) {
     const landingRef = useRef(null);
     const landingRefMobile = useRef(null)
+    const navigate = useNavigate();
+    const toContact = () => {
+        navigate(`/Contact`);
+    };
+    
 
     const { isMobile } = props;
 

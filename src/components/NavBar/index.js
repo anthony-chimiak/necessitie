@@ -6,7 +6,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 // import { isMobile } from "react-device-detect";
 
-import {toContact} from './../helperFunctions'
+import { useNavigate } from "react-router-dom";
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -43,6 +43,10 @@ export const NavBar = (props) => {
   };
   const handleClose = () => {
       setAnchorEl(null);
+  };
+  const navigate = useNavigate();
+  const toContact = () => {
+      navigate(`/Contact`);
   };
 
   const { isMobile } = props;

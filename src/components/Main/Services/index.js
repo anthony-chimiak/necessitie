@@ -4,7 +4,7 @@ import { Form, Input, TextArea, Button, Card, Icon, Image } from 'semantic-ui-re
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 // import { isMobile } from "react-device-detect";
 
-import {toContact} from './../../helperFunctions'
+ import { useNavigate } from "react-router-dom";
 import ContactUs from '../ContactUs/ContactUs';
 import NetworkCluster from '../Map/Cluster/clusterTest.jsx';
 import './services.scss'
@@ -118,6 +118,10 @@ function Services(props) {
     const landingRef = useRef(null);
     const landingRefMobile = useRef(null);
     const { isMobile } = props;
+    const navigate = useNavigate();
+    const toContact = () => {
+        navigate(`/Contact`);
+    };
     return(
     <div className="services">
         <div className="landing-page page" ref={landingRef}>
