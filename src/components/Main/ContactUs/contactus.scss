@@ -1,0 +1,130 @@
+
+@import '../src/_variables.scss';
+@import '../src/_mixins.scss';
+
+.App {
+  .contact-page.page {
+    background-color: $base-color;
+    color: $title-primary-blue;
+    padding: 8vh 8vw;
+    
+    .contact-header {
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 1.7rem;
+      // color: $highlight-base-color;
+    }
+    p {
+      text-align: left;
+    }
+    .address {
+      margin-bottom: 2vh;
+      span, a {
+        margin-left: 4vw;
+        .phone-row, .email-row {
+          cursor: pointer;
+        }
+      }
+    }
+    .contact-flex-cont {
+      margin-top: 4.5vh;
+      .secondary-content {
+        .contact-form {
+          margin-bottom: 5vh;
+          label {
+            color: $outline-color;
+            font-size: 1.1rem;
+          }
+          .submit-button {
+            button {
+              width: 100%;
+              background-color: $action-color;
+              border-radius: 3px;
+              font-size: .85rem;
+              font-weight: 300;
+              height: 5vh;
+              color: #FFFFFF;
+              box-shadow: 0 4px 4px rgba(0,0,0,.25);
+            }
+          }
+        }
+      }
+    }
+    @include respond('tablet') {
+      padding: 0;
+      padding-bottom: 18vh;
+      background-color: $outline-color;
+      .contact-container {
+        padding: 12vh 5vw 5vh 10vw;
+        
+        background-color: $base-color;
+      }
+      .contact-header {
+        width: 50%;
+        color: $outline-color;
+        font-size: 3.6rem;
+        line-height: 4.5rem;
+        font-weight: 700;
+        margin-bottom: 0vh;
+      }
+      .contact-flex-cont {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        // align-items: flex-end;
+        gap: 6vw;
+        margin-top: 3vh;
+
+      }
+      .primary-content {
+        width: 45%;
+        .address {
+          span, a {
+            font-size: 1.3rem;
+            margin-left: 1vw;
+          }
+          svg {
+            transform: translateY(4px);
+          }
+        }
+        p {
+          font-size: 1.4rem;
+          font-weight: bold;
+          margin-bottom: 5vh;
+        } 
+      }
+      .secondary-content {
+        flex-grow: 4;
+        .contact-form {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 3vw;
+          row-gap: 3vh;
+          padding-right: 4vw;
+          .field {
+            width: 46%;
+            flex-grow:2;
+            &.form-opinion {
+              width: 96%;
+            }
+            &.submit-button {
+              width: 14vw;
+              flex-grow: 0;
+              box-shadow: 1px 0px 4px 0 rgba(0,0,0,.25);
+            }
+            label {
+              margin-bottom: 2vh;
+            }
+            // input {
+              
+            // }
+          }
+
+
+        }
+      }
+    }
+    
+  }
+}

@@ -1,0 +1,523 @@
+@import '../src/_variables.scss';
+@import '../src/_mixins.scss';
+
+.services {
+  h2 {
+    margin-bottom: 4vh;
+  }
+  @include respond(tablet) {
+    h3 {
+      // font-size: 3rem;
+      // line-height: 3.5rem;
+    }
+  }
+
+  .landing-page {
+    .action-btn {
+      background-color: $primary-color;
+    }
+    @include respond(tablet) {
+      // background-color: #FFFFFF;
+      text-align: left;
+      .action-btn {
+        background-color: $action-color;
+      }
+      .primary-content {
+        h1 {
+          padding: 0vh 0vw;
+        }
+      }
+      .secondary-content {
+        p {
+          // width: 60%;
+        }
+
+
+      }
+    }
+  }
+  .intro-page {
+    background-color: #FFFFFF;
+    color: $text-color;
+    padding: 6vh 7vw;
+    .primary-content {
+      h2 {
+        // text-align: center;
+        // margin: 0vh 2vw 4vh 2vw;
+      }
+      p {
+        span {
+          // color: $primary-color;
+          // line-height: 1.7rem;
+        }
+        text-align: left;
+      }
+    }
+    .secondary-content {
+      p {
+        text-align: left;
+      }
+      h1 {
+        text-align: left;;
+      }
+    }
+    @include respond(tablet) {
+      background-color: inherit;
+      .primary-content {
+        display: flex;
+        gap: 3vw;
+        h2 {
+          text-align: left;
+          margin: 0;
+        }
+        p {
+          width: 100%;
+          span {
+            color: $primary-color;
+          }
+        }
+
+      }
+    }
+  }
+  .background-triangle.intro {
+    border-color: #FFFFFF transparent transparent transparent;
+  }
+  .webdev-page.third-page {
+    background-color: #FFFFFF;
+    // margin: 0vh 2.5vw 5vh 2.5vw;
+    // margin-bottom: 5vh;
+    // padding: 0;
+    margin-top: 8vh;
+    .primary-content {
+      position: relative;
+      // padding: 16vh 4vw 5vh 4vw;
+      // padding-top: 16vh;
+      // padding-bottom: 5vh;
+      margin-bottom: 0vh;
+      background-color: $base-color;
+      border-radius: 50px 0 0 0;
+
+      text-align: center;
+      img {
+        position: absolute;
+        top: 0;
+        width: 40%;
+        transform: translate(-50%, -30%);
+      }
+      .action-btn {
+        width: 85%;
+        font-weight: 400;
+      }
+      p {
+        text-align: center;
+        span {
+          color: $action-color;
+        }
+      }
+    }
+    .secondary-content {
+      background-color: #FFFFFF;
+      .service-container {
+        background-color: $title-primary-blue;
+        color: #FFFFFF;
+        backdrop-filter: none;
+        box-shadow: 1px 0px 24px 0 rgba(0,0,0,.25);
+        text-align: center;
+        border-radius: 0 0 50px 0;
+        // padding: 4vh 4vw 5vh 4vw;
+        .single-service {
+          padding: 3vh 0vw;
+          border: none;
+          h3 {
+            span {
+              color: $action-color;
+            }
+            margin-bottom: 2.5vh;
+            text-shadow: 0 4px 4px rgba(0,0,0,.25);
+            font-size: 1.5rem;
+          }
+          p {
+            text-align: center;
+          }
+        }
+
+      }
+    }
+    @include respond(tablet) {
+      background-color: inherit;
+      .primary-content {
+        img {
+          transform: translateX(-18%);
+          // position: inherit;
+          // top: auto;
+          // transform: inherit;
+          // width: 50%;
+          // margin-top: 16vh;
+        }
+      }
+    }
+  }
+  .services-flex-container {
+    @include respond(tablet) {
+
+      display: flex;
+      border-radius: 60px;
+    }
+  }
+  
+  .design-page.offered-services-page {
+    // background-color: #FFFFFF;
+    text-align: center;
+    // margin: 8vh 2.5vw 5vh 2.5vw;
+    // padding: 0;
+    .services-flex-container {
+      .primary-content {
+        background-color: $base-color;   
+        // padding: 13.5vh 0 5vh 0;
+        // padding-top: 13.5vh
+        border-radius: 50px 0 0 0; 
+        position: relative;
+        // margin-bottom: .5vh;
+        .primary-content-cont{
+          color: $title-primary-blue;
+        }
+        img {
+          position: absolute;
+          top: 0;
+          width: 40%;
+          transform: translate(-50%, -30%);
+        }
+      }
+      h2 {
+        margin-bottom: 2.5vh;
+        color: $primary-color;
+        font-weight: 900
+      }
+      .action-btn {
+        background-color: $primary-color;
+        width: auto;
+      }
+      .service-container {
+        span {
+          color: $primary-color;
+        }
+      }
+      @include respond(tablet) {
+              // padding:4vh 6vw 5vh 6vw;
+
+        background-color: #EDEFFA;
+        .primary-content {
+          padding: 5vh 0;
+          .primary-content-cont {
+            color: $title-primary-blue;
+            h4 {
+              color: $title-primary-blue;
+              text-align: left;
+            }
+          }
+          img {
+            position: inherit;
+            top: auto;
+            transform: inherit;
+            width: 50%;
+            margin-top: 8vh;
+            margin-left: 8vw;
+          }
+        }
+        .secondary-content {
+          background-color: #EDEFFA;
+          color: $title-primary-blue;
+          .service-container {
+            color: $title-primary-blue;
+          }
+        }
+      }
+    }
+  }
+  .qa-page {
+    background-color: #FFFFFF;
+    text-align: center;
+    // margin: 8vh 2.5vw 5vh 2.5vw;
+    // padding: 0;
+    .primary-content {
+      background-color: $base-color;
+      // padding: 10vh 2vw 5vh 2vw;
+      border-radius: 50px 0 0 0;
+      position: relative;
+      img {
+        position: absolute;
+        top: 0;
+        width: 35%;
+        transform: translate(-50%, -30%);
+      }
+    }
+    .service-container {
+      span {
+        color: $action-color;
+      }
+    }
+    @include respond(tablet) {
+      background-color: inherit;
+    }
+  }
+  .offered-services-page {
+    // margin-bottom: 5vh;
+    padding: 5vh 8vw 0;
+    .services-flex-container {
+      .action-btn {
+        width: auto;
+      }
+      .primary-content {
+        padding: 14vh 4vw 5vh;
+      }
+      .secondary-content {
+        // padding: 14vh 4vw 5vh;
+      }
+    }
+    @include respond(tablet) {
+      .services-flex-container {
+        display: flex;
+        border-radius: 60px;
+        box-shadow: 0px 4px 40px 4px rgba(0, 0, 0, 0.25);
+        padding: 10vh 6vw 5vh 6vw;
+        gap: 7vw;
+        background-color: $title-primary-blue;
+        color: #FFFFFF;
+
+        .primary-content {
+          // background: linear-gradient(10deg, #FFFFFF 0 30%, $outline-color 30% 100%);
+          background: inherit;
+          // color: #FFFFFF;
+          border-radius: 0;
+          flex: 1 1 0;
+          width: 0;
+          padding: 0;
+          // border-radius: 60px 0 0 60px;
+          img {
+            position: inherit;
+            top: auto;
+            transform: inherit;
+            width: 50%;
+            margin-top: 8vh;
+            margin-left: 15vw;
+            // bottom: 3vh;
+            // right: 50%;
+            // top: inherit;
+            // z-index: 9999;
+            // width: 30%;
+            // transform: translateX(50%);
+          }
+          .primary-content-cont {
+            position: relative;
+            text-align: left;
+            // height: 100%;
+            h4 {
+              color: #FFFFFF;
+            }
+            .button-cont {
+              display: flex;
+              .action-btn {
+                font-size: 1.2rem;
+                padding-left: 0;
+                padding-right: 0;
+                width: 50%;
+                &.outline {
+                  border-color: $action-color;
+                  color: $action-color;
+                }
+              }
+            }
+            .angled-triangle {
+              margin: -5vh -10vw;
+            }
+          }
+          h2 {
+            margin-bottom: 6vh;
+            text-align: left;
+          }
+          p {
+            text-align: left;
+          }
+        }
+        .secondary-content {
+          flex: 1 1 0;
+          width: 0;
+          background-color: inherit;
+          // background-color: $title-primary-blue;
+          // border-radius: 0 60px 60px 0;
+          .service-container {
+            text-align: left;
+            background-color: inherit;
+            // color: #FFFFFF;
+            padding: 0;
+            border-radius: 0;
+            box-shadow:none;
+            
+            .single-service {
+              padding: 1vh 0 4vh 0;
+              h5 {
+                font-size: 2.15rem;
+                font-weight: 700;
+                margin-bottom: 5vh;
+                display: inline-block;
+                span {
+                  color: $action-color;
+                }
+              }
+
+              img {
+                width: 11%;
+                filter: brightness(0) saturate(100%) invert(49%) sepia(84%) saturate(431%) hue-rotate(332deg) brightness(96%) contrast(81%);
+                transform: translate(40%, 30%);
+                &.designer-img {
+                  filter: brightness(0) saturate(100%) invert(36%) sepia(90%) saturate(2568%) hue-rotate(226deg) brightness(94%) contrast(99%);
+                }
+              }
+              p {
+                text-align: left;
+                &.title {
+                  font-weight: 500;
+                }
+              }
+            }
+          }
+        }
+      }
+      &.page {
+        padding: 0 7vw;
+        margin: 0;
+        margin-bottom: 22vh;
+      }
+      &.alt {
+        .primary-content {
+          background: inherit;
+          // color: $outline-color;
+          .primary-content-cont {
+            .action-btn{
+              &.outline {
+                border-color: $primary-color;
+                color: $primary-color;
+              }
+            }
+          }
+        }
+        .secondary-content {
+          background: $outline-color;
+          color: #FFFFFF;
+          .service-container {
+            
+            // color: #FFFFFF;
+            .single-service {
+              h5 {
+                span {
+                  color: $primary-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .process-page {
+    background-color: #FFFFFF;
+    color: $outline-color;
+    text-align: center;
+    // padding: 2vh 5vw;
+    padding-top: 6vh;
+    .primary-content {
+      margin-bottom: 5vh;
+      // text-align: left;
+      h3 {
+        margin-bottom: 5vh;
+      }
+      h2 {
+        text-align: left;
+        font-weight: 700;
+      }
+      h5 {
+        margin-bottom: 2vh;
+      }
+      p {
+        text-align: left;
+      }
+      b {
+        text-align: left;
+        margin-bottom: 2vh;
+      }
+      .action-btn {
+        padding: 1.2rem 1.8rem;
+        width: auto;
+      }
+    }
+    .mobile-product-img {
+      max-width: 100%;
+      margin-top: 5vh;
+    }
+    @include respond(tablet) {
+      padding: 10vh 15vw 15vh;
+      background-color: inherit;
+      .primary-content {
+        img {
+          width: 100%;
+        }
+        h2 {
+          margin-bottom: 5vh;
+        }
+        h5 {
+          font-size: 1.8rem;
+          font-weight: 600;
+          color: $primary-color;
+          margin-bottom: 2vh;
+        }
+        p {
+          padding: 0 9vw;
+        }
+      }
+    }
+  }
+
+  .react-page {
+    background-color: $off-base-color;
+    color: #FFFFFF;
+    h3 {
+      color: #FFFFFF;
+    }
+  }
+  .python-page {
+    background-color: $secondary-color;
+    color: $base-color;
+  }
+  .ux-page {
+    background-color: $base-color;
+    color: #FFFFFF;
+    h3 {
+      color: #FFFFFF;
+    }
+  }
+
+  .service-container {
+    border-radius: 0 0 50px 0;
+    background-color: $outline-color;
+    color: #FFFFFF;
+    backdrop-filter: none;
+    box-shadow: 1px 0px 24px 0 rgba(0,0,0,.25);
+    text-align: center;
+    // margin-top: 10vh;
+    padding: 6vh 4vw 5vh;
+    .single-service {
+      padding: 4.5vh 0vw;
+      h3 {
+        margin-bottom: 2.5vh;
+      }
+    }
+  }
+
+  @include respond(tablet) {
+    .page {
+      padding-left: 13.5vw;
+      padding-right: 13.5vw;
+    }
+  }
+}
