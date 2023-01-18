@@ -49,32 +49,27 @@ import industriesFullImg from "./../../../assets/images/allcubes.png"
 import twineUpRight from "./SlantImages/1-UpRight.png"
 import twineBackDown from "./SlantImages/1-BackDown.png"
 import twineBackUp from "./SlantImages/1-BackUp.png"
-import twineCenter from "./SlantImages/1-LaptopCenter.png"
+import twineCenter from "./SlantImages/1-LaptopCentre.png"
 import twineLeft from "./SlantImages/1-left.png"
 import lodgiqBackDown from "./SlantImages/2-BackDown.png"
 import lodgiqBackUp from "./SlantImages/2-BackUp.png"
-import lodgiqCenter from "./SlantImages/2-LaptopCenter.png"
+import lodgiqCenter from "./SlantImages/5-LaptopCentre.png"
 import lodgiqLeft from "./SlantImages/2-DownLeft.png"
-import lodgiqUpRight from "./SlantImages/2-UpRight.png"
-import lodgiq2BackDown from "./SlantImages/3-BackDown.png"
-import lodgiq2BackUp from "./SlantImages/3-BackUp.png"
-import lodgiq2Center from "./SlantImages/3-LaptopCenter.png"
-import lodgiq2Left from "./SlantImages/3-DownLeft.png"
-import lodgiq2UpRight from "./SlantImages/3-UpRight.png"
-import medidataBackDown from "./SlantImages/4-BackDown.png"
-import medidataBackUp from "./SlantImages/4-BackUp.png"
-import medidataCenter from "./SlantImages/4-LaptopCenter.png"
-import medidataLeft from "./SlantImages/4-DownLeft.png"
-import medidataUpRight from "./SlantImages/4-UpRight.png"
-import lodgiq3BackDown from "./SlantImages/5-BackDown.png"
-import lodgiq3BackUp from "./SlantImages/5-BackUp.png"
-import lodgiq3Center from "./SlantImages/5-LaptopCenter.png"
-import lodgiq3Left from "./SlantImages/5-DownLeft.png"
-import lodgiq3UpRight from "./SlantImages/5-UpRight.png"
-import mobileTablet from "./MobileCarouselImages/tablet3.png"
-import mobileLodgiq from "./MobileCarouselImages/mobile-lodgiq-example.png"
-import mobileLodgiq2 from "./MobileCarouselImages/mobile-lodgiq2-example.png"
-import mobileTwine from "./MobileCarouselImages/mobile-twine-example.png"
+
+import medidataCenter from "./SlantImages/2-LaptopCentre.png"
+
+import solenneCenter from "./SlantImages/7-LaptopCentre.png"
+
+import alchemaiCenter from "./SlantImages/6-LaptopCentre.png"
+
+import mobileTablet from "./MobileCarouselImages/tabletBorder.png"
+import mobileTwine from "./MobileCarouselImages/tab1.png"
+import mobileSolenne from "./MobileCarouselImages/tab2.png"
+import mobileMedidata from "./MobileCarouselImages/tab3.png"
+import mobileAchemai from "./MobileCarouselImages/tab4.png"
+import mobileLodgiq from "./MobileCarouselImages/tab5.png"
+
+
 import testImg from "./SlantImages/test-image.png"
 
 
@@ -255,21 +250,22 @@ export const Home = (props) => {
         {
             label: 'Medidata',
             imgPath: medidataCenter,
-            mobileImg: mobileLodgiq2,
+            mobileImg: mobileMedidata,
             title:'Drug and procedure recording application',
             text:'We developed a custom web-based tool that allows patients to easily schedule and complete medical tests from the comfort of their own homes. The application includes a range of features to ensure a smooth and efficient testing experience, including online appointment scheduling, real-time test results, and secure data storage.',
         },
         {
             label: 'Alchemai Edge',
-            imgPath: lodgiq3Center,
-            mobileImg: "",
+            imgPath: alchemaiCenter,
+            mobileImg: mobileAchemai,
             title:'Future focused Risk Management software',
             text:'Our web development agency recently had the pleasure of working on a custom web-based tool for a leading risk management company. The tool is designed to help organizations assess and mitigate risk in a variety of areas, including financial, operational, and compliance risk.',
         },
         //Our development team built a user-friendly platform that allows users to easily identify and prioritize risks, create and track risk mitigation plans, and measure the effectiveness of those plans
         {
             label: 'And your project next',
-            imgPath: lodgiq2Center,
+            imgPath: solenneCenter,
+            mobileImg: mobileSolenne,
             title:"A forwards thinking solution to today's problems",
             text:"Where will your ideas take you? Single page apps, complex development, beautiful customer facing website?  We can't wait to show off the work we do together",
         },
